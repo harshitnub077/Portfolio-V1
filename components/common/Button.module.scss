@@ -1,0 +1,49 @@
+// Copyright Harshit Kudhial 2021,2022. All Rights Reserved.
+// Project: folio
+// Author contact: https://www.linkedin.com/in/alphaharshit/
+// This file is licensed under the MIT License.
+// License text available at https://opensource.org/licenses/MIT
+
+.primary {
+  background: linear-gradient(90deg,
+      #a259ff 0%,
+      #00d8ff 50%,
+      #a259ff 100%);
+  background-size: 200% auto;
+  color: white;
+  animation: gradient-move 3s linear infinite;
+  border: none;
+
+  &:hover {
+    box-shadow: 0 10px 30px rgba(162, 89, 255, 0.4);
+    background-position: 100% center;
+  }
+}
+
+@keyframes gradient-move {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.outline {
+  @apply border-accent-purple border-2 text-accent-purple;
+  background: transparent;
+
+  &:hover {
+    @apply bg-accent-purple text-white;
+    box-shadow: 0 10px 30px rgba(162, 89, 255, 0.2);
+  }
+}
+
+.white {
+  @apply bg-white text-gray-900;
+
+  &:hover {
+    @apply opacity-90;
+  }
+}

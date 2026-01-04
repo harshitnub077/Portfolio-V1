@@ -1,0 +1,23 @@
+// Copyright Harshit Kudhial 2021,2022. All Rights Reserved.
+// Project: folio
+// Author contact: https://www.linkedin.com/in/alphaharshit/
+// This file is licensed under the MIT License.
+// License text available at https://opensource.org/licenses/MIT
+
+.cursor {
+  border-radius: 100%;
+  mix-blend-mode: difference;
+  background: white;
+}
+
+.cursorFollower {
+  border-radius: 100%;
+  left: -0.5rem;
+  top: -0.5rem;
+  background: rgba(162, 89, 255, 0.2);
+  box-shadow: 0 0 20px rgba(0, 216, 255, 0.4);
+  will-change: transform;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  transition: width 0.3s ease, height 0.3s ease;
+}
