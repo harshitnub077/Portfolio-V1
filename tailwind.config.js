@@ -85,7 +85,10 @@ module.exports = {
       spin: "spin 1s linear infinite",
       ping: "ping 1s cubic-bezier(0, 0, 0.2, 1) infinite",
       pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+      "pulse-slow": "pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       bounce: "bounce 1s infinite",
+      "grid-flow": "grid-flow 20s linear infinite",
+      blob: "blob 7s infinite",
     },
     backdropBlur: (theme) => theme("blur"),
     backdropBrightness: (theme) => theme("brightness"),
@@ -111,6 +114,7 @@ module.exports = {
       "gradient-to-l": "linear-gradient(to left, var(--tw-gradient-stops))",
       "gradient-to-tl":
         "linear-gradient(to top left, var(--tw-gradient-stops))",
+      "grid-pattern": "linear-gradient(to right, #333 1px, transparent 1px), linear-gradient(to bottom, #333 1px, transparent 1px)",
     },
     backgroundOpacity: (theme) => theme("opacity"),
     backgroundPosition: {
@@ -281,6 +285,7 @@ module.exports = {
         "serif",
       ],
       mono: [
+        "Montserrat",
         "ui-monospace",
         "SFMono-Regular",
         "Menlo",
@@ -474,6 +479,16 @@ module.exports = {
       "-full": "-100%",
     }),
     keyframes: {
+      "grid-flow": {
+        "0%": { transform: "translateY(0)" },
+        "100%": { transform: "translateY(4rem)" },
+      },
+      blob: {
+        "0%": { transform: "translate(0px, 0px) scale(1)" },
+        "33%": { transform: "translate(30px, -50px) scale(1.1)" },
+        "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
+        "100%": { transform: "translate(0px, 0px) scale(1)" },
+      },
       spin: {
         to: {
           transform: "rotate(360deg)",

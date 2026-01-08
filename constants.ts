@@ -21,24 +21,9 @@ export const MENULINKS = [
     ref: "works",
   },
   {
-    name: "Skills",
-    ref: "skills",
-  },
-  {
-    name: "Timeline",
-    ref: "timeline",
-  },
-  {
     name: "Contact",
     ref: "contact",
   },
-];
-
-export const TYPED_STRINGS = [
-  "I design and develop things",
-  "I develop modern frontend apps",
-  "I design dynamic user experience",
-  "I design and develop motion",
 ];
 
 export const EMAIL = "null";
@@ -67,31 +52,31 @@ export interface IProject {
 
 export const PROJECTS: IProject[] = [
   {
-    name: "Nexus Dashboard",
+    name: "Cognify",
     image: "/projects/orchestrator.jpg",
     blurImage: "/projects/blur/orchestrator-blur.jpg",
-    description: "A high-performance SaaS analytics platform featuring real-time data visualization and comprehensive user management systems.",
+    description: "An intelligent AI-powered platform that transforms complex data into actionable insights through advanced machine learning algorithms and intuitive user interfaces.",
     gradient: ["#5D2CA8", "#0316E3"],
     url: "#",
-    tech: ["typescript", "next.js", "chart.js", "supabase"],
+    tech: ["typescript", "next.js", "ai/ml", "supabase"],
   },
   {
-    name: "Luxe Commerce",
+    name: "Wanderix",
     image: "/projects/cardize.jpg",
     blurImage: "/projects/blur/cardize-blur.jpg",
-    description: "An award-winning e-commerce experience designed for premium lifestyle brands, integrating stripe payments and headless CMS.",
+    description: "A modern travel companion application that helps users discover, plan, and share their adventures with seamless integration of maps, recommendations, and social features.",
     gradient: ["#FF5F6D", "#FFC371"],
     url: "#",
-    tech: ["react", "shopify", "tailwind", "redux"],
+    tech: ["react", "node.js", "tailwind", "maps api"],
   },
   {
-    name: "Aether AI",
+    name: "Geethub",
     image: "/projects/figgen.jpg",
     blurImage: "/projects/blur/figgen-blur.jpg",
-    description: "Next-generation conversational AI interface with code syntax highlighting and context-aware responses.",
+    description: "A collaborative code repository platform designed for developers to share, discover, and contribute to open-source projects with enhanced version control and team collaboration tools.",
     gradient: ["#E233FF", "#FFBD00"],
     url: "#",
-    tech: ["openai api", "websocket", "node.js", "react"],
+    tech: ["next.js", "git", "typescript", "postgresql"],
   },
 ];
 
@@ -112,40 +97,5 @@ export const SKILLS = {
   userInterface: ["figma", "sketch", "illustrator", "photoshop"],
   other: ["git", "webpack", "gulp", "lightroom", "aftereffects"],
 };
-
-export enum Branch {
-  LEFT = "leftSide",
-  RIGHT = "rightSide",
-}
-
-export enum NodeTypes {
-  CONVERGE = "converge",
-  DIVERGE = "diverge",
-  CHECKPOINT = "checkpoint",
-}
-
-export enum ItemSize {
-  SMALL = "small",
-  LARGE = "large",
-}
-
-export const TIMELINE: Array<TimelineNodeV2> = [];
-
-export type TimelineNodeV2 = CheckpointNode | BranchNode;
-
-export interface CheckpointNode {
-  type: NodeTypes.CHECKPOINT;
-  title: string;
-  subtitle?: string;
-  size: ItemSize;
-  image?: string;
-  slideImage?: string;
-  shouldDrawLine: boolean;
-  alignment: Branch;
-}
-
-export interface BranchNode {
-  type: NodeTypes.CONVERGE | NodeTypes.DIVERGE;
-}
 
 export const GTAG = "UA-163844688-1";

@@ -49,8 +49,8 @@ const TechMatrix = () => {
                         className="tech-cell group relative aspect-square w-full sm:w-32 bg-white/5 border border-white/10 hover:border-white/50 transition-colors p-4 flex flex-col justify-between hover:bg-white/10"
                     >
                         <div className="flex justify-between items-start">
-                            <span className="text-[10px] font-mono text-gray-500">{skill.num}</span>
-                            <span className="text-[10px] font-mono text-gray-500 opacity-50">{skill.cat}</span>
+                            <span className="text-[10px] font-mono text-white">{skill.num}</span>
+                            <span className="text-[10px] font-mono text-white opacity-50">{skill.cat}</span>
                         </div>
 
                         <div className="self-center">
@@ -60,7 +60,7 @@ const TechMatrix = () => {
                         </div>
 
                         <div className="overflow-hidden">
-                            <span className="block text-xs font-mono text-gray-400 uppercase tracking-tight truncate group-hover:text-white transition-colors">
+                            <span className="block text-xs font-mono text-white uppercase tracking-tight truncate group-hover:text-white transition-colors">
                                 {skill.name}
                             </span>
                         </div>

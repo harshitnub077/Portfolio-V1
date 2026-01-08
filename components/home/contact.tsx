@@ -5,7 +5,7 @@ import { SOCIAL_LINKS } from "../../constants";
 
 const Contact = () => {
     return (
-        <footer className="w-full min-h-[50vh] flex flex-col justify-between py-24 px-6 md:px-12 bg-black border-t border-white/10 relative overflow-hidden">
+        <footer id="contact" className="w-full min-h-[50vh] flex flex-col justify-between py-24 px-6 md:px-12 bg-black border-t border-white/10 relative overflow-hidden">
             <div className="flex flex-col gap-8 z-10">
                 <h2 className="text-[12vw] leading-[0.8] font-black tracking-tighter text-white mix-blend-difference">
                     LET'S TALK
@@ -40,9 +40,9 @@ const Contact = () => {
                 </div>
                 <div className="flex gap-4">
                     {/* Social Mini Links */}
-                    <a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer" className="text-gray-500 hover:text-white transition-colors text-xs font-mono">[GH]</a>
-                    <a href={SOCIAL_LINKS.twitter} target="_blank" rel="noreferrer" className="text-gray-500 hover:text-white transition-colors text-xs font-mono">[TW]</a>
-                    <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noreferrer" className="text-gray-500 hover:text-white transition-colors text-xs font-mono">[IG]</a>
+                    <a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer" className="text-white hover:text-white transition-colors text-xs font-mono">[GH]</a>
+                    <a href={SOCIAL_LINKS.twitter} target="_blank" rel="noreferrer" className="text-white hover:text-white transition-colors text-xs font-mono">[TW]</a>
+                    <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noreferrer" className="text-white hover:text-white transition-colors text-xs font-mono">[IG]</a>
                 </div>
             </div>
 

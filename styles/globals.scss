@@ -8,16 +8,18 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap");
 
 :root {
   --font-sans: "Outfit", sans-serif;
   --font-heading: "Space Grotesk", sans-serif;
-  --accent-purple: #ffffff;
-  --accent-cyan: #ffffff;
+  --font-mono: "Montserrat", monospace;
+
   --bg-color: #000000;
   --text-color: #ffffff;
   --curve-bezier: cubic-bezier(0.19, 1, 0.22, 1);
+  --easing-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --easing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 body {
@@ -51,13 +53,35 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
 }
 
 body {
-  @apply bg-dark-100 text-white overflow-x-hidden transition-colors duration-500;
-  font-family: var(--font-sans);
+  @apply bg-black text-white overflow-x-hidden transition-colors duration-500;
   cursor: none;
+  font-weight: 400;
+}
+
+/* Typography Hierarchy */
+h1 {
+  @apply text-5xl md:text-7xl;
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  @apply text-4xl md:text-5xl;
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  @apply text-2xl md:text-3xl;
+}
+
+p {
+  line-height: 1.6;
+  font-weight: 400;
 }
 
 html {
@@ -90,17 +114,25 @@ html {
 }
 
 ::-moz-selection {
-  color: white;
-  background: black;
+  color: black;
+  background: white;
+  text-shadow: none;
 }
 
 ::selection {
-  color: white;
-  background: black;
+  color: black;
+  background: white;
+  text-shadow: none;
 }
 
 .section-container {
   @apply 2xl:container xl:px-20 md:px-12 px-4 mx-auto;
+  max-width: 1440px;
+}
+
+/* Spacing & Grid Utilities */
+.container-max {
+  @apply max-w-7xl mx-auto;
 }
 
 a {
@@ -213,10 +245,11 @@ a {
             background: linear-gradient(90deg,
                 #ffffff 0%,
                 #ffffff 50%,
-                #a259ff 51%,
-                #00d8ff 100%);
+                #9ca3af 51%,
+                #d1d5db 100%);
             background-size: 200% 100%;
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
 
             &:hover,
@@ -243,21 +276,23 @@ a {
 }
 
 .text-gradient {
-  background: linear-gradient(90deg, #a259ff 0%, #00d8ff 100%, #a259ff 200%);
+  background: linear-gradient(90deg, #ffffff 0%, #9ca3af 100%, #ffffff 200%);
   background-size: 200% auto;
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: gradient-move 5s linear infinite;
 }
 
 .text-strong {
   background: linear-gradient(90deg,
-      #a259ff 0%,
-      #a259ff 50%,
-      #00d8ff 51%,
-      #00d8ff 100%);
+      #ffffff 0%,
+      #ffffff 50%,
+      #9ca3af 51%,
+      #d1d5db 100%);
   background-size: 200% 100%;
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -285,5 +320,17 @@ footer {
 }
 
 .section-title-sm {
-  @apply uppercase tracking-widest text-gray-200 text-sm;
+  @apply uppercase tracking-widest text-white text-sm;
+}
+
+@keyframes gradient-shift {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
 }

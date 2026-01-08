@@ -8,16 +8,30 @@
   border-radius: 100%;
   mix-blend-mode: difference;
   background: white;
+  width: 8px;
+  /* Fixed small size */
+  height: 8px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
 }
 
 .cursorFollower {
   border-radius: 100%;
-  left: -0.5rem;
-  top: -0.5rem;
-  background: rgba(162, 89, 255, 0.2);
-  box-shadow: 0 0 20px rgba(0, 216, 255, 0.4);
-  will-change: transform;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+  z-index: 9998;
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
-  transition: width 0.3s ease, height 0.3s ease;
+  will-change: transform;
+  mix-blend-mode: screen;
 }

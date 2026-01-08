@@ -13,13 +13,15 @@ const Manifesto = () => {
                 scrollTrigger: {
                     trigger: textRef.current,
                     start: "top 80%",
-                    end: "bottom 20%",
+                    end: "bottom 40%",
                     scrub: 1,
                 },
-                x: 100,
+                filter: "blur(10px)",
+                y: 50,
                 opacity: 0,
-                stagger: 0.1,
-                ease: "power3.out"
+                scale: 0.95,
+                stagger: 0.2,
+                ease: "power2.out"
             });
         }, textRef);
 
@@ -28,30 +30,27 @@ const Manifesto = () => {
 
     return (
         <section className="w-full min-h-screen flex items-center justify-center py-24 px-6 relative overflow-hidden">
-            <div ref={textRef} className="max-w-6xl w-full flex flex-col gap-2 mix-blend-difference z-10">
-                <p className="manifesto-line text-4xl md:text-7xl font-bold tracking-tighter leading-[0.9] text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-600">
-                    I DON'T JUST CODE.
-                </p>
-                <p className="manifesto-line text-4xl md:text-7xl font-bold tracking-tighter leading-[0.9] text-transparent bg-clip-text bg-gradient-to-r from-gray-200 to-gray-800 ml-[5%]">
-                    I ENGINEER
-                </p>
-                <p className="manifesto-line text-4xl md:text-7xl font-bold tracking-tighter leading-[0.9] text-white ml-[10%]">
-                    DIGITAL REALITIES
-                </p>
-                <p className="manifesto-line text-4xl md:text-7xl font-bold tracking-tighter leading-[0.9] text-gray-500 ml-[2%]">
-                    FROM THE VOID.
-                </p>
+            <div ref={textRef} className="max-w-7xl w-full flex flex-col gap-4 z-10">
 
-                <div className="mt-12 max-w-2xl ml-auto manifesto-line">
-                    <p className="text-lg md:text-xl font-mono text-gray-400 leading-relaxed">
-                        Based in NST, chasing the edge of AI and UI/UX.
-                        Every pixel is a decision. Every line of code is a structure.
-                        I build applications that don't just function—they feel.
+                <h1 className="leading-tight mb-8">
+                    I DON'T JUST <span className="text-white font-bold">CODE</span>.
+                    <br />
+                    I <span className="text-white font-bold">ENGINEER</span>
+                    <br />
+                    DIGITAL <span className="text-white font-bold">REALITIES</span>.
+                </h1>
+
+                <div className="max-w-2xl text-lg md:text-xl text-gray-400 font-light leading-relaxed">
+                    <p className="mb-6">
+                        Based in NST, chasing the edge of <span className="text-white font-semibold">AI</span> and <span className="text-white font-semibold">UI/UX</span>.
+                    </p>
+                    <p>
+                        I build applications that don't just function—they <span className="italic text-white font-semibold">feel</span>.
                     </p>
                 </div>
             </div>
 
-            <div className="absolute right-0 bottom-0 text-[20vw] font-black leading-none opacity-5 pointer-events-none select-none">
+            <div className="absolute right-0 bottom-0 text-[20vw] font-black leading-none opacity-[0.02] pointer-events-none select-none mix-blend-difference">
                 ORIGIN
             </div>
         </section>

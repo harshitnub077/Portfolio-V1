@@ -6,13 +6,9 @@
 
 import styles from "./Cursor.module.scss";
 import { MutableRefObject, useEffect, useRef, useCallback } from "react";
-import { gsap, Linear } from "gsap";
-import { IDesktop, isSmallScreen } from "pages";
-
-const CURSOR_STYLES = {
-  CURSOR: "fixed hidden bg-white w-4 h-4 select-none pointer-events-none z-50",
-  FOLLOWER: "fixed hidden h-8 w-8 select-none pointer-events-none z-50",
-};
+import { gsap } from "gsap";
+import type { IDesktop } from "../../types/device";
+import { isSmallScreen } from "../../utils/isSmallScreen";
 
 const Cursor = ({ isDesktop }: IDesktop) => {
   const cursor: MutableRefObject<HTMLDivElement> = useRef(null);
@@ -24,7 +20,8 @@ const Cursor = ({ isDesktop }: IDesktop) => {
       duration: 0.3,
     });
     gsap.to(follower.current, {
-      scale: 3,
+      scale: 2,
+      backgroundColor: "rgba(255, 255, 255, 0.1)",
       duration: 0.3,
     });
   }, []);
@@ -36,22 +33,24 @@ const Cursor = ({ isDesktop }: IDesktop) => {
     });
     gsap.to(follower.current, {
       scale: 1,
+      backgroundColor: "rgba(255, 255, 255, 0.03)",
       duration: 0.3,
     });
   }, []);
 
   const moveCircle = useCallback((e: MouseEvent) => {
-    gsap.to(cursor.current, {
-      x: e.clientX,
-      y: e.clientY,
-      duration: 0.1,
-      ease: Linear.easeNone,
+    // Direct update for cursor (instant)
+    gsap.set(cursor.current, {
+      x: e.clientX - 4, // Offset by half width (8px/2)
+      y: e.clientY - 4,
     });
+
+    // Smooth delay for follower
     gsap.to(follower.current, {
-      x: e.clientX,
-      y: e.clientY,
-      duration: 0.3,
-      ease: Linear.easeNone,
+      x: e.clientX - 20, // Offset by half width (40px/2)
+      y: e.clientY - 20,
+      duration: 0.8,
+      ease: "power2.out",
     });
   }, []);
 
@@ -75,14 +74,8 @@ const Cursor = ({ isDesktop }: IDesktop) => {
 
   return (
     <>
-      <div
-        ref={cursor}
-        className={`${styles.cursor} ${CURSOR_STYLES.CURSOR}`}
-      ></div>
-      <div
-        ref={follower}
-        className={`${styles.cursorFollower} ${CURSOR_STYLES.FOLLOWER}`}
-      ></div>
+      <div ref={cursor} className={`${styles.cursor} hidden`}></div>
+      <div ref={follower} className={`${styles.cursorFollower} hidden`}></div>
     </>
   );
 };

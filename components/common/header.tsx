@@ -30,7 +30,7 @@ const Header = () => {
         className={`fixed bottom-8 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${menuVisible ? "opacity-0 pointer-events-none" : "opacity-100"}`}
       >
         <div className="glass px-6 py-3 rounded-full flex items-center justify-between gap-6 shadow-2xl border border-white/10 backdrop-blur-xl bg-black/40">
-          <span className="text-xs font-mono text-gray-400 hidden md:block">MENU_SYSTEM_V3</span>
+          <span className="text-xs font-mono text-white hidden md:block">MENU_SYSTEM_V3</span>
           <button
             className="hamburger w-8 h-8 flex items-center justify-center link relative group"
             onClick={setmenuVisible.bind(null, !menuVisible)}
