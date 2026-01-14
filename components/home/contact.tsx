@@ -1,54 +1,45 @@
 import React from "react";
-import MagneticButton from "../common/magnetic-button";
-import { ButtonTypes } from "../common/button";
 import { SOCIAL_LINKS } from "../../constants";
 
 const Contact = () => {
-    return (
-        <footer id="contact" className="w-full min-h-[50vh] flex flex-col justify-between py-24 px-6 md:px-12 bg-black border-t border-white/10 relative overflow-hidden">
-            <div className="flex flex-col gap-8 z-10">
-                <h2 className="text-[12vw] leading-[0.8] font-black tracking-tighter text-white mix-blend-difference">
-                    LET'S TALK
-                </h2>
+  return (
+    <section id="contact" className="min-h-[80vh] flex flex-col justify-between py-24 md:py-32 bg-black relative overflow-hidden">
+      {/* Background Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent-flow/5 blur-[100px] rounded-full pointer-events-none" />
 
-                <div className="flex flex-col md:flex-row gap-8 items-start">
-                    <MagneticButton
-                        classes="px-10 py-4 border border-white rounded-full text-white hover:bg-white hover:text-black transition-all uppercase tracking-widest text-sm"
-                        type={ButtonTypes.OUTLINE}
-                        name="Email Me"
-                        href="mailto:harshitkudhial@gmail.com" // Assuming email based on user context or generic
-                    >
-                        Initiate_Protocol (Email)
-                    </MagneticButton>
+      <div className="container px-6 md:px-12 flex-1 flex flex-col justify-center items-center text-center z-10">
+        <span className="text-sm font-mono text-gray-400 uppercase tracking-widest mb-8">What&apos;s Next?</span>
 
-                    <MagneticButton
-                        classes="px-10 py-4 border border-white/20 rounded-full text-gray-400 hover:bg-white/10 hover:text-white transition-all uppercase tracking-widest text-sm"
-                        type={ButtonTypes.OUTLINE}
-                        name="LinkedIn"
-                        href={SOCIAL_LINKS.linkedin}
-                        otherProps={{ target: "_blank", rel: "noreferrer" }}
-                    >
-                        Connection_Link (LinkedIn)
-                    </MagneticButton>
-                </div>
-            </div>
+        <h2 className="text-[12vw] leading-none font-display font-medium text-white mb-12 mix-blend-difference hover:scale-105 transition-transform duration-700 ease-out cursor-none">
+          <a href={`mailto:${SOCIAL_LINKS.email ? SOCIAL_LINKS.email.replace('mailto:', '') : 'harshitkudhial@gmail.com'}`} className="hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-white hover:to-gray-500 transition-all">
+            Let&apos;s Talk
+          </a>
+        </h2>
 
-            <div className="flex justify-between items-end mt-24 z-10 border-t border-white/20 pt-8">
-                <div className="flex flex-col">
-                    <span className="text-xs font-mono text-gray-500">ENGINEERED BY HARSHIT</span>
-                    <span className="text-xs font-mono text-gray-700">© 2026 ORIGIN SYSTEM</span>
-                </div>
-                <div className="flex gap-4">
-                    {/* Social Mini Links */}
-                    <a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer" className="text-white hover:text-white transition-colors text-xs font-mono">[GH]</a>
-                    <a href={SOCIAL_LINKS.twitter} target="_blank" rel="noreferrer" className="text-white hover:text-white transition-colors text-xs font-mono">[TW]</a>
-                    <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noreferrer" className="text-white hover:text-white transition-colors text-xs font-mono">[IG]</a>
-                </div>
-            </div>
+        <div className="flex gap-8 md:gap-16 items-center">
+          {Object.entries(SOCIAL_LINKS).slice(0, 4).map(([key, link]) => (
+            <a
+              key={key}
+              href={link}
+              target="_blank"
+              rel="noreferrer"
+              className="text-gray-400 hover:text-white uppercase font-mono text-xs md:text-sm tracking-widest relative group"
+            >
+              {key}
+              <span className="absolute -bottom-2 left-0 w-0 h-px bg-white group-hover:w-full transition-all duration-300" />
+            </a>
+          ))}
+        </div>
+      </div>
 
-            <div className="absolute bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_bottom_right,_var(--tw-gradient-stops))] from-white/5 to-transparent pointer-events-none"></div>
-        </footer>
-    );
+      <div className="container px-6 md:px-12 z-10">
+        <div className="flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 font-mono uppercase tracking-wider border-t border-white/10 pt-8">
+          <p>© {new Date().getFullYear()} Harshit Kudhial</p>
+          <p>Designed & Built with Love</p>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Contact;

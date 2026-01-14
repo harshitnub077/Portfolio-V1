@@ -38,6 +38,7 @@ export const SOCIAL_LINKS = {
   behance: "#",
   twitter: "#",
   topmate: "#",
+  email: "mailto:harshit@example.com",
 };
 
 export interface IProject {

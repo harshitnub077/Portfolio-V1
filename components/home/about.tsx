@@ -1,91 +1,83 @@
-// Copyright Harshit Kudhial 2021,2022. All Rights Reserved.
-// Project: folio
-// Author contact: https://www.linkedin.com/in/alphaharshit/
-// This file is licensed under the MIT License.
-// License text available at https://opensource.org/licenses/MIT
-
-import { gsap, Linear } from "gsap";
-import React, { MutableRefObject, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
+
 const AboutSection = () => {
-  const containerRef: MutableRefObject<HTMLDivElement> = useRef(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Animate lines sliding up
-      gsap.utils.toArray(".about-line-inner").forEach((line: any) => {
-        gsap.from(line, {
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: "top 75%",
-            end: "bottom 75%",
-            toggleActions: "play none none reverse",
-          },
-          y: "100%",
-          opacity: 0,
-          duration: 1.2,
-          ease: "power4.out",
-          stagger: 0.1
-        });
+      // Split text reveal effect (simulated with lines)
+      gsap.from(".reveal-text", {
+        y: 100,
+        opacity: 0,
+        duration: 1.5,
+        stagger: 0.1,
+        ease: "power4.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 70%",
+          end: "bottom bottom",
+        },
       });
-    }, containerRef);
+    }, sectionRef);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <section
-      className="w-full min-h-[60vh] flex flex-col justify-center items-center py-32 px-6 relative select-none bg-black"
-      ref={containerRef}
-    >
-      <div className="max-w-4xl text-center z-10">
-        {/* Minimalist Header */}
-        <div className="overflow-hidden mb-8 flex justify-center">
-          <span className="about-line-inner block text-xs font-mono text-white uppercase tracking-[0.4em]">
-            The Profile
-          </span>
-        </div>
+    <section ref={sectionRef} className="min-h-screen bg-neutral-900 flex items-center py-24 md:py-32">
+      <div className="container mx-auto px-6 md:px-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-32">
+          {/* Left: Headline */}
+          <div className="reveal-text">
+            <h2 className="text-4xl md:text-7xl font-display font-medium leading-tight text-white mb-8">
+              Forging digital<br />
+              <span className="text-gray-500">experiences</span> with<br />
+              precision.
+            </h2>
+            <div className="w-24 h-1 bg-accent-flow mt-8" />
+          </div>
 
-        {/* Main Statement */}
-        <div className="space-y-2">
-          <div className="overflow-hidden">
-            <h2 className="about-line-inner block text-4xl md:text-6xl font-light tracking-tight leading-[1.1]">
-              I am <span className="text-white">Harshit</span>, a student at
-            </h2>
-          </div>
-          <div className="overflow-hidden">
-            <h2 className="about-line-inner block text-4xl md:text-6xl font-medium text-white tracking-tight leading-[1.1]">
-              Engineered for
-            </h2>
-            <h2 className="about-line-inner block text-4xl md:text-6xl font-light text-gray-400 tracking-tight leading-[1.1]">
-              pursuing <span className="text-white">CS</span> & <span className="text-white">AI</span>.
-            </h2>
-          </div>
-        </div>
+          {/* Right: Details */}
+          <div className="flex flex-col justify-end space-y-8">
+            <p className="reveal-text text-lg md:text-xl text-gray-300 leading-relaxed font-light">
+              I am Harshit Kudhial, a creative developer sitting at the intersection of design and engineering.
+              Currently honing my craft at <span className="text-white">Newton School of Technology</span>,
+              focusing on <span className="text-white">CS & AI</span>.
+            </p>
 
-        {/* Secondary Text */}
-        <div className="mt-12 max-w-2xl mx-auto space-y-1">
-          <div className="overflow-hidden">
-            <p className="about-line-inner block text-lg md:text-xl font-light text-white leading-relaxed">
-              A <span className="text-white font-semibold">Philomath</span> obsessed with the intersection of
+            <p className="reveal-text text-lg md:text-xl text-gray-300 leading-relaxed font-light">
+              My philosophy is simple: technology should feel invisible, yet magical.
+              I specialize in building immersive web systems that prioritize motion, interaction, and aesthetics.
             </p>
-          </div>
-          <div className="overflow-hidden">
-            <p className="about-line-inner block text-lg md:text-xl font-light text-white leading-relaxed">
-              <span className="text-white font-semibold">Artificial Intelligence</span> and <span className="text-white font-semibold">Human Interface</span>.
-            </p>
-          </div>
-          <div className="overflow-hidden">
-            <p className="about-line-inner block text-lg md:text-xl font-light text-white leading-relaxed">
-              Crafting tools for the <span className="text-white font-semibold">next generation</span>.
-            </p>
+
+            <div className="reveal-text grid grid-cols-2 gap-8 pt-8 border-t border-white/10">
+              <div>
+                <span className="block text-xs font-mono uppercase tracking-widest text-gray-500 mb-2">Capabilities</span>
+                <ul className="text-white space-y-1 font-heading">
+                  <li>Front-end Architecture</li>
+                  <li>Creative Development</li>
+                  <li>AI Integration</li>
+                  <li>Motion Design</li>
+                </ul>
+              </div>
+              <div>
+                <span className="block text-xs font-mono uppercase tracking-widest text-gray-500 mb-2">Stack</span>
+                <ul className="text-white space-y-1 font-heading">
+                  <li>Next.js / React</li>
+                  <li>GSAP / WebGL</li>
+                  <li>Tailwind CSS</li>
+                  <li>TypeScript</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-      {/* Ambient Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40vw] h-[40vw] bg-white/5 rounded-full blur-[120px] pointer-events-none mix-blend-screen"></div>
     </section>
   );
 };

@@ -14,6 +14,8 @@ function MyApp({ Component, pageProps }: AppProps) {
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      lerp: 0.1, // Luxury weight
+      smoothWheel: true,
     });
 
     function raf(time: any) {
@@ -28,7 +30,12 @@ function MyApp({ Component, pageProps }: AppProps) {
     };
   }, []);
 
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <div className="noise-overlay" />
+      <Component {...pageProps} />
+    </>
+  );
 }
 
 export default MyApp;

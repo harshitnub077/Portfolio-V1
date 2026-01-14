@@ -1,37 +1,39 @@
 import React, { useState } from "react";
-import CinematicLayout from "@/components/common/cinematic-layout";
+import Head from "next/head";
+import { METADATA } from "../constants";
 import Intro from "@/components/home/intro";
-import HeroSection from "@/components/home/hero";
-import Showcase from "@/components/home/showcase";
-import Manifesto from "@/components/home/manifesto";
-import TechMatrix from "@/components/home/tech-matrix";
-import Contact from "@/components/home/contact";
+import HeroWith3D from "@/components/home/hero-with-3d";
 import AboutSection from "@/components/home/about";
-import Experience from "@/components/home/experience";
-
+import Showcase from "@/components/home/showcase";
+import TechMatrix from "@/components/home/tech-matrix";
+import Photography from "@/components/home/photography";
+import Contact from "@/components/home/contact";
 
 export default function Home() {
   const [introComplete, setIntroComplete] = useState(false);
 
-  const handleIntroComplete = () => {
-    setIntroComplete(true);
-  };
-
   return (
-    <CinematicLayout>
-      {!introComplete && <Intro onComplete={handleIntroComplete} />}
+    <>
+      <Head>
+        <title>{METADATA.title}</title>
+        <meta name="description" content={METADATA.description} />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
 
-      {introComplete && (
-        <>
-          <HeroSection />
-          <Manifesto />
-          <AboutSection />
-          <Experience />
-          <Showcase />
-          <TechMatrix />
-          <Contact />
-        </>
-      )}
-    </CinematicLayout>
+      <div className="bg-[#0a0a0a] min-h-screen text-white">
+        {!introComplete && <Intro onComplete={() => setIntroComplete(true)} />}
+
+        {introComplete && (
+          <>
+            <HeroWith3D />
+            <Showcase />
+            <TechMatrix />
+            <Photography />
+            <AboutSection />
+            <Contact />
+          </>
+        )}
+      </div>
+    </>
   );
 }

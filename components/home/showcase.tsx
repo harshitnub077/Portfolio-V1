@@ -7,129 +7,93 @@ import Image from "next/image";
 gsap.registerPlugin(ScrollTrigger);
 
 const Showcase = () => {
-    const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
-        const ctx = gsap.context(() => {
-            gsap.from(".project-card", {
-                scrollTrigger: {
-                    trigger: containerRef.current,
-                    start: "top 75%",
-                },
-                y: 30,
-                opacity: 0,
-                duration: 0.8,
-                stagger: 0.2,
-                ease: "power2.out"
-            });
-        }, containerRef);
-        return () => ctx.revert();
-    }, []);
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const track = trackRef.current;
+      const container = containerRef.current;
 
-    return (
-        <section id="works" ref={containerRef} className="w-full relative py-24 px-6 md:px-12 bg-black min-h-screen overflow-hidden">
-            {/* Simple Background Design */}
-            <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/3 rounded-full blur-[200px]"></div>
-            </div>
+      if (track && container) {
+        // Calculate scroll amount: total width - viewport width
+        const scrollAmount = track.scrollWidth - window.innerWidth + 100; // Buffer
 
-            <div className="max-w-7xl mx-auto relative z-10">
-                {/* Section Header - Compact */}
-                <div className="w-full flex flex-col items-center justify-center mb-16">
-                    <div className="mb-4">
-                        <span className="text-xs font-mono text-gray-400 uppercase tracking-[0.3em]">
-                            Portfolio
-                        </span>
-                    </div>
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-black tracking-tight mb-4">
-                        <span className="text-white">Projects</span>
-                    </h2>
-                    <div className="w-24 h-[1px] bg-gray-600"></div>
+        gsap.to(track, {
+          x: -scrollAmount,
+          ease: "none",
+          scrollTrigger: {
+            trigger: container,
+            start: "top top",
+            end: `+=${scrollAmount}`,
+            pin: true,
+            scrub: 1,
+            invalidateOnRefresh: true,
+          },
+        });
+      }
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <section ref={containerRef} id="works" className="relative h-screen bg-dark-100 overflow-hidden flex flex-col justify-center">
+      {/* Title with Standard Padding */}
+      <div className="container px-6 md:px-12 mx-auto z-20 mb-12 mix-blend-difference">
+        <h2 className="text-white font-display text-4xl md:text-6xl uppercase tracking-widest leading-tight">
+          Selected Works <span className="text-accent-flow text-2xl align-top">({PROJECTS.length})</span>
+        </h2>
+      </div>
+
+      {/* Horizontal Track - Aligned to left container edge initially */}
+      <div ref={trackRef} className="flex h-[60vh] md:h-[70vh] items-center pl-6 md:pl-12 gap-8 md:gap-16 w-max">
+        {PROJECTS.map((project, index) => (
+          <div
+            key={project.name}
+            className="relative w-[85vw] md:w-[60vw] h-full flex-shrink-0 group"
+          >
+            {/* Image Container */}
+            <a href={project.url} target="_blank" rel="noreferrer" className="block h-full w-full overflow-hidden relative">
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10" />
+              <Image
+                src={project.image}
+                alt={project.name}
+                layout="fill"
+                objectFit="cover"
+                className="transition-transform duration-700 ease-out group-hover:scale-105"
+                placeholder={project.blurImage ? "blur" : "empty"}
+                blurDataURL={project.blurImage}
+              />
+
+              {/* Overlay Content */}
+              <div className="absolute bottom-0 left-0 w-full p-8 z-20 bg-gradient-to-t from-black/80 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                <h3 className="text-3xl md:text-5xl font-heading text-white mb-2 uppercase">
+                  {project.name}
+                </h3>
+                <p className="text-gray-300 font-light max-w-lg">
+                  {project.description}
+                </p>
+                <div className="mt-4 flex gap-2">
+                  {project.tech.map(t => (
+                    <span key={t} className="text-xs border border-white/30 px-2 py-1 rounded-full text-white/70 uppercase tracking-wider">{t}</span>
+                  ))}
                 </div>
+              </div>
+            </a>
 
-                {/* New Compact Grid Layout with Small Images */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                    {PROJECTS.map((project, index) => (
-                        <div
-                            key={project.name}
-                            className="project-card group relative"
-                        >
-                            <a
-                                href={project.url}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="block h-full"
-                            >
-                                <div className="relative h-full bg-gradient-to-br from-white/5 to-white/0 border border-white/10 rounded-xl overflow-hidden backdrop-blur-sm hover:border-white/30 transition-all duration-500 hover:shadow-xl hover:shadow-white/10">
-                                    {/* Small Project Image */}
-                                    {project.image && (
-                                        <div className="relative w-full h-48 md:h-56 overflow-hidden">
-                                            <Image
-                                                src={project.image}
-                                                alt={project.name}
-                                                layout="fill"
-                                                objectFit="cover"
-                                                className="grayscale-[0.4] group-hover:grayscale-0 transition-all duration-700 scale-110 group-hover:scale-100"
-                                                placeholder={project.blurImage ? "blur" : "empty"}
-                                                blurDataURL={project.blurImage}
-                                            />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                                            
-                                            {/* Project Number Badge */}
-                                            <div className="absolute top-3 left-3">
-                                                <div className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center">
-                                                    <span className="text-xs font-bold text-white">{index + 1}</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    )}
-
-                                    {/* Project Content */}
-                                    <div className="p-5">
-                                        {/* Project Name */}
-                                        <h3 className="text-xl md:text-2xl font-heading font-bold text-white mb-2 group-hover:text-gray-200 transition-colors duration-300">
-                                            {project.name}
-                                        </h3>
-
-                                        {/* Description - Truncated */}
-                                        <p className="text-sm text-gray-400 font-light leading-relaxed mb-4 line-clamp-2 group-hover:text-gray-300 transition-colors duration-300">
-                                            {project.description}
-                                        </p>
-
-                                        {/* Tech Stack - Compact */}
-                                        <div className="flex flex-wrap gap-2 mb-4">
-                                            {project.tech.slice(0, 3).map((t) => (
-                                                <span 
-                                                    key={t} 
-                                                    className="text-[10px] uppercase font-mono text-white/60 border border-white/10 px-2 py-1 rounded"
-                                                >
-                                                    {t}
-                                                </span>
-                                            ))}
-                                            {project.tech.length > 3 && (
-                                                <span className="text-[10px] uppercase font-mono text-white/40 px-2 py-1">
-                                                    +{project.tech.length - 3}
-                                                </span>
-                                            )}
-                                        </div>
-
-                                        {/* View Link */}
-                                        <div className="flex items-center gap-2 text-xs font-medium text-gray-400 group-hover:text-white transition-colors">
-                                            <span>View Project</span>
-                                            <span className="group-hover:translate-x-1 transition-transform">→</span>
-                                        </div>
-                                    </div>
-
-                                    {/* Hover Overlay */}
-                                    <div className="absolute inset-0 bg-white/0 group-hover:bg-white/5 transition-all duration-500 pointer-events-none"></div>
-                                </div>
-                            </a>
-                        </div>
-                    ))}
-                </div>
+            {/* Number */}
+            <div className="absolute -top-16 -left-8 text-[8vw] font-display font-bold text-white/5 pointer-events-none select-none">
+              0{index + 1}
             </div>
-        </section>
-    );
+          </div>
+        ))}
+
+        {/* End Spacer */}
+        <div className="w-[20vw]" />
+      </div>
+    </section>
+  );
 };
 
 export default Showcase;

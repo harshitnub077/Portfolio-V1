@@ -3,6 +3,7 @@ import Head from "next/head";
 import { METADATA } from "../../constants";
 import Header from "./header";
 import Cursor from "./cursor";
+import NeuralBackground from "./NeuralBackground";
 
 type Props = {
     children: ReactNode;
@@ -31,7 +32,8 @@ const CinematicLayout = ({ children }: Props) => {
                 <meta name="description" content={METADATA.description} />
             </Head>
 
-            <div className="bg-black min-h-screen text-white selection:bg-white selection:text-black overflow-x-hidden">
+            <div className="bg-dark-100 min-h-screen text-white selection:bg-accent-flow selection:text-black overflow-x-hidden">
+                <NeuralBackground />
                 <Header />
                 <Cursor isDesktop={isDesktop} />
                 <main className="relative w-full z-10 flex flex-col">{children}</main>

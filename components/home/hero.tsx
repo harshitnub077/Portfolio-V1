@@ -1,101 +1,123 @@
-import { MENULINKS, SOCIAL_LINKS } from "../../constants";
-import React, { MutableRefObject, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { MENULINKS, SOCIAL_LINKS } from "../../constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const HeroSection = React.memo(() => {
-  const targetSection: MutableRefObject<HTMLDivElement> = useRef(null);
-  const containerRef = useRef<HTMLDivElement>(null);
+const HeroSection = () => {
+  const heroRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const subtitleRef = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
-    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+    const ctx = gsap.context(() => {
+      // Intro Animation
+      const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
 
-    // Elegant Fade-In
-    tl.fromTo(
-      ".hero-content",
-      { y: 30, opacity: 0, scale: 0.98 },
-      { y: 0, opacity: 1, scale: 1, duration: 1.5, ease: "power2.out" }
-    )
-      .fromTo(
-        ".hero-glow",
-        { opacity: 0, scale: 0.5 },
-        { opacity: 0.4, scale: 1, duration: 2 },
-        "-=1.5"
-      );
+      tl.from(titleRef.current, {
+        y: 100,
+        opacity: 0,
+        duration: 1.5,
+        delay: 0.5, // Wait for loader
+        skewY: 10,
+      })
+        .from(subtitleRef.current, {
+          y: 20,
+          opacity: 0,
+          duration: 1,
+        }, "-=1");
 
-    return () => {
-      tl.kill();
-    };
+      // Parallax Effect
+      gsap.to(titleRef.current, {
+        yPercent: 50,
+        opacity: 0,
+        ease: "none",
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+    }, heroRef);
+
+    return () => ctx.revert();
   }, []);
 
   const { ref: heroSectionRef } = MENULINKS[0];
 
   return (
     <section
-      className="w-full flex flex-col justify-center items-center min-h-screen relative overflow-hidden bg-black text-white"
+      ref={heroRef}
       id={heroSectionRef}
-      ref={targetSection}
+      className="min-h-screen flex flex-col justify-center relative px-6 md:px-12 py-20 z-10"
     >
-      {/* Soft Spotlight Background */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Subtly moving spotlight */}
-        <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[80vw] h-[80vw] bg-white/[0.03] rounded-full blur-[120px] hero-glow animate-pulse-slow pointer-events-none"></div>
-        <div className="absolute bottom-[-20%] left-1/2 -translate-x-1/2 w-[60vw] h-[60vw] bg-white/[0.03] rounded-full blur-[100px] hero-glow animate-pulse-slow pointer-events-none" style={{ animationDelay: "2s" }}></div>
+      <div className="container mx-auto">
+        <div className="flex flex-col items-start mix-blend-difference">
+          {/* Subtitle / Label */}
+          <div className="overflow-hidden mb-4">
+            <span ref={subtitleRef} className="block text-accent-flow font-mono text-sm md:text-base tracking-widest uppercase">
+              Creative Developer & &nbsp;Design Engineer
+            </span>
+          </div>
 
-        {/* Fine Grain */}
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none noise bg-repeat"></div>
-      </div>
-
-      <div ref={containerRef} className="hero-content relative z-10 flex flex-col items-center text-center px-4 max-w-4xl mx-auto">
-
-        {/* Elegant Label */}
-        <div className="mb-6 opacity-60">
-          <span className="text-xs font-medium tracking-[0.3em] uppercase text-gray-300">
-            Portfolio &middot; V1
-          </span>
+          {/* Massive Title */}
+          <div className="overflow-hidden">
+            <h1
+              ref={titleRef}
+              className="font-display font-bold text-[13vw] leading-[0.85] tracking-tighter text-white uppercase"
+            >
+              Harshit<br />
+              <span className="text-gray-500">Kudhial</span>
+            </h1>
+          </div>
         </div>
 
-        {/* Typography Centerpiece */}
-        <div className="mb-8 flex flex-col items-center leading-none">
-          <h1 className="text-5xl md:text-8xl lg:text-9xl font-light tracking-tighter text-white/90">
-            HARSHIT
-          </h1>
-          <h1 className="text-5xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-white -mt-2 md:-mt-4">
-            KUDHIAL
-          </h1>
-        </div>
+        {/* Floating CTA / Socials - Positioned absolutely or in grid */}
+        <div className="absolute bottom-12 right-6 md:right-12 flex flex-col items-end gap-6 mix-blend-difference">
+          <div className="flex flex-col gap-2 text-right">
+            {SOCIAL_LINKS.linkedin && (
+              <a
+                href={SOCIAL_LINKS.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="text-white/50 hover:text-white transition-colors uppercase font-mono text-xs tracking-widest"
+              >
+                LinkedIn
+              </a>
+            )}
+            {SOCIAL_LINKS.github && (
+              <a
+                href={SOCIAL_LINKS.github}
+                target="_blank"
+                rel="noreferrer"
+                className="text-white/50 hover:text-white transition-colors uppercase font-mono text-xs tracking-widest"
+              >
+                GitHub
+              </a>
+            )}
+            <a
+              href={`mailto:${SOCIAL_LINKS.email || "harshit@example.com"}`}
+              className="text-white/50 hover:text-white transition-colors uppercase font-mono text-xs tracking-widest"
+            >
+              Email
+            </a>
+          </div>
 
-        {/* Minimal Description */}
-        <p className="max-w-xl text-center text-gray-400 text-sm md:text-lg font-light leading-relaxed mb-10 tracking-wide">
-          Crafting refined digital experiences with <span className="text-white font-medium">precision</span> and <span className="text-white font-medium">purpose</span>.
-          Merging aesthetics with engineering.
-        </p>
-
-        {/* Minimal CTAs - Rounded Pills */}
-        <div className="flex flex-col sm:flex-row gap-4 items-center">
           <a
             href={`#${MENULINKS[1].ref}`}
-            className="px-8 py-3 rounded-full bg-white text-black text-xs font-bold tracking-widest hover:bg-gray-200 transition-colors shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+            className="mt-4 group relative inline-flex items-center justify-center w-24 h-24 rounded-full border border-white/20 hover:border-white transition-colors"
           >
-            EXPLORE
-          </a>
-          <a
-            href={SOCIAL_LINKS.linkedin}
-            target="_blank"
-            rel="noreferrer"
-            className="px-8 py-3 rounded-full border border-white/10 bg-white/5 text-white text-xs font-bold tracking-widest hover:bg-white/10 transition-colors backdrop-blur-md"
-          >
-            CONNECT
+            <div className="absolute inset-0 rounded-full bg-white scale-0 group-hover:scale-100 transition-transform duration-500 ease-expo" />
+            <span className="relative text-xs font-mono uppercase text-white group-hover:text-black transition-colors">
+              Scroll
+            </span>
           </a>
         </div>
-
       </div>
     </section>
   );
-});
-
-HeroSection.displayName = "LandingHero";
+};
 
 export default HeroSection;

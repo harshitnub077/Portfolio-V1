@@ -37,10 +37,12 @@ module.exports = {
       accent: {
         purple: "#A259FF",
         cyan: "#00D8FF",
+        flow: "#00FFC2", // New Flow Glow
       },
       dark: {
-        100: "#050505",
-        200: "#111111",
+        100: "#020202", // Neural Black
+        200: "#080808",
+        300: "#111111",
       },
     },
     spacing: {
@@ -263,36 +265,16 @@ module.exports = {
     },
     fontFamily: {
       sans: [
-        "Outfit",
+        "Geist",
+        "Inter",
         "ui-sans-serif",
         "system-ui",
-        "-apple-system",
-        "BlinkMacSystemFont",
-        '"Segoe UI"',
-        "Roboto",
-        '"Helvetica Neue"',
-        "Arial",
-        '"Noto Sans"',
-        "sans-serif",
       ],
-      heading: ["Space Grotesk", "sans-serif"],
-      serif: [
-        "ui-serif",
-        "Georgia",
-        "Cambria",
-        '"Times New Roman"',
-        "Times",
-        "serif",
-      ],
+      heading: ["Clash Display", "Space Grotesk", "sans-serif"],
       mono: [
-        "Montserrat",
-        "ui-monospace",
+        "IBM Plex Mono",
         "SFMono-Regular",
         "Menlo",
-        "Monaco",
-        "Consolas",
-        '"Liberation Mono"',
-        '"Courier New"',
         "monospace",
       ],
     },

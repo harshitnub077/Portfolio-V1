@@ -4,79 +4,90 @@
 // This file is licensed under the MIT License.
 // License text available at https://opensource.org/licenses/MIT
 
-import styles from "./Cursor.module.scss";
-import { MutableRefObject, useEffect, useRef, useCallback } from "react";
+import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import type { IDesktop } from "../../types/device";
 import { isSmallScreen } from "../../utils/isSmallScreen";
 
 const Cursor = ({ isDesktop }: IDesktop) => {
-  const cursor: MutableRefObject<HTMLDivElement> = useRef(null);
-  const follower: MutableRefObject<HTMLDivElement> = useRef(null);
-
-  const onHover = useCallback(() => {
-    gsap.to(cursor.current, {
-      scale: 0.5,
-      duration: 0.3,
-    });
-    gsap.to(follower.current, {
-      scale: 2,
-      backgroundColor: "rgba(255, 255, 255, 0.1)",
-      duration: 0.3,
-    });
-  }, []);
-
-  const onUnhover = useCallback(() => {
-    gsap.to(cursor.current, {
-      scale: 1,
-      duration: 0.3,
-    });
-    gsap.to(follower.current, {
-      scale: 1,
-      backgroundColor: "rgba(255, 255, 255, 0.03)",
-      duration: 0.3,
-    });
-  }, []);
-
-  const moveCircle = useCallback((e: MouseEvent) => {
-    // Direct update for cursor (instant)
-    gsap.set(cursor.current, {
-      x: e.clientX - 4, // Offset by half width (8px/2)
-      y: e.clientY - 4,
-    });
-
-    // Smooth delay for follower
-    gsap.to(follower.current, {
-      x: e.clientX - 20, // Offset by half width (40px/2)
-      y: e.clientY - 20,
-      duration: 0.8,
-      ease: "power2.out",
-    });
-  }, []);
-
-  const initCursorAnimation = useCallback(() => {
-    follower.current.classList.remove("hidden");
-    cursor.current.classList.remove("hidden");
-
-    document.addEventListener("mousemove", moveCircle);
-
-    document.querySelectorAll(".link").forEach((el) => {
-      el.addEventListener("mouseenter", onHover);
-      el.addEventListener("mouseleave", onUnhover);
-    });
-  }, [moveCircle, onHover, onUnhover]);
+  const cursorRef = useRef<HTMLDivElement>(null);
+  const cursorInnerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (isDesktop && !isSmallScreen()) {
-      initCursorAnimation();
-    }
-  }, [isDesktop, initCursorAnimation]);
+    if (!isDesktop || isSmallScreen()) return;
+
+    const cursor = cursorRef.current;
+    if (!cursor) return;
+
+    // Use quickTo for high performance mouse tracking
+    const xTo = gsap.quickTo(cursor, "x", { duration: 0.4, ease: "power3", skewX: 0 });
+    const yTo = gsap.quickTo(cursor, "y", { duration: 0.4, ease: "power3", skewY: 0 });
+
+    const onMouseMove = (e: MouseEvent) => {
+      xTo(e.clientX);
+      yTo(e.clientY);
+    };
+
+    window.addEventListener("mousemove", onMouseMove);
+
+    // Hover states
+    const onMouseEnter = () => {
+      gsap.to(cursorInnerRef.current, {
+        scale: 2.5,
+        backgroundColor: "rgba(255, 255, 255, 0.9)",
+        duration: 0.3,
+        ease: "power2.out",
+      });
+      gsap.to(cursor, {
+        mixBlendMode: "difference",
+        duration: 0.3,
+      });
+    };
+
+    const onMouseLeave = () => {
+      gsap.to(cursorInnerRef.current, {
+        scale: 1,
+        backgroundColor: "rgba(255, 255, 255, 0)", // transparent center
+        duration: 0.3,
+        ease: "power2.out",
+      });
+      gsap.to(cursor, {
+        mixBlendMode: "difference",
+        duration: 0.3,
+      });
+    };
+
+    // Add listeners to interactive elements
+    const interactiveElements = document.querySelectorAll(
+      "a, button, input, textarea, .cursor-pointer, [role='button']"
+    );
+
+    interactiveElements.forEach((el) => {
+      el.addEventListener("mouseenter", onMouseEnter);
+      el.addEventListener("mouseleave", onMouseLeave);
+    });
+
+    return () => {
+      window.removeEventListener("mousemove", onMouseMove);
+      interactiveElements.forEach((el) => {
+        el.removeEventListener("mouseenter", onMouseEnter);
+        el.removeEventListener("mouseleave", onMouseLeave);
+      });
+    };
+  }, [isDesktop]);
+
+  if (!isDesktop || isSmallScreen()) return null;
 
   return (
-    <>
-      <div ref={cursor} className={`${styles.cursor} hidden`}></div>
-      <div ref={follower} className={`${styles.cursorFollower} hidden`}></div>
-    </>
+    <div
+      ref={cursorRef}
+      className="fixed top-0 left-0 z-[9999] pointer-events-none -translate-x-1/2 -translate-y-1/2 mix-blend-difference"
+    >
+      <div
+        ref={cursorInnerRef}
+        className="w-4 h-4 border border-white rounded-full transition-transform duration-300 ease-out"
+      />
+    </div>
   );
 };
 

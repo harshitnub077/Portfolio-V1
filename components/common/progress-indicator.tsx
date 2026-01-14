@@ -4,8 +4,9 @@
 // This file is licensed under the MIT License.
 // License text available at https://opensource.org/licenses/MIT
 
-import { NO_MOTION_PREFERENCE_QUERY } from "pages";
 import { useEffect, useState } from "react";
+
+export const NO_MOTION_PREFERENCE_QUERY = "(prefers-reduced-motion: no-preference)";
 
 const ProgressIndicator = () => {
   const [progress, setProgress] = useState(0);

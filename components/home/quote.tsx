@@ -56,13 +56,6 @@ const QuoteSection = () => {
       ref={containerRef}
       className="w-full relative select-none py-32 md:py-40 lg:py-48 overflow-hidden bg-black"
     >
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
-          backgroundSize: '50px 50px'
-        }} />
-      </div>
 
       {/* Geometric accent elements */}
       <div className="absolute top-1/2 left-0 w-px h-32 bg-gradient-to-b from-transparent via-white/20 to-transparent transform -translate-y-1/2" />

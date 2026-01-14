@@ -2,63 +2,79 @@ import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
 const Intro = ({ onComplete }: { onComplete: () => void }) => {
-    const containerRef = useRef<HTMLDivElement>(null);
-    const textRef = useRef<HTMLDivElement>(null);
-    const [percent, setPercent] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
+  const counterRef = useRef<HTMLDivElement>(null);
+  const [percent, setPercent] = useState(0);
 
-    useEffect(() => {
-        const ctx = gsap.context(() => {
-            const tl = gsap.timeline({
-                onComplete: () => {
-                    // Fade out container then call onComplete
-                    gsap.to(containerRef.current, {
-                        opacity: 0,
-                        duration: 1,
-                        onComplete: onComplete
-                    })
-                }
-            });
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        onComplete: onComplete
+      });
 
-            // Loading counter
-            tl.to({}, {
-                duration: 2,
-                onUpdate: function () {
-                    setPercent(Math.floor(this.progress() * 100));
-                },
-                ease: "power2.inOut",
-            });
+      // Counter Animation
+      const counterObj = { value: 0 };
+      tl.to(counterObj, {
+        value: 100,
+        duration: 2.5,
+        ease: "expo.out",
+        onUpdate: () => {
+          setPercent(Math.floor(counterObj.value));
+        }
+      });
 
-            // Ignition Flash
-            tl.to(textRef.current, {
-                scale: 1.5,
-                opacity: 0,
-                filter: "blur(20px)",
-                duration: 0.5,
-                ease: "power4.in",
-            });
+      // Text Flicker / Cycle
+      const words = ["SYSTEM", "CORE", "HARSHIT"];
+      const textContainer = textRef.current;
 
-            tl.to(".loader-bar", {
-                scaleX: 0,
-                duration: 0.5,
-                ease: "expo.out"
-            }, "<");
+      words.forEach((word, i) => {
+        tl.to(textContainer, {
+          duration: 0.1,
+          onStart: () => { if (textContainer) textContainer.innerText = word; }
+        }, i * 0.8);
+      });
 
-        }, containerRef);
+      // Curtain Effect (Split)
+      tl.to(".curtain", {
+        height: 0,
+        duration: 1.2,
+        ease: "power4.inOut",
+        stagger: 0.1,
+        delay: 0.5
+      });
 
-        return () => ctx.revert();
-    }, [onComplete]);
+      tl.to(containerRef.current, {
+        autoAlpha: 0,
+        duration: 0.1
+      });
 
-    return (
-        <div
-            ref={containerRef}
-            className="fixed inset-0 z-[100] bg-black flex flex-col items-center justify-center text-white"
-        >
-            <div ref={textRef} className="text-[15vw] font-bold tracking-tighter leading-none relative mix-blend-difference">
-                {percent}%
-            </div>
-            <div className="loader-bar w-full h-2 bg-white absolute bottom-0 left-0 origin-left"></div>
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, [onComplete]);
+
+  return (
+    <div ref={containerRef} className="fixed inset-0 z-[100] flex flex-col pointer-events-none">
+      {/* Top Curtain */}
+      <div className="curtain w-full h-[50vh] bg-black border-b border-white/10 relative">
+        <div className="absolute bottom-4 left-4 md:bottom-12 md:left-12 text-white font-mono text-xs">
+          INITIALIZING_SYSTEM_V2
         </div>
-    );
+      </div>
+
+      {/* Bottom Curtain */}
+      <div className="curtain w-full h-[50vh] bg-black border-t border-white/10 relative flex items-center justify-center">
+        <h2 ref={textRef} className="absolute -top-12 md:-top-24 text-[10vw] font-display font-bold text-white mix-blend-difference opacity-20">
+          LOADING
+        </h2>
+
+        <div className="absolute bottom-4 right-4 md:bottom-12 md:right-12 text-white font-display text-[8vw] leading-none mix-blend-difference">
+          {percent}%
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Intro;
