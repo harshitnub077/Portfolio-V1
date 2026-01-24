@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Bodoni_Moda, Manrope } from "next/font/google";
+import { Playfair_Display, Manrope } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import Cursor from "@/components/layout/Cursor";
@@ -7,7 +7,7 @@ import Preloader from "@/components/layout/Preloader";
 import Noise from "@/components/layout/Noise";
 import Vignette from "@/components/layout/Vignette";
 
-const bodoni = Bodoni_Moda({
+const playfair = Playfair_Display({
   variable: "--font-heading",
   subsets: ["latin"],
 });
@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${bodoni.variable} ${manrope.variable} antialiased bg-[var(--background)] text-[var(--foreground)]`}
+        className={`${playfair.variable} ${manrope.variable} antialiased bg-[var(--background)] text-[var(--foreground)]`}
       >
         <Preloader />
         <Cursor />
