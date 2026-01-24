@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { Outfit, Inter } from "next/font/google";
+import { Syne, Inter } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import Cursor from "@/components/layout/Cursor";
 import Preloader from "@/components/layout/Preloader";
 import Noise from "@/components/layout/Noise";
+import Vignette from "@/components/layout/Vignette";
 
-const outfit = Outfit({
+const syne = Syne({
   variable: "--font-heading",
   subsets: ["latin"],
 });
@@ -27,13 +28,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${outfit.variable} ${inter.variable} antialiased bg-[var(--background)] text-[var(--foreground)]`}
+        className={`${syne.variable} ${inter.variable} antialiased bg-[var(--background)] text-[var(--foreground)]`}
       >
         <Preloader />
         <Cursor />
         <Noise />
+        <Vignette />
         <SmoothScroll>
           {children}
         </SmoothScroll>
