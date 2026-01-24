@@ -3,7 +3,8 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -30,8 +31,8 @@ export default function Contact() {
         <section ref={containerRef} className="bg-black min-h-screen flex flex-col justify-between pt-32 pb-10 px-4 md:px-12 relative overflow-hidden">
 
             {/* Massive Call to Action */}
-            <div className="flex-grow flex items-center justify-center">
-                <div className="text-center space-y-8 z-10">
+            <div className="flex-grow flex items-center justify-center flex-col">
+                <div className="text-center space-y-8 z-10 mb-16">
                     <p className="text-neutral-500 font-mono text-sm tracking-widest uppercase mb-8">
                         [ Ready to Start? ]
                     </p>
@@ -44,6 +45,18 @@ export default function Contact() {
                         </h1>
                         <ArrowUpRight className="absolute top-0 right-0 w-[5vw] h-[5vw] text-white opacity-0 group-hover:opacity-100 group-hover:-translate-y-4 group-hover:translate-x-4 transition-all duration-500" />
                     </a>
+                </div>
+                <div className="flex flex-col md:flex-row gap-8 justify-center">
+                    <Button size="lg" className="rounded-full h-14 px-8 text-lg font-bold gap-3" asChild>
+                        <a href="mailto:example@email.com">
+                            <Mail className="w-5 h-5" />
+                            <span>Send me an email</span>
+                            <ArrowUpRight className="w-5 h-5 ml-1 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                        </a>
+                    </Button>
+                    <Button variant="outline" size="lg" className="rounded-full h-14 px-8 text-lg font-bold bg-transparent hover:bg-white/10 gap-3">
+                        Copy Email
+                    </Button>
                 </div>
             </div>
 

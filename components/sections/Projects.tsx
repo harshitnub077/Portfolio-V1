@@ -4,6 +4,8 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowUpRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -76,15 +78,15 @@ export default function Projects() {
                             <h3 className="text-4xl md:text-6xl font-bold text-white font-heading group-hover:text-neutral-400 transition-colors">
                                 {project.title}
                             </h3>
-                            <div className="flex gap-4 text-sm font-mono text-neutral-400 uppercase tracking-widest border-t border-white/20 pt-4 w-max">
-                                <span>{project.category}</span>
+                            <div className="flex gap-4 text-sm font-mono text-muted-foreground uppercase tracking-widest border-t border-border pt-4 w-max">
+                                <Badge variant="outline" className="rounded-md font-normal">{project.category}</Badge>
                             </div>
-                            <p className="text-neutral-300 text-lg leading-relaxed max-w-md">
+                            <p className="text-muted-foreground text-lg leading-relaxed max-w-md">
                                 {project.description}
                             </p>
-                            <button className="flex items-center gap-3 text-white font-bold hover:gap-6 transition-all duration-300 mt-4 group">
-                                VIEW CASE STUDY <ArrowUpRight className="w-5 h-5" />
-                            </button>
+                            <Button variant="link" className="p-0 h-auto font-bold text-white hover:text-white/80 mt-4 group">
+                                VIEW CASE STUDY <ArrowUpRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                            </Button>
                         </div>
 
                         {/* Project Image Area */}
@@ -99,9 +101,9 @@ export default function Projects() {
             </div>
 
             <div className="mt-32 text-center">
-                <button className="px-12 py-4 border border-white/20 rounded-full text-white font-bold hover:bg-white hover:text-black transition-all duration-300">
+                <Button variant="outline" size="lg" className="rounded-full px-8 h-12 text-base font-bold transition-all duration-300 hover:bg-white hover:text-black">
                     VIEW ALL ARCHIVES
-                </button>
+                </Button>
             </div>
         </section>
     );

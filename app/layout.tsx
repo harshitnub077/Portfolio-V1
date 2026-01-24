@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Manrope } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import Cursor from "@/components/layout/Cursor";
@@ -7,12 +7,12 @@ import Preloader from "@/components/layout/Preloader";
 import Noise from "@/components/layout/Noise";
 import Vignette from "@/components/layout/Vignette";
 
-const playfair = Playfair_Display({
+const inter = Inter({
   variable: "--font-heading",
   subsets: ["latin"],
 });
 
-const manrope = Manrope({
+const mono = JetBrains_Mono({
   variable: "--font-sans",
   subsets: ["latin"],
 });
@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${playfair.variable} ${manrope.variable} antialiased bg-[var(--background)] text-[var(--foreground)]`}
+        className={`${inter.variable} ${mono.variable} antialiased bg-[var(--background)] text-[var(--foreground)]`}
       >
         <Preloader />
         <Cursor />
