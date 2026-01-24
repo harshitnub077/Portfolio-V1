@@ -3,7 +3,6 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,77 +11,59 @@ export default function About() {
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            gsap.from(".about-content", {
+            gsap.from(".about-text", {
                 scrollTrigger: {
                     trigger: containerRef.current,
-                    start: "top 70%",
-                    end: "bottom 80%",
-                    toggleActions: "play none none reverse",
-                    scrub: 1,
+                    start: "top 80%",
                 },
-                y: 100,
+                y: 50,
                 opacity: 0,
                 stagger: 0.1,
+                duration: 1,
+                ease: "power3.out"
             });
-
-            gsap.from(".about-image", {
-                scrollTrigger: {
-                    trigger: containerRef.current,
-                    start: "top 60%",
-                    scrub: 1,
-                },
-                scale: 0.8,
-                rotation: -5,
-                opacity: 0.5,
-            });
-
         }, containerRef);
-
         return () => ctx.revert();
     }, []);
 
     return (
-        <section ref={containerRef} className="py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
-            <div className="md:w-1/2 relative">
-                <div className="about-image relative w-full aspect-square max-w-[500px] mx-auto bg-neutral-800 rounded-3xl overflow-hidden border border-white/10">
-                    {/* Placeholder for Profile Image */}
-                    <div className="absolute inset-0 flex items-center justify-center text-neutral-600 bg-neutral-900">
-                        [Profile Image Placeholder]
-                        {/* <Image src="/path/to/image.jpg" fill alt="Harshit Kudhial" className="object-cover" /> */}
-                    </div>
+        <section ref={containerRef} className="relative py-40 px-6 bg-[#0c0c0c] border-t border-white/5">
+            <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row gap-20">
 
-                    {/* Decorative Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-violet-500/10 mix-blend-overlay" />
-                </div>
-            </div>
-
-            <div className="md:w-1/2 space-y-8">
-                <h2 className="about-content text-4xl font-bold font-heading text-white">
-                    About <span className="text-violet-400">Me</span>
-                </h2>
-
-                <div className="about-content text-lg text-neutral-300 space-y-6 leading-relaxed">
-                    <p>
-                        I am a <span className="text-white font-medium">2nd Year Undergraduate</span> at Newton School of Technology, currently diving deep into the world of <span className="text-blue-400">Artificial Intelligence</span> and <span className="text-blue-400">Machine Learning</span> because the pursuit of creating intelligent systems fascinates me.
-                    </p>
-                    <p>
-                        Beyond AI, I am a capable <span className="text-violet-400">Full Stack Developer</span> who loves crafting seamless digital experiences. I pride myself on being a <span className="italic text-white">Philomath</span>—a lifelong learner always eager to master new technologies.
-                    </p>
-                    <p>
-                        Skilled in managing multiple projects efficiently, I bridge the gap between complex backend logic and elegant frontend design.
-                    </p>
+                {/* Left: Minimal Title */}
+                <div className="md:w-1/3">
+                    <h2 className="about-text text-neutral-500 text-sm font-bold tracking-widest uppercase sticky top-32">
+                        [ Who Am I ? ]
+                    </h2>
                 </div>
 
-                <div className="about-content pt-8 flex gap-8">
-                    <div className="space-y-2">
-                        <h4 className="text-3xl font-bold text-white">2+</h4>
-                        <p className="text-sm text-neutral-500 uppercase tracking-wider">Years Exp.</p>
+                {/* Right: Content */}
+                <div className="md:w-2/3 space-y-16">
+                    <div className="about-text space-y-8">
+                        <h3 className="text-4xl md:text-6xl font-medium leading-tight text-white font-heading">
+                            I build <span className="text-neutral-500">digital experiences</span> that blur the line between <span className="text-blue-500">art</span> and <span className="text-violet-500">technology</span>.
+                        </h3>
+                        <p className="text-xl text-neutral-400 leading-relaxed font-light max-w-2xl">
+                            As a 2nd Year Undergraduate at <span className="text-white">Newton School of Technology</span>, I code with an obsession for detail. My work is fueled by a passion for <span className="text-white">AI</span> and <span className="text-white">Machine Learning</span>, creating systems that aren't just functional—they're alive.
+                        </p>
                     </div>
-                    <div className="space-y-2">
-                        <h4 className="text-3xl font-bold text-white">10+</h4>
-                        <p className="text-sm text-neutral-500 uppercase tracking-wider">Projects</p>
+
+                    <div className="about-text grid grid-cols-2 md:grid-cols-3 gap-12 pt-12 border-t border-white/5">
+                        <div>
+                            <h4 className="text-5xl font-bold text-white mb-2">02+</h4>
+                            <p className="text-sm text-neutral-500 uppercase">Years of Code</p>
+                        </div>
+                        <div>
+                            <h4 className="text-5xl font-bold text-white mb-2">15+</h4>
+                            <p className="text-sm text-neutral-500 uppercase">Projects</p>
+                        </div>
+                        <div>
+                            <h4 className="text-5xl font-bold text-white mb-2">100%</h4>
+                            <p className="text-sm text-neutral-500 uppercase">Dedication</p>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </section>
     );

@@ -3,66 +3,50 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero() {
     const heroRef = useRef<HTMLElement>(null);
     const textRef = useRef<HTMLDivElement>(null);
-    const shapesRef = useRef<HTMLDivElement>(null);
+    const nameRef = useRef<HTMLHeadingElement>(null);
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            const tl = gsap.timeline({ defaults: { ease: "power3.out", duration: 1 } });
+            const tl = gsap.timeline({ defaults: { ease: "power4.out", duration: 1.5 } });
 
-            // Animate shapes
-            gsap.to(".hero-shape", {
-                y: "20px",
-                rotation: 10,
-                duration: 3,
-                repeat: -1,
-                yoyo: true,
-                ease: "sine.inOut",
-                stagger: 0.5,
-            });
-
-            // Text Reveal Animation
-            tl.from(".hero-text-line", {
-                y: 100,
+            // Dramatic Entrance
+            tl.from(nameRef.current, {
+                scale: 1.5,
                 opacity: 0,
-                stagger: 0.2,
-                duration: 1.2,
-                delay: 0.5, // Wait for preloader roughly
+                filter: "blur(20px)",
+                duration: 2,
             })
-                .from(".hero-btn", {
-                    scale: 0.8,
+                .from(".hero-sub", {
+                    y: 50,
                     opacity: 0,
                     stagger: 0.1,
+                    duration: 1,
+                }, "-=1")
+                .from(".hero-btn", {
+                    scale: 0,
+                    opacity: 0,
                     duration: 0.8,
                     ease: "back.out(1.7)",
                 }, "-=0.5");
 
-            // Parallax Effect
-            gsap.to(shapesRef.current, {
+            // Scroll Parallax for Name
+            gsap.to(nameRef.current, {
                 scrollTrigger: {
                     trigger: heroRef.current,
                     start: "top top",
                     end: "bottom top",
-                    scrub: true,
+                    scrub: 0.5,
                 },
                 y: 200,
-            });
-
-            gsap.to(textRef.current, {
-                scrollTrigger: {
-                    trigger: heroRef.current,
-                    start: "top top",
-                    end: "bottom top",
-                    scrub: true,
-                },
-                y: 100,
-                opacity: 0.5,
+                scale: 0.9,
+                opacity: 0.2,
             });
 
         }, heroRef);
@@ -73,63 +57,47 @@ export default function Hero() {
     return (
         <section
             ref={heroRef}
-            className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8"
+            className="relative h-screen flex flex-col items-center justify-center overflow-hidden px-4"
         >
-            {/* Background Shapes */}
-            <div ref={shapesRef} className="absolute inset-0 z-0 pointer-events-none">
-                <div className="hero-shape absolute top-1/4 left-1/4 w-64 h-64 bg-blue-600/20 rounded-full blur-[100px]" />
-                <div className="hero-shape absolute bottom-1/4 right-1/4 w-96 h-96 bg-violet-600/20 rounded-full blur-[100px]" />
-                <div className="hero-shape absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[120px]" />
+            {/* Abstract Background Elements */}
+            <div className="absolute inset-0 z-0 pointer-events-none">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] bg-violet-600/10 rounded-full blur-[100px] animate-pulse" />
+                <div className="absolute top-0 right-0 w-[40vw] h-[40vw] bg-blue-600/5 rounded-full blur-[120px]" />
+                <div className="absolute bottom-0 left-0 w-[50vw] h-[50vw] bg-neutral-800/20 rounded-full blur-[80px]" />
             </div>
 
-            <div ref={textRef} className="relative z-10 max-w-5xl mx-auto text-center">
-                <h2 className="hero-text-line text-lg sm:text-xl md:text-2xl font-medium tracking-wide text-blue-400 mb-4 font-sans">
-                    Harshit Kudhial
-                </h2>
+            <div ref={textRef} className="relative z-10 text-center w-full max-w-[90vw]">
+                <p className="hero-sub text-blue-500 font-bold tracking-[0.2em] uppercase mb-4 md:mb-8 text-sm md:text-base">
+                    Portfolio V1.0
+                </p>
 
-                <h1 className="hero-text-line text-4xl sm:text-6xl md:text-8xl font-bold tracking-tight mb-6 font-heading">
-                    <span className="block text-gradient bg-clip-text text-transparent bg-gradient-to-r from-white via-neutral-200 to-neutral-400">
-                        2nd Year Undergraduate
-                    </span>
-                    <span className="block text-3xl sm:text-5xl md:text-7xl mt-2 text-neutral-400">
-                        at Newton School of Technology
+                {/* MASSIVE Name Typography */}
+                <h1
+                    ref={nameRef}
+                    className="text-[12vw] leading-[0.85] font-black font-heading tracking-tighter text-white mix-blend-difference select-none whitespace-nowrap"
+                >
+                    HARSHIT
+                    <br />
+                    <span className="text-transparent bg-clip-text bg-gradient-to-b from-neutral-200 to-neutral-800">
+                        KUDHIAL
                     </span>
                 </h1>
 
-                <div className="hero-text-line bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 md:p-8 my-8 max-w-3xl mx-auto transform hover:scale-[1.02] transition-transform duration-500">
-                    <p className="text-xl md:text-2xl text-neutral-300 font-light leading-relaxed">
-                        Exploring <span className="text-blue-400 font-medium">Artificial Intelligence</span> & <span className="text-violet-400 font-medium">Machine Learning</span>
+                <div className="hero-sub mt-12 flex flex-col items-center gap-6">
+                    <p className="text-xl md:text-3xl text-neutral-400 font-light max-w-2xl">
+                        Designing the <span className="text-white font-medium">Future</span> of Digital Interaction.
                     </p>
-                    <div className="h-px w-20 bg-gradient-to-r from-transparent via-white/20 to-transparent mx-auto my-4" />
-                    <p className="text-lg text-neutral-400">
-                        Full Stack Developer | Philomath
-                    </p>
-                </div>
 
-                <p className="hero-text-line text-base md:text-lg text-neutral-500 max-w-2xl mx-auto mb-10">
-                    Passionate about building intelligent systems, scalable web apps, and mastering new technologies.
-                </p>
-
-                <div className="hero-text-line flex items-center justify-center gap-4 sm:gap-6">
-                    <button data-hover className="hero-btn group relative px-8 py-3 bg-white text-black rounded-full font-medium overflow-hidden transition-all hover:pr-10">
-                        <span className="relative z-10 flex items-center gap-2">
-                            View Projects <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                        </span>
-                        <div className="absolute inset-0 bg-blue-400/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-                    </button>
-
-                    <button data-hover className="hero-btn px-8 py-3 border border-white/20 hover:border-white/50 bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-full transition-all">
-                        Contact Me
-                    </button>
+                    <div className="flex gap-6">
+                        <button className="hero-btn group px-8 py-4 bg-white text-black rounded-full font-bold text-lg hover:bg-blue-500 hover:text-white transition-all duration-300 flex items-center gap-2">
+                            Explore Work <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                        </button>
+                    </div>
                 </div>
             </div>
 
-            {/* Scroll Indicator */}
-            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-                <div className="w-6 h-10 border-2 border-white/20 rounded-full flex justify-center p-1">
-                    <div className="w-1 h-2 bg-white/50 rounded-full animate-scroll-down" />
-                </div>
-            </div>
+            {/* Decorative Grid */}
+            <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10 zless pointer-events-none" />
         </section>
     );
 }

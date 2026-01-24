@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter } from "next/font/google";
+import { Outfit, Inter } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import Cursor from "@/components/layout/Cursor";
 import Preloader from "@/components/layout/Preloader";
+import Noise from "@/components/layout/Noise";
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+const outfit = Outfit({
+  variable: "--font-heading",
   subsets: ["latin"],
 });
 
 const inter = Inter({
-  variable: "--font-inter",
+  variable: "--font-sans",
   subsets: ["latin"],
 });
 
@@ -28,10 +29,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${spaceGrotesk.variable} ${inter.variable} antialiased bg-[var(--background)] text-[var(--foreground)]`}
+        className={`${outfit.variable} ${inter.variable} antialiased bg-[var(--background)] text-[var(--foreground)]`}
       >
         <Preloader />
         <Cursor />
+        <Noise />
         <SmoothScroll>
           {children}
         </SmoothScroll>
