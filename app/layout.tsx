@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Syne, Inter } from "next/font/google";
+import { Bodoni_Moda, Manrope } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import Cursor from "@/components/layout/Cursor";
@@ -7,12 +7,12 @@ import Preloader from "@/components/layout/Preloader";
 import Noise from "@/components/layout/Noise";
 import Vignette from "@/components/layout/Vignette";
 
-const syne = Syne({
+const bodoni = Bodoni_Moda({
   variable: "--font-heading",
   subsets: ["latin"],
 });
 
-const inter = Inter({
+const manrope = Manrope({
   variable: "--font-sans",
   subsets: ["latin"],
 });
@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${syne.variable} ${inter.variable} antialiased bg-[var(--background)] text-[var(--foreground)]`}
+        className={`${bodoni.variable} ${manrope.variable} antialiased bg-[var(--background)] text-[var(--foreground)]`}
       >
         <Preloader />
         <Cursor />
