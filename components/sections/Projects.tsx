@@ -57,7 +57,7 @@ export default function Projects() {
     }, []);
 
     return (
-        <section ref={sectionRef} className="py-32 px-4 md:px-8 bg-[#0a0a0a]">
+        <section ref={sectionRef} className="py-32 px-4 md:px-8 bg-black">
             <div className="mb-24 border-b border-white/10 pb-8 flex justify-between items-end">
                 <h2 className="text-5xl md:text-8xl font-black font-heading text-white tracking-tighter">
                     SELECTED<br />WORKS

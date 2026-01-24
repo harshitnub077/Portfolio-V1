@@ -27,7 +27,7 @@ export default function Contact() {
     }, []);
 
     return (
-        <section ref={containerRef} className="bg-[#050505] min-h-screen flex flex-col justify-between pt-32 pb-10 px-4 md:px-12 relative overflow-hidden">
+        <section ref={containerRef} className="bg-black min-h-screen flex flex-col justify-between pt-32 pb-10 px-4 md:px-12 relative overflow-hidden">
 
             {/* Massive Call to Action */}
             <div className="flex-grow flex items-center justify-center">

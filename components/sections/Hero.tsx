@@ -15,7 +15,40 @@ export default function Hero() {
     useEffect(() => {
         const handleMouseMove = (e: MouseEvent) => {
             setCursorPos({ x: e.clientX, y: e.clientY });
+
+            // Magnetic Effect
+            const chars = document.querySelectorAll(".hero-char");
+            chars.forEach((char) => {
+                const rect = (char as HTMLElement).getBoundingClientRect();
+                const charCenter = {
+                    x: rect.left + rect.width / 2,
+                    y: rect.top + rect.height / 2
+                };
+
+                const dist = Math.hypot(e.clientX - charCenter.x, e.clientY - charCenter.y);
+                const maxDist = 300; // Radius of effect
+
+                if (dist < maxDist) {
+                    const strength = (maxDist - dist) / maxDist;
+                    gsap.to(char, {
+                        y: -strength * 30, // Move up slightly
+                        scale: 1 + strength * 0.2, // Scale up
+                        color: "white",
+                        duration: 0.3,
+                        ease: "power2.out"
+                    });
+                } else {
+                    gsap.to(char, {
+                        y: 0,
+                        scale: 1,
+                        color: "rgba(255,255,255,0.9)",
+                        duration: 0.3,
+                        ease: "power2.out"
+                    });
+                }
+            });
         };
+
         window.addEventListener("mousemove", handleMouseMove);
         return () => window.removeEventListener("mousemove", handleMouseMove);
     }, []);
@@ -71,7 +104,7 @@ export default function Hero() {
             <div
                 className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-1000"
                 style={{
-                    background: `radial-gradient(600px circle at ${cursorPos.x}px ${cursorPos.y}px, rgba(255,255,255,0.03), transparent 40%)`
+                    background: `radial-gradient(800px circle at ${cursorPos.x}px ${cursorPos.y}px, rgba(50,50,50,0.15), transparent 40%)`
                 }}
             />
 
@@ -83,9 +116,9 @@ export default function Hero() {
                     Digital Experiences
                 </p>
 
-                <h1 className="text-[12vw] md:text-[10vw] leading-none font-heading font-black tracking-tighter text-white whitespace-nowrap overflow-hidden">
+                <h1 className="text-[12vw] md:text-[10vw] leading-none font-heading font-black tracking-tighter text-white/90 whitespace-nowrap overflow-hidden cursor-default">
                     {"HARSHIT KUDHIAL".split("").map((char, i) => (
-                        <span key={i} className="hero-char inline-block origin-bottom">
+                        <span key={i} className="hero-char inline-block origin-bottom transition-colors will-change-transform">
                             {char === " " ? "\u00A0" : char}
                         </span>
                     ))}

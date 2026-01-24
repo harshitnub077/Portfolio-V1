@@ -50,7 +50,7 @@ export default function TechStack() {
     }, []);
 
     return (
-        <section ref={containerRef} className="py-20 bg-[#0a0a0a] overflow-hidden border-t border-white/5">
+        <section ref={containerRef} className="py-20 bg-black overflow-hidden border-t border-white/5">
             <div className="mb-12 px-6">
                 <h2 className="text-xl font-bold font-heading text-neutral-500 uppercase tracking-widest">
                     Technical Arsenal

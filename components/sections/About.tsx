@@ -27,7 +27,7 @@ export default function About() {
     }, []);
 
     return (
-        <section ref={containerRef} className="relative py-40 px-6 bg-[#0c0c0c] border-t border-white/5">
+        <section ref={containerRef} className="relative py-40 px-6 bg-black border-t border-white/5">
             <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row gap-20">
 
                 {/* Left: Minimal Title */}
