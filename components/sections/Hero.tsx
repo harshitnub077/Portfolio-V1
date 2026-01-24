@@ -14,22 +14,51 @@ export default function Hero() {
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            gsap.from(".hero-elem", {
-                y: 20,
-                opacity: 0,
-                duration: 1,
-                stagger: 0.1,
+            const tl = gsap.timeline();
+
+            // 1. Initial State (Set via GSAP for better control than CSS)
+            gsap.set(".hero-char", { filter: "blur(10px)", opacity: 0, y: 30 });
+            gsap.set(".hero-elem", { opacity: 0, y: 20 });
+
+            // 2. Blur Reveal Animation for Title
+            tl.to(".hero-char", {
+                filter: "blur(0px)",
+                opacity: 1,
+                y: 0,
+                duration: 1.5,
+                stagger: 0.05,
                 ease: "power2.out",
                 delay: 0.2
+            })
+                // 3. Reveal other elements
+                .to(".hero-elem", {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    stagger: 0.1,
+                    ease: "power2.out"
+                }, "-=1.0");
+
+            // 4. Subtle Ambient Background Motion (Breathing)
+            gsap.to(".ambient-glow", {
+                scale: 1.2,
+                opacity: 0.6,
+                duration: 8,
+                repeat: -1,
+                yoyo: true,
+                ease: "sine.inOut"
             });
+
         }, heroRef);
         return () => ctx.revert();
     }, []);
 
+    const name = "Harshit Kudhial";
+
     return (
         <section
             ref={heroRef}
-            className="relative min-h-screen flex flex-col items-center justify-center bg-background overflow-hidden px-4"
+            className="relative min-h-screen flex flex-col items-center justify-center bg-black overflow-hidden px-4"
         >
             <div ref={textRef} className="relative z-10 text-center max-w-4xl mx-auto space-y-8">
 
@@ -40,8 +69,12 @@ export default function Hero() {
                     </Badge>
                 </div>
 
-                <h1 className="hero-elem text-6xl md:text-8xl font-bold tracking-tighter text-foreground font-heading">
-                    Harshit Kudhial
+                <h1 className="text-6xl md:text-8xl font-bold tracking-tighter text-foreground font-heading overflow-hidden pb-4">
+                    {name.split("").map((char, i) => (
+                        <span key={i} className="hero-char inline-block">
+                            {char === " " ? "\u00A0" : char}
+                        </span>
+                    ))}
                 </h1>
 
                 <p className="hero-elem text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
@@ -61,7 +94,9 @@ export default function Hero() {
 
             {/* Minimal Pattern Background */}
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_800px_at_50%_200px,#ffffff05,transparent)] pointer-events-none" />
+
+            {/* Ambient Glow */}
+            <div className="ambient-glow absolute inset-0 bg-[radial-gradient(circle_800px_at_50%_200px,#ffffff08,transparent)] pointer-events-none opacity-40" />
 
         </section>
     );
