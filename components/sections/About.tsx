@@ -32,7 +32,7 @@ export default function About() {
 
                 {/* Left: Minimal Title */}
                 <div className="md:w-1/3">
-                    <h2 className="about-text text-neutral-500 text-sm font-bold tracking-widest uppercase sticky top-32">
+                    <h2 className="about-text text-neutral-500 text-sm font-bold font-mono tracking-widest uppercase sticky top-32">
                         [ Who Am I ? ]
                     </h2>
                 </div>
@@ -40,7 +40,7 @@ export default function About() {
                 {/* Right: Content */}
                 <div className="md:w-2/3 space-y-16">
                     <div className="about-text space-y-8">
-                        <h3 className="text-4xl md:text-6xl font-medium leading-tight text-white font-heading">
+                        <h3 className="text-4xl md:text-6xl font-bold leading-tight text-white font-heading tracking-tight">
                             I build <span className="text-neutral-500">digital experiences</span> that blur the line between <span className="text-blue-500">art</span> and <span className="text-violet-500">technology</span>.
                         </h3>
                         <p className="text-xl text-neutral-400 leading-relaxed font-light max-w-2xl">

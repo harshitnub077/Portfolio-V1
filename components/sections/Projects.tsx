@@ -3,117 +3,105 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowUpRight, Github } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
     {
+        id: "01",
         title: "Portfolio V1",
-        description: "My personal digital playground featuring high-performance animations and modern UI.",
-        tech: ["Next.js", "GSAP", "Tailwind"],
-        github: "#",
-        live: "#"
+        category: "Web Development",
+        description: "A high-performance personal portfolio built with Next.js and GSAP, featuring kinetic typography and immersive interactions.",
+        imageColor: "from-blue-900/40 to-black",
     },
     {
-        title: "AI Image Generator",
-        description: "A deep learning powered image generation tool using Stable Diffusion APIs.",
-        tech: ["React", "Python", "FastAPI"],
-        github: "#",
-        live: "#"
+        id: "02",
+        title: "AI Image Gen",
+        category: "Machine Learning",
+        description: "Deep learning application leveraging Stable Diffusion APIs to generate artistic imagery from natural language prompts.",
+        imageColor: "from-violet-900/40 to-black",
     },
     {
+        id: "03",
         title: "Task Master",
-        description: "Productivity application with smart scheduling and AI suggestions.",
-        tech: ["JavaScript", "Firebase", "Node.js"],
-        github: "#",
-        live: "#"
-    },
-    {
-        title: "E-Commerce Dash",
-        description: "Full-stack analytics dashboard for online retailers with real-time data.",
-        tech: ["Next.js", "Supabase", "Recharts"],
-        github: "#",
-        live: "#"
+        category: "Productivity",
+        description: "Smart task management system with AI-driven scheduling suggestions and real-time collaboration features.",
+        imageColor: "from-emerald-900/40 to-black",
     },
 ];
 
 export default function Projects() {
     const sectionRef = useRef<HTMLElement>(null);
-    const containerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            const container = containerRef.current;
-            if (!container) return;
+            const projects = gsap.utils.toArray(".project-card");
 
-            const totalScroll = container.scrollWidth - window.innerWidth;
-
-            gsap.to(container, {
-                x: () => -totalScroll,
-                ease: "none",
-                scrollTrigger: {
-                    trigger: sectionRef.current,
-                    start: "top top",
-                    end: () => `+=${totalScroll}`,
-                    pin: true,
-                    scrub: 1,
-                    invalidateOnRefresh: true,
-                },
+            projects.forEach((project: any) => {
+                gsap.from(project.querySelector(".project-img"), {
+                    scrollTrigger: {
+                        trigger: project,
+                        start: "top bottom",
+                        end: "bottom top",
+                        scrub: true,
+                    },
+                    y: -100,
+                    scale: 1.2,
+                });
             });
+
         }, sectionRef);
 
         return () => ctx.revert();
     }, []);
 
     return (
-        <section ref={sectionRef} className="relative h-screen overflow-hidden bg-[#0a0a0a]">
-            <div className="absolute top-12 left-8 md:left-16 z-10 w-full">
-                <h2 className="text-4xl md:text-6xl font-bold font-heading mb-2">Featured Work</h2>
-                <p className="text-neutral-500">Scroll to explore</p>
+        <section ref={sectionRef} className="py-32 px-4 md:px-8 bg-[#0a0a0a]">
+            <div className="mb-24 border-b border-white/10 pb-8 flex justify-between items-end">
+                <h2 className="text-5xl md:text-8xl font-black font-heading text-white tracking-tighter">
+                    SELECTED<br />WORKS
+                </h2>
+                <div className="hidden md:block text-right">
+                    <span className="text-neutral-500 font-mono text-sm">[ 2024 - 2025 ]</span>
+                </div>
             </div>
 
-            <div
-                ref={containerRef}
-                className="flex h-full items-center pl-8 md:pl-16 gap-8 md:gap-16 w-max pt-20"
-            >
+            <div className="space-y-40">
                 {projects.map((project, idx) => (
-                    <div
-                        key={idx}
-                        className="group relative w-[80vw] md:w-[600px] h-[50vh] md:h-[60vh] bg-white/5 rounded-3xl border border-white/10 overflow-hidden hover:border-white/20 transition-colors flex-shrink-0"
-                    >
-                        {/* Project Image Placeholder */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-violet-900/20 group-hover:scale-105 transition-transform duration-700" />
-
-                        <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-t from-black/90 via-black/50 to-transparent">
-                            <h3 className="text-3xl font-bold text-white mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                    <div key={idx} className="project-card group relative grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                        {/* Project Info */}
+                        <div className="md:col-span-5 space-y-6 z-10 mix-blend-difference">
+                            <span className="text-blue-500 font-mono text-xl">/{project.id}</span>
+                            <h3 className="text-4xl md:text-6xl font-bold text-white font-heading group-hover:text-neutral-400 transition-colors">
                                 {project.title}
                             </h3>
-                            <p className="text-neutral-400 mb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                            <div className="flex gap-4 text-sm font-mono text-neutral-400 uppercase tracking-widest border-t border-white/20 pt-4 w-max">
+                                <span>{project.category}</span>
+                            </div>
+                            <p className="text-neutral-300 text-lg leading-relaxed max-w-md">
                                 {project.description}
                             </p>
+                            <button className="flex items-center gap-3 text-white font-bold hover:gap-6 transition-all duration-300 mt-4 group">
+                                VIEW CASE STUDY <ArrowUpRight className="w-5 h-5" />
+                            </button>
+                        </div>
 
-                            <div className="flex flex-wrap gap-2 mb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-150">
-                                {project.tech.map((t, i) => (
-                                    <span key={i} className="px-3 py-1 text-xs bg-white/10 rounded-full text-neutral-300">
-                                        {t}
-                                    </span>
-                                ))}
-                            </div>
-
-                            <div className="flex gap-4 translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 delay-200">
-                                <button className="flex items-center gap-2 px-6 py-2 bg-white text-black rounded-full font-medium hover:bg-neutral-200 transition-colors">
-                                    Live Demo <ArrowUpRight className="w-4 h-4" />
-                                </button>
-                                <button className="p-2 border border-white/20 rounded-full hover:bg-white/10 transition-colors">
-                                    <Github className="w-5 h-5 text-white" />
-                                </button>
-                            </div>
+                        {/* Project Image Area */}
+                        <div className="md:col-span-7 h-[60vh] md:h-[80vh] w-full overflow-hidden bg-neutral-900 relative">
+                            <div className={`project-img absolute inset-0 bg-gradient-to-br ${project.imageColor} mix-blend-screen opacity-80`} />
+                            {/* Placeholder pattern */}
+                            <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-20" />
+                            <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
                         </div>
                     </div>
                 ))}
-                {/* End Spacer */}
-                <div className="w-[10vw]" />
+            </div>
+
+            <div className="mt-32 text-center">
+                <button className="px-12 py-4 border border-white/20 rounded-full text-white font-bold hover:bg-white hover:text-black transition-all duration-300">
+                    VIEW ALL ARCHIVES
+                </button>
             </div>
         </section>
     );

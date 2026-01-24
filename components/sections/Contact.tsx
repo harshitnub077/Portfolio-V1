@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Github, Linkedin, Twitter, Mail, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,43 +11,68 @@ export default function Contact() {
     const containerRef = useRef<HTMLElement>(null);
 
     useEffect(() => {
-        //   const ctx = gsap.context(() => {
-        //      // Simple fade in
-        //   }, containerRef);
-        //   return () => ctx.revert();
+        const ctx = gsap.context(() => {
+            gsap.from(".footer-reveal", {
+                yPercent: -50,
+                opacity: 0,
+                scrollTrigger: {
+                    trigger: containerRef.current,
+                    start: "top 80%",
+                    end: "bottom bottom",
+                    scrub: 1
+                }
+            });
+        }, containerRef);
+        return () => ctx.revert();
     }, []);
 
     return (
-        <section ref={containerRef} className="py-32 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto text-center" id="contact">
-            <p className="text-blue-400 font-medium mb-4 uppercase tracking-widest text-sm">Get in Touch</p>
-            <h2 className="text-5xl md:text-7xl font-heading font-bold mb-12 text-white">Let's work together</h2>
+        <section ref={containerRef} className="bg-[#050505] min-h-screen flex flex-col justify-between pt-32 pb-10 px-4 md:px-12 relative overflow-hidden">
 
-            <div className="flex flex-col md:flex-row gap-8 justify-center mb-16">
-                <a href="mailto:example@email.com" className="group flex items-center justify-center gap-3 px-8 py-4 bg-white text-black rounded-full font-bold text-lg hover:bg-neutral-200 transition-colors">
-                    <Mail className="w-5 h-5" />
-                    <span>Send me an email</span>
-                    <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                </a>
-                <a href="#" className="flex items-center justify-center gap-3 px-8 py-4 border border-white/20 rounded-full font-medium text-lg hover:bg-white/10 transition-colors">
-                    Copy Email
-                </a>
-            </div>
-
-            <div className="flex justify-center gap-6">
-                {[
-                    { icon: Github, href: "#" },
-                    { icon: Linkedin, href: "#" },
-                    { icon: Twitter, href: "#" }
-                ].map((social, idx) => (
+            {/* Massive Call to Action */}
+            <div className="flex-grow flex items-center justify-center">
+                <div className="text-center space-y-8 z-10">
+                    <p className="text-neutral-500 font-mono text-sm tracking-widest uppercase mb-8">
+                        [ Ready to Start? ]
+                    </p>
                     <a
-                        key={idx}
-                        href={social.href}
-                        className="p-4 bg-white/5 rounded-full hover:bg-white/20 hover:scale-110 transition-all border border-white/5"
+                        href="mailto:contact@harshit.dev"
+                        className="group block relative"
                     >
-                        <social.icon className="w-6 h-6 text-white" />
+                        <h1 className="text-[15vw] leading-[0.8] font-black font-heading text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:to-violet-500 transition-all duration-500">
+                            LET'S TALK
+                        </h1>
+                        <ArrowUpRight className="absolute top-0 right-0 w-[5vw] h-[5vw] text-white opacity-0 group-hover:opacity-100 group-hover:-translate-y-4 group-hover:translate-x-4 transition-all duration-500" />
                     </a>
-                ))}
+                </div>
             </div>
+
+            {/* Footer Meta */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-white/10 pt-10 text-neutral-400 font-mono text-sm">
+                <div>
+                    <h4 className="text-white font-bold mb-4">SOCIALS</h4>
+                    <ul className="space-y-2">
+                        <li><a href="#" className="hover:text-white transition-colors">LinkedIn</a></li>
+                        <li><a href="#" className="hover:text-white transition-colors">GitHub</a></li>
+                        <li><a href="#" className="hover:text-white transition-colors">Twitter (X)</a></li>
+                        <li><a href="#" className="hover:text-white transition-colors">Instagram</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 className="text-white font-bold mb-4">LOCATION</h4>
+                    <p>New Delhi, India</p>
+                    <p>Remote Available</p>
+                </div>
+
+                <div className="md:text-right flex flex-col justify-between">
+                    <p>© 2026 Harshit Kudhial</p>
+                    <p className="text-xs text-neutral-600 mt-2">Designed & Engineered with Passion</p>
+                </div>
+            </div>
+
+            {/* Background Gradient */}
+            <div className="absolute bottom-0 left-0 w-full h-[50vh] bg-gradient-to-t from-blue-900/10 to-transparent pointer-events-none" />
         </section>
     );
 }
