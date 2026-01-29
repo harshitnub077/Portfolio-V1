@@ -1,26 +1,33 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Outfit, Space_Grotesk } from "next/font/google";
 import "./globals.css";
-import SmoothScroll from "@/components/layout/SmoothScroll";
-import Cursor from "@/components/layout/Cursor";
-import Preloader from "@/components/layout/Preloader";
-import Noise from "@/components/layout/Noise";
-import Vignette from "@/components/layout/Vignette";
 
-const inter = Inter({
-  variable: "--font-heading",
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "700", "900"],
 });
 
-const mono = JetBrains_Mono({
-  variable: "--font-sans",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "Harshit Kudhial | Portfolio",
-  description: "2nd Year Undergraduate at Newton School of Technology. AI & Full Stack Developer.",
+  title: "Harshit Kudhial | Digital Alchemy",
+  description: "Creative Developer & ML Engineer.",
 };
+
+export const viewport = {
+  themeColor: "#000000",
+};
+
+import GlobalCanvas from "@/components/v2/scene/GlobalCanvas";
+import SmoothScroll from "@/components/v2/layout/SmoothScroll";
+import Dock from "@/components/v2/ui/Dock";
+
+// ... existing code ...
 
 export default function RootLayout({
   children,
@@ -30,12 +37,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${mono.variable} antialiased bg-[var(--background)] text-[var(--foreground)]`}
+        className={`${outfit.variable} ${spaceGrotesk.variable} antialiased bg-black text-white`}
       >
-        <Preloader />
-        <Cursor />
-        <Noise />
-        <Vignette />
+        <GlobalCanvas />
+        <Dock />
         <SmoothScroll>
           {children}
         </SmoothScroll>
