@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+@theme {
+  --font-inter: var(--font-inter), sans-serif;
+  --font-space-mono: var(--font-space-mono), monospace;
+
+  /* V7 Swiss Kinetic Blueprint */
+  --color-background: #FFFFFF;
+  --color-foreground: #000000;
+
+  --color-primary: #DFFF00;
+  /* Acid Green */
+  --color-primary-foreground: #000000;
+
+  --color-accent: #000000;
+  /* Strict Black */
+  --color-accent-foreground: #FFFFFF;
+}
+
+@layer base {
+
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: #000000;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
+
+  html {
+    scrollbar-width: none;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-inter);
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+    font-weight: 500;
+    cursor: none;
+    /* Custom CAD Cursor */
+    /* Give the whole body a 1px border grid feel */
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
+    box-sizing: border-box;
+    min-height: 100vh;
+  }
+}
+
+@layer utilities {
+  .structural-grid {
+    background-image:
+      linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  .text-outline {
+    -webkit-text-stroke: 2px #000000;
+    color: transparent;
+  }
+
+  /* Specific GSAP Target class for About paragraph fill */
+  .text-fill-target {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to right, #000 50%, transparent 50%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    -webkit-text-stroke: 1px #000;
+  }
+}
+
+/* Lenis CSS */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
