@@ -4,14 +4,18 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
+
 const metrics = [
-    { target: 250, label: "LEETCODE SOLVED" },
-    { target: 300, label: "GITHUB COMMITS" },
+    { target: 230, label: "LEETCODE SOLVED" },
     { target: 100, label: "GFG PROBLEMS" },
+    { target: 8, label: "PROJECTS BUILT" },
 ];
 
 const technologies = [
-    "NEXT.JS", "REACT", "TYPESCRIPT", "NODE.JS", "GO", "PYTHON", "PYTORCH", "TENSORFLOW", "POSTGRESQL", "DOCKER", "AWS", "GSAP"
+    "PYTHON", "NEXT.JS", "REACT", "TYPESCRIPT", "NODE.JS",
+    "GSAP", "TAILWIND CSS", "JAVASCRIPT", "HTML", "CSS",
+    "PANDAS", "NUMPY", "SQL", "GIT", "GITHUB"
 ];
 
 // Reusable Counter Component
@@ -85,7 +89,7 @@ export default function Stats() {
 
                 <div className="flex-1 flex flex-col justify-center p-8 md:p-16 gap-12">
                     {metrics.map((metric, idx) => (
-                        <div key={idx} className="flex flex-col border-l-4 border-black pl-6">
+                        <div key={idx} className="flex flex-col border-l-4 border-secondary pl-6">
                             <div className="text-[12vw] md:text-[8vw] font-inter font-black leading-none text-black tracking-tighter">
                                 <TerminalCounter target={metric.target} /><span className="text-primary">+</span>
                             </div>

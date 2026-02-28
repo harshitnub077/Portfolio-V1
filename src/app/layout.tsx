@@ -30,8 +30,8 @@ export default function RootLayout({
 }>) {
   // Removed dark mode class to force Pure White background
   return (
-    <html lang="en">
-      <body className={`${inter.variable} ${spaceMono.variable} font-inter antialiased bg-white text-black`}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.variable} ${spaceMono.variable} font-inter antialiased bg-white text-black`} suppressHydrationWarning>
         <Preloader />
         <SmoothScrollProvider>
           {/* CustomCursor manages the sharp square crosshair */}

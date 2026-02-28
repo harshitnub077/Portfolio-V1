@@ -12,6 +12,9 @@
   /* Acid Green */
   --color-primary-foreground: #000000;
 
+  --color-secondary: #0047FF;
+  /* Electric Blue */
+
   --color-accent: #000000;
   /* Strict Black */
   --color-accent-foreground: #FFFFFF;
@@ -56,6 +59,11 @@
     box-sizing: border-box;
     min-height: 100vh;
   }
+
+  section {
+    background-color: var(--color-background);
+    min-height: 100vh;
+  }
 }
 
 @layer utilities {
@@ -80,6 +88,17 @@
     background-size: 200% 100%;
     background-position: 100% 0;
     -webkit-text-stroke: 1px #000;
+  }
+
+  /* Inverse class for dark backgrounds */
+  .text-fill-target-light {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to right, #fff 50%, transparent 50%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
   }
 }
 

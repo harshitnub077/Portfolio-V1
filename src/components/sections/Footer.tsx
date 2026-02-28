@@ -63,7 +63,7 @@ export default function Footer() {
                     ref={textRef}
                     className="text-[18vw] font-inter font-black uppercase leading-[0.75] tracking-tighter text-black w-full text-center"
                 >
-                    LET'S BUILD
+                    LET&apos;S BUILD
                 </h2>
             </div>
 

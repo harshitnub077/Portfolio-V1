@@ -6,28 +6,68 @@ import { ExternalLink, Github } from "lucide-react";
 
 const projects = [
     {
-        title: "PROJECT ZERO",
-        category: "GENERATIVE AI",
-        desc: "A text-to-image neural network pipeline built with PyTorch and deployed via FastAPI. Pushing the boundaries of latent diffusion.",
+        title: "COGNIFY",
+        category: "AI / ML",
+        desc: "Currently building—an intelligent platform pushing the frontiers of artificial intelligence and machine learning real-world applications.",
         year: "2024",
         link: "#",
         github: "#"
     },
     {
-        title: "DATA CORE",
-        category: "DATA ENGINEERING",
-        desc: "A high-performance analytics engine built on Go & PostgreSQL, processing gigabytes of financial data in real-time.",
-        year: "2023",
-        link: "#",
+        title: "SYNAPTIC CARE",
+        category: "HEALTH TECH",
+        desc: "Advanced healthcare interface designed to streamline medical processing and elevate patient care systems.",
+        year: "2024",
+        link: "https://synaptic-care.vercel.app",
         github: "#"
     },
     {
-        title: "NEURO WEB",
-        category: "FULL STACK",
-        desc: "An experimental web interface utilizing Three.js and real-time WebSockets to visualize neural network activity.",
-        year: "2023",
-        link: "#",
+        title: "CINEMATRIX",
+        category: "DATA SCIENCE",
+        desc: "A cinematic recommendation engine built on Streamlit, leveraging data analytics to curate personalized viewing experiences.",
+        year: "2024",
+        link: "https://cinematrix.streamlit.app/",
         github: "#"
+    },
+    {
+        title: "IPL WIN PREDICTOR",
+        category: " MACHINE LEARNING",
+        desc: "A predictive ML model that analyzes historical match data to forecast Indian Premier League outcomes in real-time.",
+        year: "2024",
+        link: "https://ipl-win-predictor-x.streamlit.app/",
+        github: "#"
+    },
+    {
+        title: "STITCHBLOOM",
+        category: "WEB APP",
+        desc: "A beautifully crafted web application blending e-commerce functionality with dynamic UI architecture.",
+        year: "2024",
+        link: "https://github.com/harshitnub077/StitchBloom",
+        github: "https://github.com/harshitnub077/StitchBloom"
+    },
+    {
+        title: "SPAM SHIELD",
+        category: "CLASSIFICATION ML",
+        desc: "A robust neural network implementation designed to detect and filter malicious spam communications.",
+        year: "2023",
+        link: "https://github.com/harshitnub077/SpamShield-ML",
+        github: "https://github.com/harshitnub077/SpamShield-ML"
+    },
+    {
+        title: "NANO URL",
+        category: "SAAS / TOOLING",
+        desc: "A high-performance URL shortening service built for speed, analytics, and infrastructure scalability.",
+        year: "2023",
+        link: "https://nano-url-eight.vercel.app",
+        github: "#"
+    },
+    {
+        title: "AGIS MCP",
+        category: "SYSTEMS",
+        desc: "An experimental infrastructure project exploring multi-context processing and system integrations.",
+        year: "2023",
+        link: "https://github.com/harshitnub077/AgisMCP",
+        github: "https://github.com/harshitnub077/AgisMCP"
     }
 ];
 
@@ -43,7 +83,7 @@ export default function Projects() {
                     04 // Selected Works Array
                 </h2>
                 <span className="font-space-mono text-xs uppercase tracking-tighter text-primary">
-                    [ 3 Items ]
+                    [ {projects.length} Items ]
                 </span>
             </div>
 
@@ -64,7 +104,7 @@ export default function Projects() {
                             <div className="w-full flex flex-col md:flex-row items-center justify-between p-6 md:p-12 cursor-none">
                                 <div className="flex-1">
                                     <span className="font-space-mono text-xs font-bold uppercase mb-2 block opacity-50">
-                                        {project.category} // {project.year}
+                                        {project.category} {'//'} {project.year}
                                     </span>
                                     <h3 className="font-inter font-black text-[8vw] md:text-[5vw] leading-[0.8] tracking-tighter uppercase text-black">
                                         {project.title}

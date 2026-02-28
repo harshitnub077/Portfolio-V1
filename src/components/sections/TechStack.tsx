@@ -4,9 +4,9 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
 const skills = [
-    "React.js", "Next.js", "TypeScript", "TailwindCSS",
-    "Node.js", "PostgreSQL", "Python", "PyTorch",
-    "TensorFlow", "AWS", "Docker", "GraphQL"
+    "Python", "HTML", "CSS", "JavaScript", "Next.js", "Node.js",
+    "Pandas", "React", "TypeScript", "Tailwind CSS", "GSAP",
+    "Git", "GitHub", "SQL", "NumPy"
 ];
 
 export default function TechStack() {
