@@ -34,22 +34,22 @@ export default function Quote1() {
     return (
         <section
             ref={containerRef}
-            className="w-full min-h-[60vh] bg-primary flex items-center justify-center relative overflow-hidden px-6"
+            className="w-full min-h-screen bg-primary flex items-center justify-center relative overflow-hidden px-6 py-20"
         >
             <div className="absolute inset-0 font-space-mono text-[20vw] font-bold text-black opacity-5 pointer-events-none leading-none select-none flex items-center justify-center">
                 VISION
             </div>
 
-            <div className="z-10 max-w-5xl mx-auto text-center perspective-1000">
+            <div className="z-10 max-w-7xl mx-auto text-center perspective-1000">
                 <h2
                     ref={textRef}
-                    className="font-inter font-black text-black text-4xl md:text-6xl lg:text-8xl leading-[0.9] tracking-tighter uppercase"
-                    style={{ transformStyle: "preserve-3d" }}
+                    className="font-inter font-black text-black leading-[0.92] tracking-tighter uppercase text-center"
+                    style={{ fontSize: "clamp(2rem, 5vw, 6rem)", transformStyle: "preserve-3d" }}
                 >
                     &quot;DESIGN IS NOT JUST WHAT IT LOOKS LIKE. <br className="hidden md:block" />
-                    <span className="text-white drop-shadow-[4px_4px_0_rgba(0,0,0,1)]">DESIGN IS HOW IT WORKS.&quot;</span>
+                    <span className="text-white drop-shadow-[6px_6px_0_rgba(0,0,0,1)]">DESIGN IS HOW IT WORKS.&quot;</span>
                 </h2>
-                <div className="mt-8 font-space-mono text-sm md:text-base font-bold text-black border-t-2 border-black inline-block pt-4 tracking-widest">
+                <div className="mt-10 font-space-mono text-base md:text-xl font-bold text-black border-t-2 border-black inline-block pt-5 tracking-[0.2em]">
                     — STEVE JOBS
                 </div>
             </div>
