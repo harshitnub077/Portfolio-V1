@@ -146,13 +146,13 @@ export default function Hero() {
                 {/* Left Column (Quote & Main Name) */}
                 <div className="w-full md:w-[70%] border-r-2 border-black flex flex-col p-6 md:p-12 h-full overflow-hidden relative">
 
-                    {/* Elegant Quote */}
+                    {/* Quote */}
                     <div ref={quoteRef} className="mt-auto mb-8 max-w-sm md:max-w-md border-l-2 border-secondary pl-4 py-1">
-                        <p className="font-inter italic text-sm md:text-base font-medium text-black/70 leading-relaxed md:bg-white/80 md:backdrop-blur-sm p-1 rounded">
-                            &quot;Design is not just what it looks like and feels like. Design is how it works.&quot;
+                        <p className="font-inter italic text-sm md:text-base font-medium text-black/70 leading-relaxed">
+                            &quot;First, solve the problem. Then, write the code.&quot;
                         </p>
                         <p className="font-space-mono text-xs uppercase tracking-widest text-secondary font-bold mt-2">
-                            — Steve Jobs
+                            — John Johnson
                         </p>
                     </div>
 
