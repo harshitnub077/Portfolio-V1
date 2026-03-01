@@ -14,7 +14,7 @@ export default function HeroBackground3D() {
 
         // ── Scene ──────────────────────────────────────────────────────
         const scene = new THREE.Scene();
-        scene.background = new THREE.Color(0xffffff);
+        scene.background = new THREE.Color(0x000000); // Pitch black background
 
         const camera = new THREE.PerspectiveCamera(55, w / h, 0.1, 200);
         camera.position.set(0, 14, 32);
@@ -26,17 +26,17 @@ export default function HeroBackground3D() {
         mount.appendChild(renderer.domElement);
 
         // ── Particle Wave Grid ──────────────────────────────────────────
-        const COLS = 60;
-        const ROWS = 60;
-        const SPACING = 0.7;
+        const COLS = 120;
+        const ROWS = 120;
+        const SPACING = 1.0;
         const count = COLS * ROWS;
 
         const positions = new Float32Array(count * 3);
         const colors = new Float32Array(count * 3);
         const sizes = new Float32Array(count);
 
-        const accentColor = new THREE.Color(0xc8f000); // lime green
-        const baseColor = new THREE.Color(0x000000);   // black
+        const accentColor = new THREE.Color(0xdfff00); // Neon Acid Green
+        const baseColor = new THREE.Color(0xffffff);   // white dots for contrast
         const midColor = new THREE.Color(0x888888);    // gray mid-tone
 
         for (let i = 0; i < ROWS; i++) {
@@ -97,7 +97,7 @@ export default function HeroBackground3D() {
                 new THREE.Vector3((COLS / 2) * SPACING, 0, y),
             ];
             const lGeo = new THREE.BufferGeometry().setFromPoints(pts);
-            const lMat = new THREE.LineBasicMaterial({ color: 0x000000, opacity: 0.07, transparent: true });
+            const lMat = new THREE.LineBasicMaterial({ color: 0xffffff, opacity: 0.1, transparent: true });
             scene.add(new THREE.Line(lGeo, lMat));
         }
         for (let j = 0; j < COLS; j += 8) {
@@ -107,7 +107,7 @@ export default function HeroBackground3D() {
                 new THREE.Vector3(x, 0, (ROWS / 2) * SPACING),
             ];
             const lGeo = new THREE.BufferGeometry().setFromPoints(pts);
-            const lMat = new THREE.LineBasicMaterial({ color: 0xc8f000, opacity: 0.3, transparent: true });
+            const lMat = new THREE.LineBasicMaterial({ color: 0xdfff00, opacity: 0.3, transparent: true });
             scene.add(new THREE.Line(lGeo, lMat));
         }
 

@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HKLogo from "@/components/ui/HKLogo";
+import HeroBackground3D from "@/components/ui/HeroBackground3D";
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -85,10 +86,13 @@ export default function Hero() {
     return (
         <section
             ref={containerRef}
-            className="relative flex flex-col w-screen h-screen bg-white structural-grid pt-16 border-b-2 border-black overflow-hidden"
+            className="relative flex flex-col w-screen h-screen bg-transparent structural-grid pt-16 border-b border-primary/20 overflow-hidden"
         >
+            {/* 3D Particle Grid Background */}
+            <HeroBackground3D />
+
             {/* Top Tilted Marquee (Absolute) */}
-            <div className="absolute -top-[5%] -right-[30%] w-[150vw] md:w-[100vw] border-y-[3px] border-black bg-primary overflow-hidden flex items-center py-4 z-[40] rotate-[50deg] pointer-events-none hidden md:flex shadow-2xl">
+            <div className="absolute -top-[5%] -right-[30%] w-[150vw] md:w-[100vw] border-y-[3px] border-primary bg-primary overflow-hidden flex items-center py-4 z-[40] rotate-[50deg] pointer-events-none hidden md:flex shadow-[0_0_30px_rgba(223,255,0,0.4)]">
                 <div ref={marquee2Ref} className="flex whitespace-nowrap">
                     <div className="font-space-mono font-bold text-black text-lg uppercase px-4 pointer-events-none">
                         {marqueeText}
@@ -101,12 +105,12 @@ export default function Hero() {
 
 
             {/* ─── Top Navigation Bar ─── */}
-            <nav className="absolute top-0 left-0 w-full h-16 border-b-2 border-black flex items-stretch justify-between bg-white/90 backdrop-blur-sm z-50 overflow-hidden">
+            <nav className="absolute top-0 left-0 w-full h-16 border-b border-primary/20 flex items-stretch justify-between bg-background/50 backdrop-blur-md z-50 overflow-hidden">
 
                 {/* Logo / Monogram */}
-                <div className="flex items-center gap-3 px-5 border-r-2 border-black shrink-0">
+                <div className="flex items-center gap-3 px-5 border-r border-primary/20 shrink-0">
                     <HKLogo size={36} />
-                    <span className="font-space-mono text-xs font-bold uppercase tracking-tighter hidden sm:block">
+                    <span className="font-space-mono text-xs font-bold uppercase tracking-tighter hidden sm:block text-foreground">
                         Harshit Kudhial
                     </span>
                 </div>
@@ -122,7 +126,7 @@ export default function Hero() {
                         <a
                             key={item.label}
                             href={item.href}
-                            className="flex items-center px-6 font-space-mono text-xs font-bold uppercase tracking-widest text-black border-r border-black/20 hover:bg-black hover:text-primary transition-colors duration-200"
+                            className="flex items-center px-6 font-space-mono text-xs font-bold uppercase tracking-widest text-foreground hover:bg-primary hover:text-black transition-colors duration-200"
                         >
                             {item.label}
                         </a>
@@ -130,69 +134,69 @@ export default function Hero() {
                 </div>
 
                 {/* Right: Open to Work Badge */}
-                <div className="flex items-center gap-3 px-6 border-l-2 border-black shrink-0">
+                <div className="flex items-center gap-3 px-6 border-l border-primary/20 shrink-0">
                     <span className="relative flex h-2 w-2">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
                     </span>
-                    <span className="font-space-mono text-xs font-bold uppercase tracking-tighter text-black hidden sm:block">
+                    <span className="font-space-mono text-xs font-bold uppercase tracking-tighter text-foreground hidden sm:block">
                         Open To Work
                     </span>
                 </div>
             </nav>
 
             {/* Main Structural Quadrants */}
-            <div className="flex-1 flex flex-col md:flex-row w-full z-20">
+            <div className="flex-1 flex flex-col md:flex-row w-full z-20 pointer-events-none">
                 {/* Left Column (Quote & Main Name) */}
-                <div className="w-full md:w-[70%] border-r-2 border-black flex flex-col p-6 md:p-12 h-full overflow-hidden relative">
+                <div className="w-full md:w-[70%] border-r border-primary/20 flex flex-col p-6 md:p-12 h-full overflow-hidden relative">
 
                     {/* Quote */}
-                    <div ref={quoteRef} className="mt-auto mb-8 max-w-sm md:max-w-md border-l-2 border-secondary pl-4 py-1">
-                        <p className="font-inter italic text-sm md:text-base font-medium text-black/70 leading-relaxed">
+                    <div ref={quoteRef} className="mt-auto mb-8 max-w-sm md:max-w-md border-l-2 border-primary pl-4 py-1 pointer-events-auto bg-background/40 backdrop-blur-sm">
+                        <p className="font-inter italic text-sm md:text-base font-medium text-foreground/80 leading-relaxed">
                             &quot;First, solve the problem. Then, write the code.&quot;
                         </p>
-                        <p className="font-space-mono text-xs uppercase tracking-widest text-secondary font-bold mt-2">
+                        <p className="font-space-mono text-xs uppercase tracking-widest text-primary font-bold mt-2">
                             — John Johnson
                         </p>
                     </div>
 
                     <div className="overflow-hidden">
-                        <h1 ref={name1Ref} className="text-[18vw] md:text-[14vw] font-inter font-black leading-[0.8] tracking-tighter uppercase text-black">
+                        <h1 ref={name1Ref} className="text-[18vw] md:text-[14vw] font-inter font-black leading-[0.8] tracking-tighter uppercase text-foreground drop-shadow-[0_0_15px_rgba(223,255,0,0.2)]">
                             HARSHIT
                         </h1>
                     </div>
                     <div className="overflow-hidden mt-[-2vw]">
-                        <h1 ref={name2Ref} className="text-[18vw] md:text-[14vw] font-inter font-black leading-[0.8] tracking-tighter uppercase text-outline">
+                        <h1 ref={name2Ref} className="text-[18vw] md:text-[14vw] font-inter font-black leading-[0.8] tracking-tighter uppercase text-outline drop-shadow-[0_0_15px_rgba(223,255,0,0.2)]">
                             KUDHIAL
                         </h1>
                     </div>
                 </div>
 
                 {/* Right Column (Details) */}
-                <div className="w-full md:w-[30%] flex flex-col h-full bg-white relative z-20">
-                    <div className="flex-1 border-b-2 border-black p-6 md:p-12 flex flex-col justify-end bg-black text-white">
-                        <h3 className="font-inter font-bold text-2xl md:text-3xl uppercase leading-none mb-4">
+                <div className="w-full md:w-[30%] flex flex-col h-full bg-transparent relative z-20">
+                    <div className="flex-1 border-b border-primary/20 p-6 md:p-12 flex flex-col justify-end bg-background/50 backdrop-blur-sm text-foreground">
+                        <h3 className="font-inter font-bold text-2xl md:text-3xl uppercase leading-none mb-4 text-primary">
                             Full Stack<br />Engineer
                         </h3>
                         <p className="font-space-mono text-xs leading-tight opacity-70">
                             Architecting scalable web infrastructure and integrating machine learning pipelines for high-performance applications.
                         </p>
                     </div>
-                    <div className="h-32 md:h-1/3 bg-white p-6 md:p-12 flex items-center justify-center border-t border-black">
-                        <div className="w-16 h-16 md:w-24 md:h-24 border-4 border-black rounded-full flex items-center justify-center">
-                            <span className="font-space-mono text-2xl font-bold animate-[spin_4s_linear_infinite]">↓</span>
+                    <div className="h-32 md:h-1/3 bg-background/20 backdrop-blur-md p-6 md:p-12 flex items-center justify-center pointer-events-auto">
+                        <div className="w-16 h-16 md:w-24 md:h-24 border border-primary/50 hover:bg-primary/20 transition-colors rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(223,255,0,0.2)]">
+                            <span className="font-space-mono text-xl md:text-2xl font-bold animate-[spin_4s_linear_infinite] text-primary">↓</span>
                         </div>
                     </div>
                 </div>
             </div>
 
             {/* Acid Green Horizontal Kinetic Marquee (Bottom Flush) */}
-            <div className="w-full border-t-2 border-black bg-primary overflow-hidden flex items-center py-4 z-30 shrink-0">
+            <div className="w-full border-t border-primary/20 bg-primary overflow-hidden flex items-center py-4 z-30 shrink-0 pointer-events-none shadow-[0_0_30px_rgba(223,255,0,0.3)]">
                 <div ref={marqueeRef} className="flex whitespace-nowrap">
-                    <div className="font-space-mono font-bold text-black text-lg uppercase px-4 pointer-events-none">
+                    <div className="font-space-mono font-bold text-black text-lg uppercase px-4">
                         {marqueeText}
                     </div>
-                    <div className="font-space-mono font-bold text-black text-lg uppercase px-4 pointer-events-none">
+                    <div className="font-space-mono font-bold text-black text-lg uppercase px-4">
                         {marqueeText}
                     </div>
                 </div>

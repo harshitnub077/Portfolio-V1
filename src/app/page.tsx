@@ -9,17 +9,12 @@ import Quote2 from "@/components/sections/Quote2";
 import Effects from "@/components/ui/Effects";
 import PageWrapper from "@/components/ui/PageWrapper";
 
-import SectionTransition from "@/components/ui/SectionTransition";
-
-import SectionTransition2 from "@/components/ui/SectionTransition2";
-
 export default function Home() {
   return (
     <PageWrapper>
       <Effects />
       <Hero />
       <Quote1 />
-      <SectionTransition2 />
       <About />
       <Stats />
       <Quote2 />

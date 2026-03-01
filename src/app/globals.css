@@ -4,20 +4,23 @@
   --font-inter: var(--font-inter), sans-serif;
   --font-space-mono: var(--font-space-mono), monospace;
 
-  /* V7 Swiss Kinetic Blueprint */
-  --color-background: #FFFFFF;
-  --color-foreground: #000000;
+  /* Pure Neon & Black Theme */
+  --color-background: #000000;
+  /* Pitch Black */
+  --color-foreground: #F5F5F5;
+  /* Off-White */
 
   --color-primary: #DFFF00;
-  /* Acid Green */
+  /* Previous Neon Acid Green */
   --color-primary-foreground: #000000;
 
-  --color-secondary: #0047FF;
-  /* Electric Blue */
+  --color-secondary: #FF007F;
+  /* Hot Pink (No blues) */
 
-  --color-accent: #000000;
-  /* Strict Black */
-  --color-accent-foreground: #FFFFFF;
+  --color-accent: #111111;
+  /* Dark Gray background for boxes */
+  --color-accent-foreground: #DFFF00;
+  /* Acid green text on accent boxes */
 }
 
 @layer base {
@@ -27,7 +30,8 @@
   ::before,
   ::backdrop,
   ::file-selector-button {
-    border-color: #000000;
+    border-color: #333333;
+    /* Dark gray fallback */
   }
 
   ::-webkit-scrollbar {
@@ -54,8 +58,8 @@
     cursor: none;
     /* Custom CAD Cursor */
     /* Give the whole body a 1px border grid feel */
-    border-left: 2px solid #000;
-    border-right: 2px solid #000;
+    border-left: 2px solid var(--color-primary);
+    border-right: 2px solid var(--color-primary);
     box-sizing: border-box;
     min-height: 100vh;
   }
@@ -69,13 +73,13 @@
 @layer utilities {
   .structural-grid {
     background-image:
-      linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+      linear-gradient(to right, rgba(223, 255, 0, 0.08) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(223, 255, 0, 0.08) 1px, transparent 1px);
     background-size: 50px 50px;
   }
 
   .text-outline {
-    -webkit-text-stroke: 2px #000000;
+    -webkit-text-stroke: 2px var(--color-primary);
     color: transparent;
   }
 
@@ -84,10 +88,10 @@
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
-    background-image: linear-gradient(to right, #000 50%, transparent 50%);
+    background-image: linear-gradient(to right, var(--color-primary) 50%, transparent 50%);
     background-size: 200% 100%;
     background-position: 100% 0;
-    -webkit-text-stroke: 1px #000;
+    -webkit-text-stroke: 1px var(--color-primary);
   }
 
   /* Inverse class for dark backgrounds */
@@ -95,10 +99,10 @@
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
-    background-image: linear-gradient(to right, #fff 50%, transparent 50%);
+    background-image: linear-gradient(to right, var(--color-foreground) 50%, transparent 50%);
     background-size: 200% 100%;
     background-position: 100% 0;
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+    -webkit-text-stroke: 1px rgba(235, 228, 247, 0.2);
   }
 }
 
