@@ -67,16 +67,41 @@ export default function Quote1() {
     return (
         <section
             ref={containerRef}
-            className="relative w-full min-h-[80vh] bg-background structural-grid flex flex-col border-b border-primary/20 overflow-hidden"
+            className="relative w-full min-h-screen bg-background flex flex-col border-b border-primary/20 overflow-hidden"
         >
+            {/* 3D Perspective Grid Background */}
+            <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden flex items-center justify-center">
+                <div
+                    className="absolute w-[200vw] h-[200vh] -top-[50vh]"
+                    style={{
+                        backgroundImage: `linear-gradient(to right, rgba(223, 255, 0, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(223, 255, 0, 0.05) 1px, transparent 1px)`,
+                        backgroundSize: '100px 100px',
+                        transform: 'perspective(1000px) rotateX(60deg) scale(1.5)',
+                        transformOrigin: 'top center',
+                        animation: 'gridMove 10s linear infinite'
+                    }}
+                />
+                {/* Vignette and Depth Fades */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background opacity-80" />
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,var(--color-background)_80%)] opacity-90" />
+            </div>
+
+            <style dangerouslySetInnerHTML={{
+                __html: `
+                @keyframes gridMove {
+                    0% { transform: perspective(1000px) rotateX(60deg) translateY(0); }
+                    100% { transform: perspective(1000px) rotateX(60deg) translateY(100px); }
+                }
+            `}} />
+
             {/* Top accent rule */}
-            <div className="w-full h-[2px] bg-primary/20 shrink-0" />
+            <div className="w-full h-[2px] bg-primary/20 shrink-0 relative z-10" />
 
             {/* ── Quote block — takes flex-1 growing space ── */}
-            <div className="flex-1 flex flex-col justify-center px-8 md:px-14 xl:px-20 py-12 md:py-0 relative">
+            <div className="flex-1 flex flex-col justify-center px-8 md:px-14 xl:px-20 py-12 md:py-0 relative z-10">
 
                 {/* Section index */}
-                <div className="absolute top-6 right-8 md:right-14 font-space-mono text-[10px] uppercase tracking-[0.25em] text-primary/50 font-bold">
+                <div className="absolute top-6 right-8 md:right-14 font-space-mono text-[10px] uppercase tracking-[0.25em] text-foreground/50 font-bold">
                     Philosophy / 01
                 </div>
 
@@ -88,7 +113,7 @@ export default function Quote1() {
                                 {line.fill === "solid" && (
                                     <h2
                                         className="font-inter font-black uppercase tracking-tighter text-foreground"
-                                        style={{ fontSize: "clamp(2.8rem, 7vw, 9vw)" }}
+                                        style={{ fontSize: "clamp(2.2rem, 5.5vw, 7.5vw)" }}
                                     >
                                         {line.text}
                                     </h2>
@@ -97,7 +122,7 @@ export default function Quote1() {
                                     <h2
                                         className="font-inter font-black uppercase tracking-tighter text-outline"
                                         style={{
-                                            fontSize: "clamp(2.8rem, 7vw, 9vw)",
+                                            fontSize: "clamp(2.2rem, 5.5vw, 7.5vw)",
                                         }}
                                     >
                                         {line.text}
@@ -105,8 +130,8 @@ export default function Quote1() {
                                 )}
                                 {line.fill === "accent" && (
                                     <h2
-                                        className="font-inter font-black uppercase tracking-tighter text-black bg-primary inline-block px-3"
-                                        style={{ fontSize: "clamp(2.8rem, 7vw, 9vw)" }}
+                                        className="font-inter font-black uppercase tracking-tighter text-foreground bg-primary inline-block px-3"
+                                        style={{ fontSize: "clamp(2.2rem, 5.5vw, 7.5vw)" }}
                                     >
                                         {line.text}
                                     </h2>
@@ -120,7 +145,7 @@ export default function Quote1() {
                 <div ref={authorRef} className="flex items-center gap-4">
                     <div className="w-8 h-[2px] bg-primary shrink-0" />
                     <div>
-                        <p className="font-space-mono text-xs font-bold uppercase tracking-[0.2em] text-primary">
+                        <p className="font-space-mono text-xs font-bold uppercase tracking-[0.2em] text-foreground">
                             Steve Jobs
                         </p>
                         <p className="font-space-mono text-[9px] uppercase tracking-widest text-foreground/50 mt-[1px]">
@@ -131,7 +156,7 @@ export default function Quote1() {
             </div>
 
             {/* ── Full-width divider ── */}
-            <div ref={dividerRef} className="w-full h-[1px] bg-primary/30 shrink-0 shadow-[0_0_15px_rgba(223,255,0,0.5)]" />
+            <div ref={dividerRef} className="w-full h-[1px] bg-primary/30 shrink-0 shadow-[0_0_15px_rgba(223,255,0,0.5)] relative z-10" />
 
         </section>
     );
