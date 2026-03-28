@@ -40,7 +40,7 @@ export default function SectionTransition2() {
         return () => ctx.revert();
     }, []);
 
-    const barColors = ["#000000", "#DFFF00", "#000000", "#DFFF00", "#000000"];
+    const barColors = ["#000000", "#06b6d4", "#000000", "#06b6d4", "#000000"];
 
     return (
         <div

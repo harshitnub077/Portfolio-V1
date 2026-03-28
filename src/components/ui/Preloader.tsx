@@ -14,8 +14,8 @@ export default function Preloader() {
       .loader-animated {
         width: 40px;
         aspect-ratio: 1;
-        --c: linear-gradient(#000 0 0);
-        --m: radial-gradient(farthest-side, #000 92%, #0000);
+        --c: linear-gradient(#06b6d4 0 0);
+        --m: radial-gradient(farthest-side, #06b6d4 92%, #0000);
         background: var(--m) center/12px 12px, var(--c) left 50% top -20px/8px 16px, var(--c) left 50% bottom -20px/8px 16px, var(--c) top 50% left -20px/16px 8px, var(--c) top 50% right -20px/16px 8px;
         background-repeat: no-repeat;
         animation: l18-1 1.5s infinite, l18-2 1.5s infinite;

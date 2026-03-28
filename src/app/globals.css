@@ -4,23 +4,21 @@
   --font-inter: var(--font-inter), sans-serif;
   --font-space-mono: var(--font-space-mono), monospace;
 
-  /* Pure Neon & Black Theme */
+  /* Cyber-Electric Theme */
   --color-background: #000000;
-  /* Pitch Black */
-  --color-foreground: #F5F5F5;
-  /* Off-White */
+  --color-foreground: #FFFFFF;
 
-  --color-primary: #DFFF00;
-  /* Previous Neon Acid Green */
-  --color-primary-foreground: #000000;
+  --color-primary: #06b6d4;   /* Radiant Cyan */
+  --color-secondary: #6366f1; /* Deep Cobalt / Indigo */
+  --color-accent: #3b82f6;    /* Electric Blue */
+  --color-accent-foreground: #FFFFFF;
 
-  --color-secondary: #FF007F;
-  /* Hot Pink (No blues) */
-
-  --color-accent: #111111;
-  /* Dark Gray background for boxes */
-  --color-accent-foreground: #DFFF00;
-  /* Acid green text on accent boxes */
+  /* Theme Tokens */
+  --theme-cyan: #06b6d4;
+  --theme-blue: #3b82f6;
+  --theme-indigo: #6366f1;
+  --theme-slate: #1e293b;
+  --theme-glow: rgba(6, 182, 212, 0.4);
 }
 
 @layer base {
@@ -30,8 +28,7 @@
   ::before,
   ::backdrop,
   ::file-selector-button {
-    border-color: #333333;
-    /* Dark gray fallback */
+    border-color: rgba(255, 255, 255, 0.1);
   }
 
   ::-webkit-scrollbar {
@@ -67,14 +64,18 @@
   section {
     background-color: var(--color-background);
     min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }
 
 @layer utilities {
   .structural-grid {
     background-image:
-      linear-gradient(to right, rgba(223, 255, 0, 0.08) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(223, 255, 0, 0.08) 1px, transparent 1px);
+      linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
     background-size: 50px 50px;
   }
 

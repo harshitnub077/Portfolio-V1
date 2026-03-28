@@ -1,7 +1,7 @@
 export default function HKLogo({ size = 36, inverted = false }: { size?: number; inverted?: boolean }) {
     const fg = inverted ? "#ffffff" : "#000000";
     const bg = inverted ? "#000000" : "#ffffff";
-    const accent = "#c8f000"; // primary color
+    const accent = "var(--color-primary)"; // primary theme color
 
     return (
         <svg

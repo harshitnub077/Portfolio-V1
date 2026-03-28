@@ -35,9 +35,9 @@ export default function HeroBackground3D() {
         const colors = new Float32Array(count * 3);
         const sizes = new Float32Array(count);
 
-        const accentColor = new THREE.Color(0xdfff00); // Neon Acid Green
-        const baseColor = new THREE.Color(0xffffff);   // white dots for contrast
-        const midColor = new THREE.Color(0x888888);    // gray mid-tone
+        const accentColor = new THREE.Color(0x06b6d4); // Radiant Cyan
+        const baseColor = new THREE.Color(0x3b82f6);   // Electric Blue
+        const midColor = new THREE.Color(0x6366f1);    // Deep Cobalt
 
         for (let i = 0; i < ROWS; i++) {
             for (let j = 0; j < COLS; j++) {
@@ -52,7 +52,7 @@ export default function HeroBackground3D() {
                 colors[idx * 3 + 0] = c.r;
                 colors[idx * 3 + 1] = c.g;
                 colors[idx * 3 + 2] = c.b;
-                sizes[idx] = isAccent ? 4.5 : 1.8 + Math.random() * 1.2;
+                sizes[idx] = isAccent ? 8.0 : 3.0 + Math.random() * 2.5;
             }
         }
 
@@ -97,7 +97,7 @@ export default function HeroBackground3D() {
                 new THREE.Vector3((COLS / 2) * SPACING, 0, y),
             ];
             const lGeo = new THREE.BufferGeometry().setFromPoints(pts);
-            const lMat = new THREE.LineBasicMaterial({ color: 0xffffff, opacity: 0.1, transparent: true });
+            const lMat = new THREE.LineBasicMaterial({ color: 0x06b6d4, opacity: 0.2, transparent: true });
             scene.add(new THREE.Line(lGeo, lMat));
         }
         for (let j = 0; j < COLS; j += 8) {
@@ -107,7 +107,7 @@ export default function HeroBackground3D() {
                 new THREE.Vector3(x, 0, (ROWS / 2) * SPACING),
             ];
             const lGeo = new THREE.BufferGeometry().setFromPoints(pts);
-            const lMat = new THREE.LineBasicMaterial({ color: 0xdfff00, opacity: 0.3, transparent: true });
+            const lMat = new THREE.LineBasicMaterial({ color: 0x6366f1, opacity: 0.15, transparent: true });
             scene.add(new THREE.Line(lGeo, lMat));
         }
 

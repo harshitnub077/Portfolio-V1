@@ -41,7 +41,7 @@ export default function SectionTransition3() {
         return () => ctx.revert();
     }, []);
 
-    const colors = ["#DFFF00", "#000000", "#DFFF00", "#000000", "#DFFF00", "#000000"];
+    const colors = ["#06b6d4", "#000000", "#06b6d4", "#000000", "#06b6d4", "#000000"];
 
     return (
         <div

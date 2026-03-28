@@ -79,26 +79,27 @@ export default function Stats() {
     return (
         <section
             ref={containerRef}
-            className="relative flex flex-col md:flex-row min-h-screen w-screen bg-background border-b border-primary/20 structural-grid overflow-hidden"
+            className="relative flex flex-col md:flex-row min-h-screen w-screen bg-background border-b border-white/5 structural-grid overflow-hidden"
         >
-            {/* Ambient Background Glow */}
-            <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[60vw] h-[60vh] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
+            {/* Ambient Multiverse Glow */}
+            <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[60vw] h-[60vh] bg-cyan-600/10 blur-[120px] rounded-full pointer-events-none" />
+            <div className="absolute bottom-0 right-0 w-[40vw] h-[40vh] bg-blue-600/5 blur-[100px] rounded-full pointer-events-none" />
 
             {/* Left Column: Terminal Counters */}
-            <div className="w-full md:w-[50%] border-r border-primary/20 flex flex-col relative z-10 bg-background/50 backdrop-blur-sm">
-                <div className="border-b border-primary/20 p-4 bg-primary/10 flex justify-between">
-                    <span className="font-space-mono text-xs font-bold uppercase text-primary tracking-widest">02 // Metrics Dashboard</span>
-                    <span className="font-space-mono text-xs font-bold uppercase text-primary animate-pulse">Status: OK</span>
+            <div className="w-full md:w-[50%] border-r border-white/5 flex flex-col relative z-10 bg-background/50 backdrop-blur-sm">
+                <div className="border-b border-cyan-500/20 p-4 bg-cyan-500/10 flex justify-between">
+                    <span className="font-space-mono text-xs font-bold uppercase text-cyan-400 tracking-widest">03 // Metrics Dashboard</span>
+                    <span className="font-space-mono text-xs font-bold uppercase text-blue-400 animate-pulse">Status: ANALYZING...</span>
                 </div>
 
                 <div className="flex-1 flex flex-col justify-center p-8 md:p-16 gap-16">
                     {metrics.map((metric, idx) => (
-                        <div key={idx} className="flex flex-col border-l-2 border-primary pl-6 hover:translate-x-2 transition-transform duration-300">
-                            <div className="text-[12vw] md:text-[8vw] font-inter font-black leading-none text-foreground tracking-tighter drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">
-                                <TerminalCounter target={metric.target} /><span className="text-primary drop-shadow-[0_0_15px_rgba(223,255,0,0.5)]">+</span>
+                        <div key={idx} className="flex flex-col border-l-2 border-cyan-500 pl-6 hover:translate-x-2 transition-transform duration-300 group">
+                            <div className="text-[12vw] md:text-[8vw] font-inter font-black leading-none text-foreground tracking-tighter drop-shadow-[0_0_20px_rgba(6,182,212,0.2)] group-hover:text-cyan-400 transition-colors">
+                                <TerminalCounter target={metric.target} /><span className="text-cyan-500 drop-shadow-[0_0_15px_rgba(6,182,212,0.6)]">+</span>
                             </div>
                             <div className="font-space-mono font-bold tracking-widest uppercase text-sm mt-3 text-foreground/70">
-                                <span className="text-primary">&gt;_</span> {metric.label}
+                                <span className="text-cyan-400">&gt;_</span> {metric.label}
                             </div>
                         </div>
                     ))}
@@ -107,9 +108,9 @@ export default function Stats() {
 
             {/* Right Column: Tech Arsenal */}
             <div className="w-full md:w-[50%] flex flex-col relative z-10 bg-background/80 backdrop-blur-md">
-                <div className="border-b border-primary/20 p-4 flex justify-between bg-black/50">
-                    <span className="font-space-mono text-xs font-bold uppercase text-foreground/50 tracking-widest">03 // Tech Stack Allocation</span>
-                    <span className="font-space-mono text-xs font-bold uppercase text-primary">Active</span>
+                <div className="border-b border-white/5 p-4 flex justify-between bg-black/50">
+                    <span className="font-space-mono text-xs font-bold uppercase text-foreground/50 tracking-widest">04 // Tech Stack Allocation</span>
+                    <span className="font-space-mono text-xs font-bold uppercase text-cyan-400">Primary_Node</span>
                 </div>
 
                 <div className="flex-1 w-full flex items-center justify-center p-8 md:p-12 lg:p-16">
@@ -117,7 +118,7 @@ export default function Stats() {
                         {technologies.map((tech, idx) => (
                             <div
                                 key={idx}
-                                className="bg-transparent text-foreground border border-primary/30 px-5 py-3 font-space-mono font-bold tracking-widest text-sm md:text-base uppercase hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 transform-gpu cursor-default shadow-[0_0_10px_rgba(223,255,0,0.0)] hover:shadow-[0_0_20px_rgba(223,255,0,0.4)] hover:-translate-y-1 rounded-sm"
+                                className="bg-transparent text-foreground border border-white/10 px-5 py-3 font-space-mono font-bold tracking-widest text-sm md:text-base uppercase hover:bg-indigo-600 hover:text-white hover:border-blue-400 transition-all duration-300 transform-gpu cursor-default shadow-[0_0_10px_rgba(99,102,241,0.0)] hover:shadow-[0_0_30px_rgba(99,102,241,0.4)] hover:-translate-y-1 rounded-sm"
                             >
                                 {tech}
                             </div>

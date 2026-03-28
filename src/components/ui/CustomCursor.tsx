@@ -43,8 +43,8 @@ export default function CustomCursor() {
             y: mousePosition.y - 8,
             height: 16,
             width: 16,
-            backgroundColor: "#FFFFFF", // White against mix-blend-difference becomes black, or black against white becomes white
-            border: "0px solid #DFFF00",
+            backgroundColor: "#FFFFFF",
+            border: "0px solid #06b6d4",
             borderRadius: "0px", // Strict square
         },
         hover: {
@@ -53,7 +53,7 @@ export default function CustomCursor() {
             height: 48,
             width: 48,
             backgroundColor: "transparent",
-            border: "4px solid #DFFF00", // Acid Green
+            border: "4px solid #06b6d4",
             borderRadius: "0px",
         },
     };

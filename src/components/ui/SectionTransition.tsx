@@ -59,7 +59,7 @@ export default function SectionTransition() {
                 ref={band1Ref}
                 className="absolute inset-y-0 left-0 w-full"
                 style={{
-                    background: "#DFFF00",
+                    background: "#06b6d4",
                     transform: "translateX(-105%) skewX(-4deg)",
                     clipPath: "polygon(4% 0%, 100% 0%, 96% 100%, 0% 100%)",
                 }}

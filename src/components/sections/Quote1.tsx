@@ -67,42 +67,45 @@ export default function Quote1() {
     return (
         <section
             ref={containerRef}
-            className="relative w-full min-h-screen bg-background flex flex-col border-b border-primary/20 overflow-hidden"
+            className="relative w-full min-h-screen bg-background flex flex-col border-b border-white/5 overflow-hidden"
         >
-            {/* 3D Perspective Grid Background */}
-            <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden flex items-center justify-center">
+            {/* Atmospheric Aurora Background */}
+            <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+                {/* Noise Texture Overlay */}
+                <div className="absolute inset-0 opacity-[0.03] z-20 pointer-events-none" 
+                     style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3Y%3Cfilter id='noiseFilter'%3Y%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3Y%3C/filter%3Y%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3Y%3C/svg%3E")` }} />
+                
+                {/* Large Soft Glows */}
+                <div className="absolute top-[-10%] left-[-10%] w-[70vw] h-[70vh] bg-cyan-600/15 blur-[120px] rounded-full animate-pulse" 
+                     style={{ animationDuration: '8s', backgroundColor: 'rgba(6, 182, 212, 0.15)' }} />
+                <div className="absolute bottom-[0%] right-[-5%] w-[60vw] h-[60vh] bg-blue-600/10 blur-[100px] rounded-full animate-pulse" 
+                     style={{ animationDuration: '12s', animationDelay: '2s', backgroundColor: 'rgba(59, 130, 246, 0.1)' }} />
+                <div className="absolute top-[20%] right-[10%] w-[40vw] h-[40vh] bg-cyan-600/5 blur-[150px] rounded-full" style={{ backgroundColor: 'rgba(6, 182, 212, 0.05)' }} />
+
+                {/* Refined Perspective Grid (Faint) */}
                 <div
-                    className="absolute w-[200vw] h-[200vh] -top-[50vh]"
+                    className="absolute w-[200vw] h-[200vh] -top-[50vh] left-[-50vw] opacity-15"
                     style={{
-                        backgroundImage: `linear-gradient(to right, rgba(223, 255, 0, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(223, 255, 0, 0.05) 1px, transparent 1px)`,
-                        backgroundSize: '100px 100px',
-                        transform: 'perspective(1000px) rotateX(60deg) scale(1.5)',
+                        backgroundImage: `linear-gradient(to right, rgba(6, 182, 212, 0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(6, 182, 212, 0.1) 1px, transparent 1px)`,
+                        backgroundSize: '120px 120px',
+                        transform: 'perspective(1200px) rotateX(65deg) scale(1.4)',
                         transformOrigin: 'top center',
-                        animation: 'gridMove 10s linear infinite'
                     }}
                 />
-                {/* Vignette and Depth Fades */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background opacity-80" />
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,var(--color-background)_80%)] opacity-90" />
+
+                {/* Depth Fades */}
+                <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background opacity-90" />
             </div>
 
-            <style dangerouslySetInnerHTML={{
-                __html: `
-                @keyframes gridMove {
-                    0% { transform: perspective(1000px) rotateX(60deg) translateY(0); }
-                    100% { transform: perspective(1000px) rotateX(60deg) translateY(100px); }
-                }
-            `}} />
-
             {/* Top accent rule */}
-            <div className="w-full h-[2px] bg-primary/20 shrink-0 relative z-10" />
+            <div className="w-full h-[1px] bg-white/10 shrink-0 relative z-10" />
 
-            {/* ── Quote block — takes flex-1 growing space ── */}
+            {/* ── Quote block ── */}
             <div className="flex-1 flex flex-col justify-center px-8 md:px-14 xl:px-20 py-12 md:py-0 relative z-10">
 
                 {/* Section index */}
-                <div className="absolute top-6 right-8 md:right-14 font-space-mono text-[10px] uppercase tracking-[0.25em] text-foreground/50 font-bold">
-                    Philosophy / 01
+                <div className="absolute top-12 right-8 md:right-14 font-space-mono text-[10px] uppercase tracking-[0.25em] text-cyan-400 font-bold bg-cyan-500/10 px-3 py-1 border border-cyan-500/20" style={{ color: '#22d3ee', backgroundColor: 'rgba(6, 182, 212, 0.1)', borderColor: 'rgba(6, 182, 212, 0.2)' }}>
+                    Philosophy // 01
                 </div>
 
                 {/* Massive quote lines */}
@@ -123,6 +126,7 @@ export default function Quote1() {
                                         className="font-inter font-black uppercase tracking-tighter text-outline"
                                         style={{
                                             fontSize: "clamp(2.2rem, 5.5vw, 7.5vw)",
+                                            WebkitTextStroke: "2px #06b6d4"
                                         }}
                                     >
                                         {line.text}
@@ -130,8 +134,8 @@ export default function Quote1() {
                                 )}
                                 {line.fill === "accent" && (
                                     <h2
-                                        className="font-inter font-black uppercase tracking-tighter text-foreground bg-primary inline-block px-3"
-                                        style={{ fontSize: "clamp(2.2rem, 5.5vw, 7.5vw)" }}
+                                        className="font-inter font-black uppercase tracking-tighter text-black bg-cyan-500 inline-block px-3 shadow-[0_0_30px_rgba(6,182,212,0.4)]"
+                                        style={{ fontSize: "clamp(2.2rem, 5.5vw, 7.5vw)", backgroundColor: '#06b6d4' }}
                                     >
                                         {line.text}
                                     </h2>
@@ -143,9 +147,9 @@ export default function Quote1() {
 
                 {/* Attribution */}
                 <div ref={authorRef} className="flex items-center gap-4">
-                    <div className="w-8 h-[2px] bg-primary shrink-0" />
+                    <div className="w-12 h-[2px] bg-cyan-500 shrink-0 shadow-[0_0_10px_rgba(6,182,212,0.5)]" style={{ backgroundColor: '#06b6d4' }} />
                     <div>
-                        <p className="font-space-mono text-xs font-bold uppercase tracking-[0.2em] text-foreground">
+                        <p className="font-space-mono text-xs font-bold uppercase tracking-[0.2em] text-cyan-400" style={{ color: '#06b6d4' }}>
                             Steve Jobs
                         </p>
                         <p className="font-space-mono text-[9px] uppercase tracking-widest text-foreground/50 mt-[1px]">
@@ -156,7 +160,7 @@ export default function Quote1() {
             </div>
 
             {/* ── Full-width divider ── */}
-            <div ref={dividerRef} className="w-full h-[1px] bg-primary/30 shrink-0 shadow-[0_0_15px_rgba(223,255,0,0.5)] relative z-10" />
+            <div ref={dividerRef} className="w-full h-[1px] bg-indigo-500/20 shrink-0 shadow-[0_0_20px_rgba(99,102,241,0.1)] relative z-10" />
 
         </section>
     );

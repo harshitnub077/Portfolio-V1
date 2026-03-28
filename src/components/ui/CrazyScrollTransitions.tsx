@@ -88,7 +88,7 @@ export default function CrazyScrollTransitions() {
                             set: {
                                 clipPath: "polygon(100% 0, 100% 0, 100% 0, 100% 0)",
                                 y: -100,
-                                filter: "hue-rotate(90deg) brightness(150%)",
+                                filter: "brightness(150%)",
                             },
                             to: {
                                 clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
