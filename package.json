@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "@studio-freight/lenis": "^1.0.42",
     "@types/three": "^0.183.1",
     "clsx": "^2.1.1",

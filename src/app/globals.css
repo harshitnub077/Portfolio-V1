@@ -4,25 +4,20 @@
   --font-inter: var(--font-inter), sans-serif;
   --font-space-mono: var(--font-space-mono), monospace;
 
-  /* Cyber-Electric Theme */
+  /* Black and White Minimalist Theme */
   --color-background: #000000;
   --color-foreground: #FFFFFF;
 
-  --color-primary: #06b6d4;   /* Radiant Cyan */
-  --color-secondary: #6366f1; /* Deep Cobalt / Indigo */
-  --color-accent: #3b82f6;    /* Electric Blue */
-  --color-accent-foreground: #FFFFFF;
+  --color-primary: #FFFFFF;
+  --color-secondary: #000000;
+  --color-accent: #FFFFFF;
+  --color-accent-foreground: #000000;
 
   /* Theme Tokens */
-  --theme-cyan: #06b6d4;
-  --theme-blue: #3b82f6;
-  --theme-indigo: #6366f1;
   --theme-slate: #1e293b;
-  --theme-glow: rgba(6, 182, 212, 0.4);
 }
 
 @layer base {
-
   *,
   ::after,
   ::before,
@@ -53,10 +48,6 @@
     /* Firefox */
     font-weight: 500;
     cursor: none;
-    /* Custom CAD Cursor */
-    /* Give the whole body a 1px border grid feel */
-    border-left: 2px solid var(--color-primary);
-    border-right: 2px solid var(--color-primary);
     box-sizing: border-box;
     min-height: 100vh;
   }
@@ -72,38 +63,19 @@
 }
 
 @layer utilities {
-  .structural-grid {
-    background-image:
-      linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-    background-size: 50px 50px;
-  }
-
   .text-outline {
-    -webkit-text-stroke: 2px var(--color-primary);
+    -webkit-text-stroke: 1px var(--color-foreground);
     color: transparent;
   }
 
-  /* Specific GSAP Target class for About paragraph fill */
   .text-fill-target {
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    background-image: linear-gradient(to right, var(--color-primary) 50%, transparent 50%);
-    background-size: 200% 100%;
-    background-position: 100% 0;
-    -webkit-text-stroke: 1px var(--color-primary);
-  }
-
-  /* Inverse class for dark backgrounds */
-  .text-fill-target-light {
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
     background-image: linear-gradient(to right, var(--color-foreground) 50%, transparent 50%);
     background-size: 200% 100%;
     background-position: 100% 0;
-    -webkit-text-stroke: 1px rgba(235, 228, 247, 0.2);
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
   }
 }
 

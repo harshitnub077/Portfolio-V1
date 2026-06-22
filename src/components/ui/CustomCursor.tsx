@@ -36,7 +36,6 @@ export default function CustomCursor() {
         };
     }, []);
 
-    // V7: Sharp White Square (inverts to black) that expands into an Acid Green bracket on hover
     const variants = {
         default: {
             x: mousePosition.x - 8,
@@ -44,17 +43,17 @@ export default function CustomCursor() {
             height: 16,
             width: 16,
             backgroundColor: "#FFFFFF",
-            border: "0px solid #06b6d4",
-            borderRadius: "0px", // Strict square
+            border: "0px solid #FFFFFF",
+            borderRadius: "50%",
         },
         hover: {
-            x: mousePosition.x - 24,
-            y: mousePosition.y - 24,
-            height: 48,
-            width: 48,
+            x: mousePosition.x - 32,
+            y: mousePosition.y - 32,
+            height: 64,
+            width: 64,
             backgroundColor: "transparent",
-            border: "4px solid #06b6d4",
-            borderRadius: "0px",
+            border: "2px solid #FFFFFF",
+            borderRadius: "50%",
         },
     };
 

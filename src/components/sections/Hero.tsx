@@ -1,207 +1,47 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import HKLogo from "@/components/ui/HKLogo";
-import HeroBackground3D from "@/components/ui/HeroBackground3D";
-
-
-gsap.registerPlugin(ScrollTrigger);
+import { useGSAP } from "@gsap/react";
 
 export default function Hero() {
-    const containerRef = useRef<HTMLElement>(null);
-    const marqueeRef = useRef<HTMLDivElement>(null);
-    const marquee2Ref = useRef<HTMLDivElement>(null);
-    const name1Ref = useRef<HTMLHeadingElement>(null);
-    const name2Ref = useRef<HTMLHeadingElement>(null);
-    const quoteRef = useRef<HTMLDivElement>(null);
+    const container = useRef(null);
 
-    useEffect(() => {
-        if (!containerRef.current) return;
-
-        let marquee1Tween: gsap.core.Tween;
-        let marquee2Tween: gsap.core.Tween;
-
-        const ctx = gsap.context(() => {
-            // Kinetic Marquee Animations
-            if (marqueeRef.current) {
-                marquee1Tween = gsap.to(marqueeRef.current.children, { xPercent: -50, repeat: -1, duration: 20, ease: "linear" });
-            }
-            if (marquee2Ref.current) {
-                marquee2Tween = gsap.to(marquee2Ref.current.children, { xPercent: -50, repeat: -1, duration: 20, ease: "linear" });
-            }
-
-            // Staggered Brutal Reveal + Elegant Quote
-            const tl = gsap.timeline({ delay: 1 });
-            tl.fromTo(
-                [name1Ref.current, name2Ref.current],
-                { y: "110%", clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)" },
-                { y: "0%", clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)", duration: 1, stagger: 0.1, ease: "power4.out" }
-            );
-
-            tl.fromTo(
-                quoteRef.current,
-                { y: 20, opacity: 0 },
-                { y: 0, opacity: 1, duration: 1, ease: "power2.out" },
-                "-=0.4"
-            );
-
-            // Scroll Interaction for Marquee Speed/Direction
-            let currentDirection = 1;
-            let currentVelocity = 0;
-
-            ScrollTrigger.create({
-                start: 0,
-                end: "max",
-                onUpdate: (self) => {
-                    if (self.direction === 1 || self.direction === -1) {
-                        currentDirection = self.direction;
-                    }
-                    currentVelocity = Math.abs(self.getVelocity()) / 200;
-                }
-            });
-
-            // Smoothly animate the timeScale every frame to prevent stopping overrides
-            const render = () => {
-                currentVelocity += (0 - currentVelocity) * 0.05; // Decay
-                const targetTimeScale = currentDirection * (1 + currentVelocity); // Base speed 1 + extra
-                const clampedTimeScale = gsap.utils.clamp(-5, 5, targetTimeScale);
-
-                if (marquee1Tween) marquee1Tween.timeScale(clampedTimeScale);
-                if (marquee2Tween) marquee2Tween.timeScale(clampedTimeScale);
-            };
-
-            gsap.ticker.add(render);
-
-            // Cleanup ticker
-            return () => gsap.ticker.remove(render);
-        }, containerRef);
-
-        return () => ctx.revert();
-    }, []);
-
-    const marqueeText = Array(20).fill("SWISS KINETIC BLUEPRINT").join(" • ");
+    useGSAP(() => {
+        const tl = gsap.timeline();
+        tl.from(".hero-text-line", {
+            y: 100,
+            opacity: 0,
+            duration: 1.5,
+            stagger: 0.2,
+            ease: "power4.out",
+            delay: 0.5
+        });
+        tl.from(".hero-subtext", {
+            opacity: 0,
+            duration: 1,
+            ease: "power2.out",
+        }, "-=1");
+    }, { scope: container });
 
     return (
-        <section
-            ref={containerRef}
-            className="relative flex flex-col w-screen h-screen bg-transparent structural-grid pt-16 border-b border-primary/20 overflow-hidden"
-        >
-            {/* 3D Particle Grid Background */}
-            <HeroBackground3D />
-
-            {/* Top Tilted Marquee (Absolute) */}
-            <div className="absolute -top-[5%] -right-[30%] w-[150vw] md:w-[100vw] border-y border-cyan-500/50 bg-[#06b6d4] overflow-hidden flex items-center py-4 z-[40] rotate-[50deg] pointer-events-none hidden md:flex shadow-[0_0_60px_rgba(6,182,212,0.4)]">
-                <div ref={marquee2Ref} className="flex whitespace-nowrap">
-                    <div className="font-space-mono font-bold text-black text-lg uppercase px-4 pointer-events-none">
-                        {marqueeText}
-                    </div>
-                    <div className="font-space-mono font-bold text-black text-lg uppercase px-4 pointer-events-none">
-                        {marqueeText}
-                    </div>
-                </div>
+        <section ref={container} className="relative w-full h-screen flex flex-col justify-center px-8 md:px-24">
+            <div className="overflow-hidden">
+                <h1 className="hero-text-line text-6xl md:text-9xl font-bold tracking-tighter uppercase leading-none">
+                    Harshit
+                </h1>
             </div>
-
-
-            {/* ─── Top Navigation Bar ─── */}
-            <nav className="absolute top-0 left-0 w-full h-16 border-b border-white/10 flex items-stretch justify-between bg-black/80 backdrop-blur-md z-50 overflow-hidden">
-
-                {/* Logo / Monogram */}
-                <div className="flex items-center gap-3 px-5 border-r border-white/10 shrink-0">
-                    <HKLogo size={36} />
-                    <span className="font-space-mono text-xs font-bold uppercase tracking-tighter hidden sm:block text-foreground">
-                        Harshit Kudhial
-                    </span>
-                </div>
-
-                {/* Center Nav Links */}
-                <div className="hidden md:flex items-stretch">
-                    {[
-                        { label: "About", href: "#about" },
-                        { label: "Projects", href: "#projects" },
-                        { label: "Stack", href: "#stack" },
-                        { label: "Contact", href: "#contact" },
-                    ].map((item) => (
-                        <a
-                            key={item.label}
-                            href={item.href}
-                            className="flex items-center px-6 font-space-mono text-xs font-bold uppercase tracking-widest text-foreground hover:bg-white hover:text-black transition-colors duration-200"
-                        >
-                            {item.label}
-                        </a>
-                    ))}
-                </div>
-
-                {/* Right: Open to Work Badge */}
-                <div className="flex items-center gap-3 px-6 border-l border-white/10 shrink-0">
-                    <span className="relative flex h-2 w-2">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-500 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
-                    </span>
-                    <span className="font-space-mono text-xs font-bold uppercase tracking-tighter text-foreground hidden sm:block">
-                        Open To Work
-                    </span>
-                </div>
-            </nav>
-
-            {/* Main Structural Quadrants */}
-            <div className="flex-1 flex flex-col md:flex-row w-full z-20 pointer-events-none">
-                {/* Left Column (Quote & Main Name) */}
-                <div className="w-full md:w-[70%] border-r border-white/10 flex flex-col p-6 md:p-12 h-full overflow-hidden relative">
-
-                    {/* Quote */}
-                    <div ref={quoteRef} className="mt-auto mb-8 max-w-sm md:max-w-md border-l-2 border-white pl-4 py-1 pointer-events-auto bg-black/40 backdrop-blur-sm">
-                        <p className="font-inter italic text-sm md:text-base font-medium text-foreground/80 leading-relaxed">
-                            &quot;First, solve the problem. Then, write the code.&quot;
-                        </p>
-                        <p className="font-space-mono text-xs uppercase tracking-widest text-white font-bold mt-2">
-                            — John Johnson
-                        </p>
-                    </div>
-
-                    <div className="overflow-hidden">
-                        <h1 ref={name1Ref} className="text-[18vw] md:text-[14vw] font-inter font-black leading-[0.8] tracking-tighter uppercase text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.05)]">
-                            HARSHIT
-                        </h1>
-                    </div>
-                    <div className="overflow-hidden mt-[-2vw]">
-                        <h1 ref={name2Ref} className="text-[18vw] md:text-[14vw] font-inter font-black leading-[0.8] tracking-tighter uppercase text-outline drop-shadow-[0_0_50px_rgba(6,182,212,0.2)]" style={{ WebkitTextStroke: "2px #06b6d4" }}>
-                            KUDHIAL
-                        </h1>
-                    </div>
-                </div>
-
-                {/* Right Column (Details) */}
-                <div className="w-full md:w-[30%] flex flex-col h-full bg-transparent relative z-20">
-                    <div className="flex-1 border-b border-white/10 p-6 md:p-12 flex flex-col justify-end bg-black/50 backdrop-blur-sm text-foreground">
-                        <h3 className="font-inter font-bold text-2xl md:text-3xl uppercase leading-none mb-4 text-white">
-                            Full Stack<br />Engineer
-                        </h3>
-                        <p className="font-space-mono text-xs leading-tight opacity-70">
-                            Architecting scalable web infrastructure and integrating machine learning pipelines for high-performance applications.
-                        </p>
-                    </div>
-                    <div className="h-32 md:h-1/3 bg-black/20 backdrop-blur-md p-6 md:p-12 flex items-center justify-center pointer-events-auto">
-                        <div className="w-16 h-16 md:w-24 md:h-24 border border-white/30 hover:bg-white/10 transition-colors rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(255,255,255,0.05)]">
-                            <span className="font-space-mono text-xl md:text-2xl font-bold animate-[spin_4s_linear_infinite] text-white">↓</span>
-                        </div>
-                    </div>
-                </div>
+            <div className="overflow-hidden">
+                <h1 className="hero-text-line text-6xl md:text-9xl font-bold tracking-tighter uppercase leading-none text-outline">
+                    Kudhial
+                </h1>
             </div>
-
-            {/* Kinetic Marquee (Bottom Flush) */}
-            <div className="w-full border-t border-white/10 bg-[#6366f1] overflow-hidden flex items-center py-4 z-30 shrink-0 pointer-events-none shadow-[0_0_40px_rgba(99,102,241,0.3)]">
-                <div ref={marqueeRef} className="flex whitespace-nowrap">
-                    <div className="font-space-mono font-black text-black text-lg uppercase px-4 underline decoration-cyan-400 decoration-4">
-                        {marqueeText}
-                    </div>
-                    <div className="font-space-mono font-bold text-black text-lg uppercase px-4">
-                        {marqueeText}
-                    </div>
-                </div>
+            
+            <div className="mt-12 md:mt-24 max-w-2xl">
+                <p className="hero-subtext text-xl md:text-2xl font-space-mono">
+                    Creative Developer & Designer. Building minimalist, high-performance digital experiences.
+                </p>
             </div>
-
-        </section >
+        </section>
     );
 }

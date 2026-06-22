@@ -28,10 +28,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Removed dark mode class to force Pure White background
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${spaceMono.variable} font-inter antialiased bg-white text-black`} suppressHydrationWarning>
+      <body className={`${inter.variable} ${spaceMono.variable} font-inter antialiased bg-black text-white`} suppressHydrationWarning>
         <Preloader />
         <SmoothScrollProvider>
           {/* CustomCursor manages the sharp square crosshair */}
