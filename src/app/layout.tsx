@@ -19,8 +19,8 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Harshit Kudhial | V7 Swiss Kinetic Blueprint",
-  description: "Awwwards winning structural grid portfolio of Harshit Kudhial built with GSAP.",
+  title: "Harshit Kudhial | Premium Bento UI",
+  description: "Modern Bento Grid Portfolio of Harshit Kudhial built with Next.js, GSAP, and Tailwind v4.",
 };
 
 export default function RootLayout({
@@ -30,10 +30,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${spaceMono.variable} font-inter antialiased bg-black text-white`} suppressHydrationWarning>
+      <body className={`${inter.variable} ${spaceMono.variable} font-inter antialiased bg-[#050505] text-[#FAFAFA]`} suppressHydrationWarning>
+        <div className="bg-glow"></div>
         <Preloader />
         <SmoothScrollProvider>
-          {/* CustomCursor manages the sharp square crosshair */}
           <CustomCursor />
           {children}
         </SmoothScrollProvider>
