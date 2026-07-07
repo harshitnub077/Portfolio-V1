@@ -4,40 +4,68 @@ import "./globals.css";
 import CustomCursor from "@/components/ui/CustomCursor";
 import SmoothScrollProvider from "@/components/ui/SmoothScrollProvider";
 import Preloader from "@/components/ui/Preloader";
+import Navbar from "@/components/ui/Navbar";
 
-// Massive Structural Headlines
+// Display + Body text
 const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
+    subsets: ["latin"],
+    variable: "--font-inter",
 });
 
-// Technical grids and counters
+// Technical / monospace elements
 const spaceMono = Space_Mono({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-space-mono"
+    subsets: ["latin"],
+    weight: ["400", "700"],
+    variable: "--font-space-mono",
 });
 
 export const metadata: Metadata = {
-  title: "Harshit Kudhial | Premium Bento UI",
-  description: "Modern Bento Grid Portfolio of Harshit Kudhial built with Next.js, GSAP, and Tailwind v4.",
+    title: "Harshit Kudhial | AI/ML Engineer — Agentic AI, RAG, LLM Orchestration",
+    description:
+        "AI/ML Engineer specializing in agentic AI systems, Retrieval-Augmented Generation, LLM orchestration, and vector-based semantic search. Built 4 production-grade AI/ML systems with 12,500+ lines of code.",
+    keywords: [
+        "Harshit Kudhial",
+        "AI/ML Engineer",
+        "Agentic AI",
+        "RAG",
+        "LLM",
+        "LangGraph",
+        "LangChain",
+        "React",
+        "Next.js",
+        "Python",
+        "Full Stack Developer",
+        "Portfolio",
+    ],
+    authors: [{ name: "Harshit Kudhial" }],
+    openGraph: {
+        title: "Harshit Kudhial | AI/ML Engineer",
+        description:
+            "Building production-grade agentic AI systems, RAG pipelines, and intelligent applications.",
+        type: "website",
+        locale: "en_US",
+    },
 };
 
 export default function RootLayout({
-  children,
+    children,
 }: Readonly<{
-  children: React.ReactNode;
+    children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${spaceMono.variable} font-inter antialiased bg-[#050505] text-[#FAFAFA]`} suppressHydrationWarning>
-        <div className="bg-glow"></div>
-        <Preloader />
-        <SmoothScrollProvider>
-          <CustomCursor />
-          {children}
-        </SmoothScrollProvider>
-      </body>
-    </html>
-  );
+    return (
+        <html lang="en" suppressHydrationWarning>
+            <body
+                className={`${inter.variable} ${spaceMono.variable} font-inter antialiased bg-[#050505] text-[#FAFAFA]`}
+                suppressHydrationWarning
+            >
+                <div className="bg-glow" />
+                <Preloader />
+                <SmoothScrollProvider>
+                    <Navbar />
+                    <CustomCursor />
+                    {children}
+                </SmoothScrollProvider>
+            </body>
+        </html>
+    );
 }

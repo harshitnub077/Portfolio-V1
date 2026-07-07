@@ -1,99 +1,192 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { Code2, Figma, Framer, Layers } from "lucide-react";
+import { MapPin, GraduationCap } from "lucide-react";
 
 if (typeof window !== "undefined") {
     gsap.registerPlugin(ScrollTrigger);
 }
 
-const skills = [
-    { name: "Frontend", icon: Code2, desc: "React, Next.js, Vue, Tailwind" },
-    { name: "Design", icon: Figma, desc: "UI/UX, Prototyping, Wireframing" },
-    { name: "Motion", icon: Framer, desc: "GSAP, Framer Motion, Lenis" },
-    { name: "3D Web", icon: Layers, desc: "Three.js, React Three Fiber" }
+const STATS = [
+    { value: 12500, suffix: "+", label: "Lines of Code", prefix: "" },
+    { value: 1000, suffix: "+", label: "GitHub Contributions/yr", prefix: "" },
+    { value: 250, suffix: "+", label: "LeetCode Problems", prefix: "" },
+    { value: 4, suffix: "", label: "Production AI Systems", prefix: "" },
 ];
+
+function AnimatedCounter({ value, suffix, prefix }: { value: number; suffix: string; prefix: string }) {
+    const [count, setCount] = useState(0);
+    const ref = useRef<HTMLDivElement>(null);
+    const hasAnimated = useRef(false);
+
+    useEffect(() => {
+        const el = ref.current;
+        if (!el) return;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                if (entries[0].isIntersecting && !hasAnimated.current) {
+                    hasAnimated.current = true;
+                    const obj = { val: 0 };
+                    gsap.to(obj, {
+                        val: value,
+                        duration: 2,
+                        ease: "power2.out",
+                        onUpdate: () => setCount(Math.round(obj.val)),
+                    });
+                }
+            },
+            { threshold: 0.5 }
+        );
+
+        observer.observe(el);
+        return () => observer.disconnect();
+    }, [value]);
+
+    return (
+        <div ref={ref} className="font-space-mono text-4xl md:text-5xl font-bold text-white tabular-nums">
+            {prefix}{count.toLocaleString()}{suffix}
+        </div>
+    );
+}
 
 export default function About() {
     const container = useRef(null);
 
     useGSAP(() => {
-        const tl = gsap.timeline({
+        // Section label animation
+        gsap.from(".about-label", {
             scrollTrigger: {
                 trigger: container.current,
                 start: "top 75%",
-            }
-        });
-
-        tl.from(".about-header", {
-            y: 30,
+            },
+            x: -30,
             opacity: 0,
             duration: 0.8,
-        })
-        .from(".about-bento", {
+        });
+
+        // Word-by-word color reveal on the main paragraph
+        const words = gsap.utils.toArray(".about-word") as HTMLElement[];
+        words.forEach((word, i) => {
+            gsap.to(word, {
+                scrollTrigger: {
+                    trigger: container.current,
+                    start: `top ${70 - i * 0.5}%`,
+                    end: `top ${50 - i * 0.5}%`,
+                    scrub: 1,
+                },
+                color: "rgba(255, 255, 255, 0.95)",
+                ease: "none",
+            });
+        });
+
+        // Stats cards stagger
+        gsap.from(".stat-card", {
+            scrollTrigger: {
+                trigger: ".stats-grid",
+                start: "top 80%",
+            },
             y: 40,
             opacity: 0,
             duration: 0.8,
+            stagger: 0.15,
+            ease: "power3.out",
+        });
+
+        // Info cards
+        gsap.from(".info-card", {
+            scrollTrigger: {
+                trigger: ".info-row",
+                start: "top 85%",
+            },
+            y: 30,
+            opacity: 0,
+            duration: 0.7,
             stagger: 0.1,
-            ease: "power2.out"
-        }, "-=0.4");
-        
+            ease: "power2.out",
+        });
     }, { scope: container });
 
+    const summaryText =
+        "AI/ML Engineer specializing in agentic AI systems, Retrieval-Augmented Generation, LLM orchestration, and vector-based semantic search. Built and shipped four production-grade AI/ML systems spanning embedding generation, retrieval optimization, automated model evaluation, and secure multi-tenant backend architecture.";
+
+    const summaryWords = summaryText.split(" ");
+
     return (
-        <section ref={container} className="relative w-full py-24 px-4 md:px-8 max-w-7xl mx-auto min-h-screen flex flex-col justify-center">
-            
-            <h2 className="about-header text-4xl md:text-5xl font-bold tracking-tighter mb-12">About & Skills</h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
-                
-                {/* Main Bio Card */}
-                <div className="about-bento bento-card col-span-1 md:col-span-2 p-8 md:p-10 flex flex-col justify-center">
-                    <h3 className="text-2xl font-bold mb-6 text-gradient">Philosophy</h3>
-                    <p className="text-lg text-white/70 leading-relaxed font-light mb-6">
-                        I believe in removing the unnecessary. Design should be intuitive, performant, and structurally sound. By embracing constraints, we discover true elegance.
-                    </p>
-                    <p className="text-lg text-white/70 leading-relaxed font-light">
-                        My goal is to bridge the gap between aesthetic design and hardcore engineering, creating digital experiences that feel alive.
+        <section
+            ref={container}
+            id="about"
+            className="relative w-full py-32 md:py-40 px-6 md:px-8 max-w-7xl mx-auto"
+        >
+            {/* Section Label */}
+            <div className="about-label section-label mb-16">[ 01 — About ]</div>
+
+            {/* Main Content — Two Column */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 mb-20">
+                {/* Left — Bio Text with word-by-word color reveal */}
+                <div>
+                    <p className="text-2xl md:text-3xl lg:text-4xl leading-relaxed font-light tracking-tight">
+                        {summaryWords.map((word, i) => (
+                            <span key={i}>
+                                <span
+                                    className="about-word inline-block transition-colors"
+                                    style={{ color: "rgba(255, 255, 255, 0.15)" }}
+                                >
+                                    {word}
+                                </span>
+                                {" "}
+                            </span>
+                        ))}
                     </p>
                 </div>
 
-                {/* Experience Card */}
-                <div className="about-bento bento-card col-span-1 md:col-span-2 p-8 md:p-10 flex flex-col">
-                    <h3 className="text-2xl font-bold mb-8">Experience</h3>
-                    <div className="space-y-6">
-                        <div className="flex justify-between items-start border-b border-white/10 pb-6">
-                            <div>
-                                <h4 className="font-semibold text-lg">Senior Creative Developer</h4>
-                                <p className="text-white/50 text-sm mt-1">Studio Kinetic</p>
-                            </div>
-                            <span className="text-sm font-space-mono text-white/40">2023 - Present</span>
+                {/* Right — Stats Grid */}
+                <div className="stats-grid grid grid-cols-2 gap-6">
+                    {STATS.map((stat, i) => (
+                        <div
+                            key={i}
+                            className="stat-card bento-card p-6 md:p-8 flex flex-col justify-between"
+                        >
+                            <AnimatedCounter
+                                value={stat.value}
+                                suffix={stat.suffix}
+                                prefix={stat.prefix}
+                            />
+                            <p className="text-sm text-white/40 mt-3 font-space-mono">
+                                {stat.label}
+                            </p>
                         </div>
-                        <div className="flex justify-between items-start">
-                            <div>
-                                <h4 className="font-semibold text-lg">Frontend Engineer</h4>
-                                <p className="text-white/50 text-sm mt-1">TechFlow Inc.</p>
-                            </div>
-                            <span className="text-sm font-space-mono text-white/40">2020 - 2023</span>
-                        </div>
-                    </div>
+                    ))}
                 </div>
-
-                {/* Skills Cards */}
-                {skills.map((skill, index) => (
-                    <div key={index} className="about-bento bento-card col-span-1 p-6 flex flex-col items-center text-center justify-center">
-                        <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center mb-4 text-violet-400">
-                            <skill.icon className="w-6 h-6" />
-                        </div>
-                        <h4 className="font-bold text-lg mb-2">{skill.name}</h4>
-                        <p className="text-sm text-white/50">{skill.desc}</p>
-                    </div>
-                ))}
             </div>
 
+            {/* Education & Location Row */}
+            <div className="info-row grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="info-card bento-card p-8 flex items-center gap-6">
+                    <div className="w-14 h-14 rounded-2xl bg-violet-500/10 flex items-center justify-center flex-shrink-0">
+                        <GraduationCap className="w-7 h-7 text-violet-400" />
+                    </div>
+                    <div>
+                        <h4 className="text-lg font-semibold">Newton School of Technology, Rishihood University</h4>
+                        <p className="text-white/50 text-sm mt-1">B.Tech, Computer Science &amp; Engineering (AI/ML)</p>
+                        <p className="text-white/35 text-xs font-space-mono mt-1">2024 — 2028 • Sonipat, Haryana</p>
+                    </div>
+                </div>
+
+                <div className="info-card bento-card p-8 flex items-center gap-6">
+                    <div className="w-14 h-14 rounded-2xl bg-cyan-500/10 flex items-center justify-center flex-shrink-0">
+                        <MapPin className="w-7 h-7 text-cyan-400" />
+                    </div>
+                    <div>
+                        <h4 className="text-lg font-semibold">Delhi, India</h4>
+                        <p className="text-white/50 text-sm mt-1">3rd Year B.Tech Student</p>
+                        <p className="text-white/35 text-xs font-space-mono mt-1">Open to Remote &amp; On-site Opportunities</p>
+                    </div>
+                </div>
+            </div>
         </section>
     );
 }
