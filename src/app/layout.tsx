@@ -1,71 +1,75 @@
-import type { Metadata } from "next";
-import { Inter, Space_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Geist, Geist_Mono, Doto } from "next/font/google";
+import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
-import CustomCursor from "@/components/ui/CustomCursor";
-import SmoothScrollProvider from "@/components/ui/SmoothScrollProvider";
-import Preloader from "@/components/ui/Preloader";
-import Navbar from "@/components/ui/Navbar";
 
-// Display + Body text
-const inter = Inter({
-    subsets: ["latin"],
-    variable: "--font-inter",
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
 });
 
-// Technical / monospace elements
-const spaceMono = Space_Mono({
-    subsets: ["latin"],
-    weight: ["400", "700"],
-    variable: "--font-space-mono",
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+const doto = Doto({
+  variable: "--font-doto",
+  subsets: ["latin"],
+  weight: ["400", "700", "900"],
 });
 
 export const metadata: Metadata = {
-    title: "Harshit Kudhial | AI/ML Engineer — Agentic AI, RAG, LLM Orchestration",
-    description:
-        "AI/ML Engineer specializing in agentic AI systems, Retrieval-Augmented Generation, LLM orchestration, and vector-based semantic search. Built 4 production-grade AI/ML systems with 12,500+ lines of code.",
-    keywords: [
-        "Harshit Kudhial",
-        "AI/ML Engineer",
-        "Agentic AI",
-        "RAG",
-        "LLM",
-        "LangGraph",
-        "LangChain",
-        "React",
-        "Next.js",
-        "Python",
-        "Full Stack Developer",
-        "Portfolio",
+  title: "Harshit Kudhial | AI/ML Engineer",
+  description:
+    "AI/ML Engineer specializing in LLMs, RAG, Agentic AI, MLOps, and Open Source. 30 merged PRs across CNCF Kubescape & Linux Foundation Zephyr RTOS.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "256x256" },
+      { url: "/icon.png", sizes: "256x256" },
     ],
-    authors: [{ name: "Harshit Kudhial" }],
-    openGraph: {
-        title: "Harshit Kudhial | AI/ML Engineer",
-        description:
-            "Building production-grade agentic AI systems, RAG pipelines, and intelligent applications.",
-        type: "website",
-        locale: "en_US",
-    },
+    apple: "/apple-icon.png",
+  },
+  openGraph: {
+    title: "Harshit Kudhial | AI/ML Engineer",
+    description:
+      "AI/ML Engineer specializing in LLMs, RAG, Agentic AI, MLOps, and Open Source.",
+    url: "https://github.com/harshitnub077",
+    siteName: "Harshit Kudhial",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Harshit Kudhial | AI/ML Engineer",
+    description:
+      "AI/ML Engineer specializing in LLMs, RAG, Agentic AI, MLOps, and Open Source.",
+    creator: "@harshitnub077",
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#000000" },
+  ],
 };
 
 export default function RootLayout({
-    children,
-}: Readonly<{
-    children: React.ReactNode;
-}>) {
-    return (
-        <html lang="en" suppressHydrationWarning>
-            <body
-                className={`${inter.variable} ${spaceMono.variable} font-inter antialiased bg-[#050505] text-[#FAFAFA]`}
-                suppressHydrationWarning
-            >
-                <div className="bg-glow" />
-                <Preloader />
-                <SmoothScrollProvider>
-                    <Navbar />
-                    <CustomCursor />
-                    {children}
-                </SmoothScrollProvider>
-            </body>
-        </html>
-    );
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${geistSans.variable} ${geistMono.variable} ${doto.variable} h-full antialiased`}
+    >
+      <body className="min-h-full flex flex-col bg-white dark:bg-black text-zinc-900 dark:text-zinc-50 transition-colors duration-300">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {children}
+        </ThemeProvider>
+      </body>
+    </html>
+  );
 }
