@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="gsocBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c1e14" />
+      <stop offset="100%" stop-color="#052e16" />
+    </linearGradient>
+    <linearGradient id="gsocGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22c55e" />
+      <stop offset="100%" stop-color="#16a34a" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" rx="16" fill="url(#gsocBg)" />
+  <rect x="20" y="20" width="560" height="360" rx="12" fill="none" stroke="#22c55e" stroke-opacity="0.25" stroke-width="1.5" stroke-dasharray="6 6" />
+  <g transform="translate(300, 140) scale(1.3)">
+    <circle cx="0" cy="0" r="28" fill="none" stroke="url(#gsocGrad)" stroke-width="4" stroke-dasharray="12 4" />
+    <path d="M-10 -10 L10 10 M10 -10 L-10 10" stroke="#4ade80" stroke-width="4" stroke-linecap="round" />
+  </g>
+  <text x="300" y="255" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="22" fill="#ffffff" letter-spacing="0.5">OPEN SOURCE PROGRAMS</text>
+  <text x="300" y="290" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="16" fill="#4ade80">GSSoC 2024 &amp; 2026 · Hacktoberfest</text>
+  <text x="300" y="320" text-anchor="middle" font-family="monospace" font-size="12" fill="#86efac">CONTRIBUTOR &amp; MENTEE</text>
+</svg>

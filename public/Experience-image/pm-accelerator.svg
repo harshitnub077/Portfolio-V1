@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <linearGradient id="pmaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="28" fill="#0b1329" />
+  <g transform="translate(60, 58)">
+    <path d="M-24 16 L0 -24 L24 16 L8 10 L0 18 L-8 10 Z" fill="url(#pmaGrad)" />
+    <circle cx="0" cy="-6" r="4" fill="#ffffff" />
+    <path d="M-14 26 L14 26" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" opacity="0.6" />
+    <path d="M-8 32 L8 32" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" opacity="0.3" />
+  </g>
+</svg>

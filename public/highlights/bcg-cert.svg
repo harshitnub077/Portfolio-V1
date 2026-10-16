@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="bcgBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#062e24" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="bcgGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" rx="16" fill="url(#bcgBg)" />
+  <rect x="20" y="20" width="560" height="360" rx="12" fill="none" stroke="#10b981" stroke-opacity="0.25" stroke-width="1.5" stroke-dasharray="6 6" />
+  <g transform="translate(300, 140) scale(1.3)">
+    <circle cx="0" cy="0" r="28" fill="none" stroke="url(#bcgGlow)" stroke-width="3" />
+    <text x="0" y="9" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="900" font-size="22" fill="#34d399">BCG</text>
+  </g>
+  <text x="300" y="255" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="22" fill="#ffffff" letter-spacing="0.5">BOSTON CONSULTING GROUP</text>
+  <text x="300" y="290" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="16" fill="#34d399">Intro to Strategy Consulting</text>
+  <text x="300" y="320" text-anchor="middle" font-family="monospace" font-size="12" fill="#94a3b8">ISSUED OCT 2024</text>
+</svg>

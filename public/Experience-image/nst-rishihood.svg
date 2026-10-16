@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <linearGradient id="nsBlue1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0066ff" />
+      <stop offset="100%" stop-color="#0052cc" />
+    </linearGradient>
+    <linearGradient id="nsBlue2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d2ff" />
+      <stop offset="100%" stop-color="#0099ff" />
+    </linearGradient>
+    <linearGradient id="nsBlue3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#003d99" />
+      <stop offset="100%" stop-color="#002966" />
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="28" fill="#080c16" />
+  <!-- Newton School 3D Isometric 'N' emblem -->
+  <g transform="translate(60, 60)">
+    <!-- Left vertical bar -->
+    <path d="M-28 -24 L-12 -33 L-12 15 L-28 24 Z" fill="url(#nsBlue1)" />
+    <!-- Diagonal stroke -->
+    <path d="M-12 -12 L12 2 L12 24 L-12 10 Z" fill="url(#nsBlue2)" opacity="0.9" />
+    <!-- Right vertical bar -->
+    <path d="M12 -24 L28 -15 L28 33 L12 24 Z" fill="url(#nsBlue1)" />
+    <!-- Top facets -->
+    <path d="M-28 -24 L-12 -33 L-4 -28 L-20 -19 Z" fill="url(#nsBlue2)" />
+    <path d="M12 -24 L28 -15 L20 -10 L4 -19 Z" fill="url(#nsBlue2)" />
+    <!-- Center node accent -->
+    <circle cx="0" cy="5" r="3.5" fill="#00d2ff" />
+  </g>
+</svg>
