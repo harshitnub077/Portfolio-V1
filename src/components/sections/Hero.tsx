@@ -1,113 +1,115 @@
 "use client";
 
-import { useRef } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ChevronDown } from "lucide-react";
-import HeroBackground3D from "@/components/ui/HeroBackground3D";
+import dynamic from "next/dynamic";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import SplitReveal from "@/components/ui/SplitReveal";
+import PillButton from "@/components/ui/PillButton";
+import MissionClock from "@/components/ui/MissionClock";
+import { coords, site } from "@/content/site";
+
+gsap.registerPlugin(ScrollTrigger);
+const Planet = dynamic(() => import("@/components/gl/Planet"), { ssr: false });
+
+const MOON_LIGHT: [number, number, number] = [-1, 0.55, -0.2];
+const RINGED_LIGHT: [number, number, number] = [-1, 0.3, 0.8];
 
 export default function Hero() {
-    const container = useRef(null);
+  const root = useRef<HTMLElement>(null);
 
-    useGSAP(() => {
-        const tl = gsap.timeline({ delay: 2.5 });
+  useEffect(() => {
+    const el = root.current;
+    if (!el) return;
+    const ctx = gsap.context(() => {
+      gsap.set("[data-hero-fade]", { autoAlpha: 0, y: 16 });
+      gsap.set("[data-hero-card]", { clipPath: "inset(100% 0 0 0)" });
+      gsap.set("[data-moon]", { yPercent: 35, scale: 0.85, autoAlpha: 0 });
+      gsap.set("[data-ringed]", { autoAlpha: 0, x: 80 });
+      const play = () => {
+        gsap.to("[data-moon]", { yPercent: 0, scale: 1, autoAlpha: 1, duration: 2.6, ease: "expo.out" });
+        gsap.to("[data-ringed]", { autoAlpha: 1, x: 0, duration: 2.2, ease: "expo.out", delay: 0.6 });
+        gsap.to("[data-hero-card]", { clipPath: "inset(0% 0 0 0)", duration: 1.4, ease: "expo.inOut", delay: 0.2 });
+        gsap.to("[data-hero-fade]", { autoAlpha: 1, y: 0, duration: 1, ease: "power3.out", stagger: 0.08, delay: 0.6 });
+      };
+      if (document.documentElement.dataset.loaded) play();
+      else window.addEventListener("site:loaded", play, { once: true });
 
-        // Animate status badge
-        tl.from(".hero-status", {
-            opacity: 0,
-            y: 20,
-            duration: 0.8,
-            ease: "power3.out",
-        })
-        // Animate each line of the name
-        .from(".hero-name-line", {
-            y: "120%",
-            duration: 1.2,
-            ease: "power4.out",
-            stagger: 0.15,
-        }, "-=0.4")
-        // Animate subtitle
-        .from(".hero-subtitle", {
-            opacity: 0,
-            y: 30,
-            duration: 0.8,
-            ease: "power3.out",
-        }, "-=0.5")
-        // Animate role tags
-        .from(".hero-tag", {
-            opacity: 0,
-            y: 20,
-            scale: 0.9,
-            duration: 0.6,
-            stagger: 0.1,
-            ease: "back.out(1.7)",
-        }, "-=0.3")
-        // Animate scroll indicator
-        .from(".hero-scroll", {
-            opacity: 0,
-            duration: 0.8,
-        }, "-=0.2");
+      // Leaving the hero: the moon sinks and grows, copy drifts away.
+      const scrub = { trigger: el, start: "top top", end: "bottom top", scrub: true };
+      gsap.to("[data-hero-content]", { yPercent: -18, opacity: 0.15, ease: "none", scrollTrigger: scrub });
+      gsap.to("[data-moon-wrap]", { yPercent: 22, scale: 1.15, ease: "none", scrollTrigger: scrub });
+      gsap.to("[data-ringed-wrap]", { yPercent: -60, xPercent: 20, ease: "none", scrollTrigger: scrub });
 
-    }, { scope: container });
+      // Ringed planet bobs in its orbit.
+      gsap.to("[data-ringed-wrap]", { y: -18, duration: 4, ease: "sine.inOut", yoyo: true, repeat: -1 });
+    }, el);
+    return () => ctx.revert();
+  }, []);
 
-    return (
-        <section
-            ref={container}
-            id="hero"
-            className="relative w-full h-screen flex flex-col items-center justify-center overflow-hidden"
-        >
-            {/* 3D Background */}
-            <HeroBackground3D />
+  return (
+    <section id="home" ref={root} className="relative h-[calc(100svh-92px)] min-h-[620px] overflow-hidden">
+      {/* Giant moon rising from the lower right */}
+      <div data-moon-wrap className="pointer-events-none absolute -bottom-[22%] -right-[62%] aspect-square w-[160vw] md:-bottom-[91%] md:-right-[19%] md:w-[97vw]">
+        <div data-moon className="h-full w-full">
+          <Planet kind="moon" followMouse light={MOON_LIGHT} atmosphere="#fb4617" distance={4.6} spin={0.012} tilt={0.25} className="h-full w-full" />
+        </div>
+      </div>
+      {/* Small ringed dark planet */}
+      <div data-ringed-wrap className="pointer-events-none absolute right-[2%] top-[8%] hidden aspect-square w-[min(30vw,420px)] md:block">
+        <div data-ringed className="h-full w-full">
+          <Planet kind="dark" ring light={RINGED_LIGHT} atmosphere="#ff7a45" distance={9} spin={0.05} tilt={0.4} className="h-full w-full" />
+        </div>
+      </div>
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-[var(--bg)]" />
+      {/* keeps the headline legible where the moon sits behind it on phones */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[var(--bg)]/85 via-[var(--bg)]/40 to-transparent md:hidden" />
 
-            {/* Content */}
-            <div className="relative z-10 text-center px-6 max-w-6xl mx-auto">
-                {/* Status Badge */}
-                <div className="hero-status inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-10">
-                    <div className="status-dot" />
-                    <span className="text-sm font-space-mono text-white/70 tracking-wide">
-                        Available for Opportunities
-                    </span>
-                </div>
-
-                {/* Name - Massive Display Typography */}
-                <div className="mb-6">
-                    <div className="overflow-hidden">
-                        <h1 className="hero-name-line text-[12vw] md:text-[8vw] lg:text-[7vw] font-bold tracking-tighter leading-[0.9] text-white">
-                            HARSHIT
-                        </h1>
-                    </div>
-                    <div className="overflow-hidden">
-                        <h1 className="hero-name-line text-[12vw] md:text-[8vw] lg:text-[7vw] font-bold tracking-tighter leading-[0.9] text-gradient">
-                            KUDHIAL
-                        </h1>
-                    </div>
-                </div>
-
-                {/* Subtitle */}
-                <p className="hero-subtitle text-lg md:text-xl text-white/50 max-w-2xl mx-auto mb-8 font-light leading-relaxed">
-                    AI/ML Engineer specializing in agentic AI systems, RAG, and LLM orchestration.
-                    <br className="hidden md:block" />
-                    Building production-grade intelligent systems.
-                </p>
-
-                {/* Role Tags */}
-                <div className="flex flex-wrap justify-center gap-3">
-                    {["Agentic AI", "RAG Systems", "Full-Stack", "LLM Orchestration"].map((tag) => (
-                        <span
-                            key={tag}
-                            className="hero-tag px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-white/60 font-space-mono tracking-wide"
-                        >
-                            {tag}
-                        </span>
-                    ))}
-                </div>
+      <div data-hero-content className="gutter relative z-10 flex h-full flex-col justify-between pb-6 pt-[18vh] md:pt-[16vh]">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-12">
+          <div className="md:col-span-3">
+            <div
+              data-hero-card
+              data-cursor="big"
+              className="relative aspect-[3/2] w-[200px] overflow-hidden rounded-[4px] bg-[#111] ring-1 ring-white/10 md:w-full md:max-w-[276px]"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={site.heroImage} alt={`Portrait of ${site.name}`} className="h-full w-full object-cover grayscale" />
+              <span className="mono absolute left-2 top-2 text-[10px] text-white/60">CAM-01 ● REC</span>
             </div>
+            <p data-hero-fade className="mono c-muted mt-3 hidden text-[11px] md:block">
+              LAT {coords.lat} — LON {coords.lon}
+            </p>
+          </div>
+          <div className="md:col-span-8 md:col-start-4">
+            <p data-hero-fade className="t-15 c-muted mb-4">(About me)</p>
+            <SplitReveal
+              as="h1"
+              immediate
+              delay={0.45}
+              className="t-48"
+              lines={[`I’m ${site.name},`, `an ${site.role}`, `based in ${site.location}.`]}
+            />
+            <p data-hero-fade className="t-15 c-75 mt-6 max-w-[420px]">
+              {site.tagline}
+            </p>
+          </div>
+        </div>
 
-            {/* Scroll Indicator */}
-            <div className="hero-scroll absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-                <span className="section-label">Scroll</span>
-                <ChevronDown className="w-5 h-5 text-white/40 scroll-indicator" />
-            </div>
-        </section>
-    );
+        <div className="grid grid-cols-2 items-end gap-4 md:grid-cols-12">
+          <div data-hero-fade className="flex flex-col gap-1 md:col-span-3">
+            <span className="t-15 c-muted">/ {site.year} /</span>
+            <MissionClock className="mono c-muted text-[11px]" />
+          </div>
+          <a data-hero-fade href="#works" className="t-15 c-muted hidden items-center gap-2 md:col-span-3 md:col-start-4 md:flex">
+            Scroll down
+            <span className="inline-block animate-bounce">↓</span>
+          </a>
+          <div data-hero-fade className="col-span-2 md:col-span-6 md:col-start-7 md:justify-self-end">
+            <PillButton href={`mailto:${site.email}`} label="Start the project" />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }

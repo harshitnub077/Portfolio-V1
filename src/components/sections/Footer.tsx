@@ -1,154 +1,58 @@
 "use client";
 
-import { useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
-import { Github, Linkedin, Mail, Phone, ArrowUpRight } from "lucide-react";
-import MagneticButton from "@/components/ui/MagneticButton";
-
-if (typeof window !== "undefined") {
-    gsap.registerPlugin(ScrollTrigger);
-}
-
-const SOCIALS = [
-    {
-        icon: Github,
-        label: "GitHub",
-        href: "https://github.com/harshitnub077",
-        color: "#ffffff",
-    },
-    {
-        icon: Linkedin,
-        label: "LinkedIn",
-        href: "https://linkedin.com/in/harshit-kudhial",
-        color: "#0a66c2",
-    },
-    {
-        icon: Mail,
-        label: "Email",
-        href: "mailto:harshitkudhial@gmail.com",
-        color: "#8b5cf6",
-    },
-    {
-        icon: Phone,
-        label: "Phone",
-        href: "tel:+917678410891",
-        color: "#22c55e",
-    },
-];
+import Marquee from "@/components/ui/Marquee";
+import RollText from "@/components/ui/RollText";
+import { coords, site, socials } from "@/content/site";
 
 export default function Footer() {
-    const container = useRef(null);
+  return (
+    <footer className="pb-6">
+      <a href={`mailto:${site.email}`} className="block py-6" data-cursor="big">
+        <Marquee items={["Let’s connect"]} speed={110} />
+      </a>
 
-    useGSAP(() => {
-        // Large CTA text — character reveal
-        const chars = gsap.utils.toArray(".footer-char") as HTMLElement[];
-        gsap.from(chars, {
-            scrollTrigger: {
-                trigger: container.current,
-                start: "top 70%",
-            },
-            y: "100%",
-            opacity: 0,
-            duration: 0.8,
-            stagger: 0.02,
-            ease: "power3.out",
-        });
+      <div className="gutter mt-6 grid grid-cols-1 gap-10 md:grid-cols-12">
+        <div className="t-14 md:col-span-4">
+          <p className="uppercase">{site.location}</p>
+          <p className="mono c-muted mt-1 text-[11px]">
+            {coords.lat} · {coords.lon}
+          </p>
+          <div className="mt-3 flex items-end gap-6">
+            <p className="uppercase">
+              Working
+              <br />
+              Globally
+            </p>
+            <p className="c-accent">IND</p>
+          </div>
+        </div>
 
-        // Social links
-        gsap.from(".footer-social", {
-            scrollTrigger: {
-                trigger: ".footer-socials-row",
-                start: "top 90%",
-            },
-            y: 30,
-            opacity: 0,
-            duration: 0.6,
-            stagger: 0.1,
-            ease: "back.out(1.7)",
-        });
+        <div className="md:col-span-6 md:col-start-6">
+          <ul className="grid grid-cols-2 gap-x-6 gap-y-1 t-14 c-75 sm:grid-cols-3">
+            {socials.map((s) => (
+              <li key={s.label}>
+                <a href={s.href} target={s.href.startsWith("http") ? "_blank" : undefined} rel="noreferrer" className="roll-host hover:text-white">
+                  <RollText text={s.label} />
+                </a>
+              </li>
+            ))}
+          </ul>
+          <a href={`mailto:${site.email}`} className="roll-host t-14 mt-6 inline-block">
+            <RollText text={site.email} />
+          </a>
+        </div>
 
-        // Bottom bar
-        gsap.from(".footer-bottom", {
-            scrollTrigger: {
-                trigger: ".footer-bottom",
-                start: "top 95%",
-            },
-            opacity: 0,
-            duration: 0.8,
-        });
-    }, { scope: container });
+        <a href="#home" className="roll-host t-14 c-75 md:col-span-1 md:col-start-12 md:justify-self-end">
+          <RollText text="Top ↑" />
+        </a>
+      </div>
 
-    // Split CTA text into characters
-    const ctaText = "LET'S BUILD SOMETHING AMAZING";
-    const ctaChars = ctaText.split("");
-
-    return (
-        <section
-            ref={container}
-            id="contact"
-            className="relative w-full py-32 md:py-40 px-6 md:px-8 max-w-7xl mx-auto"
-        >
-            {/* Section Label */}
-            <div className="section-label mb-20">[ 05 — Get in Touch ]</div>
-
-            {/* Large CTA Text */}
-            <div className="mb-16">
-                <div className="overflow-hidden">
-                    <h2 className="text-5xl md:text-7xl lg:text-[6vw] font-bold tracking-tighter leading-[0.95]">
-                        {ctaChars.map((char, i) => (
-                            <span
-                                key={i}
-                                className="footer-char inline-block"
-                                style={{ display: char === " " ? "inline" : "inline-block" }}
-                            >
-                                {char === " " ? "\u00A0" : char}
-                            </span>
-                        ))}
-                    </h2>
-                </div>
-            </div>
-
-            {/* Email CTA */}
-            <div className="mb-20">
-                <MagneticButton href="mailto:harshitkudhial@gmail.com" strength={0.2}>
-                    <div className="group inline-flex items-center gap-4 px-8 py-5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-500">
-                        <span className="text-xl md:text-2xl font-light text-white/80 group-hover:text-white transition-colors">
-                            harshitkudhial@gmail.com
-                        </span>
-                        <ArrowUpRight className="w-6 h-6 text-white/40 group-hover:text-white group-hover:rotate-45 transition-all duration-300" />
-                    </div>
-                </MagneticButton>
-            </div>
-
-            {/* Social Links */}
-            <div className="footer-socials-row flex flex-wrap gap-4 mb-32">
-                {SOCIALS.map((social) => (
-                    <MagneticButton
-                        key={social.label}
-                        href={social.href}
-                        strength={0.35}
-                    >
-                        <div className="footer-social group flex items-center gap-3 px-6 py-4 rounded-2xl bg-white/5 border border-white/8 hover:bg-white/10 hover:border-white/15 transition-all duration-300">
-                            <social.icon className="w-5 h-5 text-white/50 group-hover:text-white transition-colors" />
-                            <span className="text-sm font-medium text-white/60 group-hover:text-white transition-colors">
-                                {social.label}
-                            </span>
-                        </div>
-                    </MagneticButton>
-                ))}
-            </div>
-
-            {/* Bottom Bar */}
-            <div className="footer-bottom flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-white/8">
-                <p className="font-space-mono text-xs text-white/30">
-                    &copy; {new Date().getFullYear()} Harshit Kudhial. All rights reserved.
-                </p>
-                <p className="font-space-mono text-xs text-white/30">
-                    Delhi, India • Designed & Built with passion
-                </p>
-            </div>
-        </section>
-    );
+      <div className="gutter mt-12 flex flex-wrap items-end justify-between gap-4">
+        <p className="t-14 c-55 uppercase">
+          ©{site.year} {site.name}, all rights reserved
+        </p>
+        <p className="t-14 c-55">Transmitted from Earth — Next.js, GSAP & WebGL</p>
+      </div>
+    </footer>
+  );
 }
