@@ -2,11 +2,13 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { BannerParticles } from "@/components/banner-particles";
-import { CurrentTime } from "@/components/current-time";
+import { BlueprintGuides } from "@/components/blueprint/blueprint-guides";
+import { HeaderBanner } from "@/components/blueprint/header-banner";
+import { PageMotion } from "@/components/fx/page-motion";
 import { CommandMenu } from "@/components/command-menu";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { projectsData, siteProfile } from "@/content/portfolio-data";
+import { techNames } from "@/content/tech";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { SiGithub } from "react-icons/si";
 
@@ -29,129 +31,43 @@ export default async function ProjectDetailPage({
   }
 
   return (
-    <div className="min-h-screen w-full bg-white dark:bg-black relative overflow-x-hidden transition-colors duration-300">
-      {/* Vertical Dashed Guidelines */}
-      <div
-        className="absolute top-0 bottom-0 left-[30%] w-0 border-r border-black/30 dark:border-white/[0.15] pointer-events-none hidden md:block"
-        style={{
-          maskImage:
-            "repeating-linear-gradient(to bottom, black 0, black 1px, transparent 1px, transparent 6px)",
-          WebkitMaskImage:
-            "repeating-linear-gradient(to bottom, black 0, black 1px, transparent 1px, transparent 6px)",
-        }}
-      />
-      <div
-        className="absolute top-0 bottom-0 right-[30%] w-0 border-r border-black/30 dark:border-white/[0.15] pointer-events-none hidden md:block"
-        style={{
-          maskImage:
-            "repeating-linear-gradient(to bottom, black 0, black 1px, transparent 1px, transparent 6px)",
-          WebkitMaskImage:
-            "repeating-linear-gradient(to bottom, black 0, black 1px, transparent 1px, transparent 6px)",
-        }}
-      />
+    <div className="min-h-screen w-full relative z-[1] overflow-x-hidden">
+      <PageMotion />
 
-      {/* Horizontal Dashed Guidelines */}
-      <div
-        className="absolute left-0 right-0 top-[22vh] h-0 border-b border-black/30 dark:border-white/[0.15] pointer-events-none"
-        style={{
-          maskImage:
-            "repeating-linear-gradient(to right, black 0, black 1px, transparent 1px, transparent 6px)",
-          WebkitMaskImage:
-            "repeating-linear-gradient(to right, black 0, black 1px, transparent 1px, transparent 6px)",
-        }}
-      />
-      <div
-        className="absolute left-0 right-0 top-[calc(22vh+112px)] h-0 border-b border-black/30 dark:border-white/[0.15] pointer-events-none"
-        style={{
-          maskImage:
-            "repeating-linear-gradient(to right, black 0, black 1px, transparent 1px, transparent 6px)",
-          WebkitMaskImage:
-            "repeating-linear-gradient(to right, black 0, black 1px, transparent 1px, transparent 6px)",
-        }}
-      />
-
-      {/* Crosshairs */}
-      <div
-        className="absolute w-[2px] h-[2px] bg-black/50 dark:bg-white/[0.25] pointer-events-none z-10 hidden md:block"
-        style={{ top: "22vh", left: "30%", transform: "translate(-50%, -50%)" }}
-      />
-      <div
-        className="absolute w-[2px] h-[2px] bg-black/50 dark:bg-white/[0.25] pointer-events-none z-10 hidden md:block"
-        style={{ top: "22vh", right: "30%", transform: "translate(50%, -50%)" }}
-      />
-      <div
-        className="absolute w-[2px] h-[2px] bg-black/50 dark:bg-white/[0.25] pointer-events-none z-10 hidden md:block"
-        style={{
-          top: "calc(22vh + 112px)",
-          left: "30%",
-          transform: "translate(-50%, -50%)",
-        }}
-      />
-      <div
-        className="absolute w-[2px] h-[2px] bg-black/50 dark:bg-white/[0.25] pointer-events-none z-10 hidden md:block"
-        style={{
-          top: "calc(22vh + 112px)",
-          right: "30%",
-          transform: "translate(50%, -50%)",
-        }}
-      />
+      {/* Column guides, header rules and their crossings */}
+      <BlueprintGuides />
 
       {/* Header Banner */}
-      <div className="absolute left-0 right-0 md:left-[30%] md:right-[30%] top-0 h-[22vh] -z-0 pointer-events-auto overflow-hidden bg-white dark:bg-black shadow-[0_4px_12px_rgba(2,6,23,0.04)] dark:shadow-[0_4px_12px_rgba(2,6,23,0.10)]">
-        <Image
-          src="/ChatGPT Image May 22, 2026, 12_40_29 AM.jpg"
-          alt=""
-          fill
-          priority
-          sizes="(min-width: 768px) 40vw, 100vw"
-          className="object-cover object-center dark:hidden"
-        />
-        <Image
-          src="/ChatGPT Image May 22, 2026, 12_49_39 AM.jpg"
-          alt=""
-          fill
-          priority
-          sizes="(min-width: 768px) 40vw, 100vw"
-          className="hidden object-cover object-center dark:block"
-        />
-        <BannerParticles />
-        <div className="absolute inset-x-0 bottom-0 h-10 pointer-events-none z-[5] bg-gradient-to-t from-white/90 to-transparent dark:from-black/50 dark:to-transparent" />
-        <div className="absolute left-0 top-0 bottom-0 w-8 pointer-events-none z-20 bg-gradient-to-r from-white/90 to-transparent dark:from-black/40 dark:to-transparent" />
-        <div className="absolute right-0 top-0 bottom-0 w-8 pointer-events-none z-20 bg-gradient-to-l from-white/90 to-transparent dark:from-black/40 dark:to-transparent" />
-
-        <div className="absolute bottom-3 right-2 z-10 pointer-events-auto">
-          <CurrentTime />
-        </div>
-      </div>
+      <HeaderBanner />
 
       {/* Profile Bar */}
       <div className="absolute left-0 right-0 md:left-[30%] md:right-[30%] top-[22vh] h-[112px] flex items-center px-4 z-50">
         <div className="flex w-full items-center justify-between">
-          <Link href="/" className="flex items-center gap-4 sm:gap-5 group cursor-pointer">
-            <div className="relative p-[3px] rounded-[6px] sm:rounded-[8px] border-[1.5px] border-black/30 dark:border-white/[0.15] shrink-0">
-              <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-[3px] sm:rounded-[5px] overflow-hidden bg-zinc-100 dark:bg-zinc-900">
+          <Link href="/" className="flex min-w-0 items-center gap-4 sm:gap-5 group cursor-pointer">
+            <div data-hero="avatar" className="group/avatar relative p-[3px] rounded-[6px] sm:rounded-[8px] border-[1.5px] border-black/30 dark:border-white/[0.15] shrink-0">
+              <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-14 md:h-14 xl:w-20 xl:h-20 rounded-[3px] sm:rounded-[5px] overflow-hidden bg-zinc-100 dark:bg-zinc-900">
                 <Image
                   src={siteProfile.avatar}
-                  alt="Profile"
+                  alt={siteProfile.name}
                   width={240}
                   height={240}
                   priority
-                  className="h-full w-full origin-center translate-y-1 scale-[1.1] object-cover opacity-90 grayscale contrast-100 mix-blend-multiply dark:mix-blend-normal"
+                  className="h-full w-full object-cover object-center saturate-[0.9] transition-[filter,scale] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover/avatar:saturate-100 group-hover/avatar:scale-[1.06]"
                 />
               </div>
             </div>
 
-            <div className="flex flex-col justify-center pt-8">
-              <h1 className="text-[20px] sm:text-[24px] font-bold text-zinc-800 dark:text-zinc-100 tracking-tight leading-none mb-0.5 [text-shadow:-1.5px_0_0_rgba(0,200,255,0.3),1.5px_0_0_rgba(255,80,0,0.3)] dark:[text-shadow:-1.5px_0_0_rgba(0,200,255,0.6),1.5px_0_0_rgba(255,80,0,0.6)]">
+            <div className="flex min-w-0 flex-col justify-center pt-8">
+              <h1 data-hero="name" className="name-glitch whitespace-nowrap text-[20px] sm:text-[24px] md:text-[18px] xl:text-[24px] font-bold text-zinc-800 dark:text-zinc-100 tracking-tight leading-none mb-0.5 [text-shadow:-1.5px_0_0_rgba(0,200,255,0.3),1.5px_0_0_rgba(255,80,0,0.3)] dark:[text-shadow:-1.5px_0_0_rgba(0,200,255,0.6),1.5px_0_0_rgba(255,80,0,0.6)]">
                 {siteProfile.name}
               </h1>
-              <p className="text-[13px] sm:text-[14px] text-zinc-500 dark:text-zinc-400">
+              <p data-hero="sub" title={siteProfile.age} className="text-[13px] sm:text-[14px] text-zinc-500 dark:text-zinc-400 md:line-clamp-2 xl:line-clamp-none">
                 {siteProfile.age}
               </p>
             </div>
           </Link>
 
-          <div className="flex items-start justify-end gap-2 sm:gap-3 h-20 sm:h-24 py-1">
+          <div data-hero="tools" className="flex shrink-0 items-start justify-end gap-2 sm:gap-3 h-20 sm:h-24 py-1">
             <CommandMenu />
             <ThemeToggle />
           </div>
@@ -277,9 +193,9 @@ export default async function ProjectDetailPage({
               {project.tech.map((t) => (
                 <span
                   key={t}
-                  className="px-2.5 py-1 rounded-md text-[12px] bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-black/5 dark:border-white/5"
+                  className="px-2.5 py-1 rounded-md text-[12px] bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-black/5 dark:border-white/5 transition-colors duration-300 hover:border-ink/60 hover:text-ink"
                 >
-                  {t}
+                  {techNames[t] ?? t}
                 </span>
               ))}
             </div>

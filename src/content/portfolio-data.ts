@@ -25,12 +25,13 @@ export interface Experience {
   title: string;
   role: string;
   dates: string;
-  location: string;
-  src: string;
+  location?: string;
+  /** Logo; when absent an icon tile is shown. */
+  src?: string;
   imageFit?: 'contain' | 'cover';
   imageZoom?: number;
-  description: string;
-  tech: string[];
+  description?: string;
+  tech?: string[];
   metrics?: Metric[];
   screenshot?: string;
 }
@@ -38,7 +39,7 @@ export interface Experience {
 export const siteProfile = {
   name: "Harshit Kudhial",
   age: "B.Tech CSE (AI/ML) @ Newton School of Technology (2024–2028)",
-  avatar: "/avatar.png",
+  avatar: "/avatar-harshit.webp",
   tagline: "Engineer / Builder. I love building, breaking, and shipping things.",
   bullets: [
     "AI architectures, open source, and high-performance systems excite me.",
@@ -46,6 +47,7 @@ export const siteProfile = {
     "Currently building Cognify, NotForgotten, and autonomous AI agents."
   ],
   calLink: "mailto:harshitkudhial@gmail.com",
+  coords: "28.61° N, 77.20° E",
   socials: [
     {
       name: "GitHub",
@@ -221,7 +223,10 @@ Completed 10 assignments across 2 tracks; capstone accepted, qualified for 2 of 
       { label: "Security", value: "SSRF Hardening" },
       { label: "Ecosystem", value: "CNCF" }
     ]
-  },
+  }
+];
+
+export const educationData: Experience[] = [
   {
     title: "Newton School of Technology, Rishihood University",
     role: "B.Tech in Computer Science & Engineering",
@@ -241,6 +246,13 @@ Certifications: AI Fluency: Framework & Foundations (Anthropic, Jun 2026); Intro
       { label: "GSSoC", value: "2024 & 2026" },
       { label: "Degree", value: "B.Tech CSE" }
     ]
+  },
+  {
+    title: "Sunrise Ville School",
+    role: "School education",
+    dates: "2016 – 2023",
+    src: "/Experience-image/sunriseville.png",
+    imageFit: "contain"
   }
 ];
 

@@ -2,6 +2,30 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* Blueprint tokens. Ink is sampled from the banner's field blue. */
+:root {
+  --bg: #ffffff;
+  --fg: #18181b;
+  --ink: #2f60ad;
+  --grid-dot: rgba(9, 9, 11, 0.14);
+  --grid-dot-hot: #2f60ad;
+  --rule: rgba(0, 0, 0, 0.3);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dark {
+  --bg: #000000;
+  --fg: #fafafa;
+  --ink: #8db4f0;
+  --grid-dot: rgba(250, 250, 250, 0.1);
+  --grid-dot-hot: #8db4f0;
+  --rule: rgba(255, 255, 255, 0.15);
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+}
+
 @layer base {
   :root {
     --font-geist-sans: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -10,11 +34,411 @@
   }
 
   html {
-    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in oklab, var(--fg) 22%, transparent) transparent;
   }
 
   body {
     font-family: var(--font-geist-sans);
+    caret-color: var(--ink);
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--ink) 28%, transparent);
+    color: var(--fg);
+  }
+
+  :focus-visible {
+    outline: 1.5px solid var(--ink);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+/* Native smooth anchors only when Lenis is not driving the scroll */
+@media (prefers-reduced-motion: no-preference) {
+  html:not(.lenis) {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis:not(.lenis-autoToggle).lenis-stopped {
+  overflow: clip;
+}
+
+.lenis [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* GSAP-owned elements wait, invisible, for their entrance (only once JS is confirmed) */
+.fx-ready [data-hero],
+.fx-ready [data-split] {
+  visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fx-ready [data-hero],
+  .fx-ready [data-split] {
+    visibility: visible;
+  }
+}
+
+/* ---------- Drafting reticle: hide the native pointer on fine pointers ---------- */
+html.reticle-on,
+html.reticle-on * {
+  cursor: none !important;
+}
+
+html.reticle-on input,
+html.reticle-on textarea,
+html.reticle-on [contenteditable="true"] {
+  cursor: text !important;
+}
+
+.reticle {
+  transition: opacity 200ms ease-out;
+}
+
+.reticle.is-hidden,
+.reticle.is-native {
+  opacity: 0;
+}
+
+.reticle-cross {
+  filter: drop-shadow(0 0 1px var(--bg));
+  transition: scale 150ms var(--ease-out-expo);
+}
+
+.reticle-arm,
+.reticle-dot {
+  background: var(--fg);
+  transition:
+    scale 180ms var(--ease-out-expo),
+    opacity 180ms ease-out,
+    background-color 150ms ease-out;
+}
+
+.reticle.is-snap .reticle-arm {
+  scale: 0;
+  opacity: 0;
+}
+
+.reticle.is-snap .reticle-dot {
+  background: var(--ink);
+}
+
+.reticle.is-pressed .reticle-cross {
+  scale: 0.8;
+}
+
+.reticle-readout {
+  color: color-mix(in oklab, var(--fg) 55%, transparent);
+  text-shadow: 0 0 2px var(--bg);
+  opacity: 0;
+  transition: opacity 250ms ease-out;
+}
+
+.reticle.is-moving .reticle-readout {
+  opacity: 1;
+}
+
+.reticle.is-snap .reticle-readout {
+  opacity: 1;
+  translate: -50% 0;
+  padding: 3px 4px;
+  border-radius: 2px;
+  background: var(--ink);
+  color: var(--bg);
+  text-shadow: none;
+}
+
+/* ---------- Load sequence: the sheet's guides draft themselves ---------- */
+@keyframes guide-draw-y {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  99% {
+    clip-path: inset(0 0 calc(100% - 100vh) 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes rule-draw-x {
+  from {
+    scale: 0 1;
+  }
+  to {
+    scale: 1 1;
+  }
+}
+
+@keyframes reg-ping {
+  0% {
+    opacity: 0.9;
+    scale: 0.2;
+  }
+  100% {
+    opacity: 0;
+    scale: 1;
+  }
+}
+
+@keyframes dot-pop {
+  from {
+    scale: 0;
+  }
+  to {
+    scale: 1;
+  }
+}
+
+.fx-ready:not(.preloading) .guide-y {
+  animation: guide-draw-y 1100ms var(--ease-out-expo) both;
+}
+
+.fx-ready:not(.preloading) .guide-x {
+  animation: rule-draw-x 1000ms var(--ease-out-expo) 150ms both;
+}
+
+.fx-ready:not(.preloading) .guide-dot {
+  animation: dot-pop 240ms var(--ease-out-expo) 550ms both;
+}
+
+/* Registration ping: a ring that marks where two rules cross */
+.reg-ping::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  margin: -7px 0 0 -7px;
+  border-radius: 9999px;
+  border: 1px solid var(--ink);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.fx-ready:not(.preloading) .guide-dot.reg-ping::after {
+  animation: reg-ping 700ms var(--ease-out-expo) 650ms both;
+}
+
+/* ---------- Scroll reveals ---------- */
+.rule-x {
+  transform-origin: center;
+}
+
+.fx-ready [data-reveal] .rule-x {
+  scale: 0 1;
+  transition: scale 1100ms var(--ease-out-expo);
+}
+
+.fx-ready [data-reveal] .reg-dot {
+  scale: 0;
+  transition: scale 240ms var(--ease-out-expo) 120ms;
+}
+
+.fx-ready [data-reveal] [data-reveal-item] {
+  opacity: 0;
+  translate: 0 8px;
+  transition:
+    opacity 500ms var(--ease-out-expo),
+    translate 600ms var(--ease-out-expo);
+  transition-delay: calc(min(var(--i, 0), 10) * 30ms + 120ms);
+}
+
+.fx-ready [data-reveal].is-in .rule-x {
+  scale: 1 1;
+}
+
+.fx-ready [data-reveal].is-in .reg-dot {
+  scale: 1;
+}
+
+.fx-ready [data-reveal].is-in .reg-dot.reg-ping::after {
+  animation: reg-ping 700ms var(--ease-out-expo) 260ms both;
+}
+
+.fx-ready [data-reveal].is-in [data-reveal-item] {
+  opacity: 1;
+  translate: none;
+}
+
+/* ---------- Decode text ---------- */
+.decode-overlay {
+  visibility: hidden;
+}
+
+.decode[data-decoding] > .decode-text {
+  visibility: hidden;
+}
+
+.decode[data-decoding] > .decode-overlay {
+  visibility: visible;
+}
+
+/* ---------- Name: colour-split glitch on hover ---------- */
+@keyframes name-glitch {
+  0% {
+    text-shadow: -1.5px 0 0 rgba(0, 200, 255, 0.6), 1.5px 0 0 rgba(255, 80, 0, 0.6);
+    clip-path: inset(0 0 0 0);
+  }
+  20% {
+    text-shadow: -4px 0 0 rgba(0, 200, 255, 0.75), 3px 0 0 rgba(255, 80, 0, 0.75);
+    clip-path: inset(18% 0 46% 0);
+    translate: 2px 0;
+  }
+  40% {
+    text-shadow: 3px 0 0 rgba(0, 200, 255, 0.75), -3px 0 0 rgba(255, 80, 0, 0.75);
+    clip-path: inset(58% 0 8% 0);
+    translate: -2px 0;
+  }
+  60% {
+    text-shadow: -2px 0 0 rgba(0, 200, 255, 0.7), 2px 0 0 rgba(255, 80, 0, 0.7);
+    clip-path: inset(0 0 0 0);
+    translate: 1px 0;
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+    translate: none;
+  }
+}
+
+.name-glitch:hover {
+  animation: name-glitch 320ms steps(1, end) 1;
+}
+
+/* ---------- Project card: contour rings gather under the cursor ---------- */
+.card-lamp {
+  background-image:
+    repeating-radial-gradient(
+      circle at var(--mx, 50%) var(--my, 50%),
+      color-mix(in oklab, var(--ink) 50%, transparent) 0 1px,
+      transparent 1.6px 13px
+    ),
+    radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), color-mix(in oklab, var(--ink) 12%, transparent), transparent 70%);
+  mask-image: radial-gradient(180px circle at var(--mx, 50%) var(--my, 50%), black 20%, transparent 75%);
+  -webkit-mask-image: radial-gradient(180px circle at var(--mx, 50%) var(--my, 50%), black 20%, transparent 75%);
+}
+
+/* ---------- Theme switch: a contour reveal from the toggle ---------- */
+@property --vt-r {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0px;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/*
+ * Three mask layers, composited bottom-up:
+ *   3. a band just inside the leading edge, fading outward,
+ *   2. fine concentric rings, kept only where the band is (intersect),
+ *   1. the solid disc behind the band, added on top.
+ * Result: the new theme is solid at the centre and dissolves into survey rings at its edge.
+ */
+::view-transition-new(root) {
+  mask-image:
+    radial-gradient(circle at var(--vt-x) var(--vt-y), #000 calc(var(--vt-r) - var(--vt-edge)), transparent calc(var(--vt-r) - var(--vt-edge) + 1px)),
+    repeating-radial-gradient(circle at var(--vt-x) var(--vt-y), #000 0 2px, transparent 2.5px 12px),
+    radial-gradient(circle at var(--vt-x) var(--vt-y), transparent calc(var(--vt-r) - var(--vt-edge)), #000 calc(var(--vt-r) - var(--vt-edge)), transparent var(--vt-r));
+  mask-composite: add, intersect;
+}
+
+/* Hold colour transitions still while the two snapshots are taken */
+.theme-sweeping,
+.theme-sweeping *,
+.theme-sweeping *::before,
+.theme-sweeping *::after {
+  transition: none !important;
+}
+
+@keyframes theme-icon-in {
+  from {
+    opacity: 0;
+    rotate: -90deg;
+    scale: 0.6;
+  }
+}
+
+.theme-icon {
+  animation: theme-icon-in 500ms var(--ease-out-expo);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-icon {
+    animation: none;
+  }
+}
+
+/* ---------- GitHub calendar: each day lights in its own colour ---------- */
+.gh-cell {
+  --gh-l: 52%;
+  transition:
+    background-color 900ms ease-out,
+    box-shadow 900ms ease-out,
+    scale 500ms var(--ease-out-expo),
+    opacity 900ms ease-out;
+}
+
+.dark .gh-cell {
+  --gh-l: 62%;
+}
+
+.gh-cell:hover {
+  background-color: hsl(var(--h) 88% var(--gh-l));
+  box-shadow: 0 0 14px 1px hsl(var(--h) 88% var(--gh-l) / 0.55);
+  opacity: 1;
+  scale: 1.4;
+  /* Light up instantly; fade out slowly, leaving a soft trail behind the cursor */
+  transition:
+    background-color 90ms ease-out,
+    box-shadow 90ms ease-out,
+    scale 220ms var(--ease-out-expo),
+    opacity 90ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gh-cell:hover {
+    scale: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fx-ready .guide-y,
+  .fx-ready .guide-x,
+  .fx-ready .guide-dot,
+  .fx-ready .guide-dot.reg-ping::after,
+  .fx-ready [data-reveal].is-in .reg-dot.reg-ping::after,
+  .name-glitch:hover {
+    animation: none;
+  }
+
+  .fx-ready [data-reveal] .rule-x,
+  .fx-ready [data-reveal] .reg-dot {
+    scale: none;
+    transition: none;
+  }
+
+  .fx-ready [data-reveal] [data-reveal-item] {
+    translate: none;
+    transition: opacity 400ms ease-out;
   }
 }
 
@@ -27,136 +451,6 @@
 .border-dashed-v {
   mask-image: repeating-linear-gradient(to bottom, black 0, black 1px, transparent 1px, transparent 6px);
   -webkit-mask-image: repeating-linear-gradient(to bottom, black 0, black 1px, transparent 1px, transparent 6px);
-}
-
-/* 3D Flip Cover Button for cal.com */
-.flip-cover-section {
-  perspective: 300px;
-  vertical-align: middle;
-  cursor: pointer;
-  -webkit-user-select: none;
-  user-select: none;
-  background: #a9adb6;
-  border-radius: 4px;
-  justify-content: center;
-  align-items: center;
-  display: inline-flex;
-  position: relative;
-  box-shadow: 0 -1px 2px #fff, inset 0 1px 2px #0003, inset 0 0.2rem 0.6rem #0000001a;
-  transition-duration: 0.6s;
-  transition-timing-function: cubic-bezier(0.2, 0.7, 0.1, 1.1);
-}
-
-.dark .flip-cover-section {
-  background: #3f3f46;
-  box-shadow: 0 -1px 2px #ffffff1a, inset 0 1px 2px #0009, inset 0 0.2rem 0.6rem #00000080;
-}
-
-.flip-cover-section div {
-  transition-duration: 0.6s;
-  transition-timing-function: cubic-bezier(0.2, 0.7, 0.1, 1.1);
-}
-
-.flip-cover-button {
-  opacity: 0;
-  z-index: 5;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  display: flex;
-  position: absolute;
-  inset: 0;
-}
-
-.flip-cover-section:hover .flip-cover-button {
-  opacity: 1;
-}
-
-.flip-cover-cover {
-  transform-origin: bottom;
-  transform-style: preserve-3d;
-  pointer-events: none;
-  z-index: 100;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  position: absolute;
-  inset: 0;
-}
-
-.flip-cover-innie,
-.flip-cover-outie,
-.flip-cover-spine,
-.flip-cover-shadow {
-  width: 100%;
-  position: absolute;
-}
-
-.flip-cover-innie,
-.flip-cover-outie {
-  white-space: nowrap;
-  border-radius: 4px;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  display: flex;
-}
-
-.flip-cover-innie {
-  text-shadow: 0 -1px 2px #0006;
-  background-color: #18181b;
-  background-image: linear-gradient(#0000 0%, #0000004d 100%);
-}
-
-.flip-cover-spine {
-  transform-origin: top;
-  background: #27272a;
-  height: 0.15rem;
-  top: 0.15rem;
-  left: 0;
-  transform: rotateX(90deg);
-}
-
-.flip-cover-outie {
-  transform: translateZ(0.15rem);
-}
-
-.flip-cover-shadow {
-  transform-origin: top;
-  opacity: 0;
-  z-index: 0;
-  pointer-events: none;
-  background-image: linear-gradient(#0009 0%, #0000 100%);
-  border-radius: 0.3rem;
-  height: 2.2rem;
-  top: 100%;
-  left: 0;
-  transform: rotateX(90deg);
-}
-
-.flip-cover-section:hover {
-  background: #ebeff2;
-}
-
-.dark .flip-cover-section:hover {
-  background: #52525b;
-}
-
-.flip-cover-section:hover .flip-cover-cover {
-  transform: rotateX(-120deg);
-}
-
-.flip-cover-section:hover .flip-cover-innie {
-  background-color: #27272a;
-}
-
-.flip-cover-section:hover .flip-cover-spine {
-  background-color: #3f3f46;
-}
-
-.flip-cover-section:hover .flip-cover-shadow {
-  opacity: 1;
-  transform: rotateX(45deg) scale(0.95);
 }
 
 /* Highlights Marquee */

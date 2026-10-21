@@ -157,7 +157,7 @@ export function OpenSourceContributions() {
                 </div>
 
                 <div className="flex flex-col min-w-0">
-                  <span className="text-[13px] font-medium text-zinc-800 dark:text-zinc-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-1">
+                  <span className="text-[13px] font-medium text-zinc-800 dark:text-zinc-200 group-hover:text-ink transition-colors line-clamp-1">
                     {pr.title}
                   </span>
                   <span className="text-[11px] text-zinc-400 dark:text-zinc-500 font-mono">
@@ -170,7 +170,7 @@ export function OpenSourceContributions() {
                 <span className="text-[11px] text-zinc-400 dark:text-zinc-500">
                   {formatPRDate(date)}
                 </span>
-                <span className="text-zinc-400 group-hover:text-zinc-700 dark:group-hover:text-zinc-200 transition-colors">
+                <span className="text-zinc-400 group-hover:text-ink transition-[color,translate] duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
                   <svg
                     viewBox="0 0 24 24"
                     className="w-3.5 h-3.5"

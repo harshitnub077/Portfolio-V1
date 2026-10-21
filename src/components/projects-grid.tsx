@@ -35,6 +35,8 @@ import {
 } from "react-icons/si";
 import { Network, Database } from "lucide-react";
 import { projectsData, Project } from "@/content/portfolio-data";
+import { DashedRule, RegDot } from "@/components/blueprint/dashed-rule";
+import { techNames } from "@/content/tech";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   next: SiNextdotjs,
@@ -67,36 +69,6 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   c: SiC,
 };
 
-const techNames: Record<string, string> = {
-  next: "Next.js",
-  ts: "TypeScript",
-  react: "React",
-  three: "Three.js",
-  prisma: "Prisma",
-  cloud: "Cloudflare",
-  langchain: "LangChain",
-  langgraph: "LangGraph",
-  rag: "RAG",
-  node: "Node.js",
-  motion: "Framer Motion",
-  tailwind: "Tailwind CSS",
-  bun: "Bun",
-  eslint: "ESLint",
-  radixui: "Radix UI",
-  charts: "Charts",
-  github: "GitHub API",
-  fastapi: "FastAPI",
-  redis: "Redis",
-  celery: "Celery",
-  tldraw: "tldraw",
-  css3: "CSS3",
-  python: "Python",
-  anthropic: "Anthropic",
-  claude: "Claude",
-  gemini: "Gemini",
-  llama: "LLaMA",
-  c: "C / Embedded C",
-};
 
 interface ProjectCardProps {
   project: Project;
@@ -107,16 +79,33 @@ function ProjectCard({ project, setActiveVideo }: ProjectCardProps) {
   const router = useRouter();
   const [hoveredTech, setHoveredTech] = useState<string | null>(null);
 
+  const open = () => router.push(`/projects/${project.slug}`);
+
+  // Feed the cursor position to the card lamp without re-rendering.
+  const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    e.currentTarget.style.setProperty("--mx", `${e.clientX - rect.left}px`);
+    e.currentTarget.style.setProperty("--my", `${e.clientY - rect.top}px`);
+  };
+
   return (
     <div
-      className="flex flex-col group cursor-pointer"
-      onClick={() => router.push(`/projects/${project.slug}`)}
+      role="link"
+      tabIndex={0}
+      aria-label={project.title}
+      className="flex flex-col group cursor-pointer rounded-xl"
+      onClick={open}
+      onKeyDown={(e) => {
+        if (e.key === "Enter") open();
+      }}
     >
       <motion.div
-        className="relative w-full aspect-[1.25] rounded-xl border border-black/5 dark:border-white/5 bg-zinc-50/80 dark:bg-[#09090b]/80 shadow-sm p-3.5 pb-0 flex flex-col overflow-hidden transition-[border-color,box-shadow] duration-200 hover:shadow-md hover:border-black/10 dark:hover:border-white/10 sm:aspect-[1.4] sm:p-4 sm:pb-0"
+        data-clip=""
+        className="card-frame relative w-full aspect-[1.25] rounded-xl border border-black/5 dark:border-white/5 bg-zinc-50/80 dark:bg-[#09090b]/80 shadow-sm p-3.5 pb-0 flex flex-col overflow-hidden transition-[border-color,box-shadow] duration-200 hover:shadow-md hover:border-black/10 dark:hover:border-white/10 sm:aspect-[1.4] sm:p-4 sm:pb-0"
         initial="rest"
         whileHover="hover"
         animate="rest"
+        onPointerMove={onPointerMove}
       >
         {/* Top Pin icon */}
         <div className="flex items-center justify-end z-10 min-h-[24px]">
@@ -140,7 +129,7 @@ function ProjectCard({ project, setActiveVideo }: ProjectCardProps) {
 
         {/* Hover Background Artwork */}
         {project.backgroundImage && (
-          <div className="absolute inset-0 scale-100 opacity-0 transition-[opacity,transform] duration-200 ease-out group-hover:scale-[1.03] group-hover:opacity-100">
+          <div className="card-art absolute inset-0 scale-100 opacity-0 transition-[opacity,transform] duration-200 ease-out group-hover:scale-[1.03] group-hover:opacity-100">
             <Image
               src={project.backgroundImage}
               alt=""
@@ -153,17 +142,25 @@ function ProjectCard({ project, setActiveVideo }: ProjectCardProps) {
           </div>
         )}
 
-        {/* Play Video Text */}
-        <motion.h4
-          className="absolute left-1/2 top-1/4 z-30 text-[10px] font-bold uppercase tracking-widest text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)] pointer-events-none"
-          variants={{
-            rest: { x: "-50%", y: -8, opacity: 0 },
-            hover: { x: "-50%", y: 0, opacity: 1 },
-          }}
-          transition={{ duration: 0.18, ease: "easeOut" }}
-        >
-          Play Video
-        </motion.h4>
+        {/* Contour rings gather under the cursor */}
+        <div
+          aria-hidden="true"
+          className="card-lamp pointer-events-none absolute inset-0 z-[1] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        />
+
+        {/* Play Video Text (only when there is a video to play) */}
+        {project.video && (
+          <motion.h4
+            className="absolute left-1/2 top-1/4 z-30 text-[10px] font-bold uppercase tracking-widest text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)] pointer-events-none"
+            variants={{
+              rest: { x: "-50%", y: -8, opacity: 0 },
+              hover: { x: "-50%", y: 0, opacity: 1 },
+            }}
+            transition={{ duration: 0.18, ease: "easeOut" }}
+          >
+            Play Video
+          </motion.h4>
+        )}
 
         {/* Play Video Circle Button */}
         {project.video && (
@@ -176,6 +173,8 @@ function ProjectCard({ project, setActiveVideo }: ProjectCardProps) {
             transition={{ type: "spring", stiffness: 300, damping: 20, delay: 0.05 }}
           >
             <div
+              role="button"
+              aria-label={`Play ${project.title} video`}
               className="h-10 w-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg cursor-pointer hover:scale-110 active:scale-95 transition-transform duration-200 border border-white/50"
               onClick={(e) => {
                 e.stopPropagation();
@@ -295,7 +294,7 @@ function ProjectCard({ project, setActiveVideo }: ProjectCardProps) {
             <span>View Project</span>
             <svg
               viewBox="0 0 24 24"
-              className="w-3 h-3"
+              className="w-3 h-3 transition-transform duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
               fill="none"
               stroke="currentColor"
               strokeWidth="2.5"
@@ -341,18 +340,10 @@ export function ProjectsGrid() {
 
         {/* Middle dashed line between project rows */}
         <div className="relative w-full h-0 hidden md:block">
-          <div
-            className="absolute left-[-100vw] right-[-100vw] h-0 border-b border-black/30 dark:border-white/[0.15] pointer-events-none"
-            style={{
-              maskImage:
-                "repeating-linear-gradient(to right, black 0, black 1px, transparent 1px, transparent 6px)",
-              WebkitMaskImage:
-                "repeating-linear-gradient(to right, black 0, black 1px, transparent 1px, transparent 6px)",
-            }}
-          />
-          <div className="absolute top-0 -left-4 w-[2px] h-[2px] bg-black/40 dark:bg-white/[0.25] -translate-x-1/2 -translate-y-1/2 pointer-events-none z-20" />
-          <div className="absolute top-0 -right-4 w-[2px] h-[2px] bg-black/40 dark:bg-white/[0.25] translate-x-1/2 -translate-y-1/2 pointer-events-none z-20" />
-          <div className="absolute top-0 left-1/2 w-[2px] h-[2px] bg-black/40 dark:bg-white/[0.25] -translate-x-1/2 -translate-y-1/2 pointer-events-none z-20" />
+          <DashedRule bleed />
+          <RegDot corner="tl" />
+          <RegDot corner="tr" />
+          <RegDot className="top-0 left-1/2 -translate-x-1/2 -translate-y-1/2" />
         </div>
 
         {/* Bottom 2 projects */}
@@ -375,6 +366,7 @@ export function ProjectsGrid() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setActiveVideo(null)}
+            data-lenis-prevent=""
             className="fixed inset-0 bg-black/70 backdrop-blur-md flex items-center justify-center z-[100] cursor-pointer p-4"
           >
             <motion.div

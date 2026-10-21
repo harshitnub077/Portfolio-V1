@@ -4,6 +4,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { useTheme } from "next-themes";
 import { Command } from "cmdk";
 import {
+  GraduationCap,
   Briefcase,
   Code,
   Sparkles,
@@ -16,6 +17,15 @@ import {
   X,
 } from "lucide-react";
 import { SiGithub } from "react-icons/si";
+import { switchTheme } from "@/lib/theme-switch";
+import { scrollToTarget } from "@/components/fx/smooth-scroll";
+
+/** Glide to a section on the home page, or open the home page at it from elsewhere. */
+function goToSection(id: string) {
+  const el = document.getElementById(id);
+  if (el) scrollToTarget(el);
+  else window.location.assign(`/#${id}`);
+}
 
 export function CommandMenu() {
   const [open, setOpen] = useState(false);
@@ -52,28 +62,34 @@ export function CommandMenu() {
           const key = e.key.toLowerCase();
           if (key === "e") {
             e.preventDefault();
-            runCommand(() => (window.location.hash = "#experience"));
+            runCommand(() => goToSection("experience"));
+          } else if (key === "u") {
+            e.preventDefault();
+            runCommand(() => goToSection("education"));
           } else if (key === "p") {
             e.preventDefault();
-            runCommand(() => (window.location.hash = "#projects"));
+            runCommand(() => goToSection("projects"));
+          } else if (key === "g") {
+            e.preventDefault();
+            runCommand(() => goToSection("github"));
           } else if (key === "o") {
             e.preventDefault();
-            runCommand(() => (window.location.hash = "#opensource"));
+            runCommand(() => goToSection("opensource"));
           } else if (key === "s") {
             e.preventDefault();
-            runCommand(() => (window.location.hash = "#skills"));
+            runCommand(() => goToSection("skills"));
           } else if (key === "c") {
             e.preventDefault();
             runCommand(() => navigator.clipboard.writeText(window.location.href));
           } else if (key === "t") {
             e.preventDefault();
-            runCommand(() => setTheme("light"));
+            runCommand(() => switchTheme("light", setTheme));
           } else if (key === "d") {
             e.preventDefault();
-            runCommand(() => setTheme("dark"));
+            runCommand(() => switchTheme("dark", setTheme));
           } else if (key === "y") {
             e.preventDefault();
-            runCommand(() => setTheme("system"));
+            runCommand(() => switchTheme("system", setTheme));
           }
         }
       }
@@ -99,6 +115,7 @@ export function CommandMenu() {
 
       {open && (
         <div
+          data-lenis-prevent=""
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 animate-in fade-in-0 duration-200"
           onClick={() => setOpen(false)}
         >
@@ -150,7 +167,7 @@ export function CommandMenu() {
                 >
                   <Command.Item
                     onSelect={() =>
-                      runCommand(() => (window.location.hash = "#experience"))
+                      runCommand(() => goToSection("experience"))
                     }
                     className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm text-zinc-800 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800/80 cursor-pointer select-none"
                   >
@@ -165,7 +182,22 @@ export function CommandMenu() {
 
                   <Command.Item
                     onSelect={() =>
-                      runCommand(() => (window.location.hash = "#projects"))
+                      runCommand(() => goToSection("education"))
+                    }
+                    className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm text-zinc-800 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800/80 cursor-pointer select-none"
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <GraduationCap className="w-4 h-4 text-zinc-500" />
+                      <span>Education</span>
+                    </div>
+                    <span className="font-mono text-[10px] bg-zinc-100 dark:bg-zinc-800 text-zinc-500 px-1.5 py-0.5 rounded border border-zinc-200 dark:border-zinc-700">
+                      shift + U
+                    </span>
+                  </Command.Item>
+
+                  <Command.Item
+                    onSelect={() =>
+                      runCommand(() => goToSection("projects"))
                     }
                     className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm text-zinc-800 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800/80 cursor-pointer select-none"
                   >
@@ -180,7 +212,22 @@ export function CommandMenu() {
 
                   <Command.Item
                     onSelect={() =>
-                      runCommand(() => (window.location.hash = "#opensource"))
+                      runCommand(() => goToSection("github"))
+                    }
+                    className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm text-zinc-800 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800/80 cursor-pointer select-none"
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <SiGithub className="w-4 h-4 text-zinc-500" />
+                      <span>GitHub Activity</span>
+                    </div>
+                    <span className="font-mono text-[10px] bg-zinc-100 dark:bg-zinc-800 text-zinc-500 px-1.5 py-0.5 rounded border border-zinc-200 dark:border-zinc-700">
+                      shift + G
+                    </span>
+                  </Command.Item>
+
+                  <Command.Item
+                    onSelect={() =>
+                      runCommand(() => goToSection("opensource"))
                     }
                     className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm text-zinc-800 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800/80 cursor-pointer select-none"
                   >
@@ -195,7 +242,7 @@ export function CommandMenu() {
 
                   <Command.Item
                     onSelect={() =>
-                      runCommand(() => (window.location.hash = "#skills"))
+                      runCommand(() => goToSection("skills"))
                     }
                     className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm text-zinc-800 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800/80 cursor-pointer select-none"
                   >
@@ -240,7 +287,7 @@ export function CommandMenu() {
                   className="text-xs font-medium text-zinc-400 px-2 py-1.5 uppercase tracking-wider"
                 >
                   <Command.Item
-                    onSelect={() => runCommand(() => setTheme("light"))}
+                    onSelect={() => runCommand(() => switchTheme("light", setTheme))}
                     className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm text-zinc-800 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800/80 cursor-pointer select-none"
                   >
                     <div className="flex items-center gap-2.5">
@@ -253,7 +300,7 @@ export function CommandMenu() {
                   </Command.Item>
 
                   <Command.Item
-                    onSelect={() => runCommand(() => setTheme("dark"))}
+                    onSelect={() => runCommand(() => switchTheme("dark", setTheme))}
                     className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm text-zinc-800 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800/80 cursor-pointer select-none"
                   >
                     <div className="flex items-center gap-2.5">
@@ -266,7 +313,7 @@ export function CommandMenu() {
                   </Command.Item>
 
                   <Command.Item
-                    onSelect={() => runCommand(() => setTheme("system"))}
+                    onSelect={() => runCommand(() => switchTheme("system", setTheme))}
                     className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm text-zinc-800 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800/80 cursor-pointer select-none"
                   >
                     <div className="flex items-center gap-2.5">

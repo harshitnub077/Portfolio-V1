@@ -1,6 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Doto } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
+import { ContourField } from "@/components/fx/backgrounds/contour-field";
+import { SmoothScroll } from "@/components/fx/smooth-scroll";
+import { ReticleCursor } from "@/components/fx/reticle-cursor";
+import { FxBoot } from "@/components/fx/fx-boot";
+import { FX_BOOT_SCRIPT } from "@/components/fx/boot-script";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -25,8 +30,9 @@ export const metadata: Metadata = {
     "AI/ML Engineer specializing in LLMs, RAG, Agentic AI, MLOps, and Open Source. 30 merged PRs across CNCF Kubescape & Linux Foundation Zephyr RTOS.",
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "256x256" },
-      { url: "/icon.png", sizes: "256x256" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/icon.png", sizes: "256x256", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
     ],
     apple: "/apple-icon.png",
   },
@@ -65,9 +71,16 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} ${doto.variable} h-full antialiased`}
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: FX_BOOT_SCRIPT }} />
+      </head>
       <body className="min-h-full flex flex-col bg-white dark:bg-black text-zinc-900 dark:text-zinc-50 transition-colors duration-300">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <FxBoot />
+          <SmoothScroll />
+          <ContourField />
           {children}
+          <ReticleCursor />
         </ThemeProvider>
       </body>
     </html>
