@@ -5,21 +5,34 @@ import {
 } from "@/content/portfolio-data";
 
 export const dynamic = "force-dynamic";
+export const revalidate = 0;
+export const fetchCache = "force-no-store";
 
 const USERNAME = "harshitnub077";
+
+const NO_CACHE_HEADERS = {
+  "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0",
+  "CDN-Cache-Control": "no-store",
+  "Vercel-CDN-Cache-Control": "no-store",
+  Pragma: "no-cache",
+  Expires: "0",
+};
 
 /**
  * Primary contributions provider: parse GitHub profile public contributions page directly.
  * Matches GitHub's public web profile exactly (user timezone, total count, 53 weeks).
+ * Uses cache-busting timestamp and cache: 'no-store' for real-time live data.
  */
 async function fetchPublicContributions(username: string) {
   try {
-    const res = await fetch(`https://github.com/users/${username}/contributions`, {
+    const res = await fetch(`https://github.com/users/${username}/contributions?_t=${Date.now()}`, {
       headers: {
         "User-Agent":
           "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Cache-Control": "no-cache, no-store, must-revalidate",
+        Pragma: "no-cache",
       },
-      next: { revalidate: 300 }, // cache for 5 minutes
+      cache: "no-store",
     });
     if (!res.ok) throw new Error(`GitHub HTML fetch status: ${res.status}`);
     const html = await res.text();
@@ -66,7 +79,18 @@ async function fetchPublicContributions(username: string) {
       weeks.push({ contributionDays: currentWeek });
     }
 
-    const totalContributions = days.reduce((sum, d) => sum + d.contributionCount, 0);
+    // Extract exact header total from GitHub profile description if present
+    const descMatch = html.match(/id="js-contribution-activity-description"[^>]*>([\s\S]*?)<\/h2>/i);
+    let headerTotal: number | null = null;
+    if (descMatch) {
+      const numMatch = descMatch[1].match(/([0-9,]+)\s+contribution/i);
+      if (numMatch) {
+        headerTotal = parseInt(numMatch[1].replace(/,/g, ""), 10);
+      }
+    }
+
+    const daysSum = days.reduce((sum, d) => sum + d.contributionCount, 0);
+    const totalContributions = headerTotal ?? daysSum;
 
     return { totalContributions, weeks };
   } catch (err) {
@@ -81,8 +105,12 @@ async function fetchPublicContributions(username: string) {
 async function fetchJogruberContributions(username: string) {
   try {
     const year = new Date().getFullYear();
-    const res = await fetch(`https://github-contributions-api.jogruber.de/v4/${username}?y=${year}`, {
-      next: { revalidate: 300 },
+    const res = await fetch(`https://github-contributions-api.jogruber.de/v4/${username}?y=${year}&_t=${Date.now()}`, {
+      headers: {
+        "Cache-Control": "no-cache, no-store, must-revalidate",
+        Pragma: "no-cache",
+      },
+      cache: "no-store",
     });
     if (!res.ok) throw new Error(`Jogruber fetch status: ${res.status}`);
     const data = await res.json();
@@ -131,14 +159,16 @@ async function fetchPublicPRs(type: "merged" | "open" | "closed", token?: string
     const headers: Record<string, string> = {
       "User-Agent": "Portfolio-App",
       Accept: "application/vnd.github.v3+json",
+      "Cache-Control": "no-cache, no-store, must-revalidate",
+      Pragma: "no-cache",
     };
     if (token) {
       headers["Authorization"] = `Bearer ${token}`;
     }
 
-    const res = await fetch(`https://api.github.com/search/issues?q=${encodeURIComponent(q)}&per_page=100`, {
+    const res = await fetch(`https://api.github.com/search/issues?q=${encodeURIComponent(q)}&per_page=100&_t=${Date.now()}`, {
       headers,
-      next: { revalidate: 300 },
+      cache: "no-store",
     });
 
     if (!res.ok) throw new Error(`PR Search REST status: ${res.status}`);
@@ -186,28 +216,34 @@ async function fetchPublicPRs(type: "merged" | "open" | "closed", token?: string
 export async function GET() {
   const liveCal = await fetchPublicContributions(USERNAME);
   if (liveCal && liveCal.weeks && liveCal.weeks.length > 0) {
-    return NextResponse.json({
+    return NextResponse.json(
+      {
+        status: "ok",
+        data: {
+          user: {
+            contributionsCollection: {
+              contributionCalendar: liveCal,
+            },
+          },
+        },
+      },
+      { headers: NO_CACHE_HEADERS }
+    );
+  }
+
+  return NextResponse.json(
+    {
       status: "ok",
       data: {
         user: {
           contributionsCollection: {
-            contributionCalendar: liveCal,
+            contributionCalendar: fallbackGithubContributions,
           },
         },
       },
-    });
-  }
-
-  return NextResponse.json({
-    status: "ok",
-    data: {
-      user: {
-        contributionsCollection: {
-          contributionCalendar: fallbackGithubContributions,
-        },
-      },
     },
-  });
+    { headers: NO_CACHE_HEADERS }
+  );
 }
 
 export async function POST(req: Request) {
@@ -215,19 +251,22 @@ export async function POST(req: Request) {
     const { query } = await req.json();
     const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN;
 
-    // 1. Contributions query: fetch public contribution calendar to match GitHub profile exactly (1,640 contributions, 53 weeks)
+    // 1. Contributions query: fetch public contribution calendar to match GitHub profile exactly (53 weeks)
     if (query && query.includes("contributionsCollection")) {
       const liveCal = await fetchPublicContributions(USERNAME);
       if (liveCal && liveCal.weeks && liveCal.weeks.length > 0) {
-        return NextResponse.json({
-          data: {
-            user: {
-              contributionsCollection: {
-                contributionCalendar: liveCal,
+        return NextResponse.json(
+          {
+            data: {
+              user: {
+                contributionsCollection: {
+                  contributionCalendar: liveCal,
+                },
               },
             },
           },
-        });
+          { headers: NO_CACHE_HEADERS }
+        );
       }
 
       // If public HTML parsing failed, try GraphQL if token is available
@@ -239,15 +278,17 @@ export async function POST(req: Request) {
               "Content-Type": "application/json",
               Authorization: `Bearer ${token}`,
               "User-Agent": "Portfolio-App",
+              "Cache-Control": "no-cache, no-store, must-revalidate",
+              Pragma: "no-cache",
             },
             body: JSON.stringify({ query }),
-            next: { revalidate: 300 },
+            cache: "no-store",
           });
 
           if (ghRes.ok) {
             const data = await ghRes.json();
             if (data && data.data && !data.errors) {
-              return NextResponse.json(data);
+              return NextResponse.json(data, { headers: NO_CACHE_HEADERS });
             }
           }
         } catch (e) {
@@ -255,15 +296,18 @@ export async function POST(req: Request) {
         }
       }
 
-      return NextResponse.json({
-        data: {
-          user: {
-            contributionsCollection: {
-              contributionCalendar: fallbackGithubContributions,
+      return NextResponse.json(
+        {
+          data: {
+            user: {
+              contributionsCollection: {
+                contributionCalendar: fallbackGithubContributions,
+              },
             },
           },
         },
-      });
+        { headers: NO_CACHE_HEADERS }
+      );
     }
 
     // 2. PR Queries (merged, open, closed): use GraphQL if token present, else public search REST API
@@ -275,15 +319,17 @@ export async function POST(req: Request) {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
             "User-Agent": "Portfolio-App",
+            "Cache-Control": "no-cache, no-store, must-revalidate",
+            Pragma: "no-cache",
           },
           body: JSON.stringify({ query }),
-          next: { revalidate: 300 },
+          cache: "no-store",
         });
 
         if (ghRes.ok) {
           const data = await ghRes.json();
           if (data && data.data && !data.errors) {
-            return NextResponse.json(data);
+            return NextResponse.json(data, { headers: NO_CACHE_HEADERS });
           }
         }
       } catch (e) {
@@ -294,61 +340,73 @@ export async function POST(req: Request) {
     if (query && query.includes("is:merged")) {
       const livePRs = await fetchPublicPRs("merged", token);
       if (livePRs && livePRs.edges && livePRs.edges.length > 0) {
-        return NextResponse.json({ data: { search: livePRs } });
+        return NextResponse.json({ data: { search: livePRs } }, { headers: NO_CACHE_HEADERS });
       }
-      return NextResponse.json({
-        data: {
-          search: {
-            edges: fallbackGithubPRs.merged.map((pr) => ({ node: pr })),
-            pageInfo: { hasNextPage: false, endCursor: null },
+      return NextResponse.json(
+        {
+          data: {
+            search: {
+              edges: fallbackGithubPRs.merged.map((pr) => ({ node: pr })),
+              pageInfo: { hasNextPage: false, endCursor: null },
+            },
           },
         },
-      });
+        { headers: NO_CACHE_HEADERS }
+      );
     }
 
     if (query && query.includes("is:open")) {
       const livePRs = await fetchPublicPRs("open", token);
       if (livePRs && livePRs.edges && livePRs.edges.length > 0) {
-        return NextResponse.json({ data: { search: livePRs } });
+        return NextResponse.json({ data: { search: livePRs } }, { headers: NO_CACHE_HEADERS });
       }
-      return NextResponse.json({
-        data: {
-          search: {
-            edges: fallbackGithubPRs.open.map((pr) => ({ node: pr })),
-            pageInfo: { hasNextPage: false, endCursor: null },
+      return NextResponse.json(
+        {
+          data: {
+            search: {
+              edges: fallbackGithubPRs.open.map((pr) => ({ node: pr })),
+              pageInfo: { hasNextPage: false, endCursor: null },
+            },
           },
         },
-      });
+        { headers: NO_CACHE_HEADERS }
+      );
     }
 
     if (query && query.includes("is:closed")) {
       const livePRs = await fetchPublicPRs("closed", token);
       if (livePRs && livePRs.edges && livePRs.edges.length > 0) {
-        return NextResponse.json({ data: { search: livePRs } });
+        return NextResponse.json({ data: { search: livePRs } }, { headers: NO_CACHE_HEADERS });
       }
-      return NextResponse.json({
+      return NextResponse.json(
+        {
+          data: {
+            search: {
+              edges: fallbackGithubPRs.closed.map((pr) => ({ node: pr })),
+              pageInfo: { hasNextPage: false, endCursor: null },
+            },
+          },
+        },
+        { headers: NO_CACHE_HEADERS }
+      );
+    }
+
+    return NextResponse.json(
+      {
         data: {
           search: {
-            edges: fallbackGithubPRs.closed.map((pr) => ({ node: pr })),
+            edges: [],
             pageInfo: { hasNextPage: false, endCursor: null },
           },
         },
-      });
-    }
-
-    return NextResponse.json({
-      data: {
-        search: {
-          edges: [],
-          pageInfo: { hasNextPage: false, endCursor: null },
-        },
       },
-    });
+      { headers: NO_CACHE_HEADERS }
+    );
   } catch (error) {
     console.error("API /api/github error:", error);
     return NextResponse.json(
       { error: "Failed to process GitHub query" },
-      { status: 500 }
+      { status: 500, headers: NO_CACHE_HEADERS }
     );
   }
 }

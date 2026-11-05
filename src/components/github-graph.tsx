@@ -22,6 +22,8 @@ export function GithubGraph() {
   } | null>(null);
 
   useEffect(() => {
+    let cancelled = false;
+
     const query = `
       query {
         user(login: "harshitnub077") {
@@ -40,13 +42,21 @@ export function GithubGraph() {
       }
     `;
 
-    fetch("/api/github", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ query }),
-    })
-      .then((res) => res.json())
-      .then((json) => {
+    const fetchLiveContributions = async () => {
+      try {
+        const res = await fetch(`/api/github?_t=${Date.now()}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Cache-Control": "no-cache",
+            Pragma: "no-cache",
+          },
+          cache: "no-store",
+          body: JSON.stringify({ query }),
+        });
+        if (!res.ok) return;
+        const json = await res.json();
+        if (cancelled) return;
         const cal = json?.data?.user?.contributionsCollection?.contributionCalendar;
         if (cal?.weeks?.length) {
           setWeeks(cal.weeks);
@@ -54,10 +64,34 @@ export function GithubGraph() {
             setTotalCount(cal.totalContributions);
           }
         }
-      })
-      .catch(() => {
+      } catch {
         // Fallback already set.
-      });
+      }
+    };
+
+    // 1. Initial live fetch
+    fetchLiveContributions();
+
+    // 2. Poll every 30 seconds in the background
+    const interval = setInterval(fetchLiveContributions, 30000);
+
+    // 3. Immediately re-sync whenever the user switches back to this tab
+    const handleVisibility = () => {
+      if (document.visibilityState === "visible") {
+        fetchLiveContributions();
+      }
+    };
+    const handleFocus = () => fetchLiveContributions();
+
+    window.addEventListener("focus", handleFocus);
+    document.addEventListener("visibilitychange", handleVisibility);
+
+    return () => {
+      cancelled = true;
+      clearInterval(interval);
+      window.removeEventListener("focus", handleFocus);
+      document.removeEventListener("visibilitychange", handleVisibility);
+    };
   }, []);
 
   // Compute month labels aligned with the week each month starts

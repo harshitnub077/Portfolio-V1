@@ -29,14 +29,23 @@ export function OpenSourceContributions() {
   const [displayCount, setDisplayCount] = useState(10);
 
   useEffect(() => {
+    let cancelled = false;
+
     const fetchPRs = async (tab: TabState, query: string) => {
       try {
-        const res = await fetch("/api/github", {
+        const res = await fetch(`/api/github?_t=${Date.now()}`, {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            "Cache-Control": "no-cache",
+            Pragma: "no-cache",
+          },
+          cache: "no-store",
           body: JSON.stringify({ query }),
         });
+        if (!res.ok) return;
         const json = await res.json();
+        if (cancelled) return;
         const edges = json?.data?.search?.edges;
         if (edges && edges.length > 0) {
           const list = edges.map((e: { node: PullRequestNode }) => e.node);
@@ -47,18 +56,41 @@ export function OpenSourceContributions() {
       }
     };
 
-    fetchPRs(
-      "merged",
-      'query { search(query: "author:harshitnub077 type:pr is:merged", type: ISSUE, first: 100) { edges { node { ... on PullRequest { id title url repository { nameWithOwner } state createdAt mergedAt closedAt } } } } }'
-    );
-    fetchPRs(
-      "open",
-      'query { search(query: "author:harshitnub077 type:pr is:open", type: ISSUE, first: 100) { edges { node { ... on PullRequest { id title url repository { nameWithOwner } state createdAt mergedAt closedAt } } } } }'
-    );
-    fetchPRs(
-      "closed",
-      'query { search(query: "author:harshitnub077 type:pr is:closed is:unmerged", type: ISSUE, first: 100) { edges { node { ... on PullRequest { id title url repository { nameWithOwner } state createdAt mergedAt closedAt } } } } }'
-    );
+    const fetchAllPRs = () => {
+      fetchPRs(
+        "merged",
+        'query { search(query: "author:harshitnub077 type:pr is:merged", type: ISSUE, first: 100) { edges { node { ... on PullRequest { id title url repository { nameWithOwner } state createdAt mergedAt closedAt } } } } }'
+      );
+      fetchPRs(
+        "open",
+        'query { search(query: "author:harshitnub077 type:pr is:open", type: ISSUE, first: 100) { edges { node { ... on PullRequest { id title url repository { nameWithOwner } state createdAt mergedAt closedAt } } } } }'
+      );
+      fetchPRs(
+        "closed",
+        'query { search(query: "author:harshitnub077 type:pr is:closed is:unmerged", type: ISSUE, first: 100) { edges { node { ... on PullRequest { id title url repository { nameWithOwner } state createdAt mergedAt closedAt } } } } }'
+      );
+    };
+
+    fetchAllPRs();
+
+    const interval = setInterval(fetchAllPRs, 45000);
+
+    const handleVisibility = () => {
+      if (document.visibilityState === "visible") {
+        fetchAllPRs();
+      }
+    };
+    const handleFocus = () => fetchAllPRs();
+
+    window.addEventListener("focus", handleFocus);
+    document.addEventListener("visibilitychange", handleVisibility);
+
+    return () => {
+      cancelled = true;
+      clearInterval(interval);
+      window.removeEventListener("focus", handleFocus);
+      document.removeEventListener("visibilitychange", handleVisibility);
+    };
   }, []);
 
   const currentList = prs[activeTab] || [];

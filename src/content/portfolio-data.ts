@@ -266,7 +266,7 @@ export const skillsData = [
 ];
 
 export const fallbackGithubContributions = {
-  "totalContributions": 1642,
+  "totalContributions": 1645,
   "months": [
     {
       "name": "Dec"
@@ -1834,7 +1834,7 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2026-10-02",
-          "contributionCount": 16
+          "contributionCount": 17
         },
         {
           "date": "2026-10-03",
@@ -1990,7 +1990,7 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2026-11-05",
-          "contributionCount": 2
+          "contributionCount": 4
         }
       ]
     }
@@ -2166,6 +2166,18 @@ export const fallbackGithubPRs = {
       "createdAt": "2026-10-03T11:16:40Z",
       "mergedAt": "2026-10-05T07:42:43Z",
       "closedAt": "2026-10-05T07:42:43Z"
+    },
+    {
+      "id": "PR_kwDOAPIZOs8AAAABGRenSg",
+      "title": "fix(api): enforce write permission on copyright mutation endpoints",
+      "url": "https://github.com/fossology/fossology/pull/3884",
+      "repository": {
+        "nameWithOwner": "fossology/fossology"
+      },
+      "state": "MERGED",
+      "createdAt": "2026-10-02T11:35:55Z",
+      "mergedAt": "2026-11-05T05:55:15Z",
+      "closedAt": "2026-11-05T05:55:15Z"
     },
     {
       "id": "PR_kwDOF4-Lyc8AAAABGQ_9mw",
@@ -2874,18 +2886,6 @@ export const fallbackGithubPRs = {
       },
       "state": "OPEN",
       "createdAt": "2026-10-03T10:49:26Z",
-      "mergedAt": null,
-      "closedAt": null
-    },
-    {
-      "id": "PR_kwDOAPIZOs8AAAABGRenSg",
-      "title": "fix(api): enforce write permission on copyright mutation endpoints",
-      "url": "https://github.com/fossology/fossology/pull/3884",
-      "repository": {
-        "nameWithOwner": "fossology/fossology"
-      },
-      "state": "OPEN",
-      "createdAt": "2026-10-02T11:35:55Z",
       "mergedAt": null,
       "closedAt": null
     },
