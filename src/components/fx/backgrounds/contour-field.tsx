@@ -3,16 +3,11 @@
 import React, { useEffect, useRef } from "react";
 
 /*
- * Contour Field — the sheet's background, drawn as a live survey map.
+ * Contour Field — the sheet's background, drawn as a clean, static survey map.
  *
  * A slow, domain-warped terrain is traced with hairline isolines (every fifth
  * one heavier, like an index contour on a topographic plate) and registration
- * crosses in the gutters. The cursor raises a hill: rings gather around it and
- * take on the ink colour. A click sends a wave through the terrain; scrolling
- * drifts the land underneath. The reading column keeps only a whisper of it.
- *
- * Two passes: a quarter-resolution half-float height field (the expensive
- * noise), then a full-resolution pass that draws anti-aliased contours.
+ * crosses in the gutters. Completely static — no hover deformation or cursor glow.
  */
 
 const VERT = /* glsl */ `
@@ -90,7 +85,6 @@ const HEIGHT_FRAG = /* glsl */ `
 
   void main() {
     vec2 css = vec2(gl_FragCoord.x, uSize.y - gl_FragCoord.y) / uSize * uView;
-    // Static base terrain: no scroll drift, stays permanently fixed in place
     vec2 p = css / 760.0;
     const float t = 0.32;
     vec2 warp = vec2(fbm(vec3(p * 0.7, t)), fbm(vec3(p * 0.7 + 4.3, t)));
@@ -104,10 +98,7 @@ const CONTOUR_FRAG = /* glsl */ `
   uniform sampler2D uHeight;
   uniform vec2  uView;      // CSS px
   uniform float uDpr;
-  uniform vec2  uMouse;     // CSS px
-  uniform float uPresence;
   uniform vec3  uFg;
-  uniform vec3  uInk;
   uniform float uDark;
   uniform float uWide;
   uniform float uGuideX;    // CSS x of the left column guide
@@ -125,13 +116,6 @@ const CONTOUR_FRAG = /* glsl */ `
     vec2 css = vec2(gl_FragCoord.x, uView.y * uDpr - gl_FragCoord.y) / uDpr;
     vec2 uv = vec2(css.x / uView.x, 1.0 - css.y / uView.y);
     float h = texture2D(uHeight, uv).r;
-
-    // Hover effect only: cursor raises a gentle topographic hill and glow rings gather around it
-    vec2 dm = css - uMouse;
-    float r2 = dot(dm, dm);
-    float hill = exp(-r2 / (2.0 * 140.0 * 140.0)) * uPresence;
-    float lamp = exp(-r2 / (2.0 * 240.0 * 240.0)) * uPresence;
-    h += hill * 0.32;
 
     float f = h * DENSITY;
     float idx = floor(f + 0.5);
@@ -154,12 +138,10 @@ const CONTOUR_FRAG = /* glsl */ `
     float quiet = mix(1.0, 0.28, column);
 
     float baseA = uDark > 0.5 ? (major ? 0.15 : 0.075) : (major ? 0.17 : 0.085);
-    float litA = uDark > 0.5 ? 0.42 : 0.38;
-    float a = line * mix(baseA, litA, lamp) * quiet;
+    float a = line * baseA * quiet;
     a = max(a, reg * (uDark > 0.5 ? 0.16 : 0.2) * (1.0 - column) * uWide);
 
-    vec3 col = mix(uFg, uInk, clamp(lamp * 0.9, 0.0, 1.0));
-    gl_FragColor = vec4(col * a, a);
+    gl_FragColor = vec4(uFg * a, a);
   }
 `;
 
@@ -184,8 +166,6 @@ export function ContourField() {
       if (disposed) return;
 
       const root = document.documentElement;
-      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      const fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
       let renderer: import("three").WebGLRenderer;
       try {
@@ -222,10 +202,7 @@ export function ContourField() {
         ...shared,
         uHeight: { value: heightTarget.texture },
         uDpr: { value: 1 },
-        uMouse: { value: new THREE.Vector2(-9999, -9999) },
-        uPresence: { value: 0 },
         uFg: { value: new THREE.Vector3() },
-        uInk: { value: new THREE.Vector3() },
         uDark: { value: 0 },
         uWide: { value: 0 },
         uGuideX: { value: 0 },
@@ -267,14 +244,13 @@ export function ContourField() {
         const cs = getComputedStyle(root);
         const dark = root.classList.contains("dark");
         uniforms.uFg.value.set(...hexToRgb(cs.getPropertyValue("--fg"), dark ? [0.98, 0.98, 0.98] : [0.09, 0.09, 0.1]));
-        uniforms.uInk.value.set(...hexToRgb(cs.getPropertyValue("--ink"), [0.18, 0.38, 0.68]));
         uniforms.uDark.value = dark ? 1 : 0;
       };
 
       const resize = () => {
         const w = window.innerWidth;
         const h = window.innerHeight;
-        const dpr = Math.min(fine ? 2 : 1.5, window.devicePixelRatio || 1);
+        const dpr = Math.min(1.5, window.devicePixelRatio || 1);
         renderer.setPixelRatio(dpr);
         renderer.setSize(w, h, false);
         shared.uView.value.set(w, h);
@@ -287,76 +263,6 @@ export function ContourField() {
         heightUniforms.uSize.value.set(tw, th);
         drawHeight();
       };
-
-      // ---- Input (Hover only) -------------------------------------------
-      const mouse = { x: -9999, y: -9999, tx: -9999, ty: -9999, presence: 0, target: 0 };
-      let lastInput = performance.now();
-
-      const onMove = (e: PointerEvent) => {
-        if (e.pointerType !== "mouse") return;
-        if (mouse.x < -9000) {
-          mouse.x = e.clientX;
-          mouse.y = e.clientY;
-        }
-        mouse.tx = e.clientX;
-        mouse.ty = e.clientY;
-        mouse.target = 1;
-        lastInput = performance.now();
-        wake();
-      };
-      const onLeave = () => {
-        mouse.target = 0;
-        wake();
-      };
-
-      // ---- Loop ---------------------------------------------------------
-      let raf = 0;
-      let lastDraw = 0;
-      let running = false;
-
-      const sync = (dt: number) => {
-        const follow = 1 - Math.pow(0.3, dt);
-        mouse.x += (mouse.tx - mouse.x) * follow;
-        mouse.y += (mouse.ty - mouse.y) * follow;
-        mouse.presence += (mouse.target - mouse.presence) * (1 - Math.pow(0.2, dt));
-        if (Math.abs(mouse.presence - mouse.target) < 0.003) mouse.presence = mouse.target;
-        uniforms.uMouse.value.set(mouse.x, mouse.y);
-        uniforms.uPresence.value = mouse.presence;
-      };
-
-      const step = (now: number) => {
-        raf = requestAnimationFrame(step);
-        const active = now - lastInput < 2000 || mouse.presence !== mouse.target;
-        if (!active && mouse.presence === 0) {
-          sleep();
-          return;
-        }
-        const dt = Math.min(0.1, (now - lastDraw) / 1000);
-        lastDraw = now;
-        sync(dt);
-        draw();
-      };
-
-      const wake = () => {
-        if (reduce) {
-          mouse.x = mouse.tx;
-          mouse.y = mouse.ty;
-          sync(1);
-          draw();
-          return;
-        }
-        if (running || document.hidden) return;
-        running = true;
-        lastDraw = performance.now() - 16;
-        raf = requestAnimationFrame(step);
-      };
-
-      const sleep = () => {
-        cancelAnimationFrame(raf);
-        running = false;
-      };
-
-      const onVisibility = () => (document.hidden ? sleep() : wake());
 
       let resizeRaf = 0;
       const onResize = () => {
@@ -376,26 +282,14 @@ export function ContourField() {
       resize();
       draw();
       canvas.style.opacity = "1";
-      wake();
 
       themeObserver.observe(root, { attributes: true, attributeFilter: ["class"] });
       window.addEventListener("resize", onResize);
-      document.addEventListener("visibilitychange", onVisibility);
-      if (fine) {
-        window.addEventListener("pointermove", onMove, { passive: true });
-        root.addEventListener("mouseleave", onLeave);
-        window.addEventListener("blur", onLeave);
-      }
 
       cleanup = () => {
-        sleep();
         cancelAnimationFrame(resizeRaf);
         themeObserver.disconnect();
         window.removeEventListener("resize", onResize);
-        document.removeEventListener("visibilitychange", onVisibility);
-        window.removeEventListener("pointermove", onMove);
-        root.removeEventListener("mouseleave", onLeave);
-        window.removeEventListener("blur", onLeave);
         geometry.dispose();
         heightMaterial.dispose();
         material.dispose();
