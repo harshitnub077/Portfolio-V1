@@ -19,7 +19,7 @@ async function fetchPublicContributions(username: string) {
         "User-Agent":
           "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
       },
-      next: { revalidate: 1800 },
+      next: { revalidate: 300 }, // cache for 5 minutes
     });
     if (!res.ok) throw new Error(`GitHub HTML fetch status: ${res.status}`);
     const html = await res.text();
@@ -82,7 +82,7 @@ async function fetchJogruberContributions(username: string) {
   try {
     const year = new Date().getFullYear();
     const res = await fetch(`https://github-contributions-api.jogruber.de/v4/${username}?y=${year}`, {
-      next: { revalidate: 1800 },
+      next: { revalidate: 300 },
     });
     if (!res.ok) throw new Error(`Jogruber fetch status: ${res.status}`);
     const data = await res.json();
@@ -138,7 +138,7 @@ async function fetchPublicPRs(type: "merged" | "open" | "closed", token?: string
 
     const res = await fetch(`https://api.github.com/search/issues?q=${encodeURIComponent(q)}&per_page=100`, {
       headers,
-      next: { revalidate: 1800 },
+      next: { revalidate: 300 },
     });
 
     if (!res.ok) throw new Error(`PR Search REST status: ${res.status}`);
@@ -241,7 +241,7 @@ export async function POST(req: Request) {
               "User-Agent": "Portfolio-App",
             },
             body: JSON.stringify({ query }),
-            next: { revalidate: 1800 },
+            next: { revalidate: 300 },
           });
 
           if (ghRes.ok) {
@@ -277,7 +277,7 @@ export async function POST(req: Request) {
             "User-Agent": "Portfolio-App",
           },
           body: JSON.stringify({ query }),
-          next: { revalidate: 1800 },
+          next: { revalidate: 300 },
         });
 
         if (ghRes.ok) {

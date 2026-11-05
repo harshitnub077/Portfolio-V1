@@ -1,0 +1,39 @@
+name: Sync GitHub Data
+
+on:
+  schedule:
+    # Runs every day at 00:00 UTC (05:30 IST)
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run GitHub Data Sync
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/sync-github.mjs
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet; then
+            git add src/content/portfolio-data.ts src/content/site.ts
+            git commit -m "chore(data): auto-sync github contributions and PR stats [skip ci]"
+            git push
+          else
+            console.log "No changes to commit" || true
+          fi
