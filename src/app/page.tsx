@@ -92,7 +92,6 @@ export default function Home() {
         <div data-hero="item" className="flex flex-wrap items-center gap-2 mt-5">
           <Link
             href="/contact"
-            data-magnetic="0.22"
             className="group relative inline-flex items-center gap-2 overflow-hidden rounded-[6px] bg-zinc-900 px-3.5 py-2 text-[12.5px] font-medium tracking-tight text-white shadow-[0_1px_0_rgba(255,255,255,0.12)_inset,0_6px_16px_-8px_rgba(0,0,0,0.5)] transition-colors duration-300 hover:bg-black dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-100"
           >
             {/* A sheen of ink sweeps across on hover */}
@@ -122,7 +121,6 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 data-hero="item"
-                data-magnetic="0.3"
                 className="group relative block rounded-[4px] text-center text-[13px] font-medium tracking-tight text-neutral-900 dark:text-neutral-300 px-3 py-1.5 !text-[12px] cursor-pointer"
               >
                 <span

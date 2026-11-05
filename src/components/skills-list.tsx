@@ -77,7 +77,7 @@ function Chip({ skill, i, grow = false }: { skill: SkillItem; i: number; grow?: 
       style={{ "--i": i } as React.CSSProperties}
       className={`group/chip ${grow ? "grow" : "shrink-0"} flex items-center justify-center gap-2 px-3 py-1.5 bg-zinc-50 dark:bg-[#0a0a0a] hover:bg-ink/[0.06] border border-black/30 dark:border-white/[0.15] hover:border-ink/60 rounded-[6px] transition-colors duration-300 cursor-default select-none`}
     >
-      <Icon className="h-3.5 w-3.5 shrink-0 text-zinc-500 opacity-80 transition-[color,opacity,scale] duration-300 group-hover/chip:text-ink group-hover/chip:opacity-100 group-hover/chip:scale-110" />
+      <Icon className="h-3.5 w-3.5 shrink-0 text-zinc-500 opacity-80 transition-[color,opacity] duration-300 group-hover/chip:text-ink group-hover/chip:opacity-100" />
       <span className="text-[13px] font-medium whitespace-nowrap text-zinc-900 dark:text-zinc-100">{skill.name}</span>
     </div>
   );

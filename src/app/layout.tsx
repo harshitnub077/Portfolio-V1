@@ -3,7 +3,6 @@ import { Geist, Geist_Mono, Doto } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ContourField } from "@/components/fx/backgrounds/contour-field";
 import { SmoothScroll } from "@/components/fx/smooth-scroll";
-import { ReticleCursor } from "@/components/fx/reticle-cursor";
 import { FxBoot } from "@/components/fx/fx-boot";
 import { FX_BOOT_SCRIPT } from "@/components/fx/boot-script";
 import "./globals.css";
@@ -80,7 +79,6 @@ export default function RootLayout({
           <SmoothScroll />
           <ContourField />
           {children}
-          <ReticleCursor />
         </ThemeProvider>
       </body>
     </html>

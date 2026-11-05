@@ -14,7 +14,7 @@ interface SectionHeaderProps {
 
 export function SectionHeader({ n, title, top = false, className }: SectionHeaderProps) {
   return (
-    <div data-decode-trigger="" className={clsx("py-2 relative", className)}>
+    <div className={clsx("py-2 relative", className)}>
       {top && (
         <>
           <DashedRule bleed className="top-0" />

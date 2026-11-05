@@ -93,75 +93,6 @@ html.lenis body {
   }
 }
 
-/* ---------- Drafting reticle: hide the native pointer on fine pointers ---------- */
-html.reticle-on,
-html.reticle-on * {
-  cursor: none !important;
-}
-
-html.reticle-on input,
-html.reticle-on textarea,
-html.reticle-on [contenteditable="true"] {
-  cursor: text !important;
-}
-
-.reticle {
-  transition: opacity 200ms ease-out;
-}
-
-.reticle.is-hidden,
-.reticle.is-native {
-  opacity: 0;
-}
-
-.reticle-cross {
-  filter: drop-shadow(0 0 1px var(--bg));
-  transition: scale 150ms var(--ease-out-expo);
-}
-
-.reticle-arm,
-.reticle-dot {
-  background: var(--fg);
-  transition:
-    scale 180ms var(--ease-out-expo),
-    opacity 180ms ease-out,
-    background-color 150ms ease-out;
-}
-
-.reticle.is-snap .reticle-arm {
-  scale: 0;
-  opacity: 0;
-}
-
-.reticle.is-snap .reticle-dot {
-  background: var(--ink);
-}
-
-.reticle.is-pressed .reticle-cross {
-  scale: 0.8;
-}
-
-.reticle-readout {
-  color: color-mix(in oklab, var(--fg) 55%, transparent);
-  text-shadow: 0 0 2px var(--bg);
-  opacity: 0;
-  transition: opacity 250ms ease-out;
-}
-
-.reticle.is-moving .reticle-readout {
-  opacity: 1;
-}
-
-.reticle.is-snap .reticle-readout {
-  opacity: 1;
-  translate: -50% 0;
-  padding: 3px 4px;
-  border-radius: 2px;
-  background: var(--ink);
-  color: var(--bg);
-  text-shadow: none;
-}
-
 /* ---------- Load sequence: the sheet's guides draft themselves ---------- */
 @keyframes guide-draw-y {
   from {
@@ -276,50 +207,6 @@ html.reticle-on [contenteditable="true"] {
   translate: none;
 }
 
-/* ---------- Decode text ---------- */
-.decode-overlay {
-  visibility: hidden;
-}
-
-.decode[data-decoding] > .decode-text {
-  visibility: hidden;
-}
-
-.decode[data-decoding] > .decode-overlay {
-  visibility: visible;
-}
-
-/* ---------- Name: colour-split glitch on hover ---------- */
-@keyframes name-glitch {
-  0% {
-    text-shadow: -1.5px 0 0 rgba(0, 200, 255, 0.6), 1.5px 0 0 rgba(255, 80, 0, 0.6);
-    clip-path: inset(0 0 0 0);
-  }
-  20% {
-    text-shadow: -4px 0 0 rgba(0, 200, 255, 0.75), 3px 0 0 rgba(255, 80, 0, 0.75);
-    clip-path: inset(18% 0 46% 0);
-    translate: 2px 0;
-  }
-  40% {
-    text-shadow: 3px 0 0 rgba(0, 200, 255, 0.75), -3px 0 0 rgba(255, 80, 0, 0.75);
-    clip-path: inset(58% 0 8% 0);
-    translate: -2px 0;
-  }
-  60% {
-    text-shadow: -2px 0 0 rgba(0, 200, 255, 0.7), 2px 0 0 rgba(255, 80, 0, 0.7);
-    clip-path: inset(0 0 0 0);
-    translate: 1px 0;
-  }
-  100% {
-    clip-path: inset(0 0 0 0);
-    translate: none;
-  }
-}
-
-.name-glitch:hover {
-  animation: name-glitch 320ms steps(1, end) 1;
-}
-
 /* ---------- Project card: contour rings gather under the cursor ---------- */
 .card-lamp {
   background-image:
@@ -425,8 +312,7 @@ html.reticle-on [contenteditable="true"] {
   .fx-ready .guide-x,
   .fx-ready .guide-dot,
   .fx-ready .guide-dot.reg-ping::after,
-  .fx-ready [data-reveal].is-in .reg-dot.reg-ping::after,
-  .name-glitch:hover {
+  .fx-ready [data-reveal].is-in .reg-dot.reg-ping::after {
     animation: none;
   }
 
