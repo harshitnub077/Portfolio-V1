@@ -11,7 +11,7 @@ export const site = {
   year: "2026",
   email: "harshitkudhial@gmail.com",
   heroImage: "/images/hero.svg",
-  bio: "AI/ML engineer with 30 merged pull requests across CNCF Kubescape and Linux Foundation Zephyr RTOS, two AI/ML internships, and three shipped LLM products — 12,500+ lines of Python, LangGraph, Qdrant, pgvector, FastAPI and Docker.",
+  bio: "AI/ML engineer with 40+ merged pull requests across CNCF Kubescape and Linux Foundation Zephyr RTOS, two AI/ML internships, and three shipped LLM products — 12,500+ lines of Python, LangGraph, Qdrant, pgvector, FastAPI and Docker.",
 };
 
 export const nav = [
@@ -138,13 +138,13 @@ export const experience = [
     org: "Zephyr RTOS",
     role: "Linux Foundation · OSS",
     when: "Jul 2026 — Now",
-    line: "10 merged PRs — POSIX & kernel concurrency, ESP32 I2S lockups, Bluetooth hard-faults.",
+    line: "12 merged PRs — POSIX & kernel concurrency, ESP32 I2S lockups, Bluetooth hard-faults.",
   },
   {
     org: "Kubescape",
     role: "CNCF · OSS",
     when: "Sep 2026 — Now",
-    line: "20 merged PRs — SSRF hardening across 6 RFCs, registry OAuth, SARIF/JUnit/PDF reports.",
+    line: "30 merged PRs — SSRF hardening across 6 RFCs, registry OAuth, SARIF/JUnit/PDF reports.",
   },
 ];
 

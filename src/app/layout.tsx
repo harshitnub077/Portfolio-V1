@@ -27,7 +27,7 @@ const doto = Doto({
 export const metadata: Metadata = {
   title: "Harshit Kudhial | AI/ML Engineer",
   description:
-    "AI/ML Engineer specializing in LLMs, RAG, Agentic AI, MLOps, and Open Source. 30 merged PRs across CNCF Kubescape & Linux Foundation Zephyr RTOS.",
+    "AI/ML Engineer specializing in LLMs, RAG, Agentic AI, MLOps, and Open Source. 40+ merged PRs across CNCF Kubescape & Linux Foundation Zephyr RTOS.",
   icons: {
     icon: [
       { url: "/icon.svg", type: "image/svg+xml" },

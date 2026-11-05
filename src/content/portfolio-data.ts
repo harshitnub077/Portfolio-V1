@@ -135,11 +135,11 @@ export const projectsData: Project[] = [
     src: "/images/works/kubewarden.svg",
     lightModeSrc: "/images/works/kubewarden.svg",
     video: "",
-    description: "30 merged PRs across Linux Foundation Zephyr RTOS and CNCF Kubescape covering kernel concurrency, ESP32 I2S recovery, and SSRF hardening.",
+    description: "40+ merged PRs across Linux Foundation Zephyr RTOS and CNCF Kubescape covering kernel concurrency, ESP32 I2S recovery, and SSRF hardening.",
     tech: ["c", "github", "python", "node"],
     github: "https://github.com/harshitnub077",
     live: "",
-    starsText: "30 PRs",
+    starsText: "42 PRs",
     backgroundImage: "/project-hover-inquiro.webp",
     hasPin: false
   }
@@ -266,14 +266,8 @@ export const skillsData = [
 ];
 
 export const fallbackGithubContributions = {
-  "totalContributions": 1429,
+  "totalContributions": 1640,
   "months": [
-    {
-      "name": "Oct"
-    },
-    {
-      "name": "Nov"
-    },
     {
       "name": "Dec"
     },
@@ -303,1682 +297,1700 @@ export const fallbackGithubContributions = {
     },
     {
       "name": "Sep"
+    },
+    {
+      "name": "Oct"
+    },
+    {
+      "name": "Nov"
     }
   ],
   "weeks": [
     {
       "contributionDays": [
         {
-          "contributionCount": 0,
-          "date": "2025-10-19"
+          "date": "2025-11-02",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-10-20"
+          "date": "2025-11-03",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-10-21"
+          "date": "2025-11-04",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-10-22"
+          "date": "2025-11-05",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-10-23"
+          "date": "2025-11-06",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-10-24"
+          "date": "2025-11-07",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-10-25"
+          "date": "2025-11-08",
+          "contributionCount": 0
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 0,
-          "date": "2025-10-26"
+          "date": "2025-11-09",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-10-27"
+          "date": "2025-11-10",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-10-28"
+          "date": "2025-11-11",
+          "contributionCount": 1
         },
         {
-          "contributionCount": 0,
-          "date": "2025-10-29"
+          "date": "2025-11-12",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-10-30"
+          "date": "2025-11-13",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-10-31"
+          "date": "2025-11-14",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-11-01"
+          "date": "2025-11-15",
+          "contributionCount": 0
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 0,
-          "date": "2025-11-02"
+          "date": "2025-11-16",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-11-03"
+          "date": "2025-11-17",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-11-04"
+          "date": "2025-11-18",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-11-05"
+          "date": "2025-11-19",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-11-06"
+          "date": "2025-11-20",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-11-07"
+          "date": "2025-11-21",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-11-08"
+          "date": "2025-11-22",
+          "contributionCount": 0
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 0,
-          "date": "2025-11-09"
+          "date": "2025-11-23",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-11-10"
+          "date": "2025-11-24",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 1,
-          "date": "2025-11-11"
+          "date": "2025-11-25",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-11-12"
+          "date": "2025-11-26",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-11-13"
+          "date": "2025-11-27",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-11-14"
+          "date": "2025-11-28",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-11-15"
+          "date": "2025-11-29",
+          "contributionCount": 0
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 0,
-          "date": "2025-11-16"
+          "date": "2025-11-30",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-11-17"
+          "date": "2025-12-01",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-11-18"
+          "date": "2025-12-02",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-11-19"
+          "date": "2025-12-03",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-11-20"
+          "date": "2025-12-04",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-11-21"
+          "date": "2025-12-05",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-11-22"
+          "date": "2025-12-06",
+          "contributionCount": 0
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 0,
-          "date": "2025-11-23"
+          "date": "2025-12-07",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-11-24"
+          "date": "2025-12-08",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-11-25"
+          "date": "2025-12-09",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-11-26"
+          "date": "2025-12-10",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-11-27"
+          "date": "2025-12-11",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-11-28"
+          "date": "2025-12-12",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-11-29"
+          "date": "2025-12-13",
+          "contributionCount": 0
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 0,
-          "date": "2025-11-30"
+          "date": "2025-12-14",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-12-01"
+          "date": "2025-12-15",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-12-02"
+          "date": "2025-12-16",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-12-03"
+          "date": "2025-12-17",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-12-04"
+          "date": "2025-12-18",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-12-05"
+          "date": "2025-12-19",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-12-06"
+          "date": "2025-12-20",
+          "contributionCount": 2
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 0,
-          "date": "2025-12-07"
+          "date": "2025-12-21",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-12-08"
+          "date": "2025-12-22",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-12-09"
+          "date": "2025-12-23",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-12-10"
+          "date": "2025-12-24",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-12-11"
+          "date": "2025-12-25",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-12-12"
+          "date": "2025-12-26",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-12-13"
+          "date": "2025-12-27",
+          "contributionCount": 26
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 0,
-          "date": "2025-12-14"
+          "date": "2025-12-28",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-12-15"
+          "date": "2025-12-29",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-12-16"
+          "date": "2025-12-30",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-12-17"
+          "date": "2025-12-31",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-12-18"
+          "date": "2026-01-01",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-12-19"
+          "date": "2026-01-02",
+          "contributionCount": 1
         },
         {
-          "contributionCount": 2,
-          "date": "2025-12-20"
+          "date": "2026-01-03",
+          "contributionCount": 0
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 0,
-          "date": "2025-12-21"
+          "date": "2026-01-04",
+          "contributionCount": 2
         },
         {
-          "contributionCount": 0,
-          "date": "2025-12-22"
+          "date": "2026-01-05",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-12-23"
+          "date": "2026-01-06",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-12-24"
+          "date": "2026-01-07",
+          "contributionCount": 3
         },
         {
-          "contributionCount": 0,
-          "date": "2025-12-25"
+          "date": "2026-01-08",
+          "contributionCount": 1
         },
         {
-          "contributionCount": 0,
-          "date": "2025-12-26"
+          "date": "2026-01-09",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 26,
-          "date": "2025-12-27"
+          "date": "2026-01-10",
+          "contributionCount": 0
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 0,
-          "date": "2025-12-28"
+          "date": "2026-01-11",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-12-29"
+          "date": "2026-01-12",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-12-30"
+          "date": "2026-01-13",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2025-12-31"
+          "date": "2026-01-14",
+          "contributionCount": 1
         },
         {
-          "contributionCount": 0,
-          "date": "2026-01-01"
+          "date": "2026-01-15",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 1,
-          "date": "2026-01-02"
+          "date": "2026-01-16",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2026-01-03"
+          "date": "2026-01-17",
+          "contributionCount": 0
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 2,
-          "date": "2026-01-04"
+          "date": "2026-01-18",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2026-01-05"
+          "date": "2026-01-19",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2026-01-06"
+          "date": "2026-01-20",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 3,
-          "date": "2026-01-07"
+          "date": "2026-01-21",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 1,
-          "date": "2026-01-08"
+          "date": "2026-01-22",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2026-01-09"
+          "date": "2026-01-23",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2026-01-10"
+          "date": "2026-01-24",
+          "contributionCount": 10
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 0,
-          "date": "2026-01-11"
+          "date": "2026-01-25",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2026-01-12"
+          "date": "2026-01-26",
+          "contributionCount": 23
         },
         {
-          "contributionCount": 0,
-          "date": "2026-01-13"
+          "date": "2026-01-27",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 1,
-          "date": "2026-01-14"
+          "date": "2026-01-28",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2026-01-15"
+          "date": "2026-01-29",
+          "contributionCount": 1
         },
         {
-          "contributionCount": 0,
-          "date": "2026-01-16"
+          "date": "2026-01-30",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2026-01-17"
+          "date": "2026-01-31",
+          "contributionCount": 0
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 0,
-          "date": "2026-01-18"
+          "date": "2026-02-01",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2026-01-19"
+          "date": "2026-02-02",
+          "contributionCount": 1
         },
         {
-          "contributionCount": 0,
-          "date": "2026-01-20"
+          "date": "2026-02-03",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2026-01-21"
+          "date": "2026-02-04",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2026-01-22"
+          "date": "2026-02-05",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2026-01-23"
+          "date": "2026-02-06",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 10,
-          "date": "2026-01-24"
+          "date": "2026-02-07",
+          "contributionCount": 0
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 0,
-          "date": "2026-01-25"
+          "date": "2026-02-08",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 23,
-          "date": "2026-01-26"
+          "date": "2026-02-09",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2026-01-27"
+          "date": "2026-02-10",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2026-01-28"
+          "date": "2026-02-11",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 1,
-          "date": "2026-01-29"
+          "date": "2026-02-12",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2026-01-30"
+          "date": "2026-02-13",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2026-01-31"
+          "date": "2026-02-14",
+          "contributionCount": 1
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 0,
-          "date": "2026-02-01"
+          "date": "2026-02-15",
+          "contributionCount": 6
         },
         {
-          "contributionCount": 1,
-          "date": "2026-02-02"
+          "date": "2026-02-16",
+          "contributionCount": 12
         },
         {
-          "contributionCount": 0,
-          "date": "2026-02-03"
+          "date": "2026-02-17",
+          "contributionCount": 15
         },
         {
-          "contributionCount": 0,
-          "date": "2026-02-04"
+          "date": "2026-02-18",
+          "contributionCount": 1
         },
         {
-          "contributionCount": 0,
-          "date": "2026-02-05"
+          "date": "2026-02-19",
+          "contributionCount": 3
         },
         {
-          "contributionCount": 0,
-          "date": "2026-02-06"
+          "date": "2026-02-20",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2026-02-07"
+          "date": "2026-02-21",
+          "contributionCount": 2
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 0,
-          "date": "2026-02-08"
+          "date": "2026-02-22",
+          "contributionCount": 2
         },
         {
-          "contributionCount": 0,
-          "date": "2026-02-09"
+          "date": "2026-02-23",
+          "contributionCount": 5
         },
         {
-          "contributionCount": 0,
-          "date": "2026-02-10"
+          "date": "2026-02-24",
+          "contributionCount": 11
         },
         {
-          "contributionCount": 0,
-          "date": "2026-02-11"
+          "date": "2026-02-25",
+          "contributionCount": 2
         },
         {
-          "contributionCount": 0,
-          "date": "2026-02-12"
+          "date": "2026-02-26",
+          "contributionCount": 2
         },
         {
-          "contributionCount": 0,
-          "date": "2026-02-13"
+          "date": "2026-02-27",
+          "contributionCount": 2
         },
         {
-          "contributionCount": 1,
-          "date": "2026-02-14"
+          "date": "2026-02-28",
+          "contributionCount": 0
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 6,
-          "date": "2026-02-15"
+          "date": "2026-03-01",
+          "contributionCount": 4
         },
         {
-          "contributionCount": 12,
-          "date": "2026-02-16"
+          "date": "2026-03-02",
+          "contributionCount": 1
         },
         {
-          "contributionCount": 15,
-          "date": "2026-02-17"
+          "date": "2026-03-03",
+          "contributionCount": 2
         },
         {
-          "contributionCount": 1,
-          "date": "2026-02-18"
+          "date": "2026-03-04",
+          "contributionCount": 4
         },
         {
-          "contributionCount": 3,
-          "date": "2026-02-19"
+          "date": "2026-03-05",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2026-02-20"
+          "date": "2026-03-06",
+          "contributionCount": 2
         },
         {
-          "contributionCount": 2,
-          "date": "2026-02-21"
+          "date": "2026-03-07",
+          "contributionCount": 0
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 2,
-          "date": "2026-02-22"
+          "date": "2026-03-08",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 5,
-          "date": "2026-02-23"
+          "date": "2026-03-09",
+          "contributionCount": 2
         },
         {
-          "contributionCount": 11,
-          "date": "2026-02-24"
+          "date": "2026-03-10",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 2,
-          "date": "2026-02-25"
+          "date": "2026-03-11",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 2,
-          "date": "2026-02-26"
+          "date": "2026-03-12",
+          "contributionCount": 1
         },
         {
-          "contributionCount": 2,
-          "date": "2026-02-27"
+          "date": "2026-03-13",
+          "contributionCount": 1
         },
         {
-          "contributionCount": 0,
-          "date": "2026-02-28"
+          "date": "2026-03-14",
+          "contributionCount": 1
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 4,
-          "date": "2026-03-01"
+          "date": "2026-03-15",
+          "contributionCount": 25
         },
         {
-          "contributionCount": 1,
-          "date": "2026-03-02"
+          "date": "2026-03-16",
+          "contributionCount": 1
         },
         {
-          "contributionCount": 2,
-          "date": "2026-03-03"
+          "date": "2026-03-17",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 4,
-          "date": "2026-03-04"
+          "date": "2026-03-18",
+          "contributionCount": 4
         },
         {
-          "contributionCount": 0,
-          "date": "2026-03-05"
+          "date": "2026-03-19",
+          "contributionCount": 6
         },
         {
-          "contributionCount": 2,
-          "date": "2026-03-06"
+          "date": "2026-03-20",
+          "contributionCount": 2
         },
         {
-          "contributionCount": 0,
-          "date": "2026-03-07"
+          "date": "2026-03-21",
+          "contributionCount": 1
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 0,
-          "date": "2026-03-08"
+          "date": "2026-03-22",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 2,
-          "date": "2026-03-09"
+          "date": "2026-03-23",
+          "contributionCount": 1
         },
         {
-          "contributionCount": 0,
-          "date": "2026-03-10"
+          "date": "2026-03-24",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2026-03-11"
+          "date": "2026-03-25",
+          "contributionCount": 2
         },
         {
-          "contributionCount": 1,
-          "date": "2026-03-12"
+          "date": "2026-03-26",
+          "contributionCount": 1
         },
         {
-          "contributionCount": 1,
-          "date": "2026-03-13"
+          "date": "2026-03-27",
+          "contributionCount": 4
         },
         {
-          "contributionCount": 1,
-          "date": "2026-03-14"
+          "date": "2026-03-28",
+          "contributionCount": 13
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 25,
-          "date": "2026-03-15"
+          "date": "2026-03-29",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 1,
-          "date": "2026-03-16"
+          "date": "2026-03-30",
+          "contributionCount": 1
         },
         {
-          "contributionCount": 0,
-          "date": "2026-03-17"
+          "date": "2026-03-31",
+          "contributionCount": 2
         },
         {
-          "contributionCount": 4,
-          "date": "2026-03-18"
+          "date": "2026-04-01",
+          "contributionCount": 6
         },
         {
-          "contributionCount": 6,
-          "date": "2026-03-19"
+          "date": "2026-04-02",
+          "contributionCount": 1
         },
         {
-          "contributionCount": 2,
-          "date": "2026-03-20"
+          "date": "2026-04-03",
+          "contributionCount": 1
         },
         {
-          "contributionCount": 1,
-          "date": "2026-03-21"
+          "date": "2026-04-04",
+          "contributionCount": 17
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 0,
-          "date": "2026-03-22"
+          "date": "2026-04-05",
+          "contributionCount": 2
         },
         {
-          "contributionCount": 1,
-          "date": "2026-03-23"
+          "date": "2026-04-06",
+          "contributionCount": 2
         },
         {
-          "contributionCount": 0,
-          "date": "2026-03-24"
+          "date": "2026-04-07",
+          "contributionCount": 16
         },
         {
-          "contributionCount": 2,
-          "date": "2026-03-25"
+          "date": "2026-04-08",
+          "contributionCount": 10
         },
         {
-          "contributionCount": 1,
-          "date": "2026-03-26"
+          "date": "2026-04-09",
+          "contributionCount": 13
         },
         {
-          "contributionCount": 4,
-          "date": "2026-03-27"
+          "date": "2026-04-10",
+          "contributionCount": 14
         },
         {
-          "contributionCount": 13,
-          "date": "2026-03-28"
+          "date": "2026-04-11",
+          "contributionCount": 12
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 0,
-          "date": "2026-03-29"
+          "date": "2026-04-12",
+          "contributionCount": 16
         },
         {
-          "contributionCount": 1,
-          "date": "2026-03-30"
+          "date": "2026-04-13",
+          "contributionCount": 7
         },
         {
-          "contributionCount": 2,
-          "date": "2026-03-31"
+          "date": "2026-04-14",
+          "contributionCount": 4
         },
         {
-          "contributionCount": 6,
-          "date": "2026-04-01"
+          "date": "2026-04-15",
+          "contributionCount": 5
         },
         {
-          "contributionCount": 1,
-          "date": "2026-04-02"
+          "date": "2026-04-16",
+          "contributionCount": 3
         },
         {
-          "contributionCount": 1,
-          "date": "2026-04-03"
+          "date": "2026-04-17",
+          "contributionCount": 16
         },
         {
-          "contributionCount": 17,
-          "date": "2026-04-04"
+          "date": "2026-04-18",
+          "contributionCount": 10
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 2,
-          "date": "2026-04-05"
+          "date": "2026-04-19",
+          "contributionCount": 16
         },
         {
-          "contributionCount": 2,
-          "date": "2026-04-06"
+          "date": "2026-04-20",
+          "contributionCount": 3
         },
         {
-          "contributionCount": 16,
-          "date": "2026-04-07"
+          "date": "2026-04-21",
+          "contributionCount": 8
         },
         {
-          "contributionCount": 10,
-          "date": "2026-04-08"
+          "date": "2026-04-22",
+          "contributionCount": 2
         },
         {
-          "contributionCount": 13,
-          "date": "2026-04-09"
+          "date": "2026-04-23",
+          "contributionCount": 3
         },
         {
-          "contributionCount": 14,
-          "date": "2026-04-10"
+          "date": "2026-04-24",
+          "contributionCount": 2
         },
         {
-          "contributionCount": 12,
-          "date": "2026-04-11"
+          "date": "2026-04-25",
+          "contributionCount": 1
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 16,
-          "date": "2026-04-12"
+          "date": "2026-04-26",
+          "contributionCount": 3
         },
         {
-          "contributionCount": 7,
-          "date": "2026-04-13"
+          "date": "2026-04-27",
+          "contributionCount": 5
         },
         {
-          "contributionCount": 4,
-          "date": "2026-04-14"
+          "date": "2026-04-28",
+          "contributionCount": 2
         },
         {
-          "contributionCount": 5,
-          "date": "2026-04-15"
+          "date": "2026-04-29",
+          "contributionCount": 4
         },
         {
-          "contributionCount": 3,
-          "date": "2026-04-16"
+          "date": "2026-04-30",
+          "contributionCount": 6
         },
         {
-          "contributionCount": 16,
-          "date": "2026-04-17"
+          "date": "2026-05-01",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 10,
-          "date": "2026-04-18"
+          "date": "2026-05-02",
+          "contributionCount": 2
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 16,
-          "date": "2026-04-19"
+          "date": "2026-05-03",
+          "contributionCount": 1
         },
         {
-          "contributionCount": 3,
-          "date": "2026-04-20"
+          "date": "2026-05-04",
+          "contributionCount": 1
         },
         {
-          "contributionCount": 8,
-          "date": "2026-04-21"
+          "date": "2026-05-05",
+          "contributionCount": 2
         },
         {
-          "contributionCount": 2,
-          "date": "2026-04-22"
+          "date": "2026-05-06",
+          "contributionCount": 4
         },
         {
-          "contributionCount": 3,
-          "date": "2026-04-23"
+          "date": "2026-05-07",
+          "contributionCount": 1
         },
         {
-          "contributionCount": 2,
-          "date": "2026-04-24"
+          "date": "2026-05-08",
+          "contributionCount": 1
         },
         {
-          "contributionCount": 1,
-          "date": "2026-04-25"
+          "date": "2026-05-09",
+          "contributionCount": 8
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 3,
-          "date": "2026-04-26"
+          "date": "2026-05-10",
+          "contributionCount": 9
         },
         {
-          "contributionCount": 5,
-          "date": "2026-04-27"
+          "date": "2026-05-11",
+          "contributionCount": 9
         },
         {
-          "contributionCount": 2,
-          "date": "2026-04-28"
+          "date": "2026-05-12",
+          "contributionCount": 9
         },
         {
-          "contributionCount": 4,
-          "date": "2026-04-29"
+          "date": "2026-05-13",
+          "contributionCount": 7
         },
         {
-          "contributionCount": 6,
-          "date": "2026-04-30"
+          "date": "2026-05-14",
+          "contributionCount": 8
         },
         {
-          "contributionCount": 0,
-          "date": "2026-05-01"
+          "date": "2026-05-15",
+          "contributionCount": 7
         },
         {
-          "contributionCount": 2,
-          "date": "2026-05-02"
+          "date": "2026-05-16",
+          "contributionCount": 8
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 1,
-          "date": "2026-05-03"
+          "date": "2026-05-17",
+          "contributionCount": 12
         },
         {
-          "contributionCount": 1,
-          "date": "2026-05-04"
+          "date": "2026-05-18",
+          "contributionCount": 3
         },
         {
-          "contributionCount": 2,
-          "date": "2026-05-05"
+          "date": "2026-05-19",
+          "contributionCount": 6
         },
         {
-          "contributionCount": 4,
-          "date": "2026-05-06"
+          "date": "2026-05-20",
+          "contributionCount": 6
         },
         {
-          "contributionCount": 1,
-          "date": "2026-05-07"
+          "date": "2026-05-21",
+          "contributionCount": 4
         },
         {
-          "contributionCount": 1,
-          "date": "2026-05-08"
+          "date": "2026-05-22",
+          "contributionCount": 6
         },
         {
-          "contributionCount": 8,
-          "date": "2026-05-09"
+          "date": "2026-05-23",
+          "contributionCount": 6
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 9,
-          "date": "2026-05-10"
+          "date": "2026-05-24",
+          "contributionCount": 6
         },
         {
-          "contributionCount": 9,
-          "date": "2026-05-11"
+          "date": "2026-05-25",
+          "contributionCount": 15
         },
         {
-          "contributionCount": 9,
-          "date": "2026-05-12"
+          "date": "2026-05-26",
+          "contributionCount": 14
         },
         {
-          "contributionCount": 7,
-          "date": "2026-05-13"
+          "date": "2026-05-27",
+          "contributionCount": 12
         },
         {
-          "contributionCount": 8,
-          "date": "2026-05-14"
+          "date": "2026-05-28",
+          "contributionCount": 12
         },
         {
-          "contributionCount": 7,
-          "date": "2026-05-15"
+          "date": "2026-05-29",
+          "contributionCount": 14
         },
         {
-          "contributionCount": 8,
-          "date": "2026-05-16"
+          "date": "2026-05-30",
+          "contributionCount": 12
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 12,
-          "date": "2026-05-17"
+          "date": "2026-05-31",
+          "contributionCount": 17
         },
         {
-          "contributionCount": 3,
-          "date": "2026-05-18"
+          "date": "2026-06-01",
+          "contributionCount": 33
         },
         {
-          "contributionCount": 6,
-          "date": "2026-05-19"
+          "date": "2026-06-02",
+          "contributionCount": 17
         },
         {
-          "contributionCount": 6,
-          "date": "2026-05-20"
+          "date": "2026-06-03",
+          "contributionCount": 17
         },
         {
-          "contributionCount": 4,
-          "date": "2026-05-21"
+          "date": "2026-06-04",
+          "contributionCount": 2
         },
         {
-          "contributionCount": 6,
-          "date": "2026-05-22"
+          "date": "2026-06-05",
+          "contributionCount": 1
         },
         {
-          "contributionCount": 6,
-          "date": "2026-05-23"
+          "date": "2026-06-06",
+          "contributionCount": 17
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 5,
-          "date": "2026-05-24"
+          "date": "2026-06-07",
+          "contributionCount": 4
         },
         {
-          "contributionCount": 15,
-          "date": "2026-05-25"
+          "date": "2026-06-08",
+          "contributionCount": 2
         },
         {
-          "contributionCount": 14,
-          "date": "2026-05-26"
+          "date": "2026-06-09",
+          "contributionCount": 2
         },
         {
-          "contributionCount": 12,
-          "date": "2026-05-27"
+          "date": "2026-06-10",
+          "contributionCount": 6
         },
         {
-          "contributionCount": 11,
-          "date": "2026-05-28"
+          "date": "2026-06-11",
+          "contributionCount": 3
         },
         {
-          "contributionCount": 14,
-          "date": "2026-05-29"
+          "date": "2026-06-12",
+          "contributionCount": 17
         },
         {
-          "contributionCount": 12,
-          "date": "2026-05-30"
+          "date": "2026-06-13",
+          "contributionCount": 45
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 17,
-          "date": "2026-05-31"
+          "date": "2026-06-14",
+          "contributionCount": 3
         },
         {
-          "contributionCount": 33,
-          "date": "2026-06-01"
+          "date": "2026-06-15",
+          "contributionCount": 4
         },
         {
-          "contributionCount": 17,
-          "date": "2026-06-02"
+          "date": "2026-06-16",
+          "contributionCount": 3
         },
         {
-          "contributionCount": 16,
-          "date": "2026-06-03"
+          "date": "2026-06-17",
+          "contributionCount": 3
         },
         {
-          "contributionCount": 2,
-          "date": "2026-06-04"
+          "date": "2026-06-18",
+          "contributionCount": 5
         },
         {
-          "contributionCount": 1,
-          "date": "2026-06-05"
+          "date": "2026-06-19",
+          "contributionCount": 6
         },
         {
-          "contributionCount": 17,
-          "date": "2026-06-06"
+          "date": "2026-06-20",
+          "contributionCount": 2
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 4,
-          "date": "2026-06-07"
+          "date": "2026-06-21",
+          "contributionCount": 1
         },
         {
-          "contributionCount": 2,
-          "date": "2026-06-08"
+          "date": "2026-06-22",
+          "contributionCount": 2
         },
         {
-          "contributionCount": 1,
-          "date": "2026-06-09"
+          "date": "2026-06-23",
+          "contributionCount": 1
         },
         {
-          "contributionCount": 6,
-          "date": "2026-06-10"
+          "date": "2026-06-24",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 3,
-          "date": "2026-06-11"
+          "date": "2026-06-25",
+          "contributionCount": 1
         },
         {
-          "contributionCount": 17,
-          "date": "2026-06-12"
+          "date": "2026-06-26",
+          "contributionCount": 1
         },
         {
-          "contributionCount": 45,
-          "date": "2026-06-13"
+          "date": "2026-06-27",
+          "contributionCount": 0
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 3,
-          "date": "2026-06-14"
+          "date": "2026-06-28",
+          "contributionCount": 5
         },
         {
-          "contributionCount": 3,
-          "date": "2026-06-15"
+          "date": "2026-06-29",
+          "contributionCount": 10
         },
         {
-          "contributionCount": 3,
-          "date": "2026-06-16"
+          "date": "2026-06-30",
+          "contributionCount": 2
         },
         {
-          "contributionCount": 3,
-          "date": "2026-06-17"
+          "date": "2026-07-01",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 5,
-          "date": "2026-06-18"
+          "date": "2026-07-02",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 6,
-          "date": "2026-06-19"
+          "date": "2026-07-03",
+          "contributionCount": 1
         },
         {
-          "contributionCount": 2,
-          "date": "2026-06-20"
+          "date": "2026-07-04",
+          "contributionCount": 1
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 1,
-          "date": "2026-06-21"
+          "date": "2026-07-05",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 1,
-          "date": "2026-06-22"
+          "date": "2026-07-06",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 1,
-          "date": "2026-06-23"
+          "date": "2026-07-07",
+          "contributionCount": 1
         },
         {
-          "contributionCount": 0,
-          "date": "2026-06-24"
+          "date": "2026-07-08",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 1,
-          "date": "2026-06-25"
+          "date": "2026-07-09",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 1,
-          "date": "2026-06-26"
+          "date": "2026-07-10",
+          "contributionCount": 1
         },
         {
-          "contributionCount": 0,
-          "date": "2026-06-27"
+          "date": "2026-07-11",
+          "contributionCount": 1
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 4,
-          "date": "2026-06-28"
+          "date": "2026-07-12",
+          "contributionCount": 2
         },
         {
-          "contributionCount": 10,
-          "date": "2026-06-29"
+          "date": "2026-07-13",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 2,
-          "date": "2026-06-30"
+          "date": "2026-07-14",
+          "contributionCount": 1
         },
         {
-          "contributionCount": 0,
-          "date": "2026-07-01"
+          "date": "2026-07-15",
+          "contributionCount": 27
         },
         {
-          "contributionCount": 0,
-          "date": "2026-07-02"
+          "date": "2026-07-16",
+          "contributionCount": 1
         },
         {
-          "contributionCount": 1,
-          "date": "2026-07-03"
+          "date": "2026-07-17",
+          "contributionCount": 1
         },
         {
-          "contributionCount": 0,
-          "date": "2026-07-04"
+          "date": "2026-07-18",
+          "contributionCount": 2
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 0,
-          "date": "2026-07-05"
+          "date": "2026-07-19",
+          "contributionCount": 2
         },
         {
-          "contributionCount": 0,
-          "date": "2026-07-06"
+          "date": "2026-07-20",
+          "contributionCount": 3
         },
         {
-          "contributionCount": 1,
-          "date": "2026-07-07"
+          "date": "2026-07-21",
+          "contributionCount": 4
         },
         {
-          "contributionCount": 0,
-          "date": "2026-07-08"
+          "date": "2026-07-22",
+          "contributionCount": 3
         },
         {
-          "contributionCount": 0,
-          "date": "2026-07-09"
+          "date": "2026-07-23",
+          "contributionCount": 2
         },
         {
-          "contributionCount": 1,
-          "date": "2026-07-10"
+          "date": "2026-07-24",
+          "contributionCount": 2
         },
         {
-          "contributionCount": 1,
-          "date": "2026-07-11"
+          "date": "2026-07-25",
+          "contributionCount": 1
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 1,
-          "date": "2026-07-12"
+          "date": "2026-07-26",
+          "contributionCount": 2
         },
         {
-          "contributionCount": 0,
-          "date": "2026-07-13"
+          "date": "2026-07-27",
+          "contributionCount": 3
         },
         {
-          "contributionCount": 1,
-          "date": "2026-07-14"
+          "date": "2026-07-28",
+          "contributionCount": 1
         },
         {
-          "contributionCount": 27,
-          "date": "2026-07-15"
+          "date": "2026-07-29",
+          "contributionCount": 6
         },
         {
-          "contributionCount": 1,
-          "date": "2026-07-16"
+          "date": "2026-07-30",
+          "contributionCount": 1
         },
         {
-          "contributionCount": 1,
-          "date": "2026-07-17"
+          "date": "2026-07-31",
+          "contributionCount": 3
         },
         {
-          "contributionCount": 1,
-          "date": "2026-07-18"
+          "date": "2026-08-01",
+          "contributionCount": 1
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 2,
-          "date": "2026-07-19"
+          "date": "2026-08-02",
+          "contributionCount": 1
         },
         {
-          "contributionCount": 3,
-          "date": "2026-07-20"
+          "date": "2026-08-03",
+          "contributionCount": 3
         },
         {
-          "contributionCount": 4,
-          "date": "2026-07-21"
+          "date": "2026-08-04",
+          "contributionCount": 10
         },
         {
-          "contributionCount": 3,
-          "date": "2026-07-22"
+          "date": "2026-08-05",
+          "contributionCount": 13
         },
         {
-          "contributionCount": 2,
-          "date": "2026-07-23"
+          "date": "2026-08-06",
+          "contributionCount": 5
         },
         {
-          "contributionCount": 2,
-          "date": "2026-07-24"
+          "date": "2026-08-07",
+          "contributionCount": 3
         },
         {
-          "contributionCount": 1,
-          "date": "2026-07-25"
+          "date": "2026-08-08",
+          "contributionCount": 5
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 2,
-          "date": "2026-07-26"
+          "date": "2026-08-09",
+          "contributionCount": 6
         },
         {
-          "contributionCount": 2,
-          "date": "2026-07-27"
+          "date": "2026-08-10",
+          "contributionCount": 4
         },
         {
-          "contributionCount": 1,
-          "date": "2026-07-28"
+          "date": "2026-08-11",
+          "contributionCount": 7
         },
         {
-          "contributionCount": 6,
-          "date": "2026-07-29"
+          "date": "2026-08-12",
+          "contributionCount": 2
         },
         {
-          "contributionCount": 1,
-          "date": "2026-07-30"
+          "date": "2026-08-13",
+          "contributionCount": 1
         },
         {
-          "contributionCount": 3,
-          "date": "2026-07-31"
+          "date": "2026-08-14",
+          "contributionCount": 2
         },
         {
-          "contributionCount": 1,
-          "date": "2026-08-01"
+          "date": "2026-08-15",
+          "contributionCount": 1
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 1,
-          "date": "2026-08-02"
+          "date": "2026-08-16",
+          "contributionCount": 1
         },
         {
-          "contributionCount": 3,
-          "date": "2026-08-03"
+          "date": "2026-08-17",
+          "contributionCount": 1
         },
         {
-          "contributionCount": 9,
-          "date": "2026-08-04"
+          "date": "2026-08-18",
+          "contributionCount": 4
         },
         {
-          "contributionCount": 13,
-          "date": "2026-08-05"
+          "date": "2026-08-19",
+          "contributionCount": 23
         },
         {
-          "contributionCount": 5,
-          "date": "2026-08-06"
+          "date": "2026-08-20",
+          "contributionCount": 5
         },
         {
-          "contributionCount": 3,
-          "date": "2026-08-07"
+          "date": "2026-08-21",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 5,
-          "date": "2026-08-08"
+          "date": "2026-08-22",
+          "contributionCount": 2
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 6,
-          "date": "2026-08-09"
+          "date": "2026-08-23",
+          "contributionCount": 2
         },
         {
-          "contributionCount": 4,
-          "date": "2026-08-10"
+          "date": "2026-08-24",
+          "contributionCount": 5
         },
         {
-          "contributionCount": 7,
-          "date": "2026-08-11"
+          "date": "2026-08-25",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 2,
-          "date": "2026-08-12"
+          "date": "2026-08-26",
+          "contributionCount": 12
         },
         {
-          "contributionCount": 1,
-          "date": "2026-08-13"
+          "date": "2026-08-27",
+          "contributionCount": 10
         },
         {
-          "contributionCount": 1,
-          "date": "2026-08-14"
+          "date": "2026-08-28",
+          "contributionCount": 7
         },
         {
-          "contributionCount": 1,
-          "date": "2026-08-15"
+          "date": "2026-08-29",
+          "contributionCount": 7
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 1,
-          "date": "2026-08-16"
+          "date": "2026-08-30",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 1,
-          "date": "2026-08-17"
+          "date": "2026-08-31",
+          "contributionCount": 7
         },
         {
-          "contributionCount": 4,
-          "date": "2026-08-18"
+          "date": "2026-09-01",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 23,
-          "date": "2026-08-19"
+          "date": "2026-09-02",
+          "contributionCount": 1
         },
         {
-          "contributionCount": 5,
-          "date": "2026-08-20"
+          "date": "2026-09-03",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2026-08-21"
+          "date": "2026-09-04",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 2,
-          "date": "2026-08-22"
+          "date": "2026-09-05",
+          "contributionCount": 0
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 1,
-          "date": "2026-08-23"
+          "date": "2026-09-06",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 5,
-          "date": "2026-08-24"
+          "date": "2026-09-07",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 0,
-          "date": "2026-08-25"
+          "date": "2026-09-08",
+          "contributionCount": 10
         },
         {
-          "contributionCount": 12,
-          "date": "2026-08-26"
+          "date": "2026-09-09",
+          "contributionCount": 12
         },
         {
-          "contributionCount": 10,
-          "date": "2026-08-27"
+          "date": "2026-09-10",
+          "contributionCount": 15
         },
         {
-          "contributionCount": 7,
-          "date": "2026-08-28"
+          "date": "2026-09-11",
+          "contributionCount": 11
         },
         {
-          "contributionCount": 7,
-          "date": "2026-08-29"
+          "date": "2026-09-12",
+          "contributionCount": 23
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 0,
-          "date": "2026-08-30"
+          "date": "2026-09-13",
+          "contributionCount": 8
         },
         {
-          "contributionCount": 7,
-          "date": "2026-08-31"
+          "date": "2026-09-14",
+          "contributionCount": 12
         },
         {
-          "contributionCount": 0,
-          "date": "2026-09-01"
+          "date": "2026-09-15",
+          "contributionCount": 15
         },
         {
-          "contributionCount": 0,
-          "date": "2026-09-02"
+          "date": "2026-09-16",
+          "contributionCount": 10
         },
         {
-          "contributionCount": 0,
-          "date": "2026-09-03"
+          "date": "2026-09-17",
+          "contributionCount": 12
         },
         {
-          "contributionCount": 0,
-          "date": "2026-09-04"
+          "date": "2026-09-18",
+          "contributionCount": 14
         },
         {
-          "contributionCount": 0,
-          "date": "2026-09-05"
+          "date": "2026-09-19",
+          "contributionCount": 10
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 0,
-          "date": "2026-09-06"
+          "date": "2026-09-20",
+          "contributionCount": 13
         },
         {
-          "contributionCount": 0,
-          "date": "2026-09-07"
+          "date": "2026-09-21",
+          "contributionCount": 19
         },
         {
-          "contributionCount": 10,
-          "date": "2026-09-08"
+          "date": "2026-09-22",
+          "contributionCount": 26
         },
         {
-          "contributionCount": 12,
-          "date": "2026-09-09"
+          "date": "2026-09-23",
+          "contributionCount": 5
         },
         {
-          "contributionCount": 14,
-          "date": "2026-09-10"
+          "date": "2026-09-24",
+          "contributionCount": 10
         },
         {
-          "contributionCount": 11,
-          "date": "2026-09-11"
+          "date": "2026-09-25",
+          "contributionCount": 12
         },
         {
-          "contributionCount": 23,
-          "date": "2026-09-12"
+          "date": "2026-09-26",
+          "contributionCount": 9
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 8,
-          "date": "2026-09-13"
+          "date": "2026-09-27",
+          "contributionCount": 6
         },
         {
-          "contributionCount": 12,
-          "date": "2026-09-14"
+          "date": "2026-09-28",
+          "contributionCount": 12
         },
         {
-          "contributionCount": 15,
-          "date": "2026-09-15"
+          "date": "2026-09-29",
+          "contributionCount": 2
         },
         {
-          "contributionCount": 10,
-          "date": "2026-09-16"
+          "date": "2026-09-30",
+          "contributionCount": 18
         },
         {
-          "contributionCount": 12,
-          "date": "2026-09-17"
+          "date": "2026-10-01",
+          "contributionCount": 16
         },
         {
-          "contributionCount": 14,
-          "date": "2026-09-18"
+          "date": "2026-10-02",
+          "contributionCount": 16
         },
         {
-          "contributionCount": 9,
-          "date": "2026-09-19"
+          "date": "2026-10-03",
+          "contributionCount": 9
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 13,
-          "date": "2026-09-20"
+          "date": "2026-10-04",
+          "contributionCount": 5
         },
         {
-          "contributionCount": 19,
-          "date": "2026-09-21"
+          "date": "2026-10-05",
+          "contributionCount": 8
         },
         {
-          "contributionCount": 26,
-          "date": "2026-09-22"
+          "date": "2026-10-06",
+          "contributionCount": 1
         },
         {
-          "contributionCount": 5,
-          "date": "2026-09-23"
+          "date": "2026-10-07",
+          "contributionCount": 1
         },
         {
-          "contributionCount": 9,
-          "date": "2026-09-24"
+          "date": "2026-10-08",
+          "contributionCount": 5
         },
         {
-          "contributionCount": 12,
-          "date": "2026-09-25"
+          "date": "2026-10-09",
+          "contributionCount": 3
         },
         {
-          "contributionCount": 9,
-          "date": "2026-09-26"
+          "date": "2026-10-10",
+          "contributionCount": 3
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 6,
-          "date": "2026-09-27"
+          "date": "2026-10-11",
+          "contributionCount": 2
         },
         {
-          "contributionCount": 11,
-          "date": "2026-09-28"
+          "date": "2026-10-12",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 2,
-          "date": "2026-09-29"
+          "date": "2026-10-13",
+          "contributionCount": 0
         },
         {
-          "contributionCount": 18,
-          "date": "2026-09-30"
+          "date": "2026-10-14",
+          "contributionCount": 2
         },
         {
-          "contributionCount": 16,
-          "date": "2026-10-01"
+          "date": "2026-10-15",
+          "contributionCount": 1
         },
         {
-          "contributionCount": 17,
-          "date": "2026-10-02"
+          "date": "2026-10-16",
+          "contributionCount": 1
         },
         {
-          "contributionCount": 9,
-          "date": "2026-10-03"
+          "date": "2026-10-17",
+          "contributionCount": 7
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 5,
-          "date": "2026-10-04"
+          "date": "2026-10-18",
+          "contributionCount": 3
         },
         {
-          "contributionCount": 8,
-          "date": "2026-10-05"
+          "date": "2026-10-19",
+          "contributionCount": 4
         },
         {
-          "contributionCount": 0,
-          "date": "2026-10-06"
+          "date": "2026-10-20",
+          "contributionCount": 3
         },
         {
-          "contributionCount": 1,
-          "date": "2026-10-07"
+          "date": "2026-10-21",
+          "contributionCount": 13
         },
         {
-          "contributionCount": 5,
-          "date": "2026-10-08"
+          "date": "2026-10-22",
+          "contributionCount": 14
         },
         {
-          "contributionCount": 3,
-          "date": "2026-10-09"
+          "date": "2026-10-23",
+          "contributionCount": 22
         },
         {
-          "contributionCount": 3,
-          "date": "2026-10-10"
+          "date": "2026-10-24",
+          "contributionCount": 32
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 2,
-          "date": "2026-10-11"
+          "date": "2026-10-25",
+          "contributionCount": 2
         },
         {
-          "contributionCount": 0,
-          "date": "2026-10-12"
+          "date": "2026-10-26",
+          "contributionCount": 3
         },
         {
-          "contributionCount": 0,
-          "date": "2026-10-13"
+          "date": "2026-10-27",
+          "contributionCount": 6
         },
         {
-          "contributionCount": 0,
-          "date": "2026-10-14"
+          "date": "2026-10-28",
+          "contributionCount": 14
         },
         {
-          "contributionCount": 0,
-          "date": "2026-10-15"
+          "date": "2026-10-29",
+          "contributionCount": 11
         },
         {
-          "contributionCount": 0,
-          "date": "2026-10-16"
+          "date": "2026-10-30",
+          "contributionCount": 12
         },
         {
-          "contributionCount": 6,
-          "date": "2026-10-17"
+          "date": "2026-10-31",
+          "contributionCount": 11
         }
       ]
     },
     {
       "contributionDays": [
         {
-          "contributionCount": 2,
-          "date": "2026-10-18"
+          "date": "2026-11-01",
+          "contributionCount": 11
         },
         {
-          "contributionCount": 0,
-          "date": "2026-10-19"
+          "date": "2026-11-02",
+          "contributionCount": 18
+        },
+        {
+          "date": "2026-11-03",
+          "contributionCount": 2
+        },
+        {
+          "date": "2026-11-04",
+          "contributionCount": 8
+        },
+        {
+          "date": "2026-11-05",
+          "contributionCount": 0
         }
       ]
     }
@@ -1988,13 +2000,157 @@ export const fallbackGithubContributions = {
 export const fallbackGithubPRs = {
   "merged": [
     {
+      "id": "PR_kwDOH8_SWs8AAAABMy8K-w",
+      "title": "fix(networkpolicy): handle unset proxy IP/port and derive proxy port for egress",
+      "url": "https://github.com/kubescape/helm-charts/pull/998",
+      "repository": {
+        "nameWithOwner": "kubescape/helm-charts"
+      },
+      "state": "MERGED",
+      "createdAt": "2026-11-04T11:49:47Z",
+      "mergedAt": "2026-11-04T13:12:58Z",
+      "closedAt": "2026-11-04T13:12:59Z"
+    },
+    {
+      "id": "PR_kwDOF4-Lyc8AAAABMvZgfA",
+      "title": "fix(operator): reject unexpected arguments in operator scan commands",
+      "url": "https://github.com/kubescape/kubescape/pull/4561",
+      "repository": {
+        "nameWithOwner": "kubescape/kubescape"
+      },
+      "state": "MERGED",
+      "createdAt": "2026-11-04T06:28:17Z",
+      "mergedAt": "2026-11-04T06:48:45Z",
+      "closedAt": "2026-11-04T06:48:45Z"
+    },
+    {
+      "id": "PR_kwDOF4-Lyc8AAAABMVl9sA",
+      "title": "fix(list): honor command output writer and reject unexpected arguments",
+      "url": "https://github.com/kubescape/kubescape/pull/4529",
+      "repository": {
+        "nameWithOwner": "kubescape/kubescape"
+      },
+      "state": "MERGED",
+      "createdAt": "2026-11-02T15:33:02Z",
+      "mergedAt": "2026-11-02T17:45:29Z",
+      "closedAt": "2026-11-02T17:45:29Z"
+    },
+    {
+      "id": "PR_kwDOF4-Lyc8AAAABKdsS8w",
+      "title": "fix(cel): use namespaceselector for binding scope matching (#4326)",
+      "url": "https://github.com/kubescape/kubescape/pull/4327",
+      "repository": {
+        "nameWithOwner": "kubescape/kubescape"
+      },
+      "state": "MERGED",
+      "createdAt": "2026-10-24T16:39:24Z",
+      "mergedAt": "2026-10-25T14:07:28Z",
+      "closedAt": "2026-10-25T14:07:28Z"
+    },
+    {
+      "id": "PR_kwDOSCN1vs8AAAABKMhpTQ",
+      "title": "Free hosting: Hugging Face Space + Neon, redeploy on every push",
+      "url": "https://github.com/harshitnub077/NotForgotten/pull/3",
+      "repository": {
+        "nameWithOwner": "harshitnub077/NotForgotten"
+      },
+      "state": "MERGED",
+      "createdAt": "2026-10-23T07:08:51Z",
+      "mergedAt": "2026-10-23T07:13:31Z",
+      "closedAt": "2026-10-23T07:13:31Z"
+    },
+    {
+      "id": "PR_kwDOSCN1vs8AAAABKMcq6A",
+      "title": "Accounts and cloud sync: sign-up/login, private libraries, Postgres",
+      "url": "https://github.com/harshitnub077/NotForgotten/pull/2",
+      "repository": {
+        "nameWithOwner": "harshitnub077/NotForgotten"
+      },
+      "state": "MERGED",
+      "createdAt": "2026-10-23T07:00:32Z",
+      "mergedAt": "2026-10-23T07:03:05Z",
+      "closedAt": "2026-10-23T07:03:05Z"
+    },
+    {
+      "id": "PR_kwDOSCN1vs8AAAABJ_EScQ",
+      "title": "NotForgotten v2: FSRS-6 memory engine, concept graph, typed recall, exam planner and new UI",
+      "url": "https://github.com/harshitnub077/NotForgotten/pull/1",
+      "repository": {
+        "nameWithOwner": "harshitnub077/NotForgotten"
+      },
+      "state": "MERGED",
+      "createdAt": "2026-10-22T09:22:03Z",
+      "mergedAt": "2026-10-22T09:46:29Z",
+      "closedAt": "2026-10-22T09:46:29Z"
+    },
+    {
+      "id": "PR_kwDOF4-Lyc8AAAABJwKelA",
+      "title": "fix(cel): apply a scoped binding's paramRef to the objects it binds (#4278)",
+      "url": "https://github.com/kubescape/kubescape/pull/4279",
+      "repository": {
+        "nameWithOwner": "kubescape/kubescape"
+      },
+      "state": "MERGED",
+      "createdAt": "2026-10-21T09:33:34Z",
+      "mergedAt": "2026-10-21T14:41:50Z",
+      "closedAt": "2026-10-21T14:41:50Z"
+    },
+    {
+      "id": "PR_kwDOA5AKIc8AAAABJwEZKQ",
+      "title": "logging: log_output: fix timestamp format specifiers on 64-bit targets",
+      "url": "https://github.com/zephyrproject-rtos/zephyr/pull/122966",
+      "repository": {
+        "nameWithOwner": "zephyrproject-rtos/zephyr"
+      },
+      "state": "MERGED",
+      "createdAt": "2026-10-21T09:25:27Z",
+      "mergedAt": "2026-10-29T02:45:19Z",
+      "closedAt": "2026-10-29T02:45:19Z"
+    },
+    {
+      "id": "PR_kwDOF4-Lyc8AAAABJUAn7A",
+      "title": "fix(diff): neutralize spreadsheet formula injection in summary CSV output",
+      "url": "https://github.com/kubescape/kubescape/pull/4243",
+      "repository": {
+        "nameWithOwner": "kubescape/kubescape"
+      },
+      "state": "MERGED",
+      "createdAt": "2026-10-19T11:04:44Z",
+      "mergedAt": "2026-10-20T10:26:15Z",
+      "closedAt": "2026-10-20T10:26:16Z"
+    },
+    {
+      "id": "PR_kwDOF4-Lyc8AAAABJH4oPg",
+      "title": "fix(printer): preserve symlink parent paths in GetWriter and GetWriterNoStdoutFallback",
+      "url": "https://github.com/kubescape/kubescape/pull/4233",
+      "repository": {
+        "nameWithOwner": "kubescape/kubescape"
+      },
+      "state": "MERGED",
+      "createdAt": "2026-10-18T07:19:04Z",
+      "mergedAt": "2026-10-20T10:55:27Z",
+      "closedAt": "2026-10-20T10:55:27Z"
+    },
+    {
+      "id": "PR_kwDOH8_SWs8AAAABJDMTYg",
+      "title": "feat(kubevuln): support Azure Workload Identity for ambient ACR auth",
+      "url": "https://github.com/kubescape/helm-charts/pull/968",
+      "repository": {
+        "nameWithOwner": "kubescape/helm-charts"
+      },
+      "state": "MERGED",
+      "createdAt": "2026-10-17T17:22:57Z",
+      "mergedAt": "2026-10-23T10:52:13Z",
+      "closedAt": "2026-10-23T10:52:13Z"
+    },
+    {
       "id": "PR_kwDOG_sA9M8AAAABHE1mEA",
       "title": "feat(registryauth): add Azure Container Registry (ACR) ambient auth provider",
       "url": "https://github.com/kubescape/kubevuln/pull/1163",
       "repository": {
         "nameWithOwner": "kubescape/kubevuln"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-10-07T08:07:49Z",
       "mergedAt": "2026-10-08T07:43:10Z",
       "closedAt": "2026-10-08T07:43:10Z"
@@ -2006,7 +2162,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "kubescape/helm-charts"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-10-03T11:16:40Z",
       "mergedAt": "2026-10-05T07:42:43Z",
       "closedAt": "2026-10-05T07:42:43Z"
@@ -2018,7 +2174,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "kubescape/kubescape"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-10-02T10:35:58Z",
       "mergedAt": "2026-10-02T14:51:25Z",
       "closedAt": "2026-10-02T14:51:25Z"
@@ -2030,7 +2186,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "kubescape/kubescape"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-10-02T09:31:43Z",
       "mergedAt": "2026-10-05T07:33:26Z",
       "closedAt": "2026-10-05T07:33:26Z"
@@ -2042,7 +2198,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "kubescape/kubescape"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-10-02T09:23:47Z",
       "mergedAt": "2026-10-02T14:57:29Z",
       "closedAt": "2026-10-02T14:57:29Z"
@@ -2054,7 +2210,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "kubescape/helm-charts"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-10-01T08:21:55Z",
       "mergedAt": "2026-10-02T06:41:33Z",
       "closedAt": "2026-10-02T06:41:33Z"
@@ -2066,7 +2222,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "kubescape/kubescape"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-10-01T06:04:37Z",
       "mergedAt": "2026-10-01T06:45:30Z",
       "closedAt": "2026-10-01T06:45:30Z"
@@ -2078,7 +2234,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "kubescape/kubevuln"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-10-01T06:00:20Z",
       "mergedAt": "2026-10-05T07:42:24Z",
       "closedAt": "2026-10-05T07:42:24Z"
@@ -2090,7 +2246,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "kubescape/kubevuln"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-09-30T17:53:37Z",
       "mergedAt": "2026-10-05T05:28:51Z",
       "closedAt": "2026-10-05T05:28:51Z"
@@ -2102,7 +2258,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "kubescape/kubescape"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-09-30T11:30:25Z",
       "mergedAt": "2026-10-05T05:28:24Z",
       "closedAt": "2026-10-05T05:28:24Z"
@@ -2114,7 +2270,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "kubescape/kubevuln"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-09-30T11:17:18Z",
       "mergedAt": "2026-10-01T06:22:06Z",
       "closedAt": "2026-10-01T06:22:06Z"
@@ -2126,7 +2282,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "kubescape/kubevuln"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-09-30T05:28:14Z",
       "mergedAt": "2026-09-30T06:12:20Z",
       "closedAt": "2026-09-30T06:12:20Z"
@@ -2138,7 +2294,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "kubescape/helm-charts"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-09-30T05:00:44Z",
       "mergedAt": "2026-10-01T06:14:04Z",
       "closedAt": "2026-10-01T06:14:04Z"
@@ -2150,7 +2306,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "kubescape/kubevuln"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-09-28T16:39:59Z",
       "mergedAt": "2026-09-29T05:49:54Z",
       "closedAt": "2026-09-29T05:49:54Z"
@@ -2162,7 +2318,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "kubescape/kubevuln"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-09-28T11:15:34Z",
       "mergedAt": "2026-09-28T15:34:42Z",
       "closedAt": "2026-09-28T15:34:42Z"
@@ -2174,7 +2330,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "kubescape/kubescape"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-09-28T08:47:54Z",
       "mergedAt": "2026-09-30T06:20:23Z",
       "closedAt": "2026-09-30T06:20:23Z"
@@ -2186,7 +2342,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "kubescape/kubescape"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-09-26T17:07:34Z",
       "mergedAt": "2026-09-29T05:48:37Z",
       "closedAt": "2026-09-29T05:48:37Z"
@@ -2198,7 +2354,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "kubescape/kubescape"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-09-26T09:03:50Z",
       "mergedAt": "2026-09-28T05:29:35Z",
       "closedAt": "2026-09-28T05:29:35Z"
@@ -2210,7 +2366,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "zephyrproject-rtos/zephyr"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-09-26T09:01:20Z",
       "mergedAt": "2026-10-02T22:48:34Z",
       "closedAt": "2026-10-02T22:48:34Z"
@@ -2222,7 +2378,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "kubescape/kubescape"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-09-25T14:44:16Z",
       "mergedAt": "2026-09-28T05:29:52Z",
       "closedAt": "2026-09-28T05:29:52Z"
@@ -2234,7 +2390,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "kubescape/kubescape"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-09-25T10:51:55Z",
       "mergedAt": "2026-09-28T05:25:00Z",
       "closedAt": "2026-09-28T05:25:00Z"
@@ -2246,7 +2402,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "kubescape/kubevuln"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-09-25T06:26:01Z",
       "mergedAt": "2026-09-25T11:57:39Z",
       "closedAt": "2026-09-25T11:57:39Z"
@@ -2258,7 +2414,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "kubescape/kubevuln"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-09-24T16:29:10Z",
       "mergedAt": "2026-09-25T12:03:35Z",
       "closedAt": "2026-09-25T12:03:35Z"
@@ -2270,10 +2426,22 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "kubescape/kubescape"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-09-24T08:17:17Z",
       "mergedAt": "2026-09-25T06:01:17Z",
       "closedAt": "2026-09-25T06:01:17Z"
+    },
+    {
+      "id": "PR_kwDOA5AKIc8AAAABE0Zg7Q",
+      "title": "posix: key: unlink thread key_list on pthread_key_delete",
+      "url": "https://github.com/zephyrproject-rtos/zephyr/pull/120152",
+      "repository": {
+        "nameWithOwner": "zephyrproject-rtos/zephyr"
+      },
+      "state": "MERGED",
+      "createdAt": "2026-09-23T20:30:57Z",
+      "mergedAt": "2026-10-19T08:16:26Z",
+      "closedAt": "2026-10-19T08:16:26Z"
     },
     {
       "id": "PR_kwDOF4-Lyc8AAAABEuhVrw",
@@ -2282,7 +2450,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "kubescape/kubescape"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-09-23T09:57:48Z",
       "mergedAt": "2026-09-24T05:14:54Z",
       "closedAt": "2026-09-24T05:14:54Z"
@@ -2294,7 +2462,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "fossology/fossology"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-08-31T10:33:19Z",
       "mergedAt": "2026-09-28T08:06:49Z",
       "closedAt": "2026-09-28T08:06:50Z"
@@ -2306,7 +2474,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "intelowlproject/IntelOwl"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-08-28T08:41:59Z",
       "mergedAt": "2026-09-28T09:34:09Z",
       "closedAt": "2026-09-28T09:34:09Z"
@@ -2318,7 +2486,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "zephyrproject-rtos/zephyr"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-08-27T16:58:58Z",
       "mergedAt": "2026-10-02T22:40:34Z",
       "closedAt": "2026-10-02T22:40:34Z"
@@ -2330,7 +2498,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "intelowlproject/IntelOwl"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-08-27T16:49:33Z",
       "mergedAt": "2026-09-28T09:36:02Z",
       "closedAt": "2026-09-28T09:36:02Z"
@@ -2342,7 +2510,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "fossology/fossology"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-08-27T15:59:15Z",
       "mergedAt": "2026-08-31T08:14:34Z",
       "closedAt": "2026-08-31T08:14:34Z"
@@ -2354,7 +2522,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "zephyrproject-rtos/zephyr"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-08-26T04:52:51Z",
       "mergedAt": "2026-10-02T22:38:42Z",
       "closedAt": "2026-10-02T22:38:42Z"
@@ -2366,7 +2534,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "zephyrproject-rtos/zephyr"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-08-21T18:44:19Z",
       "mergedAt": "2026-09-24T07:54:32Z",
       "closedAt": "2026-09-24T07:54:32Z"
@@ -2378,7 +2546,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "Apicurio/apicurio-registry"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-08-20T11:08:08Z",
       "mergedAt": "2026-09-30T13:37:31Z",
       "closedAt": "2026-09-30T13:37:31Z"
@@ -2390,7 +2558,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "zephyrproject-rtos/zephyr"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-08-20T10:18:21Z",
       "mergedAt": "2026-09-22T15:55:16Z",
       "closedAt": "2026-09-22T15:55:16Z"
@@ -2402,7 +2570,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "zephyrproject-rtos/zephyr"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-08-20T09:14:31Z",
       "mergedAt": "2026-08-31T10:59:41Z",
       "closedAt": "2026-08-31T10:59:42Z"
@@ -2414,7 +2582,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "Apicurio/apicurio-registry"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-08-09T04:50:22Z",
       "mergedAt": "2026-08-12T10:46:05Z",
       "closedAt": "2026-08-12T10:46:05Z"
@@ -2426,7 +2594,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "Project-HAMi/website"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-08-08T18:08:45Z",
       "mergedAt": "2026-09-23T12:58:42Z",
       "closedAt": "2026-09-23T12:58:42Z"
@@ -2438,7 +2606,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "zephyrproject-rtos/zephyr"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-08-05T09:51:51Z",
       "mergedAt": "2026-08-20T08:50:37Z",
       "closedAt": "2026-08-20T08:50:37Z"
@@ -2450,7 +2618,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "zephyrproject-rtos/zephyr"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-08-04T05:42:21Z",
       "mergedAt": "2026-09-23T17:18:37Z",
       "closedAt": "2026-09-23T17:18:37Z"
@@ -2462,7 +2630,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "zephyrproject-rtos/zephyr"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-08-03T14:26:23Z",
       "mergedAt": "2026-08-08T19:21:28Z",
       "closedAt": "2026-08-08T19:21:28Z"
@@ -2474,7 +2642,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "zephyrproject-rtos/zephyr"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-08-03T06:30:59Z",
       "mergedAt": "2026-08-13T17:15:12Z",
       "closedAt": "2026-08-13T17:15:12Z"
@@ -2486,7 +2654,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "harshitnub077/WasmEdge"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-07-29T11:37:11Z",
       "mergedAt": "2026-07-31T12:49:19Z",
       "closedAt": "2026-07-31T12:49:20Z"
@@ -2498,7 +2666,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "harshitnub077/Cognify"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-06-02T06:07:11Z",
       "mergedAt": "2026-06-02T06:07:26Z",
       "closedAt": "2026-06-02T06:07:26Z"
@@ -2510,7 +2678,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "harshitnub077/Cognify"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-05-17T12:58:30Z",
       "mergedAt": "2026-05-17T12:58:40Z",
       "closedAt": "2026-05-17T12:58:40Z"
@@ -2522,19 +2690,19 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "firstcontributions/first-contributions"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-05-04T19:53:15Z",
       "mergedAt": "2026-05-04T19:53:27Z",
       "closedAt": "2026-05-04T19:53:27Z"
     },
     {
       "id": "PR_kwDOR749wM7WR4rR",
-      "title": "fix: Resolve critical backend and frontend issues for production read\u2026",
+      "title": "fix: Resolve critical backend and frontend issues for production read…",
       "url": "https://github.com/Omc12/sdse/pull/1",
       "repository": {
         "nameWithOwner": "Omc12/sdse"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-04-28T09:46:58Z",
       "mergedAt": "2026-04-28T09:55:07Z",
       "closedAt": "2026-04-28T09:55:07Z"
@@ -2546,7 +2714,7 @@ export const fallbackGithubPRs = {
       "repository": {
         "nameWithOwner": "Aggarwalmansi/SectionD_Group17_electricityPerformanceMonitoring"
       },
-      "state": "CLOSED",
+      "state": "MERGED",
       "createdAt": "2026-02-19T05:18:04Z",
       "mergedAt": "2026-02-19T05:18:15Z",
       "closedAt": "2026-02-19T05:18:15Z"
@@ -2554,14 +2722,74 @@ export const fallbackGithubPRs = {
   ],
   "open": [
     {
-      "id": "PR_kwDOF4-Lyc8AAAABJH4oPg",
-      "title": "fix(printer): preserve symlink parent paths in GetWriter and GetWriterNoStdoutFallback",
-      "url": "https://github.com/kubescape/kubescape/pull/4233",
+      "id": "PR_kwDOA5AKIc8AAAABMjEyqw",
+      "title": "posix: system_database: set *result to NULL on error",
+      "url": "https://github.com/zephyrproject-rtos/zephyr/pull/124448",
       "repository": {
-        "nameWithOwner": "kubescape/kubescape"
+        "nameWithOwner": "zephyrproject-rtos/zephyr"
       },
       "state": "OPEN",
-      "createdAt": "2026-10-18T07:19:04Z",
+      "createdAt": "2026-11-03T12:15:43Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
+      "id": "PR_kwDOA5AKIc8AAAABMULP5g",
+      "title": "posix: semaphore: validate parameters and const-qualify sem_timedwait",
+      "url": "https://github.com/zephyrproject-rtos/zephyr/pull/124315",
+      "repository": {
+        "nameWithOwner": "zephyrproject-rtos/zephyr"
+      },
+      "state": "OPEN",
+      "createdAt": "2026-11-02T13:51:58Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
+      "id": "PR_kwDOA5AKIc8AAAABLQfpgg",
+      "title": "posix: clock_selection: fix return codes and errno compliance",
+      "url": "https://github.com/zephyrproject-rtos/zephyr/pull/123794",
+      "repository": {
+        "nameWithOwner": "zephyrproject-rtos/zephyr"
+      },
+      "state": "OPEN",
+      "createdAt": "2026-10-28T12:28:11Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
+      "id": "PR_kwDOA5AKIc8AAAABKd52eQ",
+      "title": "posix: features: fix _XOPEN_STREAMS definition and conformance value",
+      "url": "https://github.com/zephyrproject-rtos/zephyr/pull/123462",
+      "repository": {
+        "nameWithOwner": "zephyrproject-rtos/zephyr"
+      },
+      "state": "OPEN",
+      "createdAt": "2026-10-24T17:09:11Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
+      "id": "PR_kwDOSCN1vs8AAAABKQLQkQ",
+      "title": "Deploy creates and configures the Hugging Face Space itself",
+      "url": "https://github.com/harshitnub077/NotForgotten/pull/4",
+      "repository": {
+        "nameWithOwner": "harshitnub077/NotForgotten"
+      },
+      "state": "OPEN",
+      "createdAt": "2026-10-23T12:52:18Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
+      "id": "PR_kwDOAPIZOs8AAAABJwrgQA",
+      "title": "fix(api): reject non-integer id query parameters with 400",
+      "url": "https://github.com/fossology/fossology/pull/3948",
+      "repository": {
+        "nameWithOwner": "fossology/fossology"
+      },
+      "state": "OPEN",
+      "createdAt": "2026-10-21T10:18:18Z",
       "mergedAt": null,
       "closedAt": null
     },
@@ -2574,18 +2802,6 @@ export const fallbackGithubPRs = {
       },
       "state": "OPEN",
       "createdAt": "2026-10-17T17:31:51Z",
-      "mergedAt": null,
-      "closedAt": null
-    },
-    {
-      "id": "PR_kwDOH8_SWs8AAAABJDMTYg",
-      "title": "feat(kubevuln): support Azure Workload Identity for ambient ACR auth",
-      "url": "https://github.com/kubescape/helm-charts/pull/968",
-      "repository": {
-        "nameWithOwner": "kubescape/helm-charts"
-      },
-      "state": "OPEN",
-      "createdAt": "2026-10-17T17:22:57Z",
       "mergedAt": null,
       "closedAt": null
     },
@@ -2662,18 +2878,6 @@ export const fallbackGithubPRs = {
       "closedAt": null
     },
     {
-      "id": "PR_kwDODcZyiM8AAAABGa_0tA",
-      "title": "fix(serializers): fix KeyError and ensure PivotMap creation when parent_job is provided. Closes #4050",
-      "url": "https://github.com/intelowlproject/IntelOwl/pull/4051",
-      "repository": {
-        "nameWithOwner": "intelowlproject/IntelOwl"
-      },
-      "state": "OPEN",
-      "createdAt": "2026-10-03T10:41:35Z",
-      "mergedAt": null,
-      "closedAt": null
-    },
-    {
       "id": "PR_kwDOAPIZOs8AAAABGRenSg",
       "title": "fix(api): enforce write permission on copyright mutation endpoints",
       "url": "https://github.com/fossology/fossology/pull/3884",
@@ -2706,18 +2910,6 @@ export const fallbackGithubPRs = {
       },
       "state": "OPEN",
       "createdAt": "2026-10-01T10:22:56Z",
-      "mergedAt": null,
-      "closedAt": null
-    },
-    {
-      "id": "PR_kwDOA5AKIc8AAAABE0Zg7Q",
-      "title": "posix: key: unlink thread key_list on pthread_key_delete",
-      "url": "https://github.com/zephyrproject-rtos/zephyr/pull/120152",
-      "repository": {
-        "nameWithOwner": "zephyrproject-rtos/zephyr"
-      },
-      "state": "OPEN",
-      "createdAt": "2026-09-23T20:30:57Z",
       "mergedAt": null,
       "closedAt": null
     },
@@ -2766,18 +2958,6 @@ export const fallbackGithubPRs = {
       },
       "state": "OPEN",
       "createdAt": "2026-08-28T17:40:46Z",
-      "mergedAt": null,
-      "closedAt": null
-    },
-    {
-      "id": "PR_kwDODSVGxs8AAAABBUDDqw",
-      "title": "backend: helm: Allow managing non-deployed and failed releases",
-      "url": "https://github.com/kubernetes-sigs/headlamp/pull/7524",
-      "repository": {
-        "nameWithOwner": "kubernetes-sigs/headlamp"
-      },
-      "state": "OPEN",
-      "createdAt": "2026-08-28T08:29:05Z",
       "mergedAt": null,
       "closedAt": null
     },
@@ -2928,6 +3108,18 @@ export const fallbackGithubPRs = {
       "closedAt": "2026-10-07T16:00:23Z"
     },
     {
+      "id": "PR_kwDODcZyiM8AAAABGa_0tA",
+      "title": "fix(serializers): fix KeyError and ensure PivotMap creation when parent_job is provided. Closes #4050",
+      "url": "https://github.com/intelowlproject/IntelOwl/pull/4051",
+      "repository": {
+        "nameWithOwner": "intelowlproject/IntelOwl"
+      },
+      "state": "CLOSED",
+      "createdAt": "2026-10-03T10:41:35Z",
+      "mergedAt": null,
+      "closedAt": "2026-10-31T15:11:41Z"
+    },
+    {
       "id": "PR_kwDOC0tkAc8AAAABGRGrzA",
       "title": "fix(resourcedistribution): safely match status conditions by type in calculateNewStatus",
       "url": "https://github.com/openkruise/kruise/pull/2588",
@@ -3024,6 +3216,18 @@ export const fallbackGithubPRs = {
       "closedAt": "2026-08-31T11:10:30Z"
     },
     {
+      "id": "PR_kwDODSVGxs8AAAABBUDDqw",
+      "title": "backend: helm: Allow managing non-deployed and failed releases",
+      "url": "https://github.com/kubernetes-sigs/headlamp/pull/7524",
+      "repository": {
+        "nameWithOwner": "kubernetes-sigs/headlamp"
+      },
+      "state": "CLOSED",
+      "createdAt": "2026-08-28T08:29:05Z",
+      "mergedAt": null,
+      "closedAt": "2026-11-02T05:39:24Z"
+    },
+    {
       "id": "PR_kwDOA5AKIc8AAAABBUARTA",
       "title": "drivers: dma: esp32_gdma: fix premature PM lock release in concurrent M2M",
       "url": "https://github.com/zephyrproject-rtos/zephyr/pull/117686",
@@ -3097,7 +3301,7 @@ export const fallbackGithubPRs = {
     },
     {
       "id": "PR_kwDOC8Dqbc78kFKT",
-      "title": "fix(backend): Explicitly throw RegistryException on content canonical\u2026",
+      "title": "fix(backend): Explicitly throw RegistryException on content canonical…",
       "url": "https://github.com/Apicurio/apicurio-registry/pull/9403",
       "repository": {
         "nameWithOwner": "Apicurio/apicurio-registry"
