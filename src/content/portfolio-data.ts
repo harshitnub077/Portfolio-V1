@@ -266,7 +266,7 @@ export const skillsData = [
 ];
 
 export const fallbackGithubContributions = {
-  "totalContributions": 1645,
+  "totalContributions": 1649,
   "months": [
     {
       "name": "Dec"
@@ -1990,7 +1990,11 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2026-11-05",
-          "contributionCount": 4
+          "contributionCount": 8
+        },
+        {
+          "date": "2026-11-06",
+          "contributionCount": 0
         }
       ]
     }
@@ -1999,6 +2003,18 @@ export const fallbackGithubContributions = {
 
 export const fallbackGithubPRs = {
   "merged": [
+    {
+      "id": "PR_kwDOF4-Lyc8AAAABNErr8A",
+      "title": "fix(scan): prepare local inputs and validate stdin for root and security view scans",
+      "url": "https://github.com/kubescape/kubescape/pull/4584",
+      "repository": {
+        "nameWithOwner": "kubescape/kubescape"
+      },
+      "state": "MERGED",
+      "createdAt": "2026-11-05T13:24:12Z",
+      "mergedAt": "2026-11-05T14:57:31Z",
+      "closedAt": "2026-11-05T14:57:31Z"
+    },
     {
       "id": "PR_kwDOH8_SWs8AAAABMy8K-w",
       "title": "fix(networkpolicy): handle unset proxy IP/port and derive proxy port for egress",

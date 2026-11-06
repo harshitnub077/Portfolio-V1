@@ -144,7 +144,7 @@ export const experience = [
     org: "Kubescape",
     role: "CNCF · OSS",
     when: "Sep 2026 — Now",
-    line: "32 merged PRs — SSRF hardening across 6 RFCs, registry OAuth, SARIF/JUnit/PDF reports.",
+    line: "33 merged PRs — SSRF hardening across 6 RFCs, registry OAuth, SARIF/JUnit/PDF reports.",
   },
 ];
 
