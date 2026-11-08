@@ -266,7 +266,7 @@ export const skillsData = [
 ];
 
 export const fallbackGithubContributions = {
-  "totalContributions": 1649,
+  "totalContributions": 1774,
   "months": [
     {
       "name": "Dec"
@@ -309,52 +309,20 @@ export const fallbackGithubContributions = {
     {
       "contributionDays": [
         {
-          "date": "2025-11-02",
-          "contributionCount": 0
-        },
-        {
-          "date": "2025-11-03",
-          "contributionCount": 0
-        },
-        {
-          "date": "2025-11-04",
-          "contributionCount": 0
-        },
-        {
-          "date": "2025-11-05",
-          "contributionCount": 0
-        },
-        {
-          "date": "2025-11-06",
-          "contributionCount": 0
-        },
-        {
-          "date": "2025-11-07",
-          "contributionCount": 0
-        },
-        {
-          "date": "2025-11-08",
-          "contributionCount": 0
-        }
-      ]
-    },
-    {
-      "contributionDays": [
-        {
           "date": "2025-11-09",
-          "contributionCount": 0
-        },
-        {
-          "date": "2025-11-10",
-          "contributionCount": 0
-        },
-        {
-          "date": "2025-11-11",
           "contributionCount": 1
         },
         {
+          "date": "2025-11-10",
+          "contributionCount": 3
+        },
+        {
+          "date": "2025-11-11",
+          "contributionCount": 2
+        },
+        {
           "date": "2025-11-12",
-          "contributionCount": 0
+          "contributionCount": 2
         },
         {
           "date": "2025-11-13",
@@ -362,7 +330,7 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2025-11-14",
-          "contributionCount": 0
+          "contributionCount": 4
         },
         {
           "date": "2025-11-15",
@@ -374,11 +342,11 @@ export const fallbackGithubContributions = {
       "contributionDays": [
         {
           "date": "2025-11-16",
-          "contributionCount": 0
+          "contributionCount": 4
         },
         {
           "date": "2025-11-17",
-          "contributionCount": 0
+          "contributionCount": 3
         },
         {
           "date": "2025-11-18",
@@ -386,19 +354,19 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2025-11-19",
-          "contributionCount": 0
+          "contributionCount": 2
         },
         {
           "date": "2025-11-20",
-          "contributionCount": 0
+          "contributionCount": 1
         },
         {
           "date": "2025-11-21",
-          "contributionCount": 0
+          "contributionCount": 4
         },
         {
           "date": "2025-11-22",
-          "contributionCount": 0
+          "contributionCount": 3
         }
       ]
     },
@@ -406,31 +374,31 @@ export const fallbackGithubContributions = {
       "contributionDays": [
         {
           "date": "2025-11-23",
-          "contributionCount": 0
+          "contributionCount": 4
         },
         {
           "date": "2025-11-24",
-          "contributionCount": 0
+          "contributionCount": 2
         },
         {
           "date": "2025-11-25",
-          "contributionCount": 0
+          "contributionCount": 2
         },
         {
           "date": "2025-11-26",
-          "contributionCount": 0
+          "contributionCount": 4
         },
         {
           "date": "2025-11-27",
-          "contributionCount": 0
+          "contributionCount": 1
         },
         {
           "date": "2025-11-28",
-          "contributionCount": 0
+          "contributionCount": 3
         },
         {
           "date": "2025-11-29",
-          "contributionCount": 0
+          "contributionCount": 2
         }
       ]
     },
@@ -442,7 +410,7 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2025-12-01",
-          "contributionCount": 0
+          "contributionCount": 4
         },
         {
           "date": "2025-12-02",
@@ -450,19 +418,19 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2025-12-03",
-          "contributionCount": 0
+          "contributionCount": 4
         },
         {
           "date": "2025-12-04",
-          "contributionCount": 0
+          "contributionCount": 4
         },
         {
           "date": "2025-12-05",
-          "contributionCount": 0
+          "contributionCount": 4
         },
         {
           "date": "2025-12-06",
-          "contributionCount": 0
+          "contributionCount": 3
         }
       ]
     },
@@ -474,7 +442,7 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2025-12-08",
-          "contributionCount": 0
+          "contributionCount": 3
         },
         {
           "date": "2025-12-09",
@@ -482,50 +450,18 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2025-12-10",
-          "contributionCount": 0
+          "contributionCount": 3
         },
         {
           "date": "2025-12-11",
-          "contributionCount": 0
+          "contributionCount": 3
         },
         {
           "date": "2025-12-12",
-          "contributionCount": 0
+          "contributionCount": 3
         },
         {
           "date": "2025-12-13",
-          "contributionCount": 0
-        }
-      ]
-    },
-    {
-      "contributionDays": [
-        {
-          "date": "2025-12-14",
-          "contributionCount": 0
-        },
-        {
-          "date": "2025-12-15",
-          "contributionCount": 0
-        },
-        {
-          "date": "2025-12-16",
-          "contributionCount": 0
-        },
-        {
-          "date": "2025-12-17",
-          "contributionCount": 0
-        },
-        {
-          "date": "2025-12-18",
-          "contributionCount": 0
-        },
-        {
-          "date": "2025-12-19",
-          "contributionCount": 0
-        },
-        {
-          "date": "2025-12-20",
           "contributionCount": 2
         }
       ]
@@ -533,16 +469,48 @@ export const fallbackGithubContributions = {
     {
       "contributionDays": [
         {
+          "date": "2025-12-14",
+          "contributionCount": 3
+        },
+        {
+          "date": "2025-12-15",
+          "contributionCount": 4
+        },
+        {
+          "date": "2025-12-16",
+          "contributionCount": 2
+        },
+        {
+          "date": "2025-12-17",
+          "contributionCount": 3
+        },
+        {
+          "date": "2025-12-18",
+          "contributionCount": 3
+        },
+        {
+          "date": "2025-12-19",
+          "contributionCount": 3
+        },
+        {
+          "date": "2025-12-20",
+          "contributionCount": 3
+        }
+      ]
+    },
+    {
+      "contributionDays": [
+        {
           "date": "2025-12-21",
-          "contributionCount": 0
+          "contributionCount": 3
         },
         {
           "date": "2025-12-22",
-          "contributionCount": 0
+          "contributionCount": 3
         },
         {
           "date": "2025-12-23",
-          "contributionCount": 0
+          "contributionCount": 3
         },
         {
           "date": "2025-12-24",
@@ -550,11 +518,11 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2025-12-25",
-          "contributionCount": 0
+          "contributionCount": 2
         },
         {
           "date": "2025-12-26",
-          "contributionCount": 0
+          "contributionCount": 3
         },
         {
           "date": "2025-12-27",
@@ -574,11 +542,11 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2025-12-30",
-          "contributionCount": 0
+          "contributionCount": 3
         },
         {
           "date": "2025-12-31",
-          "contributionCount": 0
+          "contributionCount": 4
         },
         {
           "date": "2026-01-01",
@@ -1998,6 +1966,14 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2026-11-07",
+          "contributionCount": 6
+        }
+      ]
+    },
+    {
+      "contributionDays": [
+        {
+          "date": "2026-11-08",
           "contributionCount": 0
         }
       ]
@@ -2753,6 +2729,42 @@ export const fallbackGithubPRs = {
     }
   ],
   "open": [
+    {
+      "id": "PR_kwDOA5AKIc8AAAABNfriLQ",
+      "title": "posix: barriers: fix return code and validate parameters",
+      "url": "https://github.com/zephyrproject-rtos/zephyr/pull/124989",
+      "repository": {
+        "nameWithOwner": "zephyrproject-rtos/zephyr"
+      },
+      "state": "OPEN",
+      "createdAt": "2026-11-07T10:15:48Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
+      "id": "PR_kwDOA5AKIc8AAAABNfdYUw",
+      "title": "posix: timer: fix timer_getoverrun return and validate parameters",
+      "url": "https://github.com/zephyrproject-rtos/zephyr/pull/124986",
+      "repository": {
+        "nameWithOwner": "zephyrproject-rtos/zephyr"
+      },
+      "state": "OPEN",
+      "createdAt": "2026-11-07T09:42:53Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
+      "id": "PR_kwDOF4-Lyc8AAAABNenm2w",
+      "title": "fix(vapreconcile): do not over-credit binding coverage for namespaced resources lacking metadata.namespace",
+      "url": "https://github.com/kubescape/kubescape/pull/4642",
+      "repository": {
+        "nameWithOwner": "kubescape/kubescape"
+      },
+      "state": "OPEN",
+      "createdAt": "2026-11-07T07:28:43Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
     {
       "id": "PR_kwDOA5AKIc8AAAABMjEyqw",
       "title": "posix: system_database: set *result to NULL on error",
