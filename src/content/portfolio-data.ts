@@ -266,7 +266,7 @@ export const skillsData = [
 ];
 
 export const fallbackGithubContributions = {
-  "totalContributions": 1774,
+  "totalContributions": 1839,
   "months": [
     {
       "name": "Dec"
@@ -310,31 +310,31 @@ export const fallbackGithubContributions = {
       "contributionDays": [
         {
           "date": "2025-11-09",
-          "contributionCount": 1
+          "contributionCount": 2
         },
         {
           "date": "2025-11-10",
-          "contributionCount": 3
+          "contributionCount": 14
         },
         {
           "date": "2025-11-11",
-          "contributionCount": 2
+          "contributionCount": 1
         },
         {
           "date": "2025-11-12",
-          "contributionCount": 2
+          "contributionCount": 0
         },
         {
           "date": "2025-11-13",
-          "contributionCount": 0
-        },
-        {
-          "date": "2025-11-14",
           "contributionCount": 4
         },
         {
+          "date": "2025-11-14",
+          "contributionCount": 2
+        },
+        {
           "date": "2025-11-15",
-          "contributionCount": 0
+          "contributionCount": 3
         }
       ]
     },
@@ -346,23 +346,23 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2025-11-17",
-          "contributionCount": 3
+          "contributionCount": 11
         },
         {
           "date": "2025-11-18",
-          "contributionCount": 0
-        },
-        {
-          "date": "2025-11-19",
-          "contributionCount": 2
-        },
-        {
-          "date": "2025-11-20",
           "contributionCount": 1
         },
         {
-          "date": "2025-11-21",
+          "date": "2025-11-19",
           "contributionCount": 4
+        },
+        {
+          "date": "2025-11-20",
+          "contributionCount": 4
+        },
+        {
+          "date": "2025-11-21",
+          "contributionCount": 3
         },
         {
           "date": "2025-11-22",
@@ -378,7 +378,7 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2025-11-24",
-          "contributionCount": 2
+          "contributionCount": 4
         },
         {
           "date": "2025-11-25",
@@ -386,11 +386,11 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2025-11-26",
-          "contributionCount": 4
+          "contributionCount": 3
         },
         {
           "date": "2025-11-27",
-          "contributionCount": 1
+          "contributionCount": 4
         },
         {
           "date": "2025-11-28",
@@ -406,19 +406,19 @@ export const fallbackGithubContributions = {
       "contributionDays": [
         {
           "date": "2025-11-30",
-          "contributionCount": 0
+          "contributionCount": 4
         },
         {
           "date": "2025-12-01",
-          "contributionCount": 4
+          "contributionCount": 9
         },
         {
           "date": "2025-12-02",
-          "contributionCount": 0
+          "contributionCount": 9
         },
         {
           "date": "2025-12-03",
-          "contributionCount": 4
+          "contributionCount": 2
         },
         {
           "date": "2025-12-04",
@@ -426,7 +426,7 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2025-12-05",
-          "contributionCount": 4
+          "contributionCount": 3
         },
         {
           "date": "2025-12-06",
@@ -438,7 +438,7 @@ export const fallbackGithubContributions = {
       "contributionDays": [
         {
           "date": "2025-12-07",
-          "contributionCount": 0
+          "contributionCount": 4
         },
         {
           "date": "2025-12-08",
@@ -446,7 +446,7 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2025-12-09",
-          "contributionCount": 0
+          "contributionCount": 3
         },
         {
           "date": "2025-12-10",
@@ -458,7 +458,7 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2025-12-12",
-          "contributionCount": 3
+          "contributionCount": 4
         },
         {
           "date": "2025-12-13",
@@ -470,7 +470,7 @@ export const fallbackGithubContributions = {
       "contributionDays": [
         {
           "date": "2025-12-14",
-          "contributionCount": 3
+          "contributionCount": 4
         },
         {
           "date": "2025-12-15",
@@ -478,23 +478,23 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2025-12-16",
-          "contributionCount": 2
+          "contributionCount": 4
         },
         {
           "date": "2025-12-17",
-          "contributionCount": 3
+          "contributionCount": 2
         },
         {
           "date": "2025-12-18",
-          "contributionCount": 3
+          "contributionCount": 2
         },
         {
           "date": "2025-12-19",
-          "contributionCount": 3
+          "contributionCount": 4
         },
         {
           "date": "2025-12-20",
-          "contributionCount": 3
+          "contributionCount": 4
         }
       ]
     },
@@ -502,7 +502,7 @@ export const fallbackGithubContributions = {
       "contributionDays": [
         {
           "date": "2025-12-21",
-          "contributionCount": 3
+          "contributionCount": 4
         },
         {
           "date": "2025-12-22",
@@ -510,7 +510,7 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2025-12-23",
-          "contributionCount": 3
+          "contributionCount": 4
         },
         {
           "date": "2025-12-24",
@@ -518,11 +518,11 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2025-12-25",
-          "contributionCount": 2
+          "contributionCount": 0
         },
         {
           "date": "2025-12-26",
-          "contributionCount": 3
+          "contributionCount": 2
         },
         {
           "date": "2025-12-27",
@@ -534,19 +534,19 @@ export const fallbackGithubContributions = {
       "contributionDays": [
         {
           "date": "2025-12-28",
-          "contributionCount": 0
+          "contributionCount": 4
         },
         {
           "date": "2025-12-29",
-          "contributionCount": 0
+          "contributionCount": 1
         },
         {
           "date": "2025-12-30",
-          "contributionCount": 3
+          "contributionCount": 2
         },
         {
           "date": "2025-12-31",
-          "contributionCount": 4
+          "contributionCount": 2
         },
         {
           "date": "2026-01-01",
@@ -586,7 +586,7 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2026-01-09",
-          "contributionCount": 0
+          "contributionCount": 1
         },
         {
           "date": "2026-01-10",
@@ -618,7 +618,7 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2026-01-16",
-          "contributionCount": 0
+          "contributionCount": 1
         },
         {
           "date": "2026-01-17",
@@ -650,7 +650,7 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2026-01-23",
-          "contributionCount": 0
+          "contributionCount": 1
         },
         {
           "date": "2026-01-24",
@@ -682,7 +682,7 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2026-01-30",
-          "contributionCount": 0
+          "contributionCount": 1
         },
         {
           "date": "2026-01-31",
@@ -714,7 +714,7 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2026-02-06",
-          "contributionCount": 0
+          "contributionCount": 1
         },
         {
           "date": "2026-02-07",
@@ -746,7 +746,7 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2026-02-13",
-          "contributionCount": 0
+          "contributionCount": 1
         },
         {
           "date": "2026-02-14",
@@ -778,7 +778,7 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2026-02-20",
-          "contributionCount": 0
+          "contributionCount": 1
         },
         {
           "date": "2026-02-21",
@@ -1974,6 +1974,10 @@ export const fallbackGithubContributions = {
       "contributionDays": [
         {
           "date": "2026-11-08",
+          "contributionCount": 0
+        },
+        {
+          "date": "2026-11-09",
           "contributionCount": 0
         }
       ]
