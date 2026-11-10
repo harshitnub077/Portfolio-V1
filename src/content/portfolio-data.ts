@@ -266,7 +266,7 @@ export const skillsData = [
 ];
 
 export const fallbackGithubContributions = {
-  "totalContributions": 1839,
+  "totalContributions": 1840,
   "months": [
     {
       "name": "Dec"
@@ -1978,6 +1978,10 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2026-11-09",
+          "contributionCount": 1
+        },
+        {
+          "date": "2026-11-10",
           "contributionCount": 0
         }
       ]
@@ -1987,6 +1991,18 @@ export const fallbackGithubContributions = {
 
 export const fallbackGithubPRs = {
   "merged": [
+    {
+      "id": "PR_kwDOF4-Lyc8AAAABNenm2w",
+      "title": "fix(vapreconcile): do not over-credit binding coverage for namespaced resources lacking metadata.namespace",
+      "url": "https://github.com/kubescape/kubescape/pull/4642",
+      "repository": {
+        "nameWithOwner": "kubescape/kubescape"
+      },
+      "state": "MERGED",
+      "createdAt": "2026-11-07T07:28:43Z",
+      "mergedAt": "2026-11-09T07:56:45Z",
+      "closedAt": "2026-11-09T07:56:45Z"
+    },
     {
       "id": "PR_kwDOF4-Lyc8AAAABNErr8A",
       "title": "fix(scan): prepare local inputs and validate stdin for root and security view scans",
@@ -2540,6 +2556,18 @@ export const fallbackGithubPRs = {
       "closedAt": "2026-10-02T22:38:42Z"
     },
     {
+      "id": "PR_kwDOA5AKIc8AAAABBBoemg",
+      "title": "tests: arch: arm_thread_swap: increase stack for no_optimizations",
+      "url": "https://github.com/zephyrproject-rtos/zephyr/pull/117410",
+      "repository": {
+        "nameWithOwner": "zephyrproject-rtos/zephyr"
+      },
+      "state": "MERGED",
+      "createdAt": "2026-08-26T03:47:48Z",
+      "mergedAt": "2026-11-09T16:53:23Z",
+      "closedAt": "2026-11-09T16:53:23Z"
+    },
+    {
       "id": "PR_kwDOA5AKIc8AAAABAlmHPg",
       "title": "bluetooth: audio: fix null pointer dereferences in media proxy callbacks",
       "url": "https://github.com/zephyrproject-rtos/zephyr/pull/117078",
@@ -2758,18 +2786,6 @@ export const fallbackGithubPRs = {
       "closedAt": null
     },
     {
-      "id": "PR_kwDOF4-Lyc8AAAABNenm2w",
-      "title": "fix(vapreconcile): do not over-credit binding coverage for namespaced resources lacking metadata.namespace",
-      "url": "https://github.com/kubescape/kubescape/pull/4642",
-      "repository": {
-        "nameWithOwner": "kubescape/kubescape"
-      },
-      "state": "OPEN",
-      "createdAt": "2026-11-07T07:28:43Z",
-      "mergedAt": null,
-      "closedAt": null
-    },
-    {
       "id": "PR_kwDOA5AKIc8AAAABMjEyqw",
       "title": "posix: system_database: set *result to NULL on error",
       "url": "https://github.com/zephyrproject-rtos/zephyr/pull/124448",
@@ -2878,18 +2894,6 @@ export const fallbackGithubPRs = {
       "closedAt": null
     },
     {
-      "id": "PR_kwDODcZyiM8AAAABHTij0A",
-      "title": "Fix Investigation TLP and tags tree traversal and enum consistency. Closes #4061",
-      "url": "https://github.com/intelowlproject/IntelOwl/pull/4062",
-      "repository": {
-        "nameWithOwner": "intelowlproject/IntelOwl"
-      },
-      "state": "OPEN",
-      "createdAt": "2026-10-08T10:15:02Z",
-      "mergedAt": null,
-      "closedAt": null
-    },
-    {
       "id": "PR_kwDOAPIZOs8AAAABHTdhrg",
       "title": "fix(api): enforce write permission on main license mutation endpoints",
       "url": "https://github.com/fossology/fossology/pull/3908",
@@ -2902,18 +2906,6 @@ export const fallbackGithubPRs = {
       "closedAt": null
     },
     {
-      "id": "PR_kwDODcZyiM8AAAABGbKSng",
-      "title": "fix(serializers): prevent AttributeError and ObjectDoesNotExist in PluginConfigSerializer secret redaction. Closes #4052",
-      "url": "https://github.com/intelowlproject/IntelOwl/pull/4053",
-      "repository": {
-        "nameWithOwner": "intelowlproject/IntelOwl"
-      },
-      "state": "OPEN",
-      "createdAt": "2026-10-03T11:09:50Z",
-      "mergedAt": null,
-      "closedAt": null
-    },
-    {
       "id": "PR_kwDOC8Dqbc8AAAABGbCppw",
       "title": "fix(storage): add primary key tiebreakers to search order for deterministic pagination",
       "url": "https://github.com/Apicurio/apicurio-registry/pull/10413",
@@ -2922,18 +2914,6 @@ export const fallbackGithubPRs = {
       },
       "state": "OPEN",
       "createdAt": "2026-10-03T10:49:26Z",
-      "mergedAt": null,
-      "closedAt": null
-    },
-    {
-      "id": "PR_kwDODcZyiM8AAAABGE86Aw",
-      "title": "fix(serializers): fix delay calculation and QueryDict file_mimetypes handling in MultipleJobSerializer. Closes #4047",
-      "url": "https://github.com/intelowlproject/IntelOwl/pull/4048",
-      "repository": {
-        "nameWithOwner": "intelowlproject/IntelOwl"
-      },
-      "state": "OPEN",
-      "createdAt": "2026-10-01T11:07:45Z",
       "mergedAt": null,
       "closedAt": null
     },
@@ -3018,18 +2998,6 @@ export const fallbackGithubPRs = {
       },
       "state": "OPEN",
       "createdAt": "2026-08-26T03:56:59Z",
-      "mergedAt": null,
-      "closedAt": null
-    },
-    {
-      "id": "PR_kwDOA5AKIc8AAAABBBoemg",
-      "title": "tests: arch: arm_thread_swap: increase stack for no_optimizations",
-      "url": "https://github.com/zephyrproject-rtos/zephyr/pull/117410",
-      "repository": {
-        "nameWithOwner": "zephyrproject-rtos/zephyr"
-      },
-      "state": "OPEN",
-      "createdAt": "2026-08-26T03:47:48Z",
       "mergedAt": null,
       "closedAt": null
     },
@@ -3132,6 +3100,30 @@ export const fallbackGithubPRs = {
       "closedAt": "2026-10-15T13:52:45Z"
     },
     {
+      "id": "PR_kwDODcZyiM8AAAABHTij0A",
+      "title": "Fix Investigation TLP and tags tree traversal and enum consistency. Closes #4061",
+      "url": "https://github.com/intelowlproject/IntelOwl/pull/4062",
+      "repository": {
+        "nameWithOwner": "intelowlproject/IntelOwl"
+      },
+      "state": "CLOSED",
+      "createdAt": "2026-10-08T10:15:02Z",
+      "mergedAt": null,
+      "closedAt": "2026-11-09T19:38:34Z"
+    },
+    {
+      "id": "PR_kwDODcZyiM8AAAABGbKSng",
+      "title": "fix(serializers): prevent AttributeError and ObjectDoesNotExist in PluginConfigSerializer secret redaction. Closes #4052",
+      "url": "https://github.com/intelowlproject/IntelOwl/pull/4053",
+      "repository": {
+        "nameWithOwner": "intelowlproject/IntelOwl"
+      },
+      "state": "CLOSED",
+      "createdAt": "2026-10-03T11:09:50Z",
+      "mergedAt": null,
+      "closedAt": "2026-11-09T19:38:39Z"
+    },
+    {
       "id": "PR_kwDOC0tkAc8AAAABGbGOpA",
       "title": "fix(sidecarset): initialize pod annotations map before writing",
       "url": "https://github.com/openkruise/kruise/pull/2590",
@@ -3190,6 +3182,18 @@ export const fallbackGithubPRs = {
       "createdAt": "2026-10-02T09:17:46Z",
       "mergedAt": null,
       "closedAt": "2026-10-07T16:00:21Z"
+    },
+    {
+      "id": "PR_kwDODcZyiM8AAAABGE86Aw",
+      "title": "fix(serializers): fix delay calculation and QueryDict file_mimetypes handling in MultipleJobSerializer. Closes #4047",
+      "url": "https://github.com/intelowlproject/IntelOwl/pull/4048",
+      "repository": {
+        "nameWithOwner": "intelowlproject/IntelOwl"
+      },
+      "state": "CLOSED",
+      "createdAt": "2026-10-01T11:07:45Z",
+      "mergedAt": null,
+      "closedAt": "2026-11-09T19:38:43Z"
     },
     {
       "id": "PR_kwDOC0tkAc8AAAABGDxxxQ",
