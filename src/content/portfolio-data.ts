@@ -266,7 +266,7 @@ export const skillsData = [
 ];
 
 export const fallbackGithubContributions = {
-  "totalContributions": 1840,
+  "totalContributions": 1845,
   "months": [
     {
       "name": "Dec"
@@ -1830,7 +1830,7 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2026-10-08",
-          "contributionCount": 5
+          "contributionCount": 6
         },
         {
           "date": "2026-10-09",
@@ -1982,6 +1982,10 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2026-11-10",
+          "contributionCount": 4
+        },
+        {
+          "date": "2026-11-11",
           "contributionCount": 0
         }
       ]
@@ -1991,6 +1995,18 @@ export const fallbackGithubContributions = {
 
 export const fallbackGithubPRs = {
   "merged": [
+    {
+      "id": "PR_kwDOF4-Lyc8AAAABOEc13w",
+      "title": "fix(vapreconcile): replace Cluster prefix fallback with catalogs of cluster- and namespace-scoped kinds",
+      "url": "https://github.com/kubescape/kubescape/pull/4726",
+      "repository": {
+        "nameWithOwner": "kubescape/kubescape"
+      },
+      "state": "MERGED",
+      "createdAt": "2026-11-10T09:44:36Z",
+      "mergedAt": "2026-11-10T15:28:17Z",
+      "closedAt": "2026-11-10T15:28:18Z"
+    },
     {
       "id": "PR_kwDOF4-Lyc8AAAABNenm2w",
       "title": "fix(vapreconcile): do not over-credit binding coverage for namespaced resources lacking metadata.namespace",
@@ -2158,6 +2174,18 @@ export const fallbackGithubPRs = {
       "createdAt": "2026-10-17T17:22:57Z",
       "mergedAt": "2026-10-23T10:52:13Z",
       "closedAt": "2026-10-23T10:52:13Z"
+    },
+    {
+      "id": "PR_kwDOAPIZOs8AAAABHTdhrg",
+      "title": "fix(api): enforce write permission on main license mutation endpoints",
+      "url": "https://github.com/fossology/fossology/pull/3908",
+      "repository": {
+        "nameWithOwner": "fossology/fossology"
+      },
+      "state": "MERGED",
+      "createdAt": "2026-10-08T10:07:55Z",
+      "mergedAt": "2026-11-10T07:39:01Z",
+      "closedAt": "2026-11-10T07:39:01Z"
     },
     {
       "id": "PR_kwDOG_sA9M8AAAABHE1mEA",
@@ -2894,18 +2922,6 @@ export const fallbackGithubPRs = {
       "closedAt": null
     },
     {
-      "id": "PR_kwDOAPIZOs8AAAABHTdhrg",
-      "title": "fix(api): enforce write permission on main license mutation endpoints",
-      "url": "https://github.com/fossology/fossology/pull/3908",
-      "repository": {
-        "nameWithOwner": "fossology/fossology"
-      },
-      "state": "OPEN",
-      "createdAt": "2026-10-08T10:07:55Z",
-      "mergedAt": null,
-      "closedAt": null
-    },
-    {
       "id": "PR_kwDOC8Dqbc8AAAABGbCppw",
       "title": "fix(storage): add primary key tiebreakers to search order for deterministic pagination",
       "url": "https://github.com/Apicurio/apicurio-registry/pull/10413",
@@ -2914,18 +2930,6 @@ export const fallbackGithubPRs = {
       },
       "state": "OPEN",
       "createdAt": "2026-10-03T10:49:26Z",
-      "mergedAt": null,
-      "closedAt": null
-    },
-    {
-      "id": "PR_kwDOAPIZOs8AAAABGEic8w",
-      "title": "fix(api): associate authenticated user id on folder creation",
-      "url": "https://github.com/fossology/fossology/pull/3882",
-      "repository": {
-        "nameWithOwner": "fossology/fossology"
-      },
-      "state": "OPEN",
-      "createdAt": "2026-10-01T10:22:56Z",
       "mergedAt": null,
       "closedAt": null
     },
@@ -3194,6 +3198,18 @@ export const fallbackGithubPRs = {
       "createdAt": "2026-10-01T11:07:45Z",
       "mergedAt": null,
       "closedAt": "2026-11-09T19:38:43Z"
+    },
+    {
+      "id": "PR_kwDOAPIZOs8AAAABGEic8w",
+      "title": "fix(api): associate authenticated user id on folder creation",
+      "url": "https://github.com/fossology/fossology/pull/3882",
+      "repository": {
+        "nameWithOwner": "fossology/fossology"
+      },
+      "state": "CLOSED",
+      "createdAt": "2026-10-01T10:22:56Z",
+      "mergedAt": null,
+      "closedAt": "2026-11-10T07:44:44Z"
     },
     {
       "id": "PR_kwDOC0tkAc8AAAABGDxxxQ",
