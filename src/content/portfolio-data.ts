@@ -266,7 +266,7 @@ export const skillsData = [
 ];
 
 export const fallbackGithubContributions = {
-  "totalContributions": 1845,
+  "totalContributions": 1849,
   "months": [
     {
       "name": "Dec"
@@ -1990,7 +1990,11 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2026-11-12",
-          "contributionCount": 0
+          "contributionCount": 2
+        },
+        {
+          "date": "2026-11-13",
+          "contributionCount": 2
         }
       ]
     }
@@ -2793,6 +2797,30 @@ export const fallbackGithubPRs = {
     }
   ],
   "open": [
+    {
+      "id": "PR_kwDOF4-Lyc8AAAABOveWwQ",
+      "title": "test(locationresolver): cover FIFO with a live writer",
+      "url": "https://github.com/kubescape/kubescape/pull/4850",
+      "repository": {
+        "nameWithOwner": "kubescape/kubescape"
+      },
+      "state": "OPEN",
+      "createdAt": "2026-11-12T19:58:00Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
+      "id": "PR_kwDOF4-Lyc8AAAABOu9T-g",
+      "title": "refactor(cautils): expose GetMaxFileSize and share size limit parsing with fixhandler",
+      "url": "https://github.com/kubescape/kubescape/pull/4849",
+      "repository": {
+        "nameWithOwner": "kubescape/kubescape"
+      },
+      "state": "OPEN",
+      "createdAt": "2026-11-12T19:18:40Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
     {
       "id": "PR_kwDOA5AKIc8AAAABNfriLQ",
       "title": "posix: barriers: fix return code and validate parameters",
