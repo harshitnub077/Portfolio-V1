@@ -266,7 +266,7 @@ export const skillsData = [
 ];
 
 export const fallbackGithubContributions = {
-  "totalContributions": 1849,
+  "totalContributions": 1853,
   "months": [
     {
       "name": "Dec"
@@ -1994,7 +1994,11 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2026-11-13",
-          "contributionCount": 2
+          "contributionCount": 6
+        },
+        {
+          "date": "2026-11-14",
+          "contributionCount": 0
         }
       ]
     }
@@ -2003,6 +2007,42 @@ export const fallbackGithubContributions = {
 
 export const fallbackGithubPRs = {
   "merged": [
+    {
+      "id": "PR_kwDOF4-Lyc8AAAABO4wDXQ",
+      "title": "refactor: share max file size parsing with locationresolver",
+      "url": "https://github.com/kubescape/kubescape/pull/4864",
+      "repository": {
+        "nameWithOwner": "kubescape/kubescape"
+      },
+      "state": "MERGED",
+      "createdAt": "2026-11-13T10:35:42Z",
+      "mergedAt": "2026-11-13T13:25:38Z",
+      "closedAt": "2026-11-13T13:25:38Z"
+    },
+    {
+      "id": "PR_kwDOF4-Lyc8AAAABOveWwQ",
+      "title": "test(locationresolver): cover FIFO with a live writer",
+      "url": "https://github.com/kubescape/kubescape/pull/4850",
+      "repository": {
+        "nameWithOwner": "kubescape/kubescape"
+      },
+      "state": "MERGED",
+      "createdAt": "2026-11-12T19:58:00Z",
+      "mergedAt": "2026-11-13T07:53:15Z",
+      "closedAt": "2026-11-13T07:53:16Z"
+    },
+    {
+      "id": "PR_kwDOF4-Lyc8AAAABOu9T-g",
+      "title": "refactor(cautils): expose GetMaxFileSize and share size limit parsing with fixhandler",
+      "url": "https://github.com/kubescape/kubescape/pull/4849",
+      "repository": {
+        "nameWithOwner": "kubescape/kubescape"
+      },
+      "state": "MERGED",
+      "createdAt": "2026-11-12T19:18:40Z",
+      "mergedAt": "2026-11-13T07:40:15Z",
+      "closedAt": "2026-11-13T07:40:15Z"
+    },
     {
       "id": "PR_kwDOF4-Lyc8AAAABOEc13w",
       "title": "fix(vapreconcile): replace Cluster prefix fallback with catalogs of cluster- and namespace-scoped kinds",
@@ -2798,30 +2838,6 @@ export const fallbackGithubPRs = {
   ],
   "open": [
     {
-      "id": "PR_kwDOF4-Lyc8AAAABOveWwQ",
-      "title": "test(locationresolver): cover FIFO with a live writer",
-      "url": "https://github.com/kubescape/kubescape/pull/4850",
-      "repository": {
-        "nameWithOwner": "kubescape/kubescape"
-      },
-      "state": "OPEN",
-      "createdAt": "2026-11-12T19:58:00Z",
-      "mergedAt": null,
-      "closedAt": null
-    },
-    {
-      "id": "PR_kwDOF4-Lyc8AAAABOu9T-g",
-      "title": "refactor(cautils): expose GetMaxFileSize and share size limit parsing with fixhandler",
-      "url": "https://github.com/kubescape/kubescape/pull/4849",
-      "repository": {
-        "nameWithOwner": "kubescape/kubescape"
-      },
-      "state": "OPEN",
-      "createdAt": "2026-11-12T19:18:40Z",
-      "mergedAt": null,
-      "closedAt": null
-    },
-    {
       "id": "PR_kwDOA5AKIc8AAAABNfriLQ",
       "title": "posix: barriers: fix return code and validate parameters",
       "url": "https://github.com/zephyrproject-rtos/zephyr/pull/124989",
@@ -2950,6 +2966,18 @@ export const fallbackGithubPRs = {
       },
       "state": "OPEN",
       "createdAt": "2026-10-09T11:11:02Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
+      "id": "PR_kwDODcZyiM8AAAABGbKSng",
+      "title": "fix(serializers): prevent AttributeError and ObjectDoesNotExist in PluginConfigSerializer secret redaction. Closes #4052",
+      "url": "https://github.com/intelowlproject/IntelOwl/pull/4053",
+      "repository": {
+        "nameWithOwner": "intelowlproject/IntelOwl"
+      },
+      "state": "OPEN",
+      "createdAt": "2026-10-03T11:09:50Z",
       "mergedAt": null,
       "closedAt": null
     },
@@ -3146,18 +3174,6 @@ export const fallbackGithubPRs = {
       "createdAt": "2026-10-08T10:15:02Z",
       "mergedAt": null,
       "closedAt": "2026-11-09T19:38:34Z"
-    },
-    {
-      "id": "PR_kwDODcZyiM8AAAABGbKSng",
-      "title": "fix(serializers): prevent AttributeError and ObjectDoesNotExist in PluginConfigSerializer secret redaction. Closes #4052",
-      "url": "https://github.com/intelowlproject/IntelOwl/pull/4053",
-      "repository": {
-        "nameWithOwner": "intelowlproject/IntelOwl"
-      },
-      "state": "CLOSED",
-      "createdAt": "2026-10-03T11:09:50Z",
-      "mergedAt": null,
-      "closedAt": "2026-11-09T19:38:39Z"
     },
     {
       "id": "PR_kwDOC0tkAc8AAAABGbGOpA",
