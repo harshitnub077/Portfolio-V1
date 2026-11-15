@@ -266,7 +266,7 @@ export const skillsData = [
 ];
 
 export const fallbackGithubContributions = {
-  "totalContributions": 1853,
+  "totalContributions": 1828,
   "months": [
     {
       "name": "Dec"
@@ -306,38 +306,6 @@ export const fallbackGithubContributions = {
     }
   ],
   "weeks": [
-    {
-      "contributionDays": [
-        {
-          "date": "2025-11-09",
-          "contributionCount": 2
-        },
-        {
-          "date": "2025-11-10",
-          "contributionCount": 14
-        },
-        {
-          "date": "2025-11-11",
-          "contributionCount": 1
-        },
-        {
-          "date": "2025-11-12",
-          "contributionCount": 0
-        },
-        {
-          "date": "2025-11-13",
-          "contributionCount": 4
-        },
-        {
-          "date": "2025-11-14",
-          "contributionCount": 2
-        },
-        {
-          "date": "2025-11-15",
-          "contributionCount": 3
-        }
-      ]
-    },
     {
       "contributionDays": [
         {
@@ -1998,6 +1966,14 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2026-11-14",
+          "contributionCount": 1
+        }
+      ]
+    },
+    {
+      "contributionDays": [
+        {
+          "date": "2026-11-15",
           "contributionCount": 0
         }
       ]
@@ -2837,6 +2813,18 @@ export const fallbackGithubPRs = {
     }
   ],
   "open": [
+    {
+      "id": "PR_kwDOF4-Lyc8AAAABPHegnw",
+      "title": "ci: run Windows-tagged core tests in CI",
+      "url": "https://github.com/kubescape/kubescape/pull/4908",
+      "repository": {
+        "nameWithOwner": "kubescape/kubescape"
+      },
+      "state": "OPEN",
+      "createdAt": "2026-11-14T08:53:30Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
     {
       "id": "PR_kwDOA5AKIc8AAAABNfriLQ",
       "title": "posix: barriers: fix return code and validate parameters",
