@@ -266,7 +266,7 @@ export const skillsData = [
 ];
 
 export const fallbackGithubContributions = {
-  "totalContributions": 1828,
+  "totalContributions": 1834,
   "months": [
     {
       "name": "Dec"
@@ -1974,6 +1974,14 @@ export const fallbackGithubContributions = {
       "contributionDays": [
         {
           "date": "2026-11-15",
+          "contributionCount": 1
+        },
+        {
+          "date": "2026-11-16",
+          "contributionCount": 5
+        },
+        {
+          "date": "2026-11-17",
           "contributionCount": 0
         }
       ]
@@ -1983,6 +1991,54 @@ export const fallbackGithubContributions = {
 
 export const fallbackGithubPRs = {
   "merged": [
+    {
+      "id": "PR_kwDOF4-Lyc8AAAABPkw8_w",
+      "title": "chore(k8scveindex): refresh embedded Kubernetes CVE feed",
+      "url": "https://github.com/kubescape/kubescape/pull/5024",
+      "repository": {
+        "nameWithOwner": "kubescape/kubescape"
+      },
+      "state": "MERGED",
+      "createdAt": "2026-11-16T15:47:16Z",
+      "mergedAt": "2026-11-16T18:03:10Z",
+      "closedAt": "2026-11-16T18:03:10Z"
+    },
+    {
+      "id": "PR_kwDOF4-Lyc8AAAABPexlkA",
+      "title": "fix(csv): consolidate formula-injection safety and verify spreadsheet round-trip",
+      "url": "https://github.com/kubescape/kubescape/pull/4993",
+      "repository": {
+        "nameWithOwner": "kubescape/kubescape"
+      },
+      "state": "MERGED",
+      "createdAt": "2026-11-16T08:44:49Z",
+      "mergedAt": "2026-11-16T10:18:04Z",
+      "closedAt": "2026-11-16T10:18:04Z"
+    },
+    {
+      "id": "PR_kwDOF4-Lyc8AAAABPekUpA",
+      "title": "ci(workflows): guard OSPS baseline publishing against repository forks",
+      "url": "https://github.com/kubescape/kubescape/pull/4992",
+      "repository": {
+        "nameWithOwner": "kubescape/kubescape"
+      },
+      "state": "MERGED",
+      "createdAt": "2026-11-16T08:28:02Z",
+      "mergedAt": "2026-11-16T10:35:20Z",
+      "closedAt": "2026-11-16T10:35:20Z"
+    },
+    {
+      "id": "PR_kwDOF4-Lyc8AAAABPHegnw",
+      "title": "ci: run Windows-tagged core tests in CI",
+      "url": "https://github.com/kubescape/kubescape/pull/4908",
+      "repository": {
+        "nameWithOwner": "kubescape/kubescape"
+      },
+      "state": "MERGED",
+      "createdAt": "2026-11-14T08:53:30Z",
+      "mergedAt": "2026-11-15T13:55:22Z",
+      "closedAt": "2026-11-15T13:55:22Z"
+    },
     {
       "id": "PR_kwDOF4-Lyc8AAAABO4wDXQ",
       "title": "refactor: share max file size parsing with locationresolver",
@@ -2813,18 +2869,6 @@ export const fallbackGithubPRs = {
     }
   ],
   "open": [
-    {
-      "id": "PR_kwDOF4-Lyc8AAAABPHegnw",
-      "title": "ci: run Windows-tagged core tests in CI",
-      "url": "https://github.com/kubescape/kubescape/pull/4908",
-      "repository": {
-        "nameWithOwner": "kubescape/kubescape"
-      },
-      "state": "OPEN",
-      "createdAt": "2026-11-14T08:53:30Z",
-      "mergedAt": null,
-      "closedAt": null
-    },
     {
       "id": "PR_kwDOA5AKIc8AAAABNfriLQ",
       "title": "posix: barriers: fix return code and validate parameters",
