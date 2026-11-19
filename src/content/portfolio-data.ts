@@ -266,7 +266,7 @@ export const skillsData = [
 ];
 
 export const fallbackGithubContributions = {
-  "totalContributions": 1834,
+  "totalContributions": 1835,
   "months": [
     {
       "name": "Dec"
@@ -1986,6 +1986,10 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2026-11-18",
+          "contributionCount": 1
+        },
+        {
+          "date": "2026-11-19",
           "contributionCount": 0
         }
       ]
@@ -3019,7 +3023,7 @@ export const fallbackGithubPRs = {
     },
     {
       "id": "PR_kwDOC8Dqbc8AAAABGbCppw",
-      "title": "fix(storage): add primary key tiebreakers to search order for deterministic pagination",
+      "title": "fix(storage): don't repeat the sort column in artifact search ORDER BY",
       "url": "https://github.com/Apicurio/apicurio-registry/pull/10413",
       "repository": {
         "nameWithOwner": "Apicurio/apicurio-registry"
