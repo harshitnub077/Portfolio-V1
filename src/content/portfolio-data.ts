@@ -266,7 +266,7 @@ export const skillsData = [
 ];
 
 export const fallbackGithubContributions = {
-  "totalContributions": 1835,
+  "totalContributions": 1911,
   "months": [
     {
       "name": "Dec"
@@ -1290,7 +1290,7 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2026-06-19",
-          "contributionCount": 6
+          "contributionCount": 9
         },
         {
           "date": "2026-06-20",
@@ -1322,7 +1322,7 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2026-06-26",
-          "contributionCount": 1
+          "contributionCount": 2
         },
         {
           "date": "2026-06-27",
@@ -1398,7 +1398,7 @@ export const fallbackGithubContributions = {
       "contributionDays": [
         {
           "date": "2026-07-12",
-          "contributionCount": 2
+          "contributionCount": 3
         },
         {
           "date": "2026-07-13",
@@ -1474,7 +1474,7 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2026-07-29",
-          "contributionCount": 6
+          "contributionCount": 7
         },
         {
           "date": "2026-07-30",
@@ -1518,7 +1518,7 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2026-08-08",
-          "contributionCount": 5
+          "contributionCount": 6
         }
       ]
     },
@@ -1862,15 +1862,15 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2026-10-22",
-          "contributionCount": 14
+          "contributionCount": 27
         },
         {
           "date": "2026-10-23",
-          "contributionCount": 22
+          "contributionCount": 37
         },
         {
           "date": "2026-10-24",
-          "contributionCount": 32
+          "contributionCount": 62
         }
       ]
     },
@@ -1990,6 +1990,10 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2026-11-19",
+          "contributionCount": 11
+        },
+        {
+          "date": "2026-11-20",
           "contributionCount": 0
         }
       ]
@@ -1999,6 +2003,18 @@ export const fallbackGithubContributions = {
 
 export const fallbackGithubPRs = {
   "merged": [
+    {
+      "id": "PR_kwDOF4-Lyc8AAAABQV5fjg",
+      "title": "docs(gitlab-ci): don't suggest SARIF for cluster scans",
+      "url": "https://github.com/kubescape/kubescape/pull/5238",
+      "repository": {
+        "nameWithOwner": "kubescape/kubescape"
+      },
+      "state": "MERGED",
+      "createdAt": "2026-11-19T08:44:41Z",
+      "mergedAt": "2026-11-19T13:29:06Z",
+      "closedAt": "2026-11-19T13:29:06Z"
+    },
     {
       "id": "PR_kwDOF4-Lyc8AAAABPkw8_w",
       "title": "chore(k8scveindex): refresh embedded Kubernetes CVE feed",
@@ -2878,26 +2894,26 @@ export const fallbackGithubPRs = {
   ],
   "open": [
     {
-      "id": "PR_kwDOA5AKIc8AAAABNfriLQ",
-      "title": "posix: barriers: fix return code and validate parameters",
-      "url": "https://github.com/zephyrproject-rtos/zephyr/pull/124989",
+      "id": "PR_kwDOSbZLOs8AAAABQeNzdw",
+      "title": "proposal(kagent): re-derive the served-version matrix for Kagent v1.0.x",
+      "url": "https://github.com/kubescape/designs-and-proposals/pull/38",
       "repository": {
-        "nameWithOwner": "zephyrproject-rtos/zephyr"
+        "nameWithOwner": "kubescape/designs-and-proposals"
       },
       "state": "OPEN",
-      "createdAt": "2026-11-07T10:15:48Z",
+      "createdAt": "2026-11-19T18:10:07Z",
       "mergedAt": null,
       "closedAt": null
     },
     {
-      "id": "PR_kwDOA5AKIc8AAAABNfdYUw",
-      "title": "posix: timer: fix timer_getoverrun return and validate parameters",
-      "url": "https://github.com/zephyrproject-rtos/zephyr/pull/124986",
+      "id": "PR_kwDOF4-Lyc8AAAABQeNLxA",
+      "title": "fix(results): allow SARIF output for live cluster scans",
+      "url": "https://github.com/kubescape/kubescape/pull/5269",
       "repository": {
-        "nameWithOwner": "zephyrproject-rtos/zephyr"
+        "nameWithOwner": "kubescape/kubescape"
       },
       "state": "OPEN",
-      "createdAt": "2026-11-07T09:42:53Z",
+      "createdAt": "2026-11-19T18:09:23Z",
       "mergedAt": null,
       "closedAt": null
     },
@@ -2910,18 +2926,6 @@ export const fallbackGithubPRs = {
       },
       "state": "OPEN",
       "createdAt": "2026-11-03T12:15:43Z",
-      "mergedAt": null,
-      "closedAt": null
-    },
-    {
-      "id": "PR_kwDOA5AKIc8AAAABMULP5g",
-      "title": "posix: semaphore: validate parameters and const-qualify sem_timedwait",
-      "url": "https://github.com/zephyrproject-rtos/zephyr/pull/124315",
-      "repository": {
-        "nameWithOwner": "zephyrproject-rtos/zephyr"
-      },
-      "state": "OPEN",
-      "createdAt": "2026-11-02T13:51:58Z",
       "mergedAt": null,
       "closedAt": null
     },
@@ -2975,7 +2979,7 @@ export const fallbackGithubPRs = {
     },
     {
       "id": "PR_kwDOA5AKIc8AAAABJDQSnQ",
-      "title": "posix: timer: allow NULL evp and validate clockid in timer_create",
+      "title": "posix: timer: allow NULL evp, fix timer_getoverrun and validate parameters",
       "url": "https://github.com/zephyrproject-rtos/zephyr/pull/122554",
       "repository": {
         "nameWithOwner": "zephyrproject-rtos/zephyr"
@@ -2987,7 +2991,7 @@ export const fallbackGithubPRs = {
     },
     {
       "id": "PR_kwDOA5AKIc8AAAABHy_EeQ",
-      "title": "posix: semaphore: gate va_arg in sem_open and validate handles",
+      "title": "posix: semaphore: gate va_arg in sem_open and validate parameters",
       "url": "https://github.com/zephyrproject-rtos/zephyr/pull/121805",
       "repository": {
         "nameWithOwner": "zephyrproject-rtos/zephyr"
@@ -3059,7 +3063,7 @@ export const fallbackGithubPRs = {
     },
     {
       "id": "PR_kwDOA5AKIc8AAAABBb52JA",
-      "title": "posix: barrier: fix reuse race condition and return codes",
+      "title": "posix: barrier: fix reuse race, return code and validate parameters",
       "url": "https://github.com/zephyrproject-rtos/zephyr/pull/117759",
       "repository": {
         "nameWithOwner": "zephyrproject-rtos/zephyr"
@@ -3191,6 +3195,54 @@ export const fallbackGithubPRs = {
     }
   ],
   "closed": [
+    {
+      "id": "PR_kwDOSbZLOs8AAAABQeRPcA",
+      "title": "proposal: kagent: add v1.0.x kind, version and field-path table",
+      "url": "https://github.com/kubescape/designs-and-proposals/pull/39",
+      "repository": {
+        "nameWithOwner": "kubescape/designs-and-proposals"
+      },
+      "state": "CLOSED",
+      "createdAt": "2026-11-19T18:14:03Z",
+      "mergedAt": null,
+      "closedAt": "2026-11-19T18:30:50Z"
+    },
+    {
+      "id": "PR_kwDOA5AKIc8AAAABNfriLQ",
+      "title": "posix: barriers: fix return code and validate parameters",
+      "url": "https://github.com/zephyrproject-rtos/zephyr/pull/124989",
+      "repository": {
+        "nameWithOwner": "zephyrproject-rtos/zephyr"
+      },
+      "state": "CLOSED",
+      "createdAt": "2026-11-07T10:15:48Z",
+      "mergedAt": null,
+      "closedAt": "2026-11-19T15:55:20Z"
+    },
+    {
+      "id": "PR_kwDOA5AKIc8AAAABNfdYUw",
+      "title": "posix: timer: fix timer_getoverrun return and validate parameters",
+      "url": "https://github.com/zephyrproject-rtos/zephyr/pull/124986",
+      "repository": {
+        "nameWithOwner": "zephyrproject-rtos/zephyr"
+      },
+      "state": "CLOSED",
+      "createdAt": "2026-11-07T09:42:53Z",
+      "mergedAt": null,
+      "closedAt": "2026-11-19T14:10:10Z"
+    },
+    {
+      "id": "PR_kwDOA5AKIc8AAAABMULP5g",
+      "title": "posix: semaphore: validate parameters and const-qualify sem_timedwait",
+      "url": "https://github.com/zephyrproject-rtos/zephyr/pull/124315",
+      "repository": {
+        "nameWithOwner": "zephyrproject-rtos/zephyr"
+      },
+      "state": "CLOSED",
+      "createdAt": "2026-11-02T13:51:58Z",
+      "mergedAt": null,
+      "closedAt": "2026-11-19T14:10:14Z"
+    },
     {
       "id": "PR_kwDOF4-Lyc8AAAABHzG3aw",
       "title": "fix(cautils): preserve delete and review paths in ReportV2ToV1 (#4103)",
