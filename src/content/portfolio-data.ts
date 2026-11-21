@@ -266,7 +266,7 @@ export const skillsData = [
 ];
 
 export const fallbackGithubContributions = {
-  "totalContributions": 1911,
+  "totalContributions": 1865,
   "months": [
     {
       "name": "Dec"
@@ -1290,7 +1290,7 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2026-06-19",
-          "contributionCount": 9
+          "contributionCount": 12
         },
         {
           "date": "2026-06-20",
@@ -1322,7 +1322,7 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2026-06-26",
-          "contributionCount": 2
+          "contributionCount": 1
         },
         {
           "date": "2026-06-27",
@@ -1398,7 +1398,7 @@ export const fallbackGithubContributions = {
       "contributionDays": [
         {
           "date": "2026-07-12",
-          "contributionCount": 3
+          "contributionCount": 4
         },
         {
           "date": "2026-07-13",
@@ -1474,7 +1474,7 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2026-07-29",
-          "contributionCount": 7
+          "contributionCount": 8
         },
         {
           "date": "2026-07-30",
@@ -1518,7 +1518,7 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2026-08-08",
-          "contributionCount": 6
+          "contributionCount": 7
         }
       ]
     },
@@ -1862,15 +1862,15 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2026-10-22",
-          "contributionCount": 27
+          "contributionCount": 14
         },
         {
           "date": "2026-10-23",
-          "contributionCount": 37
+          "contributionCount": 23
         },
         {
           "date": "2026-10-24",
-          "contributionCount": 62
+          "contributionCount": 35
         }
       ]
     },
@@ -1994,6 +1994,10 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2026-11-20",
+          "contributionCount": 3
+        },
+        {
+          "date": "2026-11-21",
           "contributionCount": 0
         }
       ]
@@ -2003,6 +2007,30 @@ export const fallbackGithubContributions = {
 
 export const fallbackGithubPRs = {
   "merged": [
+    {
+      "id": "PR_kwDOSbZLOs8AAAABQeNzdw",
+      "title": "proposal(kagent): re-derive the served-version matrix for Kagent v1.0.x",
+      "url": "https://github.com/kubescape/designs-and-proposals/pull/38",
+      "repository": {
+        "nameWithOwner": "kubescape/designs-and-proposals"
+      },
+      "state": "MERGED",
+      "createdAt": "2026-11-19T18:10:07Z",
+      "mergedAt": "2026-11-20T06:45:16Z",
+      "closedAt": "2026-11-20T06:45:16Z"
+    },
+    {
+      "id": "PR_kwDOF4-Lyc8AAAABQeNLxA",
+      "title": "fix(results): allow SARIF output for live cluster scans",
+      "url": "https://github.com/kubescape/kubescape/pull/5269",
+      "repository": {
+        "nameWithOwner": "kubescape/kubescape"
+      },
+      "state": "MERGED",
+      "createdAt": "2026-11-19T18:09:23Z",
+      "mergedAt": "2026-11-20T06:44:35Z",
+      "closedAt": "2026-11-20T06:44:35Z"
+    },
     {
       "id": "PR_kwDOF4-Lyc8AAAABQV5fjg",
       "title": "docs(gitlab-ci): don't suggest SARIF for cluster scans",
@@ -2893,30 +2921,6 @@ export const fallbackGithubPRs = {
     }
   ],
   "open": [
-    {
-      "id": "PR_kwDOSbZLOs8AAAABQeNzdw",
-      "title": "proposal(kagent): re-derive the served-version matrix for Kagent v1.0.x",
-      "url": "https://github.com/kubescape/designs-and-proposals/pull/38",
-      "repository": {
-        "nameWithOwner": "kubescape/designs-and-proposals"
-      },
-      "state": "OPEN",
-      "createdAt": "2026-11-19T18:10:07Z",
-      "mergedAt": null,
-      "closedAt": null
-    },
-    {
-      "id": "PR_kwDOF4-Lyc8AAAABQeNLxA",
-      "title": "fix(results): allow SARIF output for live cluster scans",
-      "url": "https://github.com/kubescape/kubescape/pull/5269",
-      "repository": {
-        "nameWithOwner": "kubescape/kubescape"
-      },
-      "state": "OPEN",
-      "createdAt": "2026-11-19T18:09:23Z",
-      "mergedAt": null,
-      "closedAt": null
-    },
     {
       "id": "PR_kwDOA5AKIc8AAAABMjEyqw",
       "title": "posix: system_database: set *result to NULL on error",
