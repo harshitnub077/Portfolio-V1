@@ -266,7 +266,7 @@ export const skillsData = [
 ];
 
 export const fallbackGithubContributions = {
-  "totalContributions": 1865,
+  "totalContributions": 1847,
   "months": [
     {
       "name": "Dec"
@@ -306,38 +306,6 @@ export const fallbackGithubContributions = {
     }
   ],
   "weeks": [
-    {
-      "contributionDays": [
-        {
-          "date": "2025-11-16",
-          "contributionCount": 4
-        },
-        {
-          "date": "2025-11-17",
-          "contributionCount": 11
-        },
-        {
-          "date": "2025-11-18",
-          "contributionCount": 1
-        },
-        {
-          "date": "2025-11-19",
-          "contributionCount": 4
-        },
-        {
-          "date": "2025-11-20",
-          "contributionCount": 4
-        },
-        {
-          "date": "2025-11-21",
-          "contributionCount": 3
-        },
-        {
-          "date": "2025-11-22",
-          "contributionCount": 3
-        }
-      ]
-    },
     {
       "contributionDays": [
         {
@@ -1866,7 +1834,7 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2026-10-23",
-          "contributionCount": 23
+          "contributionCount": 22
         },
         {
           "date": "2026-10-24",
@@ -1998,7 +1966,15 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2026-11-21",
-          "contributionCount": 0
+          "contributionCount": 12
+        }
+      ]
+    },
+    {
+      "contributionDays": [
+        {
+          "date": "2026-11-22",
+          "contributionCount": 1
         }
       ]
     }
@@ -2007,6 +1983,18 @@ export const fallbackGithubContributions = {
 
 export const fallbackGithubPRs = {
   "merged": [
+    {
+      "id": "PR_kwDOF4-Lyc8AAAABQ3Z1SQ",
+      "title": "test(scan): clear the parsed kubeconfig around the cluster SARIF test",
+      "url": "https://github.com/kubescape/kubescape/pull/5361",
+      "repository": {
+        "nameWithOwner": "kubescape/kubescape"
+      },
+      "state": "MERGED",
+      "createdAt": "2026-11-21T10:19:08Z",
+      "mergedAt": "2026-11-21T14:15:22Z",
+      "closedAt": "2026-11-21T14:15:22Z"
+    },
     {
       "id": "PR_kwDOSbZLOs8AAAABQeNzdw",
       "title": "proposal(kagent): re-derive the served-version matrix for Kagent v1.0.x",
@@ -2922,6 +2910,18 @@ export const fallbackGithubPRs = {
   ],
   "open": [
     {
+      "id": "PR_kwDOF4-Lyc8AAAABQ9FitQ",
+      "title": "fix(resourcehandler): scan repositories reached through a symlink",
+      "url": "https://github.com/kubescape/kubescape/pull/5392",
+      "repository": {
+        "nameWithOwner": "kubescape/kubescape"
+      },
+      "state": "OPEN",
+      "createdAt": "2026-11-21T21:48:31Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
       "id": "PR_kwDOA5AKIc8AAAABMjEyqw",
       "title": "posix: system_database: set *result to NULL on error",
       "url": "https://github.com/zephyrproject-rtos/zephyr/pull/124448",
@@ -3134,18 +3134,6 @@ export const fallbackGithubPRs = {
       },
       "state": "OPEN",
       "createdAt": "2026-08-21T19:15:45Z",
-      "mergedAt": null,
-      "closedAt": null
-    },
-    {
-      "id": "PR_kwDODSVGxs8AAAABAZuCJA",
-      "title": "backend: k8cache: Prevent panic in cache invalidation watcher",
-      "url": "https://github.com/kubernetes-sigs/headlamp/pull/7356",
-      "repository": {
-        "nameWithOwner": "kubernetes-sigs/headlamp"
-      },
-      "state": "OPEN",
-      "createdAt": "2026-08-20T10:26:34Z",
       "mergedAt": null,
       "closedAt": null
     },
@@ -3474,6 +3462,18 @@ export const fallbackGithubPRs = {
       "createdAt": "2026-08-26T03:31:16Z",
       "mergedAt": null,
       "closedAt": "2026-08-26T03:32:12Z"
+    },
+    {
+      "id": "PR_kwDODSVGxs8AAAABAZuCJA",
+      "title": "backend: k8cache: Prevent panic in cache invalidation watcher",
+      "url": "https://github.com/kubernetes-sigs/headlamp/pull/7356",
+      "repository": {
+        "nameWithOwner": "kubernetes-sigs/headlamp"
+      },
+      "state": "CLOSED",
+      "createdAt": "2026-08-20T10:26:34Z",
+      "mergedAt": null,
+      "closedAt": "2026-11-21T21:34:36Z"
     },
     {
       "id": "PR_kwDONHcR9M8AAAABAOukvw",
