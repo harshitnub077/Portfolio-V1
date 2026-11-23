@@ -266,7 +266,7 @@ export const skillsData = [
 ];
 
 export const fallbackGithubContributions = {
-  "totalContributions": 1847,
+  "totalContributions": 1868,
   "months": [
     {
       "name": "Dec"
@@ -1946,19 +1946,19 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2026-11-16",
-          "contributionCount": 5
+          "contributionCount": 6
         },
         {
           "date": "2026-11-17",
-          "contributionCount": 0
+          "contributionCount": 2
         },
         {
           "date": "2026-11-18",
-          "contributionCount": 1
+          "contributionCount": 2
         },
         {
           "date": "2026-11-19",
-          "contributionCount": 11
+          "contributionCount": 12
         },
         {
           "date": "2026-11-20",
@@ -1966,7 +1966,7 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2026-11-21",
-          "contributionCount": 12
+          "contributionCount": 13
         }
       ]
     },
@@ -1974,7 +1974,11 @@ export const fallbackGithubContributions = {
       "contributionDays": [
         {
           "date": "2026-11-22",
-          "contributionCount": 1
+          "contributionCount": 12
+        },
+        {
+          "date": "2026-11-23",
+          "contributionCount": 4
         }
       ]
     }
@@ -1983,6 +1987,42 @@ export const fallbackGithubContributions = {
 
 export const fallbackGithubPRs = {
   "merged": [
+    {
+      "id": "PR_kwDOF4-Lyc8AAAABRGZZAA",
+      "title": "test(watch): drain the backend in tests that drive the watcher by hand",
+      "url": "https://github.com/kubescape/kubescape/pull/5460",
+      "repository": {
+        "nameWithOwner": "kubescape/kubescape"
+      },
+      "state": "MERGED",
+      "createdAt": "2026-11-22T19:29:28Z",
+      "mergedAt": "2026-11-22T20:32:42Z",
+      "closedAt": "2026-11-22T20:32:42Z"
+    },
+    {
+      "id": "PR_kwDOF4-Lyc8AAAABRB75vA",
+      "title": "fix(cautils): attribute Kustomize resources to their file when TMPDIR is a symlink",
+      "url": "https://github.com/kubescape/kubescape/pull/5436",
+      "repository": {
+        "nameWithOwner": "kubescape/kubescape"
+      },
+      "state": "MERGED",
+      "createdAt": "2026-11-22T09:54:20Z",
+      "mergedAt": "2026-11-22T21:08:48Z",
+      "closedAt": "2026-11-22T21:08:48Z"
+    },
+    {
+      "id": "PR_kwDOF4-Lyc8AAAABQ9FitQ",
+      "title": "fix(resourcehandler): scan repositories reached through a symlink",
+      "url": "https://github.com/kubescape/kubescape/pull/5392",
+      "repository": {
+        "nameWithOwner": "kubescape/kubescape"
+      },
+      "state": "MERGED",
+      "createdAt": "2026-11-21T21:48:31Z",
+      "mergedAt": "2026-11-22T20:33:12Z",
+      "closedAt": "2026-11-22T20:33:12Z"
+    },
     {
       "id": "PR_kwDOF4-Lyc8AAAABQ3Z1SQ",
       "title": "test(scan): clear the parsed kubeconfig around the cluster SARIF test",
@@ -2910,14 +2950,14 @@ export const fallbackGithubPRs = {
   ],
   "open": [
     {
-      "id": "PR_kwDOF4-Lyc8AAAABQ9FitQ",
-      "title": "fix(resourcehandler): scan repositories reached through a symlink",
-      "url": "https://github.com/kubescape/kubescape/pull/5392",
+      "id": "PR_kwDOF_U7vs8AAAABRDPWOQ",
+      "title": "fix(rules): point evidence at a field that exists when the checked one is omitted",
+      "url": "https://github.com/kubescape/regolibrary/pull/958",
       "repository": {
-        "nameWithOwner": "kubescape/kubescape"
+        "nameWithOwner": "kubescape/regolibrary"
       },
       "state": "OPEN",
-      "createdAt": "2026-11-21T21:48:31Z",
+      "createdAt": "2026-11-22T12:58:19Z",
       "mergedAt": null,
       "closedAt": null
     },
