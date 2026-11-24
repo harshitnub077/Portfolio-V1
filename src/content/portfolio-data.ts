@@ -266,7 +266,7 @@ export const skillsData = [
 ];
 
 export const fallbackGithubContributions = {
-  "totalContributions": 1868,
+  "totalContributions": 1890,
   "months": [
     {
       "name": "Dec"
@@ -1946,19 +1946,19 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2026-11-16",
-          "contributionCount": 6
+          "contributionCount": 8
         },
         {
           "date": "2026-11-17",
-          "contributionCount": 2
+          "contributionCount": 6
         },
         {
           "date": "2026-11-18",
-          "contributionCount": 2
+          "contributionCount": 4
         },
         {
           "date": "2026-11-19",
-          "contributionCount": 12
+          "contributionCount": 14
         },
         {
           "date": "2026-11-20",
@@ -1966,7 +1966,7 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2026-11-21",
-          "contributionCount": 13
+          "contributionCount": 15
         }
       ]
     },
@@ -1974,11 +1974,15 @@ export const fallbackGithubContributions = {
       "contributionDays": [
         {
           "date": "2026-11-22",
-          "contributionCount": 12
+          "contributionCount": 14
         },
         {
           "date": "2026-11-23",
-          "contributionCount": 4
+          "contributionCount": 12
+        },
+        {
+          "date": "2026-11-24",
+          "contributionCount": 0
         }
       ]
     }
@@ -1998,6 +2002,18 @@ export const fallbackGithubPRs = {
       "createdAt": "2026-11-22T19:29:28Z",
       "mergedAt": "2026-11-22T20:32:42Z",
       "closedAt": "2026-11-22T20:32:42Z"
+    },
+    {
+      "id": "PR_kwDOF_U7vs8AAAABRDPWOQ",
+      "title": "fix(rules): point evidence at a field that exists when the checked one is omitted",
+      "url": "https://github.com/kubescape/regolibrary/pull/958",
+      "repository": {
+        "nameWithOwner": "kubescape/regolibrary"
+      },
+      "state": "MERGED",
+      "createdAt": "2026-11-22T12:58:19Z",
+      "mergedAt": "2026-11-23T10:55:57Z",
+      "closedAt": "2026-11-23T10:55:57Z"
     },
     {
       "id": "PR_kwDOF4-Lyc8AAAABRB75vA",
@@ -2950,14 +2966,26 @@ export const fallbackGithubPRs = {
   ],
   "open": [
     {
-      "id": "PR_kwDOF_U7vs8AAAABRDPWOQ",
-      "title": "fix(rules): point evidence at a field that exists when the checked one is omitted",
-      "url": "https://github.com/kubescape/regolibrary/pull/958",
+      "id": "PR_kwDOA5AKIc8AAAABRV216A",
+      "title": "lib: os: zvfs: select: return EINVAL for out-of-range nfds",
+      "url": "https://github.com/zephyrproject-rtos/zephyr/pull/126831",
       "repository": {
-        "nameWithOwner": "kubescape/regolibrary"
+        "nameWithOwner": "zephyrproject-rtos/zephyr"
       },
       "state": "OPEN",
-      "createdAt": "2026-11-22T12:58:19Z",
+      "createdAt": "2026-11-23T18:17:56Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
+      "id": "PR_kwDOF4-Lyc8AAAABRVqgjQ",
+      "title": "fix(kustomize): attribute a resource only to the file Kustomize read",
+      "url": "https://github.com/kubescape/kubescape/pull/5573",
+      "repository": {
+        "nameWithOwner": "kubescape/kubescape"
+      },
+      "state": "OPEN",
+      "createdAt": "2026-11-23T18:05:18Z",
       "mergedAt": null,
       "closedAt": null
     },
