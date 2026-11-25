@@ -266,7 +266,7 @@ export const skillsData = [
 ];
 
 export const fallbackGithubContributions = {
-  "totalContributions": 1890,
+  "totalContributions": 1899,
   "months": [
     {
       "name": "Dec"
@@ -1770,7 +1770,7 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2026-10-09",
-          "contributionCount": 3
+          "contributionCount": 4
         },
         {
           "date": "2026-10-10",
@@ -1982,6 +1982,10 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2026-11-24",
+          "contributionCount": 8
+        },
+        {
+          "date": "2026-11-25",
           "contributionCount": 0
         }
       ]
@@ -1991,6 +1995,42 @@ export const fallbackGithubContributions = {
 
 export const fallbackGithubPRs = {
   "merged": [
+    {
+      "id": "PR_kwDOF4-Lyc8AAAABRiyM6A",
+      "title": "fix(printer): resolve Kustomize and Helm evidence lines for container fields",
+      "url": "https://github.com/kubescape/kubescape/pull/5636",
+      "repository": {
+        "nameWithOwner": "kubescape/kubescape"
+      },
+      "state": "MERGED",
+      "createdAt": "2026-11-24T12:37:59Z",
+      "mergedAt": "2026-11-24T13:25:28Z",
+      "closedAt": "2026-11-24T13:25:28Z"
+    },
+    {
+      "id": "PR_kwDOF4-Lyc8AAAABRiw8Cw",
+      "title": "fix(kustomize): keep origins only if the graph did not change during the build",
+      "url": "https://github.com/kubescape/kubescape/pull/5634",
+      "repository": {
+        "nameWithOwner": "kubescape/kubescape"
+      },
+      "state": "MERGED",
+      "createdAt": "2026-11-24T12:36:32Z",
+      "mergedAt": "2026-11-24T13:23:32Z",
+      "closedAt": "2026-11-24T13:23:32Z"
+    },
+    {
+      "id": "PR_kwDOF4-Lyc8AAAABRVqgjQ",
+      "title": "fix(kustomize): attribute a resource only to the file Kustomize read",
+      "url": "https://github.com/kubescape/kubescape/pull/5573",
+      "repository": {
+        "nameWithOwner": "kubescape/kubescape"
+      },
+      "state": "MERGED",
+      "createdAt": "2026-11-23T18:05:18Z",
+      "mergedAt": "2026-11-24T09:08:56Z",
+      "closedAt": "2026-11-24T09:08:56Z"
+    },
     {
       "id": "PR_kwDOF4-Lyc8AAAABRGZZAA",
       "title": "test(watch): drain the backend in tests that drive the watcher by hand",
@@ -2350,6 +2390,18 @@ export const fallbackGithubPRs = {
       "createdAt": "2026-10-17T17:22:57Z",
       "mergedAt": "2026-10-23T10:52:13Z",
       "closedAt": "2026-10-23T10:52:13Z"
+    },
+    {
+      "id": "PR_kwDOA5AKIc8AAAABHhRWNw",
+      "title": "posix: cond: serialize lazy initialization of static condvars",
+      "url": "https://github.com/zephyrproject-rtos/zephyr/pull/121708",
+      "repository": {
+        "nameWithOwner": "zephyrproject-rtos/zephyr"
+      },
+      "state": "MERGED",
+      "createdAt": "2026-10-09T11:11:02Z",
+      "mergedAt": "2026-11-24T18:54:14Z",
+      "closedAt": "2026-11-24T18:54:14Z"
     },
     {
       "id": "PR_kwDOAPIZOs8AAAABHTdhrg",
@@ -2966,30 +3018,6 @@ export const fallbackGithubPRs = {
   ],
   "open": [
     {
-      "id": "PR_kwDOA5AKIc8AAAABRV216A",
-      "title": "lib: os: zvfs: select: return EINVAL for out-of-range nfds",
-      "url": "https://github.com/zephyrproject-rtos/zephyr/pull/126831",
-      "repository": {
-        "nameWithOwner": "zephyrproject-rtos/zephyr"
-      },
-      "state": "OPEN",
-      "createdAt": "2026-11-23T18:17:56Z",
-      "mergedAt": null,
-      "closedAt": null
-    },
-    {
-      "id": "PR_kwDOF4-Lyc8AAAABRVqgjQ",
-      "title": "fix(kustomize): attribute a resource only to the file Kustomize read",
-      "url": "https://github.com/kubescape/kubescape/pull/5573",
-      "repository": {
-        "nameWithOwner": "kubescape/kubescape"
-      },
-      "state": "OPEN",
-      "createdAt": "2026-11-23T18:05:18Z",
-      "mergedAt": null,
-      "closedAt": null
-    },
-    {
       "id": "PR_kwDOA5AKIc8AAAABMjEyqw",
       "title": "posix: system_database: set *result to NULL on error",
       "url": "https://github.com/zephyrproject-rtos/zephyr/pull/124448",
@@ -3070,18 +3098,6 @@ export const fallbackGithubPRs = {
       },
       "state": "OPEN",
       "createdAt": "2026-10-11T09:53:58Z",
-      "mergedAt": null,
-      "closedAt": null
-    },
-    {
-      "id": "PR_kwDOA5AKIc8AAAABHhRWNw",
-      "title": "posix: cond: serialize lazy initialization of static condvars",
-      "url": "https://github.com/zephyrproject-rtos/zephyr/pull/121708",
-      "repository": {
-        "nameWithOwner": "zephyrproject-rtos/zephyr"
-      },
-      "state": "OPEN",
-      "createdAt": "2026-10-09T11:11:02Z",
       "mergedAt": null,
       "closedAt": null
     },
@@ -3255,6 +3271,18 @@ export const fallbackGithubPRs = {
     }
   ],
   "closed": [
+    {
+      "id": "PR_kwDOA5AKIc8AAAABRV216A",
+      "title": "lib: os: zvfs: select: return EINVAL for out-of-range nfds",
+      "url": "https://github.com/zephyrproject-rtos/zephyr/pull/126831",
+      "repository": {
+        "nameWithOwner": "zephyrproject-rtos/zephyr"
+      },
+      "state": "CLOSED",
+      "createdAt": "2026-11-23T18:17:56Z",
+      "mergedAt": null,
+      "closedAt": "2026-11-24T17:37:14Z"
+    },
     {
       "id": "PR_kwDOSbZLOs8AAAABQeRPcA",
       "title": "proposal: kagent: add v1.0.x kind, version and field-path table",

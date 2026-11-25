@@ -138,13 +138,13 @@ export const experience = [
     org: "Zephyr RTOS",
     role: "Linux Foundation · OSS",
     when: "Jul 2026 — Now",
-    line: "13 merged PRs — POSIX & kernel concurrency, ESP32 I2S lockups, Bluetooth hard-faults.",
+    line: "14 merged PRs — POSIX & kernel concurrency, ESP32 I2S lockups, Bluetooth hard-faults.",
   },
   {
     org: "Kubescape",
     role: "CNCF · OSS",
     when: "Sep 2026 — Now",
-    line: "50 merged PRs — SSRF hardening across 6 RFCs, registry OAuth, SARIF/JUnit/PDF reports.",
+    line: "53 merged PRs — SSRF hardening across 6 RFCs, registry OAuth, SARIF/JUnit/PDF reports.",
   },
 ];
 
