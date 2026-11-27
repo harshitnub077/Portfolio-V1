@@ -266,7 +266,7 @@ export const skillsData = [
 ];
 
 export const fallbackGithubContributions = {
-  "totalContributions": 1899,
+  "totalContributions": 1912,
   "months": [
     {
       "name": "Dec"
@@ -1990,7 +1990,11 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2026-11-26",
-          "contributionCount": 0
+          "contributionCount": 3
+        },
+        {
+          "date": "2026-11-27",
+          "contributionCount": 10
         }
       ]
     }
@@ -3021,6 +3025,78 @@ export const fallbackGithubPRs = {
     }
   ],
   "open": [
+    {
+      "id": "PR_kwDOEnhOtc8AAAABSR2DEA",
+      "title": "fix(manager): make DRAGONFLY_PAT seeding idempotent on restart",
+      "url": "https://github.com/dragonflyoss/dragonfly/pull/5152",
+      "repository": {
+        "nameWithOwner": "dragonflyoss/dragonfly"
+      },
+      "state": "OPEN",
+      "createdAt": "2026-11-27T05:20:05Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
+      "id": "PR_kwDOD9fLu88AAAABSPeCdw",
+      "title": "Docs: add proposal for NodePool-aware image distribution with Dragonfly",
+      "url": "https://github.com/openyurtio/openyurt/pull/2907",
+      "repository": {
+        "nameWithOwner": "openyurtio/openyurt"
+      },
+      "state": "OPEN",
+      "createdAt": "2026-11-27T00:34:48Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
+      "id": "PR_kwDOD9fLu88AAAABSPd31g",
+      "title": "Bugfix: start yurthub systemd service on node boot",
+      "url": "https://github.com/openyurtio/openyurt/pull/2905",
+      "repository": {
+        "nameWithOwner": "openyurtio/openyurt"
+      },
+      "state": "OPEN",
+      "createdAt": "2026-11-27T00:34:29Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
+      "id": "PR_kwDOD9fLu88AAAABSPQPzA",
+      "title": "Feature: add Dragonfly backend for OTA image preheat, batched per NodePool",
+      "url": "https://github.com/openyurtio/openyurt/pull/2903",
+      "repository": {
+        "nameWithOwner": "openyurtio/openyurt"
+      },
+      "state": "OPEN",
+      "createdAt": "2026-11-27T00:07:50Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
+      "id": "PR_kwDOA5AKIc8AAAABSPIovA",
+      "title": "doc: posix: list _POSIX_THREADS as 200809L",
+      "url": "https://github.com/zephyrproject-rtos/zephyr/pull/127291",
+      "repository": {
+        "nameWithOwner": "zephyrproject-rtos/zephyr"
+      },
+      "state": "OPEN",
+      "createdAt": "2026-11-26T23:54:23Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
+      "id": "PR_kwDOSbZLOs8AAAABSHJM3Q",
+      "title": "proposal(kagent): align rule descriptions, fixtures and E2E with v1.0.x matrix",
+      "url": "https://github.com/kubescape/designs-and-proposals/pull/43",
+      "repository": {
+        "nameWithOwner": "kubescape/designs-and-proposals"
+      },
+      "state": "OPEN",
+      "createdAt": "2026-11-26T12:56:15Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
     {
       "id": "PR_kwDOA5AKIc8AAAABMjEyqw",
       "title": "posix: system_database: set *result to NULL on error",
