@@ -266,7 +266,7 @@ export const skillsData = [
 ];
 
 export const fallbackGithubContributions = {
-  "totalContributions": 1912,
+  "totalContributions": 1913,
   "months": [
     {
       "name": "Dec"
@@ -1754,7 +1754,7 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2026-10-05",
-          "contributionCount": 8
+          "contributionCount": 7
         },
         {
           "date": "2026-10-06",
@@ -1974,7 +1974,7 @@ export const fallbackGithubContributions = {
       "contributionDays": [
         {
           "date": "2026-11-22",
-          "contributionCount": 14
+          "contributionCount": 13
         },
         {
           "date": "2026-11-23",
@@ -1994,7 +1994,11 @@ export const fallbackGithubContributions = {
         },
         {
           "date": "2026-11-27",
-          "contributionCount": 10
+          "contributionCount": 13
+        },
+        {
+          "date": "2026-11-28",
+          "contributionCount": 0
         }
       ]
     }
@@ -3026,6 +3030,18 @@ export const fallbackGithubPRs = {
   ],
   "open": [
     {
+      "id": "PR_kwDOF_U7vs8AAAABSZgxdg",
+      "title": "fix(rules): read repeated --anonymous-auth and --profiling flags the way pflag does",
+      "url": "https://github.com/kubescape/regolibrary/pull/988",
+      "repository": {
+        "nameWithOwner": "kubescape/regolibrary"
+      },
+      "state": "OPEN",
+      "createdAt": "2026-11-27T16:09:38Z",
+      "mergedAt": null,
+      "closedAt": null
+    },
+    {
       "id": "PR_kwDOEnhOtc8AAAABSR2DEA",
       "title": "fix(manager): make DRAGONFLY_PAT seeding idempotent on restart",
       "url": "https://github.com/dragonflyoss/dragonfly/pull/5152",
@@ -3070,18 +3086,6 @@ export const fallbackGithubPRs = {
       },
       "state": "OPEN",
       "createdAt": "2026-11-27T00:07:50Z",
-      "mergedAt": null,
-      "closedAt": null
-    },
-    {
-      "id": "PR_kwDOA5AKIc8AAAABSPIovA",
-      "title": "doc: posix: list _POSIX_THREADS as 200809L",
-      "url": "https://github.com/zephyrproject-rtos/zephyr/pull/127291",
-      "repository": {
-        "nameWithOwner": "zephyrproject-rtos/zephyr"
-      },
-      "state": "OPEN",
-      "createdAt": "2026-11-26T23:54:23Z",
       "mergedAt": null,
       "closedAt": null
     },
@@ -3351,6 +3355,18 @@ export const fallbackGithubPRs = {
     }
   ],
   "closed": [
+    {
+      "id": "PR_kwDOA5AKIc8AAAABSPIovA",
+      "title": "doc: posix: list _POSIX_THREADS as 200809L",
+      "url": "https://github.com/zephyrproject-rtos/zephyr/pull/127291",
+      "repository": {
+        "nameWithOwner": "zephyrproject-rtos/zephyr"
+      },
+      "state": "CLOSED",
+      "createdAt": "2026-11-26T23:54:23Z",
+      "mergedAt": null,
+      "closedAt": "2026-11-27T09:58:36Z"
+    },
     {
       "id": "PR_kwDOA5AKIc8AAAABRV216A",
       "title": "lib: os: zvfs: select: return EINVAL for out-of-range nfds",
